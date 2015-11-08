@@ -1,4 +1,35 @@
-/* -------------------------------------
- * SASS code SPECIFIC TO your home page
- * (margin/padding adjustments, background image, etc..)
- * ------------------------------------- */
+#banner-container {
+
+ background-image: asset-url('blanquette.jpeg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: 610px;
+
+ /*display: flex;
+ align-items: center;*/
+ position: relative;
+
+
+  .filter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+
+  }
+
+}
+
+#presentation {
+
+  color:#FFFFFF;
+  padding-top: 20px;
+
+
+
+  h1 {
+    margin-top: 0px;
+
+  }
+}
