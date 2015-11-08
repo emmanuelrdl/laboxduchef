@@ -1,25 +1,17 @@
-<nav class="navbar-wagon">
-  <div class="container navbar-wagon-container">
+<nav class="navbar-wagon  navbar-fixed-top">
+  <div class="container navbar-wagon-container" , style:"color:white;">
 
 
 
-    <h3 style="font-family: 'Varela Round', sans-serif; color:#FFFFFF;">La Box du Chef</h3>
+    <h3 >LA BOX DU CHEF</h3>
 
     <div class="navbar-wagon-pusher"></div>
 
-    <form action="" class="navbar-wagon-search hidden-xs hidden-sm">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+
     <hr class="hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
-        <div class="icon-badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="icon-badge icon-badge-blue">3</div>
-        </div>
+
       <% end %>
       <hr>
       <div class="navbar-wagon-item">
@@ -45,9 +37,18 @@
         </div>
       </div>
     <% else %>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "FAQ", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+      <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+      <%= link_to t(".sign_in", default: "S'IDENTIFIER"), new_user_session_path, style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+      <%= link_to "DEVENIR PARTENAIRE", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+
     <% end %>
-    <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+
   </div>
 </nav>
