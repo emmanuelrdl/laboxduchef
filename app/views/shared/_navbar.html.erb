@@ -10,10 +10,13 @@
 
     <hr class="hidden-xs hidden-sm">
     <% if user_signed_in? %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
 
-      <% end %>
-      <hr>
+
+      <%= link_to "FAQ", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+      <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -36,6 +39,9 @@
           </ul>
         </div>
       </div>
+
+       <%= link_to "DEVENIR PARTENAIRE", "#", style:"color:white;" %>
+        <hr class="hidden-xs hidden-sm">
     <% else %>
 
       <%= link_to "FAQ", "#", style:"color:white;" %>
