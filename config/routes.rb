@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+
+  resources :meals
+
+#   get 'meals/index'
+
+#   get 'meals/show'
+
+#   get 'meals/new'
+
+#   get 'meals/create'
+
+#   get 'meals/edit'
+
+#   get 'meals/update'
+
+#   get 'meals/destroy'
+
 devise_for :users
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
