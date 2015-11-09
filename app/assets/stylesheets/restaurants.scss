@@ -1,6 +1,28 @@
+#restaurant-new-container {
+
+background-image: asset-url('banner.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: left top;
+ margin-top: 0px;
+ height: 670px;
+ z-index: 1;
+
+ /*display: flex;
+ align-items: center;*/
+ position: relative;
 
 
-.restaurant-page-container {
+  .filter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(170,170,170,0.6);
 
-  background-color: grey;
+  }
+
+
+
+
 }
