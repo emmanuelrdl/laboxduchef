@@ -26,12 +26,15 @@ class MealsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
-
+    @meal.update(params_meal)
+    if @meal.save
+    redirect_to meal_path(@meal)
+    else
+    render :edit
+    end
   end
 
   def destroy

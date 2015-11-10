@@ -3,7 +3,7 @@
 
 
 
-    <h3 >LA BOX DU CHEF</h3>
+    <h3><%= link_to "LA BOX DU CHEF", root_path, class: "title" %></h3>
 
     <div class="navbar-wagon-pusher"></div>
 
@@ -16,7 +16,7 @@
         <hr class="hidden-xs hidden-sm">
       <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
         <hr class="hidden-xs hidden-sm">
-       <%= link_to "DEVENIR PARTENAIRE", "#", style:"color:white;" %>
+       <%= link_to "MON COMPTE", user_path(current_user) %>
         <hr class="hidden-xs hidden-sm">
          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete%>
 

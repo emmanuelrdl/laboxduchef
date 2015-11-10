@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user_id = current_user.id
       if @restaurant.save
@@ -27,16 +28,14 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant.name = params_restaurant[:name]
-    @restaurant.phone_number = params_restaurant[:sport]
-    @restaurant.category = params_restaurant[:category]
-    @restaurant.picture = params_restaurant[:picture]
-    @restaurant.address = params_restaurant[:address]
-    @restaurant.city = params_restaurant[:city]
-    @restaurant.zip_code = params_restaurant[:zip_code]
-    @restaurant.iban = params_restaurant[:iban]
-    @restaurant.save
+
+    @restaurant.update(params_restaurant)
+    if @restaurant.save
     redirect_to restaurants_path #provisoire,à rediriger
+    else
+    render :edit
+    end
+
   end
 
 
@@ -55,7 +54,7 @@ private
   end
 
   def params_restaurant
-    params.require(:restaurant).permit(:name,:user_id, :category, :address, :city, :zip_code, :picture, :phone_number,
+    params.require(:restaurant).permit(:name,:user_id, :category, :address, :locality, :postal_code, :picture, :phone_number,
      :iban, :address, :picture, :latitude, :longitude)
   end
 

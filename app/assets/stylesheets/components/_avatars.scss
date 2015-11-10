@@ -9,3 +9,12 @@
 .avatar-large {
   width: 50px;
 }
+
+.title {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
