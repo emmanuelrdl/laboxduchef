@@ -6,6 +6,7 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
+
   end
 
   def show
