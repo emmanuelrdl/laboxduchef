@@ -2,14 +2,13 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_meals, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meals = Meal.all.page(params[:page])
+    @meals = Meal.all
   end
 
   def show
-    "You are viewing #{@meal.name}"
   end
 
   def new
@@ -17,8 +16,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(params_meals)
-
+    @meal = Meal.new(params_meal)
     if @meal.save
       redirect_to meals_path(@meal)
     else
@@ -27,15 +25,12 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal.save
+
   end
 
   def update
-    if @meal.update(params_meals)
-      redirect_to meals_path(@meal)
-    else
-      render :edit
-    end
+
+
   end
 
   def destroy
@@ -48,11 +43,11 @@ class MealsController < ApplicationController
 
   private
 
-  def set_meals
+  def set_meal
     @meal = Meal.find(params[:id])
   end
 
-  def params_meals
+  def params_meal
     params.require(:meal).permit(:name, :description, :price, :quantity, :picture, :starting_date, :take_away_noon_starts_at, :take_away_evening_starts_at, :take_away_noon_ends_at, :take_away_evening_ends_at)
   end
 
