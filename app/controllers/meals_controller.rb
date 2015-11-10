@@ -5,7 +5,7 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meals = Meal.all
+    @meals = Meal.all.order('created_at DESC').page(params[:page])
   end
 
   def show
