@@ -1,23 +1,6 @@
-Rails.application.routes.draw do
-
+  Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations'}
-
-  resources :meals
-
-#   get 'meals/index'
-
-#   get 'meals/show'
-
-#   get 'meals/new'
-
-#   get 'meals/create'
-
-#   get 'meals/edit'
-
-#   get 'meals/update'
-
-#   get 'meals/destroy'
 
  root to: 'pages#home'
 
@@ -26,7 +9,11 @@ Rails.application.routes.draw do
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
-  resources :restaurants
+  resources :restaurants do
+    resources :meals
+  end
+
+
   resources :users, only: :show
 
 
