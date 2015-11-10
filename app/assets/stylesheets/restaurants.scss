@@ -1,16 +1,13 @@
-#restaurant-new-container {
+#body-container {
 
-background-image: asset-url('banner.jpg');
  background-size: cover;
  background-repeat: no-repeat;
  background-position: left top;
  margin-top: 0px;
- height: 670px;
+ height: 1000px;
  z-index: 1;
-
- /*display: flex;
- align-items: center;*/
  position: relative;
+
 
 
   .filter {
@@ -26,3 +23,9 @@ background-image: asset-url('banner.jpg');
 
 
 }
+
+
+  .restaurant {
+ background-image: asset-url('banner.jpg');
+
+ }
