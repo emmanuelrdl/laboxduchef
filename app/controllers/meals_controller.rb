@@ -5,10 +5,11 @@ class MealsController < ApplicationController
   before_action :set_meals, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meals = Meal.all
+    @meals = Meal.all.page(params[:page])
   end
 
   def show
+    "You are viewing #{@meal.name}"
   end
 
   def new
@@ -17,7 +18,6 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(params_meals)
-    @meal.user_id = current_user.id
 
     if @meal.save
       redirect_to meals_path(@meal)

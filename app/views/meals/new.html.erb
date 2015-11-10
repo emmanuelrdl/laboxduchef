@@ -1,15 +1,17 @@
-<div class:"container">
-  <div class:"row" style:"margin:100px">
+<div style="background-color:lightgrey; margin-top: 70px">
   <h1>Nouveau meal</h1>
-      <%= simple_form_for @meal do |f| %>
-      <div class:'col-xs-12 col-sm-6'>
-        <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 10}, placeholder: 'burger' %>
-        <%= f.input :picture, label: 'Photo' %>
-        <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
-        <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
-        <%= f.input :quantity, label: 'Nombre de deal disponibles', placeholder: 'ex: 2' %>
-        <div class="text-center" style="margin-bottom:15px"><%= f.button :submit, "valider", class: "btn btn-warning" %></div>
-      <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <%= simple_form_for @meal do |f| %>
+          <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
+          <%= f.input :picture, label: 'Photo' %>
+          <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
+          <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
+          <%= f.input :quantity, label: 'Nombre de deal disponibles', placeholder: 'ex: 2' %>
+          <div class="text-center" style="margin-bottom:15px"><%= f.button :submit, "valider", class: "btn btn-warning" %></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

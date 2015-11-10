@@ -1,15 +1,20 @@
 <!-- <p>Find me in app/views/meals/index.html.erb</p> -->
-<div class:"container">
-  <div class:"row" style:"margin-top:200px">
-    <h1>Meals#index</h1>
-    <% @meals.each do |meal| %>
-    <div class:"card card-bg card-gradient card col-xs-12 col-sm-6 col-md-4">
-
-    <%= meal.name %>
-    <%= meal.price %>
-    <%= meal.quantity %>
-
-    </div>
-    <%end%>
+<div style="margin-top: 70px">
+  <h1>Meals index</h1>
+  <div class="container">
+    <div class="row">
+      <% @meals.each do |meal| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-bg card-gradient">
+          <p><%= meal.name.upcase %></p>
+          <p><%= meal.price %>€</p>
+          <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
+          <p><%= meal.description %></p>
+          <p><%= link_to "RESERVER", meal_path(meal), class: "btn btn-success"%></p>
+        </div>
+        </div>
+      <%end%>
+      <%= paginate @meals %>
   </div>
 </div>
+
