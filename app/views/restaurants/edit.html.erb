@@ -16,10 +16,10 @@
           <%= f.input :picture, label: 'Photo du restaurant' %>
 
            <%= f.input :address, label: "Entrez votre adresse",  input_html: {id: "user_input_autocomplete_address"} %>
-          <%= f.input :street_number, label: "Numéro et nom de votre rue", disabled: true,  input_html: {id: "street_number"} %>
-          <%= f.input :route, label: "Numéro et nom de votre rue", disabled: true,  input_html: {id: "route"} %>
-          <%= f.input :postal_code , label: "Code postal", disabled: true, input_html: {id: "postal_code"},  placeholder: "75011" %>
-          <%= f.input :locality, label: "Ville", disabled: true, input_html: {id: "locality"}, placeholder: 'Paris' %>
+          <%= f.input :street_number, label: "Numéro et nom de votre rue", hidden: true,  input_html: {id: "street_number"} %>
+          <%= f.input :route, label: "Numéro et nom de votre rue", hidden: true,  input_html: {id: "route"} %>
+          <%= f.input :postal_code , label: "Code postal", hidden: true, input_html: {id: "postal_code"},  placeholder: "75011" %>
+          <%= f.input :locality, label: "Ville", hidden: true, input_html: {id: "locality"}, placeholder: 'Paris' %>
           <%= f.input :iban, label: "IBAN de l'étalissement" %>
 
           <%= f.button :submit, "Valider", class: "btn btn-success" %>

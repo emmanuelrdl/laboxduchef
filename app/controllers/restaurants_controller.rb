@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user_id = current_user.id
       if @restaurant.save
