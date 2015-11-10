@@ -1,4 +1,4 @@
-<div id="restaurant-new-container" >
+<div id="body-container" class="restaurant" >
   <div class="filter"></div>
   <div class="container">
     <div class="row">
@@ -17,10 +17,10 @@
           <%= f.input :picture, label: 'Photo du restaurant' %>
 
            <%= f.input :address, label: "Entrez votre adresse",  input_html: {id: "user_input_autocomplete_address"} %>
-          <%= f.input :street_number, label: "Numéro de votre rue", disabled: true,  input_html: {id: "street_number"} %>
-          <%= f.input :route, label: "Nom de la rue", disabled: true,  input_html: {id: "route"} %>
-          <%= f.input :postal_code , label: "Code postal", disabled: true, input_html: {id: "postal_code"} %>
-          <%= f.input :locality, label: "Ville", disabled: true, input_html: {id: "locality"} %>
+          <%= f.input :street_number, label: "Numéro de votre rue", hidden: true,  input_html: {id: "street_number"} %>
+          <%= f.input :route, label: "Nom de la rue", hidden: true,  input_html: {id: "route"} %>
+          <%= f.input :postal_code , label: "Code postal", hidden: true, input_html: {id: "postal_code"} %>
+          <%= f.input :locality, label: "Ville", hidden: true, input_html: {id: "locality"} %>
           <%= f.input :iban, label: "IBAN de l'étalissement" %>
 
           <%= f.button :submit, "Valider", class: "btn btn-success" %>
