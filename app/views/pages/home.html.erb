@@ -6,7 +6,55 @@
           <h1> Des plats de chefs à prix minis </h1>
           <h4> Cliquez, commandez, récuperez, savourez !</h4>
         </div>
+
     </div>
   </div>
+
+<div style="background:linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 80%)">
+    <div class="container">
+    <div class="row" style="margin:20px">
+      <div style="padding-bottom:20px">
+        <h3 class="text-center">How does it work ?</h3>
+      </div>
+      <div>
+        <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag ("eshop.png"), size:"100x100"%>
+          <p>Order Online</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag ("walker.png"), size:"100x100" %>
+          <p>Go to the restaurant</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag ("foodbox.png"), size:"100x100" %>
+          <p>Get your box</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag ("eating.png"), size:"100x100" %>
+          <p>Enjoy your meal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 80%)">
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">Lets watch the last meals</h3>
+      <div>
+        <% @meals.last(4).each do |meal| %>
+          <div class="col-xs-12 col-sm-3 card-home card-bg card-gradient" style="margin:20px">
+            <div style="margin-top:150px">
+            <h2><%= link_to meal.name, meal_path(meal) %></h2>
+            <p><%= meal.name.upcase %></p>
+            <p><%= meal.price %>€</p>
+           </div>
+          </div>
+         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
