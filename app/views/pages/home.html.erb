@@ -46,7 +46,7 @@
         <% @meals.last(4).each do |meal| %>
           <div class="col-xs-12 col-sm-3 card-home card-bg card-gradient" style="margin:20px">
             <div style="margin-top:150px">
-            <h2><%= link_to meal.name, meal_path(meal) %></h2>
+            <h2><%= link_to meal.name %></h2>
             <p><%= meal.name.upcase %></p>
             <p><%= meal.price %>€</p>
            </div>

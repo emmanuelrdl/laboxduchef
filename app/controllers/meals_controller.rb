@@ -14,6 +14,7 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
