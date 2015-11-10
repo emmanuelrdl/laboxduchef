@@ -1,11 +1,19 @@
+<div class="container">
+
 <h1 class="text-center">Bienvenue sur votre compte <%= current_user.first_name %></h1>
 
-<% if current_user.restaurant_owner %>
+<% if current_user.restaurant_owner? %>
 
   <h1>je suis restaurateur</h1>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
+      <% if current_user.restaurants.empty? %>
+      <p>Merci de bien vouloir ajouter votre établissement </p>
+      <% else %>
+      OK
+      <% end %>
+
 
     </div>
     <div class="col-md-6">
@@ -19,7 +27,8 @@
   </div>
 
 <% else %>
-  <h1>Je suis consomateur</h1>
+  <h1>Je suis consommateur</h1>
 
 
 <% end %>
+
