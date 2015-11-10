@@ -1,7 +1,25 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, :controllers => { registrations: 'registrations'}
-  root to: 'pages#home'
+
+  resources :meals
+
+#   get 'meals/index'
+
+#   get 'meals/show'
+
+#   get 'meals/new'
+
+#   get 'meals/create'
+
+#   get 'meals/edit'
+
+#   get 'meals/update'
+
+#   get 'meals/destroy'
+
+ root to: 'pages#home'
 
 
     # You can have the root of your site routed with "root"
