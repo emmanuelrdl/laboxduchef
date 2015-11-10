@@ -13,8 +13,8 @@ class Restaurant < ActiveRecord::Base
   validates :category, presence: true
   validates :address, presence: true
   validates :address, uniqueness: true
-  validates :city, presence: true
-  validates :zip_code, presence: true
+  validates :locality, presence: true
+  validates :postal_code, presence: true
   validates :phone_number, presence: true
   validates :phone_number, uniqueness: true
   validates :iban, presence: true

@@ -1,7 +1,22 @@
-<div class="col-xs-12 col-md-12" style="">
-  <div
-   class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:large) %>')">
-  </div>
+<div id="body-container" >
+
+ <div class="row">
+    <div class="col-xs-12">
+      <div
+       class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>')">
+
+           <h1 id="meal-name"><%= @meal.name %></h1>
+               <div>
+                <h1 id="meal-price"><%= @meal.price %> € </h1>
+                <h1 id="meal-quantity"><%= @meal.quantity %> <i class="fa fa-cutlery"></i></h1>
+                </div>
+
+      </div>
+
+    </div>
+</div>
+
+
 </div>
 
 

@@ -1,9 +1,31 @@
 .meal-banner-picture {
 
 
-height: 450px;
+height: 400px;
 position: relative;
 background-size: cover;
 background-position: center;
+
+}
+
+#meal-name {
+
+
+text-align: center;
+padding-top: 100px;
+
+}
+
+#meal-padding {
+padding-top: 100px;
+}
+
+#meal-price{
+float:right;
+
+}
+
+#meal-quantity {
+float:left;
 
 }
