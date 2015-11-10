@@ -9,6 +9,12 @@
           <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
           <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
           <%= f.input :quantity, label: 'Nombre de deal disponibles', placeholder: 'ex: 2' %>
+          <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
+          <div>
+          <%= f.input :take_away_noon_starts_at, label: "Ouvert le midi de"%><%= f.input :take_away_noon_ends_at, label: "jusqu'à"%>
+          </div>
+          <%= f.input :take_away_evening_starts_at, label: "Ouvert en soirée de", placeholder: '19h30' %>
+          <%= f.input :take_away_evening_ends_at, label: "jusqu'à", placeholder: '23h30' %>
           <div class="text-center" style="margin-bottom:15px"><%= f.button :submit, "valider", class: "btn btn-warning" %></div>
         <% end %>
       </div>
