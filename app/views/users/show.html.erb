@@ -1,0 +1,25 @@
+<h1 class="text-center">Bienvenue sur votre compte <%= current_user.first_name %></h1>
+
+<% if current_user.restaurant_owner %>
+
+  <h1>je suis restaurateur</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+
+<% else %>
+  <h1>Je suis consomateur</h1>
+
+
+<% end %>
