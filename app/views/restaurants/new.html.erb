@@ -14,12 +14,10 @@
              :as => :select,
              :collection => [ "Cuisine Française", "Cusine Italienne", "Cuisine Asiatique"],
              :label => "Type de cuisine" %>
-
           <%= f.input :picture, label: 'Photo du restaurant' %>
-
-          <%= f.input :address, label: "Numéro et nom de votre rue", placeholder:"16 Villa Gaudelet" %>
-          <%= f.input :zip_code , label: "Code postal", placeholder: "75011" %>
-          <%= f.input :city, label: "Ville", placeholder: 'Paris' %>
+          <%= f.input :address, label: "Numéro et nom de votre rue",  input_html: {id: "user_input_autocomplete_address"} %>
+          <%= f.input :zip_code , label: "Code postal", disabled: true, placeholder: "75011" %>
+          <%= f.input :city, label: "Ville", disabled: true, placeholder: 'Paris' %>
           <%= f.input :iban, label: "IBAN de l'étalissement" %>
 
           <%= f.button :submit, "Valider", class: "btn btn-success" %>
