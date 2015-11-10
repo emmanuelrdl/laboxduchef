@@ -11,6 +11,12 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhf7vjlURUODJubweebyXk6aYhuc2RVzQ">
+    </script>
+
+
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

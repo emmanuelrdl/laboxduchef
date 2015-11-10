@@ -1,0 +1,31 @@
+<div id="restaurant-new-container" >
+  <div class="filter"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 text-center" style="margin-top: 80px" >
+
+  <h2>Mettre à jour votre fiche restaurant</h2>
+
+        <%= simple_form_for @restaurant do |f| %>
+ <%= f.input :name, label: 'Nom du restaurant:', placeholder: 'La belle marmite'%>
+          <%= f.input :phone_number, label: 'Numéro de téléphone:',input_html: {:maxlength => 10}, placeholder: '0142505310' %>
+          <%= f.input :category,
+             :as => :select,
+             :collection => [ "Cuisine Française", "Cusine Italienne", "Cuisine Asiatique"],
+             :label => "Type de cuisine" %>
+          <%= f.input :picture, label: 'Photo du restaurant' %>
+
+           <%= f.input :address, label: "Entrez votre adresse",  input_html: {id: "user_input_autocomplete_address"} %>
+          <%= f.input :street_number, label: "Numéro et nom de votre rue", disabled: true,  input_html: {id: "street_number"} %>
+          <%= f.input :route, label: "Numéro et nom de votre rue", disabled: true,  input_html: {id: "route"} %>
+          <%= f.input :zip_code , label: "Code postal", disabled: true, input_html: {id: "postal_code"},  placeholder: "75011" %>
+          <%= f.input :city, label: "Ville", disabled: true, input_html: {id: "locality"}, placeholder: 'Paris' %>
+          <%= f.input :iban, label: "IBAN de l'étalissement" %>
+
+          <%= f.button :submit, "Valider", class: "btn btn-success" %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
