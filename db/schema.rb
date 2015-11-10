@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20151110102255) do
+=======
 ActiveRecord::Schema.define(version: 20151110101233) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151110101233) do
     t.integer  "quantity"
     t.text     "description"
     t.integer  "restaurant_id"
-    t.date     "strating_date"
+    t.date     "starting_date"
     t.time     "take_away_noon_starts_at"
     t.time     "take_away_evening_starts_at"
     t.time     "take_away_noon_ends_at"
