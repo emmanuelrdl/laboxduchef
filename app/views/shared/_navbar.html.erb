@@ -18,7 +18,8 @@
         <hr class="hidden-xs hidden-sm">
        <%= link_to "DEVENIR PARTENAIRE", "#", style:"color:white;" %>
         <hr class="hidden-xs hidden-sm">
-         <%= link_to "LOG OUT", "#", style:"color:white;" %>
+         <%= link_to "LOG OUT", destroy_user_session_path, method: :delete%>
+
         <hr class="hidden-xs hidden-sm">
     <% else %>
 
