@@ -14,4 +14,12 @@ class Meal < ActiveRecord::Base
   validates :take_away_evening_ends_at, presence: true
 
   paginates_per 6
+
+
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
+
 end

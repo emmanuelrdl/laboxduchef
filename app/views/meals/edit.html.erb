@@ -1,2 +1,30 @@
-<h1>Meals#edit</h1>
-<p>Find me in app/views/meals/edit.html.erb</p>
+<div id="restaurant-new-container" >
+  <div class="filter"></div>
+    <div class="container">
+       <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-3 text-center" style="margin-top: 80px">
+             <h3>Mettez à jour votre deal</h3>
+                <%= simple_form_for @meal do |f| %>
+                <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
+                <%= f.input :picture, label: 'Photo' %>
+                <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
+                <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
+                <%= f.input :quantity, label: 'Nombre de deal disponibles', :collection => (1..20), placeholder: 'ex: 2' %>
+                <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
+                <p> <strong> Horaires de retrait le midi </strong></p>
+                  <ul class="list-inline">
+                    <li> <%= f.input :take_away_noon_starts_at, label: "de"%> </li>
+                     <li> <%= f.input :take_away_noon_ends_at, label: "à"%> </li>
+                  </ul>
+                <p><strong>Horaires de retrait le soir </strong></p>
+                  <ul class="list-inline">
+                     <li> <%= f.input :take_away_evening_starts_at, label: "de" %> </li>
+                     <li> <%= f.input :take_away_evening_ends_at, label: "à" %>
+                     </li>
+                  </ul>
+               <%= f.button :submit, "valider", class: "btn btn-success" %>
+               <% end %>
+        </div>
+     </div>
+  </div>
+</div>
