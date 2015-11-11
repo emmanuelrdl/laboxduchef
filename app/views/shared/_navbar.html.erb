@@ -1,38 +1,41 @@
-<nav class="navbar-wagon">
-  <div class="container navbar-wagon-container">
-
-
+  <nav class="navbar-wagon">
+  <div class="navbar-wagon-container">
+    <%= image_tag ("logo.png"), size:"50x50"%>
 
     <h3><%= link_to "LA BOX DU CHEF", root_path, class: "title" %></h3>
 
     <div class="navbar-wagon-pusher"></div>
 
 
-    <hr class="hidden-xs hidden-sm">
-    <% if user_signed_in? %>
+        <hr class="hidden-xs hidden-sm">
+        <% if user_signed_in? %>
 
 
-      <%= link_to "FAQ", "#", style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
-      <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
-       <%= link_to "MON COMPTE", user_path(current_user) %>
-        <hr class="hidden-xs hidden-sm">
-         <%= link_to "LOG OUT", destroy_user_session_path, method: :delete%>
+          <%= link_to "COMMENT CA MARCHE", "#", style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+          <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+           <%= link_to "MON COMPTE", user_path(current_user), style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+             <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, style:"color:white;"%>
+            <hr class="hidden-xs hidden-sm">
+            </p > <strong style="color:white;"> <%= current_user.last_name.upcase %>
+              <%= current_user.first_name.upcase %> </strong> </p>
+            <hr class="hidden-xs hidden-sm">
 
-        <hr class="hidden-xs hidden-sm">
-    <% else %>
 
-      <%= link_to "FAQ", "#", style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
-      <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
-      <%= link_to t(".sign_in", default: "S'IDENTIFIER"), new_user_session_path, style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
-      <%= link_to "DEVENIR PARTENAIRE", new_user_registration_path, style:"color:white;" %>
-        <hr class="hidden-xs hidden-sm">
+        <% else %>
 
-    <% end %>
+          <%= link_to "COMMENT CA MARCHE", "#", style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+          <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+          <%= link_to t(".sign_in", default: "S'IDENTIFIER"), new_user_session_path, style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+          <%= link_to "INSCRIVEZ-VOUS", new_user_registration_path, style:"color:white;" %>
+            <hr class="hidden-xs hidden-sm">
+
+        <% end %>
 
 
   </div>
