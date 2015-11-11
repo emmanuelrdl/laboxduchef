@@ -5,6 +5,7 @@
   root to: 'pages#home'
 
   get '/all_meals' => 'meals#all_meals'
+  get '/meal/:id' => 'meals#show', :as => "meal"
 
     # You can have the root of your site routed with "root"
 

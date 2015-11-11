@@ -1,18 +1,15 @@
-<h1 class="text-center">Trouver votre plat ici</h1>
+<h1 class="text-center">Trouvez votre plat ici</h1>
 
 <%= paginate @meals %>
 
 <p>TO DO bar de recherche</p>
 <div class="container">
 <% @meals.each do |meal| %>
-  <div class="card col-xs-12 col-md-4">
-    <div class="cad-bg">
-      <div class="cad-gradient">
-          <%= meal.name %>
-          <%= image_tag meal.picture.url(:medium) %>
-        </div>
-      </div>
-  </div>
+  <div class="col-xs-12 col-md-4" style="height: 400px">
+     <%= meal.name %>
+     <%= image_tag meal.picture.url(:medium) %>
+     <%= link_to "Commander", meal_path(meal), class: "btn btn-default" %>
+ </div>
 <% end %>
 </div>
 
