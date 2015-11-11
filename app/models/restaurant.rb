@@ -8,22 +8,24 @@ class Restaurant < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  validates :category, presence: true
-  validates :address, presence: true
+  # validates :name, presence: true
+  # validates :name, uniqueness: true
+  # validates :category, presence: true
+  # validates :address, presence: true
 
-  validates :address, uniqueness: true
-  validates :locality, presence: true
-  validates :postal_code, presence: true
+  # validates :address, uniqueness: true
+  # validates :locality, presence: true
+  # validates :postal_code, presence: true
 
-  validates :phone_number, presence: true
-  validates :phone_number, uniqueness: true
-  validates :iban, presence: true
-  validates :picture, presence: true
+  # validates :phone_number, presence: true
+  # validates :phone_number, uniqueness: true
+  # validates :iban, presence: true
+  # validates :picture, presence: true
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  geocoded_by :locality
+  after_validation :geocode, if: :locality_changed?
 
-
+  def address
+    "to"
+  end
 end
