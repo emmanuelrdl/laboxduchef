@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user_id = current_user.id
       if @restaurant.save
-        redirect_to restaurants_path #provisoire,à rediriger
+        redirect_to user_path
       else
         render :new
       end
