@@ -17,7 +17,7 @@
        <div class="row">
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center" style="margin-top: 80px">
              <h3>Mettez à jour votre deal</h3>
-                <%= simple_form_for @meal do |f| %>
+                <%= simple_form_for ([@restaurant, @meal]) do |f| %>
                 <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
                 <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>

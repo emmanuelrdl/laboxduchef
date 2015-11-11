@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :user
-
+  has_many :meals
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 
@@ -21,6 +21,9 @@ class Restaurant < ActiveRecord::Base
   validates :phone_number, uniqueness: true
   validates :iban, presence: true
   validates :picture, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 
 end
