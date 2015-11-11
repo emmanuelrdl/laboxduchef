@@ -8,8 +8,8 @@
   width: 220px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   color: white;
-  margin: 20px 20px;
-  padding: 10px 10px;
+  margin: 20px;
+  padding: 10px;
   border-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
@@ -25,4 +25,11 @@
 .card-gradient {
   background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 80%);
   border-radius: 3px;
+}
+
+.position {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  font-size: 15px;
 }
