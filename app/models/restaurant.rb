@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :user
-
+  has_many :meals
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 

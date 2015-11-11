@@ -1,27 +1,35 @@
-<div id="body-container" >
+  <div class="container" >
 
-   <div class="row">
-      <div class="col-xs-12">
-        <div
-         class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>')">
-             <h1 id="meal-name"><%= @meal.name %></h1>
-             <div>
-              <h1 id="meal-price"><%= @meal.price %> € </h1>
-              <h1 id="meal-quantity"><%= @meal.quantity %> <i class="fa fa-cutlery"></i></h1>
-             </div>
+
+
+     <div class="row">
+        <div class="col-xs-12">
+          <div
+           class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>')">
+               <h1 id="meal-name"><%= @meal.name %></h1>
+           <div>
+                <h1 id="meal-price"><%= @meal.price %> € </h1>
+                <h1 id="meal-quantity"><%= @meal.quantity %> <i class="fa fa-cutlery"></i></h1>
+          </div>
+      </div>
+
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="grey-card">
+
+        <h2>Information sur la boxe</h2>
+
+          <p> Description du plat: <%= @meal.description %> <p>
+          <p> Journée de disponibilité de la boxe <%= @meal.starting_date %> </p>
+          <p> Horaire de restrait le midi: <%= @meal.take_away_noon_starts_at %> à
+          <%= @meal.take_away_noon_ends_at %> </p>
+           <p> Horaire de restrait le soir: <%= @meal.take_away_evening_starts_at %> à
+          <%= @meal.take_away_evening_ends_at %> </p>
         </div>
       </div>
   </div>
-
-
-
-    <div class="col-xs-12">
-      <div class"thumbnail">
-
-        <h2>Information sur la box</h2>
-
-        </div>
-      </div>
 
 
 
@@ -30,8 +38,15 @@
 
       <h2>Informations sur le restaurant</h2>
 
+     <%= @meal.restaurant.name %>
+
+
       </div>
     </div>
+
+
+
+
 
       <div>
 

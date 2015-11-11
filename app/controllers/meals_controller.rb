@@ -10,22 +10,27 @@ class MealsController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def new
     @meal = Meal.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
     @meal = Meal.new(params_meal)
+    restaurant_id = Restaurant.find(params[:id])
     if @meal.save
-      redirect_to meals_path(@meal)
+      redirect_to restaurant_meals_path(@meal)
     else
        render :new
      end
   end
 
   def edit
+
+     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def update
@@ -48,7 +53,8 @@ class MealsController < ApplicationController
   private
 
   def set_meal
-    @meal = Meal.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = @restaurant.meals.find(:meal_id)
   end
 
   def params_meal
