@@ -1,36 +1,38 @@
-<div class="show-user">
-
-  <div class="container-fluid" style="margin-top:100px">
-    <h1 class="text-center">Bienvenue sur votre compte <%= current_user.first_name %></h1>
+<h1 class="text-center">Bienvenue sur votre compte <%= current_user.first_name %></h1>
 
 <% if current_user.restaurant_owner? %>
 
-  <div class="container" style="margin: 100px;">
+  <div class="container-fluid" style="margin: 100px;">
     <div class="row">
-      <div class="col-md-6 text-center">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+        <div class="thumbnail card-show-user">
       <% if current_user.restaurants.empty? %>
         <p>Merci de bien vouloir ajouter votre établissement<p>
-          <%= link_to content_tag(:i, nil, class: "fa fa-plus-circle fa-3x"), new_restaurant_path %>
+          <%= link_to content_tag(:i, nil, class: "fa fa-plus-circle fa-3x"), new_restaurant_meal_path %>
       <% else %>
-      <h1><%= current_user.restaurants.each do |restaurant| %></h1>
-            <%= restaurant.name %>
-            <%= image_url restaurant.picture.url(:medium) %>
+      <h1><% current_user.restaurants.each do |restaurant| %></h1>
+            <h2><%= restaurant.name %></h2>
+            <%= image_tag restaurant.picture.url(:medium) %>
+            <ul class="list-inline">
+            <li><%= link_to "modifier les infos", edit_restaurant_path %></li> |
+            <li><%= link_to "ajouter un deal", new_restaurant_meal_path(restaurant)%><i class="fa fa-plus-circle fa-3x"></i></li>
+            </ul>
           <% end %>
         <% end %>
       </div>
-
-      <div class="col-md-6 text-center">
-        <p>Ajouter un deal<p>
-        <%= link_to content_tag(:i, nil, class: "fa fa-plus-circle fa-3x"), new_meal_path %>
       </div>
 
     </div>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <h1>Derniers plats ajoutés</h1>
+    <div class="row" style="height:500px">
+      <div class="col-xs-12 col-md-6 text-center">
+        <div class="thumbnail">
+          <h1>Mes plats en ligne</h1>
+        </div>
       </div>
-      <div class="col-md-6 text-center">
-        <h1>TO DO gerer ses deals</h1>
+      <div class="col-xs-12 col-md-6 text-center">
+        <div class="thumbnail">
+          <h1>TO DO gerer ses deals/ commandes validées</h1>
+        </div>
       </div>
     </div>
 
