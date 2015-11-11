@@ -36,7 +36,7 @@
           <h2>Informations sur le restaurant</h2>
 
         <p> Nom du restaurant: <%= @meal.restaurant.name %> </p>
-        <p> Addresse du restaurant: <%= @meal.restaurant.address %> </p>
+        <p> Addresse du restaurant: <%= @meal.restaurant.full_address %> </p>
         <p> Numéro de téléphone: <%= @meal.restaurant.phone_number %> </p>
         <p> <%= image_tag @meal.restaurant.picture.url(:small) %> </p>
 

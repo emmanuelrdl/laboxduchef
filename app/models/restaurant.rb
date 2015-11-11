@@ -22,10 +22,14 @@ class Restaurant < ActiveRecord::Base
   # validates :iban, presence: true
   # validates :picture, presence: true
 
-  geocoded_by :locality
-  after_validation :geocode, if: :locality_changed?
+  geocoded_by :full_address
+  after_validation :geocode, if: :full_address_changed?
 
-  def address
-    "to"
+  def full_address
+    "#{street}, #{postal_code} #{locality}"
+  end
+
+  def full_address_changed?
+    street_changed? || postal_code_changed? || locality_changed?
   end
 end

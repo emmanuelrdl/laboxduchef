@@ -24,8 +24,7 @@ proprio_les_saltimbanques= User.create!(
 les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   name: "Les Saltimbanques",
   category: "Cuisine Francaise",
-  street_number: "1",
-  route: "Villa Gaudelet",
+  street: "17 Villa Gaudelet",
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145506070",
@@ -60,8 +59,7 @@ proprio_le_blue_valentine = User.create!(
 le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   name: "Le Blue Valentine",
   category: "Cuisine Francaise",
-  street_number: "13",
-  route: "Rue de la Pierre Levée",
+  street: "13 Rue de la Pierre Levée",
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145678989",
@@ -96,8 +94,7 @@ proprio_astier = User.create!(
 astier = proprio_astier.restaurants.create!(
   name: "Astier",
   category: "Cuisine Francaise",
-  street_number: "44",
-  route: "rue Jean Pierre Timbaud",
+  street: "44 rue Jean Pierre Timbaud",
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145789056",
