@@ -4,13 +4,18 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :update, :destroy, :create, :index, :new]
 
+
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
-
+    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+    end
   end
 
   def show
     @meal = Meal.find(params[:id])
+    @restaurant_coordinates = [{ lat: @restaurant.latitude, lng: @restaurant.longitude }]
   end
 
   def new
