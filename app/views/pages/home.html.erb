@@ -5,24 +5,41 @@
           <h1> DES PLATS DE CHEFS A PETITS PRIX </h1>
           <h2> Cliquez, commandez, récuperez, savourez !</h2>
 
-        </div>
-      </div>
-      <div class="position list-inline">
-        <%= form_tag('/meals', method: "get")  do %>
-            <%= text_field_tag :city, nil, class: "form-control", placeholder: "Rechercher par ville", autosave: true, autofocus: true, style: "height:55px;width: 100%"%>
-            <%= button_tag(type: "submit", class: "btn btn-success") do %>
-            <h5>Rechercher</h5>
-            <% end %>
-        <% end %>
-      </div>
+  <div class="container">
+    <div class="col-xs-12">
+
+
+
+              <%= form_tag('/meals', method: "get", class:"black-box") do %>
+              <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
+               <div class="form-group">
+                <h4>Ou ?</h4>
+                  <%= text_field_tag :locality, nil, class: "form-control", placeholder: "Ville, code postal", autosave: true, autofocus: true, style: "height:55px;width: 100%"%>
+               </div>
+                <div class="form-group">
+                <h4>Quel prix ?</h4>
+                <%= select_tag "price_group", options_for_select([ "0 à 5 €", "5 à 10 €","10 à 15 €", "15 à 20 €" ], "5 à 10 €") %>
+                </div>
+                  <h4>Quand ?</h4>
+                 <div class="form-group">
+                 <%= select_tag "Pour", options_for_select([ "Ce midi", "Ce soir","Demain"], "Ce midi") %>
+                </div>
+                 <div class="form-group">
+                  <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                  <h5>GO</h5>
+                </div>
+                  <% end %>
+              <% end %>
+
+    </div>
   </div>
-</div>
 
 <div style="background:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%)">
-  <div class="container">
+
     <div class="row" style="margin:20px">
       <div style="padding-bottom:20px">
-        <h3 class="text-center">How does it work ?</h3>
+         <div class="container">
+        <h3 class="text-center" style="padding-top:0px;">How does it work ?</h3>
       </div>
       <div>
         <div class="text-center col-xs-12 col-sm-3">
