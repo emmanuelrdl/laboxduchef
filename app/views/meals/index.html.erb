@@ -10,7 +10,7 @@
           <p><%= meal.price %>€</p>
           <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
           <p><%= meal.description %></p>
-          <p><%= link_to "RESERVER", restaurant_meals_path, class: "btn btn-success"%></p>
+          <p><%= link_to "RESERVER", restaurant_meals_path(@restaurant, @meal), class: "btn btn-success"%></p>
         </div>
         </div>
       <%end%>
@@ -18,3 +18,21 @@
   </div>
 </div>
 
+<div class="container col-xs-6 col-sm-6 col-md-6">
+<div id="map" style="width: 100%; height: 759px;"></div>
+>>>>>>> master
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>
+
+</div>

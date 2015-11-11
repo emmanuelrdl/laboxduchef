@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
@@ -36,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.3)
     autoprefixer-rails (6.0.3)
       execjs
@@ -63,6 +65,13 @@ GEM
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
+    coffee-rails (4.1.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -81,8 +90,10 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.4.0)
       sass (>= 3.2)
+    geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     hashie (3.4.3)
     i18n (0.7.0)
     jbuilder (2.3.2)
@@ -97,6 +108,10 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -159,6 +174,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.4)
       sprockets-rails
+    rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -221,13 +237,17 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  coffee-rails
   devise
   devise-i18n
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  letter_opener
   omniauth-facebook
   paperclip
   pg
@@ -236,7 +256,11 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.4)
+<<<<<<< HEAD
   rails-i18n
+=======
+  rails-assets-underscore!
+>>>>>>> master
   rails_12factor
   sass-rails (~> 5.0)
   simple_form
