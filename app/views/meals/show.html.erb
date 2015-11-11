@@ -1,11 +1,11 @@
+
+
   <div class="container" >
-
-
 
      <div class="row">
         <div class="col-xs-12">
           <div
-           class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>')">
+              class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>')">
                <h1 id="meal-name"><%= @meal.name %></h1>
            <div>
                 <h1 id="meal-price"><%= @meal.price %> € </h1>
@@ -32,19 +32,21 @@
   </div>
 
 
-
-     <div class="col-xs-12">
-      <div class"thumbnail">
-
-      <h2>Informations sur le restaurant</h2>
-
-     <%= @meal.restaurant.name %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="grey-card">
 
 
-      </div>
+          <h2>Informations sur le restaurant</h2>
+
+        <p> Nom du restaurant: <%= @meal.restaurant.name %> </p>
+        <p> Addresse du restaurant: <%= @meal.restaurant.address %> </p>
+        <p> Numéro de téléphone: <%= @meal.restaurant.phone_number %> </p>
+        <p> <%= image_tag @meal.restaurant.picture.url(:small) %> </p>
+
+     </div>
     </div>
-
-
+  </div>
 
 
 

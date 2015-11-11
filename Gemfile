@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 gem 'kaminari'
+gem "geocoder"
 
 group :development, :test do
   gem 'binding_of_caller'

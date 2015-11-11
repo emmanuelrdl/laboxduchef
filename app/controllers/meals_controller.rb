@@ -2,7 +2,7 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_restaurant, only: [:show, :update, :destroy, :create, :index, :new]
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
@@ -10,12 +10,11 @@ class MealsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = Meal.find(params[:id])
   end
 
   def new
     @meal = Meal.new
-    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
@@ -28,14 +27,14 @@ class MealsController < ApplicationController
   end
 
   def edit
-
-     @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = Meal.find(params[:id])
   end
 
   def update
+    @meal = Meal.find(params[:id])
     @meal.update(params_meal)
     if @meal.save
-    redirect_to meal_path(@meal)
+    redirect_to restaurant_meal_path(@restaurant.id)
     else
     render :edit
     end
