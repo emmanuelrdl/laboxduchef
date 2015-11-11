@@ -1,8 +1,32 @@
-<h1>Trouver votre plat ici</h1>
+<h1 class="text-center">Trouver votre plat ici</h1>
+
+<%= paginate @meals %>
 
 <p>TO DO bar de recherche</p>
-
+<div class="container">
 <% @meals.each do |meal| %>
-<%= meal.name %>
-<%= image_tag meal.picture.url(:medium) %>
+  <div class="card col-xs-12 col-md-4">
+    <div class="cad-bg">
+      <div class="cad-gradient">
+          <%= meal.name %>
+          <%= image_tag meal.picture.url(:medium) %>
+        </div>
+      </div>
+  </div>
+<% end %>
+</div>
+
+<%= paginate @meals %>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
 <% end %>

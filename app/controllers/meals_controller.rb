@@ -5,7 +5,11 @@ class MealsController < ApplicationController
   before_action :set_restaurant, only: [:show, :update, :destroy, :create, :index, :new]
 
   def all_meals
-    @meals = Meal.all
+    @meals = Meal.all.order('created_at DESC').page(params[:page])
+    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+    end
   end
 
   def index

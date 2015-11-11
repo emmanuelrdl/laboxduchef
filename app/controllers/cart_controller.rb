@@ -3,6 +3,7 @@ class CartController < ApplicationController
   before_action :current_order
 
   def show
+    @order_meals = current_order.meals
   end
 
   private
