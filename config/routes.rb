@@ -2,7 +2,7 @@
 
   devise_for :users, :controllers => { registrations: 'registrations'}
 
- root to: 'pages#home'
+  root to: 'pages#home'
 
 
     # You can have the root of your site routed with "root"
@@ -13,6 +13,11 @@
     resources :meals
   end
 
+  resource :cart, only: [:show], controller: 'cart' do
+    resources :order_meals, only: [:create]
+  end
+
+  resources :orders, only: [:show, :create]
 
   resources :users, only: :show
 

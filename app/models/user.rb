@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :restaurants
+  has_many :orders
+
   # has_attached_file :picture,
   #   styles: { medium: "300x300>", thumb: "100x100>" }
 
