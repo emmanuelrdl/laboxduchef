@@ -15,6 +15,10 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
+    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+    end
     @restaurant_coordinates = [{ lat: @restaurant.latitude, lng: @restaurant.longitude }]
   end
 
