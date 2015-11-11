@@ -1,0 +1,9 @@
+Le cart
+
+<h3> Order #<%= @order.id %></h3>
+<ul>
+  <% @order.order_meals.each do |order_meal| %>
+    <li><%= order_meal.meal.name %> - <%= number_to_currency(order_meal.price, :unit => "€") %></li>
+  <% end %>
+
+<%= link_to "Ajouter une commande", all_meals_path %>

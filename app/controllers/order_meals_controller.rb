@@ -1,43 +1,48 @@
 class OrderMealsController < ApplicationController
-  before_action :set_order_meal, only: [:show, :edit, :update, :destroy]
+  # before_action :set_order_meal, only: [:show, :edit, :update, :destroy]
 
-  def index
+  # def index
 
-  end
+  # end
 
-  def new
+  # def new
 
-  end
+  # end
 
   def create
-    @meal = Meal.find(params[:meal_id])
-    @order_meal = Oder_meal.new(params_order_meal)
+    @meal = Meal.find(params[:order_meal][:meal_id])
+    @order_meal = OrderMeal.new(params_order_meal)
     @order_meal.price = @meal.price * @meal.quantity
-
-    @order.save
+    @order_meal.order = current_order
+    @order_meal.save
+    redirect_to cart_path
   end
 
-  def edit
+  # def edit
 
-  end
+  # end
 
-  def update
+  # def update
 
-  end
+  # end
 
-  def destroy
+  # def destroy
 
-  end
+  # end
 
 
   private
 
-  def set_order_meal
-    @order_meal = Order_meal.find(params[:id])
+  # def set_order_meal
+  #   @order_meal = Order_meal.find(params[:id])
+  # end
+
+  def current_order
+    @order ||= current_user.orders.where(status: "cart").first_or_create
   end
 
   def params_order_meal
-    params.require(:order_meal).permit(:order_id, :meal_id, :price, :quanity)
+    params.require(:order_meal).permit(:meal_id, :quantity)
   end
 
 

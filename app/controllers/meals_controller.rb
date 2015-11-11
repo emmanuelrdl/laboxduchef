@@ -4,6 +4,13 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :update, :destroy, :create, :index, :new]
 
+  def all_meals
+    @meals = Meal.all.order('created_at DESC').page(params[:page])
+    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+    end
+  end
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
@@ -50,9 +57,10 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    @meal = Meal.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
+    @meal = @restaurant.meals.find(restaurant_id)
     if @meal.delete
-       restaurant_meals_path(@restaurant, @meal)
+       redirect_to user_path(current_user)
     else
       render :destroy
     end

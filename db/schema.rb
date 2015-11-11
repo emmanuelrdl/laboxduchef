@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20151111165924) do
+=======
 ActiveRecord::Schema.define(version: 20151111095257) do
+>>>>>>> 85b6f6a8bc297f4f4b0525b369c86a0988453973
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +70,6 @@ ActiveRecord::Schema.define(version: 20151111095257) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "category"
-    t.string   "address"
     t.string   "locality"
     t.integer  "postal_code"
     t.string   "phone_number"
@@ -79,8 +82,7 @@ ActiveRecord::Schema.define(version: 20151111095257) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.string   "street_number"
-    t.string   "route"
+    t.string   "street"
   end
 
   add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree
