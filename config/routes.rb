@@ -4,6 +4,7 @@
 
   root to: 'pages#home'
 
+  get '/all_meals' => 'meals#all_meals'
 
     # You can have the root of your site routed with "root"
 

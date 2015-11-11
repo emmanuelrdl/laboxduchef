@@ -10,11 +10,11 @@ class OrderMealsController < ApplicationController
   # end
 
   def create
-    @meal = Meal.find(params[:meal_id])
-    @order_meal = Oder_meal.new(params_order_meal)
+    @meal = Meal.find(params[:order_meal][:meal_id])
+    @order_meal = OrderMeal.new(params_order_meal)
     @order_meal.price = @meal.price * @meal.quantity
-
-    @order.save
+    @order_meal.order = current_order
+    @order_meal.save
     redirect_to cart_path
   end
 
@@ -37,8 +37,12 @@ class OrderMealsController < ApplicationController
   #   @order_meal = Order_meal.find(params[:id])
   # end
 
+  def current_order
+    @order ||= current_user.orders.where(status: "cart").first_or_create
+  end
+
   def params_order_meal
-    params.require(:order_meal).permit(:meal_id, :quanity)
+    params.require(:order_meal).permit(:meal_id, :quantity)
   end
 
 
