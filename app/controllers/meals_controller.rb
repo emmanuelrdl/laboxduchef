@@ -6,6 +6,7 @@ class MealsController < ApplicationController
 
 
   def index
+
     @meals = Meal.all.order('created_at DESC').page(params[:page])
     @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
       marker.lat restaurant.latitude
