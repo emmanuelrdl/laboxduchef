@@ -25,7 +25,7 @@ class MealsController < ApplicationController
   def create
     @meal = @restaurant.meals.create(params_meal)
     if @meal.save
-      redirect_to restaurant_meals_path(@meal)
+      redirect_to restaurant_meals_path(@restaurant, @meal)
     else
        render :new
      end
@@ -39,15 +39,16 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @meal.update(params_meal)
     if @meal.save
-    redirect_to restaurant_meal_path(@restaurant.id)
+    redirect_to restaurant_meals_path(@restaurant, @meal)
     else
     render :edit
     end
   end
 
   def destroy
+    @meal = Meal.find(params[:id])
     if @meal.delete
-      redirect_to meals_path
+       restaurant_meals_path(@restaurant, @meal)
     else
       render :destroy
     end

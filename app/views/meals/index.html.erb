@@ -10,7 +10,7 @@
           <p><%= meal.price %>€</p>
           <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
           <p><%= meal.description %></p>
-          <p><%= link_to "RESERVER", restaurant_meal_path(@restaurant.id), class: "btn btn-success"%></p>
+          <p><%= link_to "RESERVER", restaurant_meals_path(@restaurant, @meal), class: "btn btn-success"%></p>
         </div>
         </div>
       <%end%>
