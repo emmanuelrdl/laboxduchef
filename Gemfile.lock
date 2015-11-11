@@ -256,11 +256,11 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.4)
-<<<<<<< HEAD
+
   rails-i18n
-=======
+
   rails-assets-underscore!
->>>>>>> master
+
   rails_12factor
   sass-rails (~> 5.0)
   simple_form
