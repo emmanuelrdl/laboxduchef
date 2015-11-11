@@ -17,7 +17,16 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+
 gem 'kaminari'
+
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 group :development, :test do
   gem 'binding_of_caller'

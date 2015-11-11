@@ -5,11 +5,23 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meals = Meal.all.order('created_at DESC').page(params[:page])
+    @meals = Meal.all
 
+    @markers = Gmaps4rails.build_markers(@cats) do |meal, marker|
+    marker.lat meal.latitude
+    marker.lng meal.longitude
+    end
+
+    if params[:city].present?
+      @meals = Meal.search_by_city(params[:city]).order("created_at DESC").page(params[:page])
+    else
+      @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
   end
 
   def show
+    @alert_message = "You are viewing #{@meal.name}"
+    @meal_coordinates = [{ lat: @meal.latitude, lng: @meal.longitude }]
   end
 
   def new
