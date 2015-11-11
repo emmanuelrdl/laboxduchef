@@ -1,0 +1,8 @@
+<h1>Trouver votre plat ici</h1>
+
+<p>TO DO bar de recherche</p>
+
+<% @meals.each do |meal| %>
+<%= meal.name %>
+<%= image_tag meal.picture.url(:medium) %>
+<% end %>

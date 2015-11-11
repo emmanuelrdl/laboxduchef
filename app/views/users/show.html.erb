@@ -27,11 +27,23 @@
       <div class="col-xs-12 col-md-6 text-center">
         <div class="thumbnail">
           <h1>Mes plats en ligne</h1>
+          <% current_user.restaurants.each do |restaurant| %>
+              <% restaurant.meals.each do |meal| %>
+                <ul>
+                  <li>
+                    <%= meal.name %>
+                    <%= link_to "voir", restaurant_meal_path(restaurant, meal) %>
+
+                  </li>
+                </ul>
+              <% end %>
+            <% end %>
         </div>
       </div>
+
       <div class="col-xs-12 col-md-6 text-center">
         <div class="thumbnail">
-          <h1>TO DO gerer ses deals/ commandes validées</h1>
+          <h1>gerer ses deals/ commandes validées</h1>
         </div>
       </div>
     </div>

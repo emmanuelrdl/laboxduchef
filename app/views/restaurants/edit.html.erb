@@ -6,7 +6,7 @@
 
   <h2>Mettre à jour votre fiche restaurant</h2>
 
-        <%= simple_form_for [@restaurant, @meal] do |f| %>
+        <%= simple_form_for [@restaurant] do |f| %>
  <%= f.input :name, label: 'Nom du restaurant:', placeholder: 'La belle marmite'%>
           <%= f.input :phone_number, label: 'Numéro de téléphone:',input_html: {:maxlength => 10}, placeholder: '0142505310' %>
           <%= f.input :category,
