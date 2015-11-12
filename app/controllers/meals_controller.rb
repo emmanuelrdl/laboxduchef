@@ -8,10 +8,25 @@ class MealsController < ApplicationController
 
 
   def index
-    @meals = Meal.all.order('created_at DESC').page(params[:page])
+
+    @meals = Meal.all
+    when_group = params[:when_group].to_date
+    if when_group
+      @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
+    else
+      @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
+    price_group = params[:price_group].to_i
+    if price_group
+      @meals = @meals.where("price <= ?", price_group).order("created_at DESC")
+    else
+      @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
+
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       marker.lat meal.restaurant.latitude
       marker.lng meal.restaurant.longitude
+
     end
   end
 

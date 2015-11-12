@@ -22,4 +22,10 @@ class Meal < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+  ALL_PRICES = [ "0 à 5 €", "5 à 10 €","10 à 15 €", "15 à 20 €" ]
+
+
+
+
 end
