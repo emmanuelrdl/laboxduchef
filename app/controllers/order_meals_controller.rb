@@ -12,7 +12,7 @@ class OrderMealsController < ApplicationController
   def create
     @meal = Meal.find(params[:order_meal][:meal_id])
     @order_meal = OrderMeal.new(params_order_meal)
-    @order_meal.price = @meal.price * @meal.quantity
+    @order_meal.price = @meal.price * @order_meal.quantity
     @order_meal.order = current_order
     @order_meal.save
     redirect_to cart_path
