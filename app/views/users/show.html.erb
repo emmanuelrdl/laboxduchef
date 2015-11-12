@@ -83,10 +83,10 @@
                     <% order.order_meals.each do |order_meal| %>
                       <tbody>
                         <tr>
-                          <td class="style-table"><%= order_meal.created_at %></td>
+                          <td class="style-table"><%= order_meal.created_at.strftime("%Y-%m-%d") %></td>
                           <td class="style-table"><%= order_meal.meal.name %></td>
                           <td class="style-table"><%= order_meal.quantity %></td>
-                          <td class="style-table"><%= order_meal.price %></td>
+                          <td class="style-table"><%= number_to_currency(order_meal.price, :unit => "€") %></td>
                         </tr>
                       </tbody>
                    <% end %>
