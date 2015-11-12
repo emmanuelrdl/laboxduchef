@@ -10,8 +10,8 @@
             <% @meals.each do |meal| %>
               <div class="col-xs-12 col-sm-6">
                 <div class="card" style="width:100%; margin-left:0px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
-                  <div class="card-gradient card-bg">
-                  <p><%= meal.name.upcase %></p>
+                  <div class="card-filter card-bg">
+                  <STRONG><p><%= meal.name.upcase %></p></STRONG>
                   <p><%= meal.price %>€</p>
                   <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
                   <p><%= meal.description %></p>
@@ -26,7 +26,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-6">
-            <div id="map" style="height:660px; margin-left:10px; margin-bottom:10px; margin-top:5px">
+            <div id="map" style="height:620px; margin-left:10px; margin-bottom:10px; margin-top:5px">
               <% content_for(:after_js) do %>
                 <%= javascript_tag do %>
                   $(document).on('ready', function() {
