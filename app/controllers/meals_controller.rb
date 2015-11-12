@@ -8,7 +8,7 @@ class MealsController < ApplicationController
 
 
   def index
-
+    @meal = Meal.new
     @meals = Meal.all
     when_group = params[:when_group].to_date
     if when_group
@@ -22,6 +22,19 @@ class MealsController < ApplicationController
     else
       @meals = Meal.all.order('created_at DESC').page(params[:page])
     end
+
+    start_group = params[:start_time]
+    end_group = params[:end_time]
+    start_time = params[:start]["{:prefix=>:start_date}(4i)"] +":"+ params[:start]["{:prefix=>:start_date}(5i)"]+":00 UTC"
+    end_time = params[:end]["{:prefix=>:end_date}(4i)"] +":"+ params[:end]["{:prefix=>:end_date}(5i)"]+":00 UTC"
+    if start_group || end_group
+    @meals = Meal.where(take_away_noon_starts_at: (start_time)..end_time)
+     Meal.where('take_away_noon_starts_at < ? AND take_away_noon_ends_at > ?', "13:00:00 UTC","12:00:00 UTC")
+
+    else
+      @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
+
 
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       marker.lat meal.restaurant.latitude

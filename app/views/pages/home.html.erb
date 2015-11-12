@@ -1,12 +1,12 @@
-<div class="banner-index text-center" style="padding:0px">
+<div class="banner-index" style="padding:0px">
   <div id="banner-container" >
       <div class="filter">
-        <div id="presentation" class="text-center">
+        <div id="presentation" >
           <h1> DES PLATS DE CHEFS A PETITS PRIX A PARIS </h1>
           <h2> Cliquez, commandez, récuperez, savourez !</h2>
 
   <div class="row">
-    <div class="text-center col-xs-12 col-sm-3 col-sm-offset-4">
+    <div class="text-center col-xs-12 col-sm-3 col-sm-offset-8">
 
               <%= form_tag('/meals', method: "get", class:"black-box") do %>
               <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
@@ -16,11 +16,22 @@
                   <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["5 à 10 €",10 ], ["10 à 15 €",10 ]])  %>
                  </div>
                   <h4>Quand ?</h4>
-                 <div class="form-group" id="form-field">
+                 <div class="form-group" id="form-field ">
                   <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
                  </div>
-                 <div style="height:50px;"></div>
-                 <div class="form-group">
+
+                   <h4>Retrait de ?</h4>
+                   <div class="form-group" style="color:black;">
+                    <%= time_select "start", prefix: :start_date  %>
+                   </div>
+
+                    <h4>Retrait à ?</h4>
+                   <div class="form-group" style="color:black;">
+                     <%= time_select "end", prefix: :end_date  %>
+                   </div>
+                   <div style="height:30px;"></div>
+
+                 <div class="form-group" >
                     <%= button_tag(type: "submit", class: "btn btn-success") do %>
                     <h5>RECHERCHER</h5>
                 </div>
@@ -30,10 +41,11 @@
     </div>
   </div>
 
-<div style="background:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%); margin-top:55px;">
+
 
     <div class="row" style="margin:20px">
-      <div style="padding-bottom:20px">
+
+
          <div class="container">
         <h3 class="text-center" style="padding-top:0px;">How does it work ?</h3>
       </div>
@@ -65,7 +77,7 @@
         <% @meals.last(4).each do |meal| %>
           <div class="card-home card-bg card-gradient" style="margin-left:0px">
               <h2><%= link_to meal.name %></h2>
-              <p><%= meal.name.upcase %></p>
+              <p><%= meal.name %></p>
               <p><%= meal.price %>€</p>
                <div class="position"><p><%= link_to "RESERVER", restaurant_meals_path(@restaurant, @meal), class: "btn btn-success"%></p></div>
           </div>
@@ -73,5 +85,5 @@
 
     </div>
   </div>
-</div>
+
 
