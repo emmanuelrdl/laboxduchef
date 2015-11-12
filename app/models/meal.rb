@@ -23,9 +23,8 @@ class Meal < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
 
-  def self.search(search)
-  where("resta ILIKE ?", "%#{search}%")
-
+  def self.search_place(search_place)
+  where("restaurant.meal LIKE ?", "%#{search_place}%")
   end
 
 end
