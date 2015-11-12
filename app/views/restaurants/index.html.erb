@@ -1,3 +1,22 @@
- <% @restaurants.each do |restaurant| %>
- <%= restaurant.name %>
- <% end -%>
+<div class="banner-index text-center" style="padding:0px">
+  <div class="card-gradient">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+      <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card" style="width:100%;background-image: url('<%=image_path restaurant.picture.url(:medium)%>')">
+          <div class="card-filter card-bg">
+
+          <p> <%= restaurant.name.capitalize %></p>
+          <p> Adresse<%= restaurant.full_address %> </p>
+          <p> Téléphone: <%= restaurant.phone_number %> </p>
+
+          </div>
+        </div>
+      </div>
+      <% end -%>
+    </div>
+    </div>
+  </div>
+</div>

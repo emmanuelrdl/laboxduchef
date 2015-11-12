@@ -53,7 +53,8 @@ class MealsController < ApplicationController
   end
 
   def update
-     @meal.update(params_meal)
+
+    @meal = @restaurant.meals.update(params_meal)
     if @meal.save
     redirect_to user_path(current_user)
     else

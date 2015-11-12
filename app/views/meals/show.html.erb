@@ -15,7 +15,7 @@
     <div class="row" style="margin:10px">
       <div class="col-xs-12 col-sm-6" style="margin:auto">
         <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
-          <%= f.input :quantity %>
+          <%= f.input :quantity, collection: 1..@meal.quantity %>
           <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
           <%= f.submit :reserver, class: "btn btn-success" %>
         <% end %>
