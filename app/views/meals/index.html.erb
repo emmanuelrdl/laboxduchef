@@ -5,15 +5,22 @@
     <div class="container">
       <div class="row">
         <div style="margin-top:10px">
+
           <div class="col-xs-12 col-sm-6">
             <% @meals.each do |meal| %>
               <div class="col-xs-12 col-sm-6">
-                <div class="card card-bg card-gradient" style="width:100%; margin-left:0px">
-                  <p><%= meal.name.upcase %></p>
+                <div class="card" style="width:100%; margin-left:0px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
+                  <div class="card-filter card-bg">
+                  <STRONG><p><%= meal.name.upcase %></p></STRONG>
                   <p><%= meal.price %>€</p>
                   <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
                   <p><%= meal.description %></p>
-                  <div class="position"><p><%= link_to "RESERVER", meal_path(meal), class: "btn btn-success"%></p></div>
+
+                  <div  class="position">
+                  <a><%= link_to "RESERVER", meal_path(meal), class: "btn btn-success"%></a>
+                  </div>
+                  </div>
+
                 </div>
               </div>
             <%end%>
@@ -21,9 +28,10 @@
           </div>
 
           <div class="col-xs-12 col-sm-6">
-            <div id="map" style="height:759px; margin-left:40px; margin-bottom:10px; margin-top:20px">
 
+            <div id="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:6px">
             </div>
+
           </div>
         </div>
       </div>
