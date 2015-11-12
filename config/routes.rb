@@ -4,15 +4,17 @@
 
   root to: 'pages#home'
 
-  get '/all_meals' => 'meals#all_meals'
+  get '/meals' => 'meals#index'
   get '/meal/:id' => 'meals#show', :as => "meal"
+
+
 
     # You can have the root of your site routed with "root"
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
   resources :restaurants do
-    resources :meals
+    resources :meals, only: [ :create, :update, :destroy ]
   end
 
   resource :cart, only: [:show], controller: 'cart' do

@@ -2,15 +2,9 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:update, :destroy, :create, :index, :new]
+  before_action :set_restaurant, only: [:update, :destroy, :create, :new]
 
-  def all_meals
-    @meals = Meal.all.order('created_at DESC').page(params[:page])
-    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
-    end
-  end
+
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
