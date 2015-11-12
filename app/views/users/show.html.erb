@@ -1,60 +1,102 @@
-<h1 class="text-center">Bienvenue sur votre compte <%= current_user.first_name %></h1>
+<div id="body-container" class="restaurant" >
+  <div class="filter">
+  <div class="text-center">
+    <h1>Bienvenue sur votre compte <%= current_user.first_name %></h1>
+    <%= link_to "Modifier mes infos", edit_user_registration_path(current_user), class: "btn btn-default text-right" %>
+  </div>
 
 <% if current_user.restaurant_owner? %>
 
-  <div class="container-fluid" style="margin: 100px;">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-        <div class="thumbnail card-show-user">
       <% if current_user.restaurants.empty? %>
-        <p>Merci de bien vouloir ajouter votre établissement<p>
-          <%= link_to content_tag(:i, nil, class: "fa fa-plus-circle fa-3x"), new_restaurant_meal_path %>
+        <p>Merci de bien vouloir ajouter votre établissement<%= link_to image_tag("moustache.png", size:"50x50"), new_restaurant_meal_path %><p>
+
       <% else %>
-      <h1><% current_user.restaurants.each do |restaurant| %></h1>
+
+        <h1><% current_user.restaurants.each do |restaurant| %></h1>
             <h2><%= restaurant.name %></h2>
-            <%= image_tag restaurant.picture.url(:medium) %>
+            <%= image_tag restaurant.picture.url(:medium), class: "img-thumbnail" %>
             <ul class="list-inline">
             <li><%= link_to "modifier les infos", edit_restaurant_path %></li> |
             <li><%= link_to "ajouter un deal", new_restaurant_meal_path(restaurant)%><i class="fa fa-plus-circle fa-3x"></i></li>
             </ul>
           <% end %>
-        <% end %>
-      </div>
-      </div>
 
+      <% end %>
+      </div>
     </div>
+  </div>
+
     <div class="row" style="height:500px">
       <div class="col-xs-12 col-md-6 text-center">
-        <div class="thumbnail">
-          <h1>Mes plats en ligne</h1>
-          <% current_user.restaurants.each do |restaurant| %>
-              <% restaurant.meals.each do |meal| %>
-                <ul>
-                  <li>
-                    <%= meal.name %>
-                    <%= link_to "supprimer", restaurant_meal_path(restaurant, meal), method: :delete %>
+        <h1>Mes plats en ligne</h1>
 
-                  </li>
-                </ul>
-              <% end %>
-            <% end %>
-        </div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Désignation</th>
+                  <th>Prix</th>
+                  <th>Quantité</th>
+                  <th>Modifier</th>
+                </tr>
+              </thead>
+              <% current_user.restaurants.each do |restaurant| %>
+                <% restaurant.meals.each do |meal| %>
+                  <tbody>
+                      <tr>
+                        <td><%= link_to meal.name, restaurant_meal_path(restaurant, meal) %></td>
+                        <td><%= meal.price %></td>
+                        <td><%= meal.quantity %></td>
+                        <td><%= link_to image_tag("gants.png", size: "50x50"), edit_restaurant_meal_path(restaurant, meal) %></td>
+                      </tr>
+                  </tbody>
+                   <% end %>
+                <% end %>
+            </table>
       </div>
 
+
       <div class="col-xs-12 col-md-6 text-center">
-        <div class="thumbnail">
-          <h1>gerer ses deals/ commandes validées</h1>
-        </div>
+        <h1>gerer ses deals/ commandes validées</h1>
       </div>
     </div>
 
-<% else %>
-  <h1>Mes dernières commandes</h1>
-    <p>TO DO tableau avec les orders + prix + quantité </p>
 
+  <% else %>
+  <div>
+    <h1 class="text-center">Mes commandes validées</h1>
+    <button type="button" class="text-right btn btn-default" style="margin-right:100px"><%= link_to image_tag("moustache.png", size:"50x50"), meals_path %>Commander un plat</button>
+  </div>
 
-<% end %>
+    <div class="col-md-6 col-md-offset-3">
+       <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Désignation</th>
+                  <th>Prix</th>
+                  <th>Quantité</th>
 
+                </tr>
+              </thead>
+                <% current_user.orders.each do |order| %>
+                    <% order.order_meals.each do |order_meal| %>
+                      <tbody>
+                        <tr>
+                          <td class="style-table"><%= order_meal.meal.name %></td>
+                          <td class="style-table"><%= order_meal.price %></td>
+                          <td class="style-table"><%= order_meal.quantity %></td>
+                        </tr>
+                      </tbody>
+                   <% end %>
+                <% end %>
+       </table>
+     </div>
+  <% end %>
+
+  </div>
 </div>
+
 </div>
 </div>
