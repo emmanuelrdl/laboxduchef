@@ -22,4 +22,10 @@ class Meal < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+  def self.search(search)
+  where("resta ILIKE ?", "%#{search}%")
+
+  end
+
 end

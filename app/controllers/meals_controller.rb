@@ -7,7 +7,12 @@ class MealsController < ApplicationController
 
 
   def index
+    @meals = Meal.all
+    if params[:search]
+    @meal = Meal.search(params[:search]).order("created_at DESC")
+    else
     @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
     @markers = []
     @meals.each do |meal|
       restaurant = meal.restaurant
