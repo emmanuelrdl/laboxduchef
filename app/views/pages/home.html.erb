@@ -2,7 +2,7 @@
   <div id="banner-container" >
       <div class="filter">
         <div id="presentation" class="text-center">
-          <h1> DES PLATS DE CHEFS A PETITS PRIX </h1>
+          <h1> DES PLATS DE CHEFS A PETITS PRIX A PARIS </h1>
           <h2> Cliquez, commandez, récuperez, savourez !</h2>
 
   <div class="row">
@@ -10,21 +10,19 @@
 
               <%= form_tag('/meals', method: "get", class:"black-box") do %>
               <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
-               <div class="form-group" >
-                <h4>Ou ?</h4>
-                <%= text_field_tag :search, params[:search_place], id:"user_input_autocomplete_address", class: "form-control", placeholder:"Ville, code postal"  %>
-               </div>
+
                 <div class="form-group" id="form-field" >
-                <h4>Quel prix ?</h4>
-                <%= select_tag "price_group", options_for_select([ "0 à 5 €", "5 à 10 €","10 à 15 €", "15 à 20 €" ], "5 à 10 €") , params[:search_price] %>
-                </div>
+                  <h4>Quel prix ?</h4>
+                  <%= select_tag :price_group, options_for_select(Meal::ALL_PRICES)  %>
+                 </div>
                   <h4>Quand ?</h4>
                  <div class="form-group" id="form-field">
-                 <%= select_tag "when_group", options_for_select([ "Ce midi", "Ce soir","Demain"], "Ce midi"), params[:search_time] %>
-                </div>
+                  <%= select_tag :when_group, options_for_select([["Today", Date.today], ["Tomorrow", Date.today+1]]) %>
+                 </div>
+                 <div style="height:50px;"></div>
                  <div class="form-group">
-                  <%= button_tag(type: "submit", class: "btn btn-success") do %>
-                  <h5>RECHERCHER</h5>
+                    <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                    <h5>RECHERCHER</h5>
                 </div>
                   <% end %>
               <% end %>

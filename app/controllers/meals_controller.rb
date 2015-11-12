@@ -8,8 +8,9 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    if params[:search]
-    @meal = Meal.search(params[:search]).order("created_at DESC")
+    when_group = params[:when_group].to_date
+    if when_group
+    @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
     else
     @meals = Meal.all.order('created_at DESC').page(params[:page])
     end

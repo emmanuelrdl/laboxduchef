@@ -23,8 +23,11 @@ class Meal < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
 
-  def self.search_place(search_place)
-  where("restaurant.meal LIKE ?", "%#{search_place}%")
+  ALL_PRICES = [ "0 à 5 €", "5 à 10 €","10 à 15 €", "15 à 20 €" ]
+  ALL_TIMES = [ "Ce midi", "Ce soir","Demain"]
+
+  def self.search_price(search_price)
+  where("price LIKE ?", "%#{search_place}%")
   end
 
 end
