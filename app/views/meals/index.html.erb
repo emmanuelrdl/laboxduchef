@@ -1,7 +1,7 @@
-<!-- <p>Find me in app/views/meals/index.html.erb</p> -->
-<div class="banner-index text-center" style="padding:0px">
-  <div class="card-gradient" style="padding:1px">
-    <h1>Meals index</h1>
+<div id="body-container" class="restaurant" >
+ <div class="filter"></div>
+  <div style="padding:1px">
+    <h1 style='position:relative'>Repas proposés</h1>
     <div class="container">
       <div class="row">
         <div style="margin-top:10px">
@@ -14,7 +14,7 @@
                   <STRONG><p><%= meal.name.upcase %></p></STRONG>
                   <p><%= meal.price %>€</p>
                   <p class="icon-badge icon-badge-green icon-badge-bordered"><%= meal.quantity %></p>
-                  <p><%= meal.description %></p>
+
 
                   <div  class="position">
                   <a><%= link_to "RESERVER", meal_path(meal), class: "btn btn-success"%></a>

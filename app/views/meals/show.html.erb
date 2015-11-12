@@ -1,31 +1,58 @@
-<div class="banner-index text-center" style="padding:0px">
-  <div class="card-gradient" style="padding:1px">
-    <div class="row" style="margin:auto">
-      <div class="col-xs-12">
-        <div class="meal-banner-picture" style="background-image:url('<%= @meal.picture.url(:medium) %>'); border-radius:3px">
-          <h1 id="meal-name" style="text-align:left"><%= @meal.name %></h1>
-          <div style="text-align:left">
-            <h1 id="meal-price"><%= @meal.price %> € </h1>
-            <h1 id="meal-quantity"><%= @meal.quantity %> <i class="fa fa-cutlery"></i></h1>
-          </div>
-        </div>
-      </div>
-    </div>
+<div id="body-container" class="restaurant" >
+  <div class="filter"></div>
 
-    <div class="row" style="margin:10px">
-      <div class="col-xs-12 col-sm-6" style="margin:auto">
+    <div class="row" style="margin:auto">
+
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+          <h2>Repas selectionné</h2>
+          <%= image_tag @meal.picture.url(:medium) %>
+            <h1 id="meal-name" style="text-align:left"><%= @meal.name %></h1>
+
+              <h1 id="meal-price"><%= @meal.price %> € </h1>
+              <h1 id="meal-quantity"><%= @meal.quantity %> <i class="fa fa-cutlery"></i></h1>
+
+
+
+             <div class="row" style="margin:10px">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 text" >
         <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
           <%= f.input :quantity, collection: 1..@meal.quantity %>
           <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-          <%= f.submit :reserver, class: "btn btn-success" %>
+          <%= f.submit :reserver, class: "btn btn-success lg" %>
         <% end %>
       </div>
     </div>
 
-    <div class="row">
 
-      <div class="col-xs-12 col-sm-6">
-        <div class="grey-card">
+
+
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-sm-offset-1 ">
+           <h2>Itinéraire</h2>
+        <div id="map" style="width:90%; height:500px; margin:auto; margin-bottom:10px"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).on('ready', function() {
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 text-center">
+        <div class="grey-card" style="">
           <h2>Information sur la boxe</h2>
           <p> Description du plat: <%= @meal.description %> <p>
           <p> La boxe est disponible le <%= @meal.starting_date %> </p>
@@ -36,9 +63,9 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-6 text-center ">
         <div class="grey-card">
-          <h2>Informations sur le restaurant</h2>
+          <h2 class="text-center">Informations sur le restaurant</h2>
           <div class="col-xs-6">
           <p><%= @meal.restaurant.name %> </p>
           <p> Adresse<%= @meal.restaurant.full_address %> </p>
@@ -50,24 +77,10 @@
         </div>
       </div>
 
-      <div>
-        <h2>Map</h2>
+
+
+
+
       </div>
-
-      <div id="map" style="width:90%; height:600px; margin:auto; margin-bottom:10px"></div>
-    </div>
-  </div>
+   </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      });
-    })
-  <% end %>
-<% end %>
