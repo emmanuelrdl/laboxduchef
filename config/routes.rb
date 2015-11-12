@@ -13,7 +13,7 @@
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
   resources :restaurants do
-    resources :meals, only: [:create, :update, :destroy]
+    resources :meals, only: [:new, :create, :edit, :update, :destroy]
   end
 
   resource :cart, only: [:show], controller: 'cart' do
