@@ -65,18 +65,17 @@
 
 
   <% else %>
-  <div>
-    <h1 class="text-center">Mes commandes validées</h1>
-    <button type="button" class="text-right btn btn-default" style="margin-right:100px"><%= link_to image_tag("moustache.png", size:"50x50"), meals_path %>Commander un plat</button>
-  </div>
 
+    <h1 class="text-center">Mes commandes validées</h1>
+   <div class="row">
     <div class="col-md-6 col-md-offset-3">
        <table class="table table-hover">
               <thead>
                 <tr>
+                  <th>Date</th>
                   <th>Désignation</th>
-                  <th>Prix</th>
                   <th>Quantité</th>
+                  <th>Prix</th>
 
                 </tr>
               </thead>
@@ -84,19 +83,28 @@
                     <% order.order_meals.each do |order_meal| %>
                       <tbody>
                         <tr>
+                          <td class="style-table"><%= order_meal.created_at %></td>
                           <td class="style-table"><%= order_meal.meal.name %></td>
-                          <td class="style-table"><%= order_meal.price %></td>
                           <td class="style-table"><%= order_meal.quantity %></td>
+                          <td class="style-table"><%= order_meal.price %></td>
                         </tr>
                       </tbody>
                    <% end %>
                 <% end %>
-       </table>
+          </table>
      </div>
-  <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 btn-book text-center">
+        <h2><%= link_to "Commander ici", meals_path %></h2>
+        <%= link_to image_tag("eating.png", size: "50X50"), meals_path %>
+      </div>
+    </div>
+
+
+
+     <% end %>
 
   </div>
-</div>
-
-</div>
 </div>
