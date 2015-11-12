@@ -1,16 +1,3 @@
-<div class="form-inline city" style="margin-top:50px">
-  <div class="form-group">
-    <%= form_tag('/meals', method: "get")  do %>
-      <div class="form-group">
-      <%= text_field_tag :city, nil, class: "form-control", placeholder: "Rechercher par ville", autosave: true, autofocus: true, style: "height:50px;width: 380px" %>
-        </div>
-          <%= button_tag(type: "submit", class: "btn btn-success") do %>
-            <h5>Rechercher</h5>
-          <% end %>
-    <% end %>
-  </div>
-</div>
-
 <div id="restaurant-new-container" >
   <div class="filter"></div>
     <div class="container">
