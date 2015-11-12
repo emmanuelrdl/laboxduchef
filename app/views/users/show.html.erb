@@ -47,7 +47,7 @@
                   <tbody>
                       <tr>
                         <td><%= link_to meal.name, restaurant_meal_path(restaurant, meal) %></td>
-                        <td><%= meal.price %></td>
+                        <td><%= number_to_currency(meal.price, :unit => "€") %></td>
                         <td><%= meal.quantity %></td>
                         <td><%= link_to image_tag("gants.png", size: "50x50"), edit_restaurant_meal_path(restaurant, meal) %></td>
                       </tr>
