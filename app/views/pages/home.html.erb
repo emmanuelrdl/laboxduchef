@@ -13,11 +13,11 @@
 
                 <div class="form-group" id="form-field" >
                   <h4>Quel prix ?</h4>
-                  <%= select_tag :price_group, options_for_select(Meal::ALL_PRICES)  %>
+                  <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["5 à 10 €",10 ], ["10 à 15 €",10 ]])  %>
                  </div>
                   <h4>Quand ?</h4>
                  <div class="form-group" id="form-field">
-                  <%= select_tag :when_group, options_for_select([["Today", Date.today], ["Tomorrow", Date.today+1]]) %>
+                  <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
                  </div>
                  <div style="height:50px;"></div>
                  <div class="form-group">
