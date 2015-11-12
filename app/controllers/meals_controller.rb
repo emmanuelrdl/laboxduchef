@@ -2,22 +2,22 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:update, :destroy, :create, :index, :new]
+  before_action :set_restaurant, only: [:update, :destroy, :create, :new]
 
-  def all_meals
-    @meals = Meal.all.order('created_at DESC').page(params[:page])
-    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
-    end
-  end
+
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
-    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
+    @markers = []
+    @meals.each do |meal|
+      restaurant = meal.restaurant
+      markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+        marker.lat restaurant.latitude
+        marker.lng restaurant.longitude
+      end
+      @markers << markers
     end
+
   end
 
   def show
@@ -43,7 +43,7 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find(params[:id])#DRY with set_meal
   end
 
   def update
@@ -57,8 +57,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
-    @meal = @restaurant.meals.find(restaurant_id)
+    @meal = Meal.find(params[:id])
     if @meal.delete
        redirect_to user_path(current_user)
     else

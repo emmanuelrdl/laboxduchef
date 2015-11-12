@@ -6,5 +6,5 @@ Le cart
     <li><%= order_meal.meal.name %> - <%= number_to_currency(order_meal.price, :unit => "€") %></li>
   <% end %>
 
-<%= link_to "Ajouter une commande", all_meals_path %>
+<%= link_to "Ajouter une commande", meals_path %>
 
