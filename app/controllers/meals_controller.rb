@@ -2,62 +2,56 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:update, :destroy, :create, :new]
+  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy ]
+  before_action :set_meal, only: [ :edit, :update, :destroy]
 
 
 
   def index
     @meals = Meal.all.order('created_at DESC').page(params[:page])
-    @markers = []
-    @meals.each do |meal|
-      restaurant = meal.restaurant
-      markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
-        marker.lat restaurant.latitude
-        marker.lng restaurant.longitude
-      end
-      @markers << markers
+    @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
+      marker.lat meal.restaurant.latitude
+      marker.lng meal.restaurant.longitude
     end
-
   end
 
   def show
     @meal = Meal.find(params[:id])
-    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
-      marker.lat @meal.restaurant.latitude
-      marker.lng @meal.restaurant.longitude
-    end
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
   end
 
-  def new
-    @meal = Meal.new
-  end
-
-  def create
-    @meal = @restaurant.meals.create(params_meal)
-    if @meal.save
-      redirect_to restaurant_meals_path(@restaurant, @meal)
-    else
-       render :new
-     end
-  end
 
   def edit
-    @meal = Meal.find(params[:id])#DRY with set_meal
   end
 
   def update
-    @meal = Meal.find(params[:id])
-    @meal.update(params_meal)
+     @meal.update(params_meal)
     if @meal.save
-    redirect_to restaurant_meals_path(@restaurant, @meal)
+    redirect_to user_path(current_user)
     else
     render :edit
     end
   end
 
+
+  def new
+    @meal = Meal.new
+  end
+
+
+  def create
+    @meal = @restaurant.meals.create(params_meal)
+    if @meal.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+     end
+  end
+
+
+
   def destroy
-    @meal = Meal.find(params[:id])
+    @meal = @restaurant.meals.find(params[:id])
     if @meal.delete
        redirect_to user_path(current_user)
     else
@@ -70,6 +64,10 @@ class MealsController < ApplicationController
   def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
 
+  end
+
+  def set_meal
+    @meal = Meal.find(params[:id])
   end
 
   def params_meal

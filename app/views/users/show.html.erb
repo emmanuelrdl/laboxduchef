@@ -32,7 +32,7 @@
                 <ul>
                   <li>
                     <%= meal.name %>
-                    <%= link_to "voir", restaurant_meal_path(restaurant, meal) %>
+                    <%= link_to "supprimer", restaurant_meal_path(restaurant, meal), method: :delete %>
 
                   </li>
                 </ul>
