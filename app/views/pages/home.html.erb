@@ -15,25 +15,30 @@
                   <h4>Quel prix ?</h4>
                   <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["5 à 10 €",10 ], ["10 à 15 €",10 ]])  %>
                  </div>
-                  <h4>Quand ?</h4>
-                 <div class="form-group" id="form-field ">
-                  <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
-                 </div>
-
-                   <h4>Retrait de ?</h4>
-                   <div class="form-group" style="color:black;">
-                    <%= time_select "start", prefix: :start_date  %>
+                    <h4>Quand ?</h4>
+                   <div class="form-group" id="form-field ">
+                    <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
                    </div>
+                 <ul class="list-inline">
+                    <li>
+                       <h4>Retrait de ?</h4>
+                       <div class="form-group" style="color:black;">
+                        <%= time_select "start", prefix: :start_date  %>
+                       </div>
+                    </li>
+                    <li>
+                      <h4>Retrait à ?</h4>
+                     <div class="form-group" style="color:black;">
+                       <%= time_select "end", prefix: :end_date  %>
+                     </div>
+                     </li>
 
-                    <h4>Retrait à ?</h4>
-                   <div class="form-group" style="color:black;">
-                     <%= time_select "end", prefix: :end_date  %>
-                   </div>
-                   <div style="height:30px;"></div>
+                  </ul>
 
-                 <div class="form-group" >
-                    <%= button_tag(type: "submit", class: "btn btn-success") do %>
-                    <h5>RECHERCHER</h5>
+                   <div class="form-group" >
+                      <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                      <h5>RECHERCHER</h5>
+
                 </div>
                   <% end %>
               <% end %>
