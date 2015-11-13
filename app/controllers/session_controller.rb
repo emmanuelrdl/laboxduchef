@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionController < Devise::ApplicationController
 
   def after_sign_in_path_for(resource)
      if resource.restaurant_owner
