@@ -35,7 +35,7 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
 
 coque_au_vin = les_saltimbanques.meals.create!(
   price: 5.50,
-  name: "Coque au vin",
+  name: "Coq au vin",
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
