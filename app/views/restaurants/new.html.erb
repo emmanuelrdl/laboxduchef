@@ -16,7 +16,14 @@
              :label => "Type de cuisine" %>
           <%= f.input :picture, label: 'Photo du restaurant' %>
 
-           <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address"  %>
+
+          <label for="">
+            Entrez votre addresse:
+          </label>
+          <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control"   %>
+          <div style="margin-bottom:10px;"></div>
+
+
 
           <%= f.input :street, label: "Numéro de votre rue", input_html: { id: "street" } %>
           <%= f.input :postal_code , label: "Code postal", hidden: true, input_html: {id: "postal_code"} %>
