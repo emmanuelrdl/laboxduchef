@@ -46,7 +46,7 @@
 }
 
 .banner-index {
- // flex: auto;
+ flex: auto;
  background-image: asset-url('banner.jpg');
  background-repeat: no-repeat;
  background-position: center;
@@ -61,9 +61,12 @@
 }
 
 .btn-ajouter {
-  border: white 2px solid;
+  border: 3px solid white;
   color: white;
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  font-size: 20px;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .container-order {

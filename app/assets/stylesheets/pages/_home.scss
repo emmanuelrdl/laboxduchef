@@ -7,23 +7,34 @@
  background-position: left top;
  margin-top: 0px;
  height: 1000px;
- z-index: 1;
+ z-index: 0;
 
  /*display: flex;
  align-items: center;*/
  position: relative;
 
+}
 
-  .filter {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
+.banner-index {
+  position: relative;
+}
 
-  }
+.filter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
 
 }
+
+.cart--content {
+  position: relative;
+  z-index: 2;
+}
+
+
 
 #presentation {
 
