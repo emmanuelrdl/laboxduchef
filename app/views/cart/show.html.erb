@@ -27,7 +27,12 @@
             <h3>Prix total de la commande : <STRONG><%= number_to_currency(@total_price, unit: "€") %></STRONG></h3>
           </div>
 
-          <div style="margin:15px; padding:10px">
+
+    <div style="margin:15px">
+
+      <p class="btn btn-ajouter"><%= link_to "Ajouter une commande", meals_path %></p>
+      <p class="btn btn-ajouter"><%= link_to "Valider et payer", new_cart_payment_path %></p>
+    </div>
 
             <p><%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter" %></p>
             <p ><%= link_to "Valider et payer", new_cart_payment_path,  class: "btn btn-ajouter"  %></p>

@@ -4,14 +4,15 @@
 
       <div class="text-center">
         <h1 style="margin-top:50px;" class="hidden-xs">Bienvenue sur votre compte <%= current_user.first_name %></h1>
-          <div style="margin-top:20px"><%= link_to "Modifier mes infos", edit_user_registration_path(current_user), class: "btn btn-default text-right" %></div>
+          <div style="margin-top:20px"><%= link_to "Modifier mes infos", edit_user_registration_path(current_user), class: "btn-user text-right" %></div>
       </div>
 
       <% if current_user.restaurant_owner? %>
-
+        <div class="spacer"></div>
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+
             <% if current_user.restaurants.empty? %>
               <p>Merci de bien vouloir ajouter votre établissement<%= link_to image_tag("moustache.png", size:"50x50"), new_restaurant_meal_path %><p>
 
@@ -29,8 +30,9 @@
           </div>
 
 
-          <div class="row" style="height:500px">
+          <div class="row" style="margin-top: 100px">
             <div class="col-xs-12 col-md-6 text-center">
+              <div class="opacity">
               <h1>Mes plats en ligne</h1>
 
                   <table class="table table-hover">
@@ -49,16 +51,18 @@
                               <td><strong><%= link_to meal.name, restaurant_meal_path(restaurant, meal), class: "style-table" %></strong></td>
                               <td class="style-table"><%= number_to_currency(meal.price, :unit => "€") %></td>
                               <td class="style-table"><%= meal.quantity %></td>
-                              <td class="style-table"><%= link_to image_tag("gants.png", size: "50x50"), edit_restaurant_meal_path(restaurant, meal) %></td>
+                              <td class="style-table"><%= link_to image_tag("gants.png", size: "50x50", color:"grey"), edit_restaurant_meal_path(restaurant, meal) %></td>
                             </tr>
                         </tbody>
                          <% end %>
                       <% end %>
                   </table>
+                </div>
             </div>
 
 
             <div class="col-xs-12 col-md-6 text-center">
+              <div class="opacity">
               <h1>Commandes </h1>
                 <table class="table table-hover">
                   <thead>
@@ -71,30 +75,27 @@
                   <% current_user.orders.each do |order| %>
                   <tbody>
                     <tr>
-                      <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
-                      <td>
-                        <ul>
-
-                          <% order.order_meals.each do |order_meal| %>
-
-                            <li><%= order_meal.meal.name %></li>
-                          <% end %>
+                      <td class="style-table"><%= order.created_at.strftime("%Y-%m-%d") %></td>
+                      <td class="style-table">
+                        <ul class="list-unstyled">
+                           <% order.order_meals.each do |order_meal| %>
+                              <li><%= order_meal.meal.name %></li>
+                            <% end %>
                         </ul>
                       </td>
-                      <td><%= order.status %></td>
+                      <td class="style-table"><%= order.status %></td>
                     </tr>
                   </tbody>
                   <% end %>
                 </table>
-
-
-              </ul>
+              </div>
             </div>
           </div>
 
 
         <% else %>
-      <div class="div-table">
+      <div class="spacer"></div>
+      <div class="opacity">
         <h1 class="text-center">Mes commandes</h1>
          <div class="row">
           <div class="col-md-6 col-md-offset-3">
