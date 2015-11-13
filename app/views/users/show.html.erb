@@ -93,7 +93,7 @@
 
         <% else %>
 
-        <h1 class="text-center">Mes commandes validées</h1>
+        <h1 class="text-center">Mes commandes</h1>
          <div class="row">
           <div class="col-md-6 col-md-offset-3">
              <table class="table table-hover">
@@ -123,9 +123,9 @@
         </div>
 
           <div class="row">
-            <div class="col-xs-12 col-md-6 col-md-offset-3 btn-book text-center">
-              <h2><%= link_to "Commander ici", meals_path %></h2>
-              <%= link_to image_tag("eating.png", size: "50X50"), meals_path %>
+            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+              <h2><%= link_to "Commander ici", meals_path, class: "btn-book" %>
+              <%= image_tag ("eating.png"), size:"100x100" %></h2>
             </div>
           </div>
 
