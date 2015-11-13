@@ -28,9 +28,10 @@ class OrderMealsController < ApplicationController
 
   # end
 
-  # def destroy
-
-  # end
+  def destroy
+    @meal.delete
+    redirect_to meal_path
+  end
 
 
   private
