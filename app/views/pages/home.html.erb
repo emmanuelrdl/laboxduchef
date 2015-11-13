@@ -1,8 +1,8 @@
-<div class="banner-index" style="padding:0px">
+<div class="banner-index">
   <div id="banner-container" >
      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-              <div class="filter">
+        <div class="col-xs-8 col-sm-6">
+              <div class="filter" style="margin:auto">
                 <div id="presentation" class="filter-title" >
                   <h1> DES PLATS DE CHEFS A PETITS PRIX</h1>
                     <div class="hidden-xs col-sm-12">
@@ -14,7 +14,7 @@
         </div>
 
 
-    <div class="text-center col-xs-12 col-sm-3 col-sm-offset-7" style="margin-top:180px;">
+    <div class="text-center col-xs-12 col-sm-3" style="margin-top:310px;">
 
               <%= form_tag('/meals', method: "get", class:"black-box") do %>
               <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
@@ -55,32 +55,33 @@
   </div>
 
 
-
-        <div class="row filter-hiw" style="margin-top:70px" >
-             <div class="container">
+      <div class="row col-xs-12">
+        <div class="filter-hiw" style="margin-top:50px" >
+          <div class="container">
             <h3 class="text-center" > How does it work ?</h3>
           </div>
           <div>
-            <div class="text-center col-xs-12 col-sm-3">
+            <div class="text-center col-xs-6 col-sm-3">
               <%= image_tag ("eshop.png"), size:"100x100"%>
               <p>Order Online</p>
             </div>
-            <div class="text-center col-xs-12 col-sm-3">
+            <div class="text-center col-xs-6 col-sm-3">
               <%= image_tag ("walker.png"), size:"100x100" %>
               <p>Go to the restaurant</p>
             </div>
-            <div class="text-center col-xs-12 col-sm-3">
+            <div class="text-center col-xs-6 col-sm-3">
               <%= image_tag ("foodbox.png"), size:"100x100" %>
               <p>Get your box</p>
             </div>
-            <div class="text-center col-xs-12 col-sm-3">
+            <div class="text-center col-xs-6 col-sm-3">
               <%= image_tag ("eating.png"), size:"100x100" %>
               <p>Enjoy your meal</p>
             </div>
           </div>
         </div>
+      </div>
 
-      <<!-- div class="row" style="margin:20px">
+      <!-- div class="row" style="margin:20px">
         <div class="container">
 
             <h3 class="text-center">Lets watch the last meals</h3>
@@ -100,6 +101,6 @@
 
      </div>
   </div>
-</div>
+
 
 
