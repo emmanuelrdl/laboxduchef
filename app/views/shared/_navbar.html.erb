@@ -14,17 +14,17 @@
           <%= link_to "COMMENT CA MARCHE", "#", style:"color:white;" %>
             <hr class="hidden-xs hidden-sm">
           <%= link_to "NOTRE SERVICE", service_path, style:"color:white" %>
-           </hr>
             <hr class="hidden-xs hidden-sm">
-           <%= link_to "MON COMPTE", user_path(current_user), style:"color:white;" %>
+          <%= link_to "MON COMPTE", user_path(current_user), style:"color:white;" %>
             <hr class="hidden-xs hidden-sm">
-             <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, style:"color:white;"%>
+          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, style:"color:white;"%>
             <hr class="hidden-xs hidden-sm">
+
             <div class="form-align">
               <p style="color:white">Connecté</p>
               <strong style="color:white"><%= current_user.last_name %>
                 <%= current_user.first_name %> </strong>
-            </div>
+           </div>
             <hr class="hidden-xs hidden-sm">
 
 
