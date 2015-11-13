@@ -6,13 +6,14 @@
       <div class="container">
 
         <h3 class="text-left"> Order #<%= @order.id %></h3>
-
-
-          <% @order_meals.each do |order_meal| %>
-          <p class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-            <%= order_meal.meal.name %>  -  <%= number_to_currency(order_meal.price, :unit => "€") %> </p>
+          <% if @order_meals.exists? %>
+            <% @order_meals.each do |order_meal| %>
+            <p class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
+              <%= order_meal.meal.name %>  -  <%= number_to_currency(order_meal.price, :unit => "€") %> </p>
+            <% end %>
+          <% else %>
+            <p>Votre panier est vide.</p>
           <% end %>
-
       </div>
 
     <div style="margin:15px">
@@ -21,6 +22,7 @@
 
     <div style="margin:15px">
       <p class="btn btn-ajouter"><%= link_to "Ajouter un meal", meals_path %></p>
+      <p class="btn btn-ajouter"><%= link_to "Valider et payer", new_cart_payment_path %></p>
     </div>
 
 

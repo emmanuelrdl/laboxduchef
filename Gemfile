@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+gem "pundit"
 
 gem 'kaminari'
 gem "geocoder"

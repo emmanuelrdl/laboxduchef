@@ -1,0 +1,7 @@
+<h1>Paiement commande</h1>
+
+Prix total de la commande : <%= number_to_currency(@total_price, unit: "€") %>
+
+<%= form_tag cart_payments_path, method: :post do %>
+  <%= submit_tag "Payer", class: "btn btn-primary" %>
+<% end %>
