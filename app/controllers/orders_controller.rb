@@ -1,14 +1,13 @@
+
+class OrdersController < ApplicationController
+  def show
+    @order = current_user.orders.where(status: "paid").find(params[:id])
+
   class OrdersController < ApplicationController
 
   def create
 
 
+
   end
-
-  private
-
-  def params_orders
-    params.require(:order).permit(:)
-  end
-
 end

@@ -7,6 +7,7 @@
   get "/contact" => "pages#contact"
   get "/service" => "pages#service"
   get "/about" => "pages#about"
+
   resources :meals, only: [ :index, :show ]
 
 
@@ -20,11 +21,11 @@
 
   resource :cart, only: [:show], controller: 'cart' do
     resources :order_meals, only: [:create]
+    resources :payments,    only: [:new, :create]
   end
 
-  resources :orders, only: [:show, :create]
-
-  resources :users, only: :show
+  resources :orders,  only: [:show]
+  resources :users,   only: :show
 
 
 

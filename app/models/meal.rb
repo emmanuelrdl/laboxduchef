@@ -12,6 +12,7 @@ class Meal < ActiveRecord::Base
   # validates :take_away_noon_ends_at, presence: true
   # validates :take_away_evening_ends_at, presence: true
 
+
   paginates_per 6
 
 
@@ -22,8 +23,6 @@ class Meal < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-
-  ALL_PRICES = [ "0 à 5 €", "5 à 10 €","10 à 15 €", "15 à 20 €" ]
 
 
 
