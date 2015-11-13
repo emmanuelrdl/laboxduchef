@@ -68,14 +68,14 @@
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <%= current_user.orders.each do |order| %>
+                  <% current_user.orders.each do |order| %>
                   <tbody>
                     <tr>
                       <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
                       <td>
                         <ul>
-                          <%= order.order_meals.each do |order_meal| %>
-                            <li><%= order_meal.name %></li>
+                          <% order.order_meals.each do |order_meal| %>
+                            <li><%= order_meal.meal.name %></li>
                           <% end %>
                         </ul>
                       </td>
