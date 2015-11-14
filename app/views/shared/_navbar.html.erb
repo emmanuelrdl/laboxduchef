@@ -1,46 +1,78 @@
-  <nav class="navbar-wagon ">
-  <div class="navbar-wagon-container">
-    <%= image_tag ("logo.png"), size:"50x50"%>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", size:"50x50" %>
+      <% end %>
+    </div>
+     <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+           <% if current_user.restaurant_owner? %>
 
-    <h3><%= link_to "LA BOX DU CHEF", root_path, class: "title" %></h3>
+              <% if current_user.restaurants.empty? %>
+                <li><%= link_to "AJOUTER SON RESTAURANT", new_restaurant_meal_path %> </li>
+                <li> <%= link_to "FONCTIONNEMENT", "#" %></li>
+                <li> <%= link_to "CONTACT", "#" %></li>
+                <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
+               <% else %>
+                 <% current_user.restaurants.each do |restaurant| %>
+                  <li><%= link_to "AJOUTER UN DEAL", new_restaurant_meal_path(restaurant) %> </li>
+                  <% end -%>
+                  <li><%= link_to "TABLEAU DE BORD", user_path(current_user) %> </li>
+                  <li> <%= link_to "FONCTIONNEMENT", "#" %></li>
+                  <li> <%= link_to "CONTACT", "#" %></li>
+                  <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
+               <% end -%>
 
-    <div class="navbar-wagon-pusher"></div>
+            <% else %>
+              <li><%= link_to "TROUVER UNE BOXE", meals_path %> </li>
+              <li><%= link_to "MON ESPACE", user_path(current_user) %> </li>
+              <li> <%= link_to "FONCTIONNEMENT", "#" %></li>
+              <li> <%= link_to "CONTACT", "#" %></li>
+              <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
+            <% end -%>
+        </ul>
 
+      <% else %>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to "FONCTIONNEMENT", "#" %></li>
+          <li> <%= link_to "CONTACT", "#" %></li>
+          <li>
+            <%= link_to  "CONNEXION", new_user_session_path%>
+          </li>
+          <li><%= link_to "INSCRIVEZ-VOUS", new_user_registration_path %></li>
+        </ul>
 
-        <hr class="hidden-xs hidden-sm">
-        <% if user_signed_in? %>
-
-
-          <%= link_to "COMMENT CA MARCHE", "#", style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to "NOTRE SERVICE", service_path, style:"color:white" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to "MON COMPTE", user_path(current_user), style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, style:"color:white;"%>
-            <hr class="hidden-xs hidden-sm">
-
-            <div class="form-align">
-              <p style="color:white">Connecté</p>
-              <strong style="color:white"><%= current_user.last_name %>
-                <%= current_user.first_name %> </strong>
-           </div>
-            <hr class="hidden-xs hidden-sm">
-
-
-        <% else %>
-
-          <%= link_to "COMMENT CA MARCHE", "#", style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to "NOTRE SERVICE", "#", style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to t(".sign_in", default: "S'IDENTIFIER"), new_user_session_path, style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-          <%= link_to "INSCRIVEZ-VOUS", new_user_registration_path, style:"color:white;" %>
-            <hr class="hidden-xs hidden-sm">
-
-        <% end %>
+      <% end -%>
 
 
+    </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
