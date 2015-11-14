@@ -1,6 +1,46 @@
-<div id="body-container" class="restaurant" >
- <div class="filter"></div>
-  <div style="padding:1px">
+<div id="body-container">
+
+  <div class=" text-center col-xs-12 col-sm-12" style="margin-top:0px;">
+
+              <%= form_tag('/meals', method: "get", class:"form-inline") do %>
+              <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
+             <div class="input-group">
+                <div class="form-group" id="form-field" >
+                  <h4>Mon budget</h4>
+                  <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["Jusqu'à 10 €",10 ], ["Jusqu'à 15 €",15 ]])  %>
+                 </div>
+            </div>
+            <div class="input-group">
+                    <h4>Quand ?</h4>
+                   <div class="form-group" id="form-field ">
+                    <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
+                   </div>
+            </div>
+            <div class="input-group">
+                 <ul class="list-inline">
+                    <li>
+                       <h4>Retrait de ?</h4>
+                       <div class="form-group" style="color:black;">
+                        <%= time_select "start", prefix: :start_date  %>
+                       </div>
+                    </li>
+                    <li>
+                      <h4>Retrait à ?</h4>
+                     <div class="form-group" style="color:black;">
+                       <%= time_select "end", prefix: :end_date  %>
+                     </div>
+                     </li>
+                  </ul>
+              </div>
+               <div class="input-group">
+                   <div class="form-group" >
+                      <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                      <h5>RECHERCHER</h5>
+                    </div>
+               </div>
+                  <% end %>
+              <% end %>
+      </div>
 
     <div class="container">
       <div class="row">
