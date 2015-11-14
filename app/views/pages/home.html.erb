@@ -1,8 +1,8 @@
-<div class="banner-index">
-  <div id="banner-container" >
+<div class="banner-index" id="banner-container">
+  <div class="container" >
      <div class="row">
         <div class="col-xs-12 col-sm-12">
-              <div class="filter" style="margin:auto">
+              <div class="filter">
                 <div  class="filter-hiw text-center" >
                   <h1> DES PLATS DE CHEFS A PETITS PRIX</h1>
                     <div class="hidden-xs col-sm-12">
@@ -11,9 +11,11 @@
                 </div>
               </div>
         </div>
+    </div>
+  </div>
 
 
-          <div class=" text-center col-xs-12 col-sm-4 col-sm-offset-4" style="margin-top:130px;">
+          <div class=" text-center col-xs-12 col-sm-3 col-sm-offset-4">
 
               <%= form_tag('/meals', method: "get", class:"black-box") do %>
               <h3 class="text-center">RESERVEZ VOTRE REPAS</h3>
@@ -48,17 +50,16 @@
                 </div>
                   <% end %>
               <% end %>
-      </div>
-    </div>
+        </div>
 
 
 
 
-      <div class="row col-xs-12">
-        <div class="filter-hiw" style="margin-top:10px" >
-          <div class="container">
+
+      <div class="row col-xs-12 filter-hiw text-center" style="margin-top:10px">
+
             <h3 class="text-center" > Comment ça marche ?</h3>
-          </div>
+
           <div>
             <div class="text-center col-xs-6 col-sm-3">
               <%= image_tag ("eshop.png"), size:"100x100"%>
@@ -81,9 +82,9 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- div class="row" style="margin:20px">
+
+ <!-- div class="row" style="margin:20px">
         <div class="container">
 
             <h3 class="text-center">Lets watch the last meals</h3>
@@ -101,8 +102,8 @@
           </div>
         </div> -->
 
-     </div>
-  </div>
+
+</div>
 
 
 
