@@ -1,31 +1,31 @@
 <div id="body-container" >
     <div class="row text-body">
 
-      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-        <h4 id="meal-name" style="text-align:left"><%= @meal.name.upcase %></h4>
-        <%= image_tag @meal.picture.url(:large) %>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1 meal-index-search">
+        <h4 class="title-body" style="text-align:left"><%= @meal.name.upcase %></h4>
+        <div class="text-center"><%= image_tag @meal.picture.url(:medium) %> </div>
         <h4 class="border-box">
           <%= @meal.price %> € / unité</h4><h4 class="border-box"> <%= @meal.quantity %> meals dispo</h4>
 
 
         <div class="row">
-          <div class="col-xs-12" style="margin-bottom:15px">
+          <div class="col-xs-12 text-center" style="margin-bottom:15px">
             <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
-              <%= f.input :quantity, collection: 1..@meal.quantity %>
+              <%= f.input :quantity, collection: 1..@meal.quantity, label:"Quantité" %>
               <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-              <%= f.submit :reserver, class: "btn btn-success lg" %>
+              <%= f.submit :reserver, class: "btn btn-success lg " %>
             <% end %>
           </div>
 
           <div class="col-xs-12 text-left" >
-            <h4>Information sur la boxe</h4>
-            <div class="grey-card" style="font-size:15px">
+            <h4 class="title-body">INFORMATIONS SUR LA BOX</h4>
+            <div class="grey-card" style="font-size:16px">
               <p><%= @meal.description %> <p>
-              <p> La boxe est disponible le <%= @meal.starting_date %> </p>
-              <p> Horaire de retrait le midi: <%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> à
-              <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p>
-              <p> Horaire de retrait le soir: <%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> à
-              <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p>
+              <p> La boxe est disponible le <strong> <%= @meal.starting_date %> </p> </strong>
+              <p> Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+              <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
+              <p> Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
             </div>
           </div>
         </div>
@@ -35,9 +35,9 @@
 
 
     </div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <h4 >LOCALISATION</h4>
-        <div id="map" style="width:100%; height:450px; margin:auto;"></div>
+      <div class="col-xs-12 col-sm-6 meal-index-search ">
+        <h4 class="title-body">LOCALISATION</h4>
+        <div id="map" style="width:100%; height:450px;" ></div>
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).on('ready', function() {
@@ -51,17 +51,17 @@
           <% end %>
         <% end %>
 
-        <div class="col-xs-12 text-left">
-          <h4>Informations sur le restaurant</h4>
-          <div  style="font-size:15px">
-            <p><%= @meal.restaurant.name %></p>
-            <p><%= @meal.restaurant.full_address %></p>
-            <p> Téléphone: <%= @meal.restaurant.phone_number %></p>
-
+          <div class="col-xs-12 text-left">
+            <h4 class="title-body">INFORMATIONS SUR LE RESTAURANT</h4>
+            <div  style="font-size:16px">
+              <p><%= @meal.restaurant.name %></p>
+              <p><%= @meal.restaurant.full_address %></p>
+              <p> Téléphone: <%= @meal.restaurant.phone_number %></p>
+              <div style="height:115px"></div>
+            </div>
           </div>
-        </div>
+
       </div>
     </div>
 
   </div>
-</div>
