@@ -7,7 +7,9 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path do %>
-        <%= image_tag "logo.png", size:"50x50" %>
+
+        <%= image_tag "logo.png", size:"40x40", id:"logo" %>
+        <span id="logo-text">LA BOX DU CHEF</span>
       <% end %>
     </div>
      <% if user_signed_in? %>
