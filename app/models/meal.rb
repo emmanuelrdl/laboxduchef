@@ -17,7 +17,7 @@ class Meal < ActiveRecord::Base
 
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>", large: "500x500>" }
+    styles: { medium: "300x300>", thumb: "100x100>", large: "400x400>" }
 
 
   validates_attachment_content_type :picture,
