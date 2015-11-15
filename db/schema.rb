@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111165924) do
+ActiveRecord::Schema.define(version: 20151115215808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151111165924) do
     t.datetime "picture_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "active"
   end
 
   add_index "meals", ["restaurant_id"], name: "index_meals_on_restaurant_id", using: :btree
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 20151111165924) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.string   "street"
+    t.boolean  "confirmed"
   end
 
   add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree

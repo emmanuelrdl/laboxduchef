@@ -1,6 +1,11 @@
 <div id="body-container" >
     <div class="container">
        <div class="row">
+
+          <% current_user.restaurants.each do |restaurant| %>
+          <% if restaurant.confirmed? %>
+
+
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
              <h3>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</h3>
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
@@ -24,6 +29,14 @@
                <%= f.button :submit, "valider", class: "btn btn-success" %>
                <% end %>
         </div>
+
+          <%else %>
+
+          <p>Votre restaurant est en cours de validation. Une fois celui-ci validé vous pourrez poster vos offres. L'étape de validation prend entre 24 heures et 48 heures.</p>
+
+          <%= link_to "Index", root_path, class:"btn btn-primary" %>
+          <% end -%>
+           <% end %>
      </div>
   </div>
 </div>

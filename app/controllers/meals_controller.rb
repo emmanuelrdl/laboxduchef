@@ -68,6 +68,7 @@ class MealsController < ApplicationController
 
   def create
     @meal = @restaurant.meals.create(params_meal)
+    @meal.active = true
     if @meal.save
       redirect_to user_path(current_user)
     else
