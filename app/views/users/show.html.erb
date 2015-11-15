@@ -22,13 +22,18 @@
                   <p>Merci de bien vouloir ajouter votre établissement<%= link_to image_tag("moustache.png", size:"50x50"), new_restaurant_meal_path %><p>
 
                 <% else %>
+                <div class="form-group" >
                 <h4>ÉTALISSEMENT(S)</h4>
                   <% current_user.restaurants.each do |restaurant| %>
                     <p><%= restaurant.name.upcase %></p>
                     <%= image_tag restaurant.picture.url(:thumb), class: "img-thumbnail padding-btn-profil"  %>
-
-                      <%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil" %>
+                </div>
+                 <div class="form-group" >
+                    <%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil" %>
+                </div>
+                 <div class="form-group" >
                       <%= link_to "Ajouter un deal", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil" %>
+                </div>
 
                   <% end %>
                 <% end %>
@@ -36,18 +41,19 @@
         </div>
 
 
-
-          <div class="row" style="margin-top: 100px">
-            <div class="col-xs-12 col-md-6 text-center">
-              <div class="opacity">
-              <h1>Mes plats en ligne</h1>
-
+          <div class="row dashbord-restaurant">
+            <div class="col-xs-12 col-md-12 ">
+              <h4 class="text-center">VOS OFFRES EN COURS</h4>
                   <table class="table table-hover">
                     <thead>
                       <tr>
+                        <th>Début du deal</th>
+                        <th>Fin du deal</th>
                         <th>Désignation</th>
                         <th>Prix</th>
                         <th>Quantité</th>
+                        <th>Vendues</th>
+                        <th>Détail</th>
                         <th>Modifier</th>
                       </tr>
                     </thead>
@@ -55,55 +61,73 @@
                       <% restaurant.meals.each do |meal| %>
                         <tbody>
                             <tr>
-                              <td><strong><%= link_to meal.name, restaurant_meal_path(restaurant, meal), class: "style-table" %></strong></td>
-                              <td class="style-table"><%= number_to_currency(meal.price, :unit => "€") %></td>
-                              <td class="style-table"><%= meal.quantity %></td>
-                              <td class="style-table"><%= link_to image_tag("gants.png", size: "50x50", color:"grey"), edit_restaurant_meal_path(restaurant, meal) %></td>
+                              <td> <%= meal.starting_date %></td>
+                              <td> <%= meal.starting_date %></td>
+                              <td><%= meal.name %> </td>
+                              <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
+                              <td ><%= meal.quantity %></td>
+                              <td>  </td>
+                              <td> <%= link_to "Détail" ,restaurant_meal_path(restaurant, meal), class:"btn btn-primary" %> </td>
+                              <td ><%= link_to image_tag("gants.png", size: "50x50", color:"grey"), edit_restaurant_meal_path(restaurant, meal) %></td>
                             </tr>
                         </tbody>
                          <% end %>
                       <% end %>
                   </table>
-                </div>
+
             </div>
+          </div>
 
+          <div class="row dashbord-restaurant">
+            <div class="col-xs-12 col-md-12">
 
-            <div class="col-xs-12 col-md-6 text-center">
-              <div class="opacity">
-              <h1>Commandes </h1>
+              <h4 class="text-center">COMMANDES </h4>
                 <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>Date</th>
-                      <th>Item</th>
-                      <th>Status</th>
+                      <th>Désignation</th>
+                      <th>Quantité</th>
+                      <th>Prix total</th>
+                      <th>Commission</th>
+                      <th>A percevoir</th>
+                      <th>Nom client</th>
+                      <th>Prénom client</th>
+
                     </tr>
                   </thead>
                   <% current_user.orders.each do |order| %>
                   <tbody>
                     <tr>
                       <td class="style-table"><%= order.created_at.strftime("%Y-%m-%d") %></td>
-                      <td class="style-table">
+                      <td >
                         <ul class="list-unstyled">
                            <% order.order_meals.each do |order_meal| %>
                               <li><%= order_meal.meal.name %></li>
-                            <% end %>
+
                         </ul>
                       </td>
-                      <td class="style-table"><%= order.status %></td>
+                      <td> <%= order_meal.quantity %></td>
+                      <td> <%= order.total_price %> </td>
+                      <td > 20% </td>
+                      <td > 80% </td>
+                      <td > xx </td>
+                      <td > xxxxx </td>
                     </tr>
                   </tbody>
+                           <% end %>
                   <% end %>
                 </table>
-              </div>
+
             </div>
           </div>
+
 
 
         <% else %>
       <div class="spacer"></div>
       <div class="opacity">
-        <h1 class="text-center">Mes commandes</h1>
+        <h1 class="text-center">MON COMPTE</h1>
          <div class="row">
           <div class="col-md-6 col-md-offset-3">
              <table class="table table-hover">
