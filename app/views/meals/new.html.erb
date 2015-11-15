@@ -2,13 +2,13 @@
     <div class="container">
        <div class="row">
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-             <h3>Créer le repas repas que vous souhaitez mettre en ligne</h3>
+             <h3>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</h3>
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
+                <%= f.input :name, label: 'Nom',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
                 <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
                 <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
-                <%= f.input :quantity, label: 'Nombre de deal disponibles', :collection => (1..20), placeholder: 'ex: 2' %>
+                <%= f.input :quantity, label: 'Nombre de portions disponibles', :collection => (1..20), placeholder: 'ex: 2' %>
                 <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
                 <p> <strong> Horaires de retrait le midi </strong></p>
                   <ul class="list-inline">
