@@ -1,47 +1,37 @@
-<div class="banner-index">
-  <div class="filter"></div>
+<div id="body-container" >
+    <h2 class="text-center title-body" style="padding-top:20px; margin-top:0px" >VOS COMMANDES</h2>
 
-  <div class="cart--content" style="padding:1px">
-    <h1 class="text-center" style="position:relative; margin:50px">Vos commandes</h1>
+          <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 meal-index-search">
+                  <h3 class="text-left  title-body"> Commande #<%= @order.id %></h3>
+                    <% if @order_meals.exists? %>
+                      <% @order_meals.each do |order_meal| %>
+                      <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
+                        <p><%= order_meal.meal.name %> </p> <p><%= number_to_currency(order_meal.price, :unit => "€") %> </p> </div>
+                      <% end %>
+                    <% else %>
+                      <p>Votre panier est vide.</p>
+                    <% end %>
+                </div>
+              </div>
+            </div>
 
-      <div class="container" style="margin:30px">
-        <div class="row" style="position:relative;">
 
-        <h3 class="text-left"> Commande #<%= @order.id %></h3>
-          <% if @order_meals.exists? %>
-            <% @order_meals.each do |order_meal| %>
-            <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-              <p><%= order_meal.meal.name %> </p> <p><%= number_to_currency(order_meal.price, :unit => "€") %> </p> </div>
-            <% end %>
-          <% else %>
-            <p>Votre panier est vide.</p>
-          <% end %>
 
+                <div class="container text-center" id="price-box">
+                  <div class="row">
+                    <div style="margin:15px">
+                      <h3>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price, unit: "€") %></STRONG></h3>
+                    </div>
+                    <div style="margin:15px">
+                      <p class="btn btn-ajouter"><%= link_to "Ajouter une commande", meals_path %></p>
+                      <p class="btn btn-ajouter"><%= link_to "Valider et payer", new_cart_payment_path %></p>
+                    </div>
+              </div>
+           </div>
         </div>
-      </div>
-
-      <div class="container text-center">
-        <div class="row">
-
-          <div style="margin:15px">
-            <h3>Prix total de la commande : <STRONG><%= number_to_currency(@total_price, unit: "€") %></STRONG></h3>
-          </div>
-
-
-    <div style="margin:15px">
-
-      <p class="btn btn-ajouter"><%= link_to "Ajouter une commande", meals_path %></p>
-      <p class="btn btn-ajouter"><%= link_to "Valider et payer", new_cart_payment_path %></p>
-    </div>
-
-            <p><%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter" %></p>
-            <p ><%= link_to "Valider et payer", new_cart_payment_path,  class: "btn btn-ajouter"  %></p>
-          </div>
-
-        </div>
-      </div>
-
-  </div>
 </div>
+
 
 

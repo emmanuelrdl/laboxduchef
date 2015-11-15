@@ -5,13 +5,7 @@
  background-size: cover;
  background-repeat: no-repeat;
  background-position: left top;
- margin-top: 0px;
- height: 1000px;
- z-index: 0;
-
- /*display: flex;
- align-items: center;*/
- position: relative;
+ height: 1200px;
 
 }
 
@@ -20,12 +14,10 @@
 }
 
 .filter {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+
   width: 100%;
   background: rgba(0,0,0,0.4);
-  z-index: 0;
+
 
 }
 
@@ -36,35 +28,20 @@
 
 
 
-#presentation {
-
-  color:#FFFFFF;
-  padding-top: 40px;
-  margin-left:30px;
-
-
-
-
-  h1 {
-    margin-top: 0px;
-
-  }
-}
 
 
 .black-box {
 
-  width: 400px;
-  height: 400px;
+  width: 330px;
+  height: 440px;
   padding: 5px;
-
   background-color:black;
   opacity: 0.8;
 }
 
 #price_group {
 
-width: 300px;
+width: 200px;
 color:black;
 
 
@@ -72,7 +49,7 @@ color:black;
 
 #when_group {
 
-width: 300px;
+width: 200px;
 color:black;
 
 }
@@ -80,11 +57,11 @@ color:black;
 
 .filter-hiw {
 
-    position: absolute;
 
-    width: 100%;
-    background: rgba(255,240,240,0.4);
-    color:black;
+  position: relative;
+  width: 100%;
+  background: rgba(255,240,240,0.4);
+  color:black;
 
 }
 
