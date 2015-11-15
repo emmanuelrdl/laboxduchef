@@ -29,7 +29,8 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145506070",
   iban: "867676756757",
-  picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg"))
+  picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
+  confirmed: true
 
 )
 
@@ -43,7 +44,9 @@ coque_au_vin = les_saltimbanques.meals.create!(
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: false
+
 )
 
 proprio_le_blue_valentine = User.create!(
@@ -64,7 +67,8 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145678989",
   iban: "99797878678",
-  picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg"))
+  picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
+  confirmed: true
 
 )
 
@@ -78,7 +82,8 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true
 )
 
 proprio_astier = User.create!(
@@ -99,7 +104,8 @@ astier = proprio_astier.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145789056",
   iban: "97878679678676",
-  picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg"))
+  picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
+  confirmed: true
 
 )
 
@@ -113,7 +119,8 @@ poulet_basquaise = astier.meals.create!(
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true
 )
 
 

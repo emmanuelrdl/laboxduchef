@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user = current_user
+    @restaurant.confirmed = false
 
       if @restaurant.save
         redirect_to root_path

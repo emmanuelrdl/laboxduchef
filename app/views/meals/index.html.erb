@@ -3,7 +3,7 @@
       <div class="row ">
         <div class=" text-center col-xs-12 col-sm-12 meal-index-search">
               <%= form_tag('/meals', method: "get", class:"form-inline") do %>
-              <h3 class="text-center">RESERVEZ VOTRE BOX</h3>
+              <h3 class="text-center" style="margin-top:10px;">RESERVEZ VOTRE BOX</h3>
           <div class="text-center col-xs-6 col-sm-3">
              <div class="input-group">
                 <div class="form-group" id="form-field" >
@@ -20,7 +20,7 @@
                    </div>
             </div>
          </div>
-         <div class="text-center col-xs-6 col-sm-3">
+         <div class="text-center col-xs-12 col-sm-3">
             <div class="input-group">
                  <ul class="list-inline">
                     <li>
@@ -38,13 +38,18 @@
                   </ul>
               </div>
            </div>
-           <div class="text-center col-xs-6 col-sm-3">
+           <div class="text-center col-xs-12 col-sm-3 btn-search-position">
                <div class="input-group">
-                   <div class="form-group" >
+                 <ul class="list-inline">
+                    <li class="col-xs-6">
                       <%= button_tag(type: "submit", class: "btn btn-success") do %>
                       <h5>RECHERCHER</h5>
-                    </div>
-               </div>
+                    </li>
+                    <li class="col-xs-6">
+                      <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
+                    </li>
+                </ul>
+
                   <% end %>
               <% end %>
             </div>
@@ -56,6 +61,7 @@
           <div class="col-xs-12 col-sm-6" >
               <h3 class="title-body" id="text-meal-index">OFFRES EN COURS</h3>
             <% @meals.each do |meal| %>
+            <% if meal.active? %>
               <div class="col-xs-12 col-sm-6">
                 <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
                   <div class="card-filter card-bg">
@@ -72,7 +78,8 @@
 
                 </div>
               </div>
-            <%end%>
+            <% end -%>
+            <% end %>
 
           </div>
 
