@@ -48,7 +48,6 @@
                     <thead>
                       <tr>
                         <th>Début du deal</th>
-                        <th>Fin du deal</th>
                         <th>Désignation</th>
                         <th>Prix</th>
                         <th>Quantité</th>
@@ -61,7 +60,6 @@
                       <% restaurant.meals.each do |meal| %>
                         <tbody>
                             <tr>
-                              <td> <%= meal.starting_date %></td>
                               <td> <%= meal.starting_date %></td>
                               <td><%= meal.name %> </td>
                               <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
@@ -78,6 +76,8 @@
             </div>
           </div>
 
+
+
           <div class="row dashbord-restaurant">
             <div class="col-xs-12 col-md-12">
 
@@ -92,31 +92,24 @@
                       <th>Commission</th>
                       <th>A percevoir</th>
                       <th>Nom client</th>
-                      <th>Prénom client</th>
+
 
                     </tr>
                   </thead>
-                  <% current_user.orders.each do |order| %>
-                  <tbody>
+                    <tbody>
                     <tr>
-                      <td class="style-table"><%= order.created_at.strftime("%Y-%m-%d") %></td>
+                      <td class="style-table"/td>
                       <td >
-                        <ul class="list-unstyled">
-                           <% order.order_meals.each do |order_meal| %>
-                              <li><%= order_meal.meal.name %></li>
-
-                        </ul>
                       </td>
-                      <td> <%= order_meal.quantity %></td>
-                      <td> <%= order.total_price %> </td>
+                      <td> </td>
+                      <td>  </td>
                       <td > 20% </td>
                       <td > 80% </td>
-                      <td > xx </td>
                       <td > xxxxx </td>
                     </tr>
                   </tbody>
-                           <% end %>
-                  <% end %>
+
+
                 </table>
 
             </div>
@@ -125,16 +118,18 @@
 
 
         <% else %>
-      <div class="spacer"></div>
-      <div class="opacity">
-        <h1 class="text-center">MON COMPTE</h1>
+
+        <h1 class="text-center">MES DERNIÈRES COMMANDES</h1>
+
          <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <%= image_tag ("eating.png"), size:"50x50" %>
              <table class="table table-hover">
                     <thead>
                       <tr>
                         <th>Date</th>
-                        <th>Désignation</th>
+                        <th>Repas</th>
+                        <th>Restaurant</th>
                         <th>Quantité</th>
                         <th>Prix</th>
 
@@ -146,6 +141,7 @@
                               <tr>
                                 <td class="style-table"><%= order_meal.created_at.strftime("%Y-%m-%d") %></td>
                                 <td class="style-table"><%= order_meal.meal.name %></td>
+                                <td class="style-table"><%= order_meal.meal.restaurant.name %></td>
                                 <td class="style-table"><%= order_meal.quantity %></td>
                                 <td class="style-table"><%= number_to_currency(order_meal.price, :unit => "€") %></td>
                               </tr>
@@ -153,19 +149,18 @@
                          <% end %>
                       <% end %>
                 </table>
+                <h2><%= link_to "Commander ici", meals_path, class: "btn btn-success lg" %>
+                </h2>
            </div>
         </div>
       </div>
 
-          <div class="row">
-            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-              <h2><%= link_to "Commander ici", meals_path, class: "btn-book" %>
-              <%= image_tag ("eating.png"), size:"100x100" %></h2>
-            </div>
-          </div>
+
+
+
 
 
 
            <% end %>
-          </div>
+
 
