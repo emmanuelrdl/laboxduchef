@@ -1,5 +1,6 @@
 class Meal < ActiveRecord::Base
   belongs_to :restaurant
+  has_many :order_meals
 
   # validates :picture, presence: true
   # validates :name, presence: true
