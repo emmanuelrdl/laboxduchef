@@ -10,19 +10,19 @@ class MealsController < ApplicationController
   def index
     @meal = Meal.new
     @meals = Meal.all
-    when_group = params[:when_group].to_date
-     if when_group
-       @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
-     else
-      @meals = Meal.all.order('created_at DESC').page(params[:page])
-     end
-    price_group = params[:price_group].to_i
-    if price_group
+    # when_group = params[:when_group].to_date
+    #  if when_group
+    #    @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
+    #  else
+    #   @meals = Meal.all.order('created_at DESC').page(params[:page])
+    #  end
+    # price_group = params[:price_group].to_i
+    # if price_group
 
-      @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
-    else
-      @meals = Meal.all.order('created_at DESC').page(params[:page])
-    end
+    #   @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
+    # else
+    #   @meals = Meal.all.order('created_at DESC').page(params[:page])
+    # end
 
     # start_group = params[:start_time]
     # end_group = params[:end_time]
