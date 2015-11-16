@@ -10,7 +10,7 @@ class MealsController < ApplicationController
   def index
     @meal = Meal.new
     @meals = Meal.all
-<<<<<<< HEAD
+
     # when_group = params[:when_group].to_date
     # if when_group
     #   @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
@@ -53,8 +53,7 @@ class MealsController < ApplicationController
   end
 
   def update
-
-    @meal = @restaurant.meals.update(params_meal)
+    @meal.update(params_meal)
     if @meal.save
     redirect_to user_path(current_user)
     else
