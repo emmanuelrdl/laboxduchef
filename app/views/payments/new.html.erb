@@ -1,21 +1,28 @@
+<div id="body-container"  >
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 text-center" >
 
 
+          <%= form_tag cart_payments_path(@order) do %>
+            <article>
+              <label class="amount">
+                <span>Amount: <%= humanized_money_with_symbol(@amount) %></span>
+              </label>
+            </article>
 
-<%= form_tag cart_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@amount) %></span>
-    </label>
-  </article>
 
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Ma commande"
+              data-description="Teddy "
+              data-amount="<%= @order.amount %>"
+              amount_cents-currency="EUR"></script>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Ma commande"
-    data-description="Teddy "
-    data-amount="<%= @order.amount %>"
-    amount_cents-currency="EUR"></script>
-
-<% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
