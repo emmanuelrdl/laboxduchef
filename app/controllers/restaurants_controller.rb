@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
 
     @restaurant.update(params_restaurant)
     if @restaurant.save
-    redirect_to restaurants_path #provisoire,à rediriger
+    redirect_to user_path(current_user)
     else
     render :edit
     end
