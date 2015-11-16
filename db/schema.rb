@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115215808) do
+ActiveRecord::Schema.define(version: 20151116103323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20151115215808) do
   create_table "meals", force: :cascade do |t|
     t.string   "picture"
     t.string   "name"
-    t.float    "price"
     t.integer  "quantity"
     t.text     "description"
     t.integer  "restaurant_id"
@@ -28,8 +27,8 @@ ActiveRecord::Schema.define(version: 20151115215808) do
     t.time     "take_away_evening_starts_at"
     t.time     "take_away_noon_ends_at"
     t.time     "take_away_evening_ends_at"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -37,6 +36,8 @@ ActiveRecord::Schema.define(version: 20151115215808) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "active"
+    t.string   "sku"
+    t.integer  "price_cents",                 default: 0, null: false
   end
 
   add_index "meals", ["restaurant_id"], name: "index_meals_on_restaurant_id", using: :btree
@@ -54,11 +55,13 @@ ActiveRecord::Schema.define(version: 20151115215808) do
   add_index "order_meals", ["order_id"], name: "index_order_meals_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.float    "total_price"
     t.integer  "user_id"
     t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "amount_cents", default: 0, null: false
+    t.string   "meal_sku"
+    t.json     "payement"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

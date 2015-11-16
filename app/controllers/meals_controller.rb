@@ -18,7 +18,7 @@ class MealsController < ApplicationController
     end
     price_group = params[:price_group].to_i
     if price_group
-      @meals = @meals.where("price <= ?", price_group).order("created_at DESC")
+      @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
     else
       @meals = Meal.all.order('created_at DESC').page(params[:page])
     end
