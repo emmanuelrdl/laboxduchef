@@ -24,7 +24,7 @@
                 <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                <% else %>
                  <% current_user.restaurants.each do |restaurant| %>
-                  <li><%= link_to "AJOUTER UN DEAL", new_restaurant_meal_path(restaurant) %> </li>
+                  <li><%= link_to "AJOUTER UN DEAL", new_restaurant_path(restaurant) %> </li>
                   <% end -%>
                   <li><%= link_to "TABLEAU DE BORD", user_path(current_user) %> </li>
                   <li> <%= link_to "FONCTIONNEMENT", "#" %></li>

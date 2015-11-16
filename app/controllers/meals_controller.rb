@@ -10,6 +10,7 @@ class MealsController < ApplicationController
   def index
     @meal = Meal.new
     @meals = Meal.all
+<<<<<<< HEAD
     # when_group = params[:when_group].to_date
     # if when_group
     #   @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
@@ -22,6 +23,7 @@ class MealsController < ApplicationController
     # else
     #   @meals = Meal.all.order('created_at DESC').page(params[:page])
     # end
+
     # start_group = params[:start_time]
     # end_group = params[:end_time]
     # start_time = params[:start]["{:prefix=>:start_date}(4i)"] +":"+ params[:start]["{:prefix=>:start_date}(5i)"]+":00 UTC"
