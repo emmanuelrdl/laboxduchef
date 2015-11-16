@@ -1,7 +1,21 @@
-<h1>Paiement commande</h1>
 
-Prix total de la commande : <%= number_to_currency(@total_price, unit: "€") %>
 
-<%= form_tag cart_payments_path, method: :post do %>
-  <%= submit_tag "Payer", class: "btn btn-primary" %>
+
+<%= form_tag cart_payments_path(@order) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@amount) %></span>
+    </label>
+  </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="Ma commande"
+    data-description="Teddy "
+    data-amount="<%= @order.amount %>"
+    amount_cents-currency="EUR"></script>
+
 <% end %>
+
+

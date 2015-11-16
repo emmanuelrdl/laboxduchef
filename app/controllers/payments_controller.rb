@@ -3,21 +3,33 @@ class PaymentsController < ApplicationController
   before_action :check_order
 
   def new
-    @total_price = current_order.order_meals.sum(:price)
+    @amount = @order.amount
   end
 
   def create
-    # FUTURE: stripe charge creation here
+    @amount = @order.amount_cents
 
-    current_order.status = "paid"
+    customer = Stripe::Customer.create(
+      source: params[:stripeToken],
+      email: params[:stripeEmail]
+    )
 
-    if current_order.save
-      flash[:notice] = "Commande effectuée avec succès."
-      redirect_to order_path(current_order)
-    else
-      flash[:alert] = "Nous ne parvenons pas à effectuer le paiement."
-      redirect_to new_cart_payment_path
-    end
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount:       @amount,  # in cents
+      description:  "Payment for teddy  for order ",
+      currency:     'eur'
+    )
+
+    @order ||= current_user.orders.where(status: "cart").first_or_create
+    @order.update(payment: charge.to_json, status: 'paid')
+
+    rescue Stripe::CardError => e
+
+    flash[:error] = e.message
+
+    @order = current_user.orders.where(status: "paid")
+    redirect_to orders_path
   end
 
   private
@@ -30,6 +42,6 @@ class PaymentsController < ApplicationController
   end
 
   def current_order
-    @order ||= current_user.orders.where(status: "cart").first
+    @order = current_user.orders.where(status: "cart").first_or_create
   end
 end

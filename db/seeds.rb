@@ -34,7 +34,7 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
 )
 
 coque_au_vin = les_saltimbanques.meals.create!(
-  price: 5.50,
+  price: 6,
   name: "Coq au vin",
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
@@ -72,7 +72,7 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
 )
 
 boeuf_bourguignon = le_blue_valentine.meals.create!(
-  price: 5.50,
+  price: 10,
   name: "Boeuf Bourguignon",
   quantity: 12,
   description: "Viande de boeuf mijoté au vin et aux légumes",

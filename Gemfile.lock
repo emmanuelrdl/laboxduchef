@@ -82,6 +82,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-i18n (0.12.1)
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     faraday (0.9.2)
@@ -95,6 +97,8 @@ GEM
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
     hashie (3.4.3)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -133,6 +137,7 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    netrc (0.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -210,6 +215,10 @@ GEM
     rake (10.4.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -228,6 +237,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    stripe (1.31.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -236,6 +248,9 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -249,6 +264,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails
+  coffee-script
   devise
   devise-i18n
   figaro
@@ -275,6 +291,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   simple_form
   spring
+  stripe
   uglifier
 
 BUNDLED WITH
