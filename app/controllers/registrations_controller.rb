@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     if resource.restaurant_owner
-      new_restaurant_path
+      root_path
     else
       root_path
     end
