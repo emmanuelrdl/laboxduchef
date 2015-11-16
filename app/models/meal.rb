@@ -24,6 +24,7 @@ class Meal < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+  monetize :price_cents
 
 
 

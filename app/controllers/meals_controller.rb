@@ -18,10 +18,12 @@ class MealsController < ApplicationController
      end
     price_group = params[:price_group].to_i
     if price_group
-       @meals = @meals.where("price <= ?", price_group).order("created_at DESC")
-     else
-       @meals = Meal.all.order('created_at DESC').page(params[:page])
-     end
+
+      @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
+    else
+      @meals = Meal.all.order('created_at DESC').page(params[:page])
+    end
+
     # start_group = params[:start_time]
     # end_group = params[:end_time]
     # start_time = params[:start]["{:prefix=>:start_date}(4i)"] +":"+ params[:start]["{:prefix=>:start_date}(5i)"]+":00 UTC"
