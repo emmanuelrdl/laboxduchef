@@ -91,6 +91,9 @@ GEM
     font-awesome-sass (4.4.0)
       sass (>= 3.2)
     geocoder (1.2.12)
+    gibbon (2.1.2)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -254,6 +257,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   geocoder
+  gibbon
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
