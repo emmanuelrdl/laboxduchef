@@ -29,9 +29,8 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145506070",
   iban: "867676756757",
-  picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
   confirmed: true
-
 )
 
 coque_au_vin = les_saltimbanques.meals.create!(
@@ -39,7 +38,7 @@ coque_au_vin = les_saltimbanques.meals.create!(
   name: "Coq au vin",
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
-  picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
@@ -67,7 +66,7 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145678989",
   iban: "99797878678",
-  picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
   confirmed: true
 
 )
@@ -77,7 +76,7 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   name: "Boeuf Bourguignon",
   quantity: 12,
   description: "Viande de boeuf mijoté au vin et aux légumes",
-  picture: File.open(Rails.root.join("db/seeds/pictures/bourguignon.jpg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/bourguignon.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
@@ -104,7 +103,7 @@ astier = proprio_astier.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145789056",
   iban: "97878679678676",
-  picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
   confirmed: true
 
 )
@@ -114,7 +113,7 @@ poulet_basquaise = astier.meals.create!(
   name: "Poulet Basquaise",
   quantity: 12,
   description: "Poulet poivrons rouges et sauce piquante accompagné de riz",
-  picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
+  # picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,

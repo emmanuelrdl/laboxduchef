@@ -60,7 +60,7 @@
                       <% restaurant.meals.each do |meal| %>
                         <tbody>
                             <tr>
-                              <td> <%= meal.starting_date %></td>
+                              <td><%= meal.starting_date %></td>
                               <td><%= meal.name %> </td>
                               <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
                               <td ><%= meal.quantity %></td>
@@ -96,18 +96,26 @@
 
                     </tr>
                   </thead>
+                   <% current_user.restaurants.each do |restaurant| %>
+                      <% restaurant.meals.each do |meal| %>
+                        <% meal.order_meals.each do |order_meal| %>
                     <tbody>
                     <tr>
                       <td class="style-table"/td>
                       <td >
                       </td>
-                      <td> </td>
-                      <td>  </td>
-                      <td > 20% </td>
-                      <td > 80% </td>
-                      <td > xxxxx </td>
+                      <td><%= order.created_at %></td>
+                      <td><%= order.id %></td>
+                      <td><%= order.order_meals.count.to_i %></td>
+                      <td><%= order.total_price %></td>
+                      <td><%= (order.total_price) * 0.20 %></td>
+                      <td><%= (order.total_price) * 0.80 %></td>
+                      <td><%= order.user.last_name %></td>
                     </tr>
                   </tbody>
+                    <% end %>
+                  <% end %>
+                <% end %>
 
 
                 </table>
