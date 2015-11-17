@@ -23,9 +23,7 @@ class RestaurantsController < ApplicationController
     #   render :new
     # end
 
-<<<<<<< HEAD
-
-    @restaurant = current_user.restaurants.build(params_restaurant)
+@restaurant = current_user.restaurants.build(params_restaurant)
 
     if @restaurant.save
       RestaurantMailer.creation_confirmation(@restaurant).deliver_now
@@ -33,17 +31,6 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
-=======
-    # @restaurant = current_user.restaurants.build(params_restaurant)
-
-    # if @restaurant.save
-    #   # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
-    #   redirect_to restaurant_path(@restaurant)
-    # else
-    #   render :new
-    # end
-
->>>>>>> master
   end
 
 
@@ -54,7 +41,7 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant.user = current_user
-    current_user.@restaurant.update(params_restaurant)
+    current_user.restaurant.update(params_restaurant)
     if @restaurant.save
     redirect_to user_path(current_user)
     else
