@@ -5,6 +5,8 @@
 
 
           <%= form_tag cart_payments_path(@order) do %>
+
+
             <article>
               <label class="amount">
                 <span>Amount: <%= humanized_money_with_symbol(@amount) %></span>
@@ -18,6 +20,8 @@
               data-description="Teddy "
               data-amount="<%= @order.amount %>"
               amount_cents-currency="EUR"></script>
+
+
 
           <% end %>
       </div>
