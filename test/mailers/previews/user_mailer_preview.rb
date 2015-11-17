@@ -1,10 +1,13 @@
 class UserMailerPreview < ActionMailer::Preview
-  def welcome
-    if current_user.restaurant_owner
-      restaurant = Restaurant.first
-      RestaurantMailer.welcome(restaurant)
-    else
-      user = User.first
-      UserMailer.welcome(user)
+
+  def welcome_owner
+    user = User.first
+    UserMailer.welcome_owner(user)
   end
+
+  def welcome_customer
+    user = User.first
+    UserMailer.welcome_customer(user)
+  end
+
 end
