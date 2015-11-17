@@ -12,12 +12,14 @@
         <%= f.input :password, label: "Mot de passe", required: false %>
         <%= f.input :remember_me, label:"Mémoriser le mot de passe", as: :boolean if devise_mapping.rememberable? %>
       </div>
-
+      <%= link_to "Mot de passe oublié", new_user_password_path %>
       <div class="form-actions">
         <%= f.button :submit, "Valider", class: "btn btn-primary"%>
       </div>
+
     <% end %>
     </div>
+
 
     </div>
     </div>

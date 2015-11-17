@@ -25,7 +25,8 @@
   end
 
   resources :orders,  only: [:show, :create]
-  resources :users,   only: :show
+  resources :users,   only: [:show]
+
 
 
 
