@@ -4,12 +4,15 @@ class CartController < ApplicationController
 
   def show
     @order_meals = current_order.order_meals
-    @total_price = @order_meals.sum(:price)
+    @total_price = @order_meals.sum(:price_cents)
+
   end
 
   private
 
   def current_order
-    @order ||= current_user.orders.where(status: "cart").first_or_create
+
+  @order ||= current_user.orders.where(status: "cart").first_or_create
+
   end
 end

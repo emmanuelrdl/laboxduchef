@@ -2,15 +2,17 @@
 class OrdersController < ApplicationController
   def show
     @order = current_user.orders.where(status: "paid").find(params[:id])
-
-
     @order_meal = OrderMeal.find(params[:meal_id][:order_id])
 
     end
 
-  def create
+  def update
 
+    @order = current_user.orders.where(status: "cart").find(params[:id])
+    @order_meal = OrderMeal.find(params[:meal_id][:order_id])
+    order = Order.update!(meal_sku: @meal.sku, amount: @order_meal.price, status: 'pending')
 
+    redirect_to new_order_payment_path(order)
 
   end
 

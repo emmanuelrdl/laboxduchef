@@ -21,12 +21,16 @@ gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 gem "pundit"
 gem 'money-rails'
+gem 'stripe'
+gem 'coffee-script'
 
 gem 'kaminari'
 gem "geocoder"
 
 gem "coffee-rails"
 gem "gmaps4rails"
+
+gem 'gibbon'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
