@@ -1,11 +1,15 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_order
+  # before_action :set_order_meal, only: [:new]
 
   def new
-    @amount = @order.amount
+    # @order = current_user.orders.where(status: "cart")
+    @order_meals = @order.order_meals
 
+    @amount = @order.amount
   end
+
 
   def create
     @amount = @order.amount_cents
@@ -54,4 +58,13 @@ class PaymentsController < ApplicationController
   def current_order
     @order = current_user.orders.where(status: "cart").first_or_create
   end
+
+  # def set_order_meal
+  #   @restaurant = OrderMeal.find(params[:meal_id][:quantity])
+  # end
+
+  def params_order_meal
+    params.require(:order_meal).permit(:meal_id, :quantity, :order_id)
+  end
+
 end

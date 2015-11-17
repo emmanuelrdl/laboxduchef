@@ -6,9 +6,9 @@
               <h3 class="text-center" style="margin-top:10px;">RESERVEZ VOTRE BOX</h3>
           <div class="text-center col-xs-6 col-sm-3">
              <div class="input-group">
-                <div class="form-group" id="form-field" >
+                <div class="form-group" id="form-field">
                   <h4>Mon budget</h4>
-                  <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["Jusqu'à 10 €",10 ], ["Jusqu'à 15 €",15 ]])  %>
+                    <%= select_tag :price_group, options_for_select([["0 à 5 €", 5],["Jusqu'à 10 €",10 ], ["Jusqu'à 15 €",15 ]]) %>
                  </div>
               </div>
             </div>
@@ -20,7 +20,7 @@
                    </div>
             </div>
          </div>
-         <div class="text-center col-xs-12 col-sm-3">
+         <div class="text-center col-xs-12 col-xs-offset-1 col-sm-3">
             <div class="input-group">
                  <ul class="list-inline">
                     <li>
@@ -42,13 +42,13 @@
                <div class="input-group">
                  <ul class="list-inline">
                     <li class="col-xs-6">
-                      <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                      <%= button_tag(type: "submit", class: "btn btn-success", style: " border-radius: 4px") do %>
                       <h5>RECHERCHER</h5>
                     </li>
                     <li class="col-xs-6">
                       <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
                     </li>
-                </ul>
+                 </ul>
 
                   <% end %>
               <% end %>
