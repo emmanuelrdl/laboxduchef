@@ -21,8 +21,18 @@ class PaymentsController < ApplicationController
       currency:     'eur'
     )
 
-    @order ||= current_user.orders.where(status: "cart").first_or_create
+    @current_user ||= order.orders.where(status: "cart").first_or_create
     @order.update(payment: charge.to_json, status: 'paid')
+    @initial_stock = @order.order_meals.first.meal.stock
+    # @new_stock = @initial_stock - @order.order_meals.first.quantity
+    # @order.order_meals.first.meal.stock = @new_stock
+    @order_meals = @order.order_meals
+    @order_meals.each do |order_meal|
+      order_meal.meal.stock -= order_meal.quantity
+      order_meal.meal.save
+    end
+
+
 
     rescue Stripe::CardError => e
 
