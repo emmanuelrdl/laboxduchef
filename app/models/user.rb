@@ -9,12 +9,14 @@ class User < ActiveRecord::Base
   has_many :restaurants
   has_many :orders
 
-  # has_attached_file :picture,
-  #   styles: { medium: "300x300>", thumb: "100x100>" }
-  after_create :send_welcome_email
-  after_create :subscribe_to_newsletter
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture,
+  content_type: /\Aimage\/.*\z/
 
-  private
+  # after_create :send_welcome_email
+  # after_create :subscribe_to_newsletter
+
 
   def send_welcome_email
     if self.restaurant_owner?
@@ -24,12 +26,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  # private
 
-  def subscribe_to_newsletter
-    # binding.pry
-    SubscribeToNewsletter.new(self).run
-  end
-  # validates_attachment_content_type :picture,
-  #   content_type: /\Aimage\/.*\z/
+
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
+
+
+  # def subscribe_to_newsletter
+  #   # binding.pry
+  #   SubscribeToNewsletter.new(self).run
+  # end
+
 end
-

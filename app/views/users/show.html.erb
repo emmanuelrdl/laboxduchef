@@ -40,10 +40,10 @@
             </div>
         </div>
 
-
-          <div class="row dashbord-restaurant">
+        <div class="row dashbord-restaurant">
             <div class="col-xs-12 col-md-12 ">
               <h4 class="text-center">VOS OFFRES EN COURS</h4>
+
                   <table class="table table-hover">
                     <thead>
                       <tr>
@@ -60,7 +60,7 @@
                       <% restaurant.meals.each do |meal| %>
                         <tbody>
                             <tr>
-                              <td> <%= meal.starting_date %></td>
+                              <td><%= meal.starting_date %></td>
                               <td><%= meal.name %> </td>
                               <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
                               <td ><%= meal.quantity %></td>
@@ -86,8 +86,8 @@
                   <thead>
                     <tr>
                       <th>Date</th>
+                      <th>Référence commande</th>
                       <th>Désignation</th>
-                      <th>Quantité</th>
                       <th>Prix total</th>
                       <th>Commission</th>
                       <th>A percevoir</th>
@@ -96,18 +96,23 @@
 
                     </tr>
                   </thead>
-                    <tbody>
-                    <tr>
-                      <td class="style-table"/td>
-                      <td >
-                      </td>
-                      <td> </td>
-                      <td>  </td>
-                      <td > 20% </td>
-                      <td > 80% </td>
-                      <td > xxxxx </td>
-                    </tr>
-                  </tbody>
+                   <% current_user.restaurants.each do |restaurant| %>
+                      <% restaurant.meals.each do |meal| %>
+                        <% meal.order_meals.each do |order_meal| %>
+                          <tbody>
+                          <tr>
+                            <td><%= order_meal.created_at.strftime("%Y-%m-%d") %></td>
+                            <td><%= order_meal.order.id %></td>
+                            <td><%= order_meal.meal.name %></td>
+                            <td><%= order_meal.meal.price %></td>
+                            <td><%= order_meal.meal.price * 0.20 %></td>
+                            <td><%= order_meal.meal.price * 0.80 %></td>
+                            <td><%= order_meal.order.user.last_name %></td>
+                          </tr>
+                        </tbody>
+                      <% end %>
+                    <% end %>
+                  <% end %>
 
 
                 </table>
