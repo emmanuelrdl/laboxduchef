@@ -9,7 +9,7 @@ class MealsController < ApplicationController
 
   def index
     @meal = Meal.new
-    @meals = Meal.all
+    @meals = Meal.all.page(params[:page])
     # when_group = params[:when_group].to_date
     #  if when_group
     #    @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")

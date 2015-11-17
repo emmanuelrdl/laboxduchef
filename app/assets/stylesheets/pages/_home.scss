@@ -31,12 +31,12 @@
 
 
 .black-box {
-
   width: 305px;
   height: 430px;
   padding: 5px;
   background-color:black;
   opacity: 0.8;
+  text-align: center;
 }
 
 #price_group {
@@ -71,4 +71,9 @@ color:black;
     width: 100%;
     background: rgba(0,0,0,0.4);
 
+}
+
+#banner {
+  display: flex;
+  justify-content: center;
 }
