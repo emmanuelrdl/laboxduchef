@@ -18,7 +18,7 @@
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-name="Ma commande"
               data-description="Teddy "
-              data-amount="<%= @order.amount %>"
+              data-amount="<%= @order.amount_cents %>"
               amount_cents-currency="EUR"></script>
 
 

@@ -16,7 +16,6 @@ class OrderMealsController < ApplicationController
     @order_meal.order = current_order
     @order_meal.save
     if  @order.order_meals.count(params[:id]) == 1
-        raise
          @order.amount = @order_meal.price
       else
          @order.amount += @order_meal.price
