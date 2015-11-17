@@ -41,7 +41,7 @@ coque_au_vin = les_saltimbanques.meals.create!(
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
-  starting_date: Date.current,
+  starting_date: Date.today - 2,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,

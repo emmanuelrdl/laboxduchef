@@ -23,6 +23,7 @@ gem "pundit"
 gem 'money-rails'
 gem 'stripe'
 gem 'coffee-script'
+gem 'whenever', :require => false
 
 gem 'kaminari'
 gem "geocoder"
