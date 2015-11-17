@@ -17,7 +17,11 @@ class User < ActiveRecord::Base
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    if self.restaurant_owner?
+      UserMailer.welcome_owner(self).deliver_now
+    else
+      UserMailer.welcome_customer(self).deliver_now
+    end
   end
 
 
