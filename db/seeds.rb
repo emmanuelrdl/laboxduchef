@@ -46,7 +46,8 @@ coque_au_vin = les_saltimbanques.meals.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
-  active: false
+  active: false,
+  stock: 12
 
 )
 
@@ -84,7 +85,8 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
-  active: true
+  active: true,
+  stock: 12
 )
 
 proprio_astier = User.create!(
@@ -121,7 +123,8 @@ poulet_basquaise = astier.meals.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
-  active: true
+  active: true,
+  stock: 12
 )
 
 
