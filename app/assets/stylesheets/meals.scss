@@ -1,10 +1,12 @@
 .btn-search-size {
 
-  height:54px;
+  height:53px;
   width: 120px;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
   text-align: center;
   padding-top: 14px;
+  border-radius: 4px;
 }
 
 .btn-search-position {
@@ -36,11 +38,9 @@ background: rgba(70,70,70,0.6);
   }
 
 #card-price-position {
-
-
   font-size: 22px;
-  padding-left: 190px;
-  padding-top: 130px;
+  padding: auto;
+  margin:auto;
 
 }
 

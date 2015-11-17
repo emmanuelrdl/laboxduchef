@@ -1,15 +1,35 @@
 <div id="body-container"  >
   <div class="container">
-    <div class="row">
+    <div class="row" style="margin:20px">
       <div class="col-xs-12 col-md-12 text-center" >
 
+        <div class="container" style="width:300px">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="text-left">Qté</th>
+                <th>Nom du meal</th>
+                <th class="text-center">Prix</th>
+              </tr>
+            </thead>
+                <% @order.order_meals.each do |order_meal| %>
 
-          <%= form_tag cart_payments_path(@order) do %>
+              <tbody>
+                  <tr>
+                    <td><%= order_meal.quantity %></td>
+                    <td  class="text-left"><%= order_meal.meal.name %></td>
+                    <td><%= order_meal.price %></td>
+              </tbody>
+            <% end %>
+          </table>
+        </div>
 
+        <%= form_tag cart_payments_path(@order) do %>
 
+        <div class="thumbnail col-xs-12 col-sm-12" style="margin:auto; border-radius:3px">
             <article>
-              <label class="amount">
-                <span>Amount: <%= humanized_money_with_symbol(@amount) %></span>
+              <label class="amount" style="padding:10px">
+                <span>Total Amount = <%= humanized_money_with_symbol(@amount) %></span>
               </label>
             </article>
 
@@ -21,9 +41,9 @@
               data-amount="<%= @order.amount_cents %>"
               amount_cents-currency="EUR"></script>
 
-
-
           <% end %>
+        </div>
+
       </div>
     </div>
   </div>
