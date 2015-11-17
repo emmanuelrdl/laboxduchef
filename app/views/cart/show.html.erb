@@ -8,7 +8,7 @@
                     <% if @order_meals.exists? %>
                       <% @order_meals.each do |order_meal| %>
                       <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-                        <p><%= order_meal.meal.name %> </p> <p><%= number_to_currency(order_meal.price, :unit => "€") %> </p> </div>
+                        <p><%= order_meal.meal.name %> </p> <p><%= order_meal.price * 100 %> </p> </div>
                       <% end %>
                     <% else %>
                       <p>Votre panier est vide.</p>

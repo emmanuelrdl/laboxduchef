@@ -21,6 +21,8 @@ gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 gem "pundit"
 gem 'money-rails'
+gem 'stripe'
+gem 'coffee-script'
 
 gem 'kaminari'
 gem "geocoder"

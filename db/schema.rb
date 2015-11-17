@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116103323) do
+ActiveRecord::Schema.define(version: 20151116152203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20151116103323) do
   create_table "order_meals", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "meal_id"
-    t.float    "price"
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "price_cents", default: 0, null: false
   end
 
   add_index "order_meals", ["meal_id"], name: "index_order_meals_on_meal_id", using: :btree
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20151116103323) do
     t.datetime "updated_at",               null: false
     t.integer  "amount_cents", default: 0, null: false
     t.string   "meal_sku"
-    t.json     "payement"
+    t.json     "payment"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
