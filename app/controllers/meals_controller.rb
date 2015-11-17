@@ -71,6 +71,7 @@ class MealsController < ApplicationController
   def create
     @meal = @restaurant.meals.create(params_meal)
     @meal.active = true
+    @meal.stock = @meal.quantity
     if @meal.save
       redirect_to user_path(current_user)
     else
@@ -88,6 +89,9 @@ class MealsController < ApplicationController
       render :destroy
     end
   end
+
+
+
 
   private
 
