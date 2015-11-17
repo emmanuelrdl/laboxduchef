@@ -23,6 +23,7 @@ class RestaurantsController < ApplicationController
     #   render :new
     # end
 
+<<<<<<< HEAD
 
     @restaurant = current_user.restaurants.build(params_restaurant)
 
@@ -32,6 +33,17 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
+=======
+    # @restaurant = current_user.restaurants.build(params_restaurant)
+
+    # if @restaurant.save
+    #   # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+    #   redirect_to restaurant_path(@restaurant)
+    # else
+    #   render :new
+    # end
+
+>>>>>>> master
   end
 
 

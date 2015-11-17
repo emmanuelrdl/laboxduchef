@@ -15,12 +15,12 @@ class OrderMealsController < ApplicationController
     @order_meal.price = @meal.price * @order_meal.quantity
     @order_meal.order = current_order
     @order_meal.save
-    orders_number = @order.order_meals(params[:id])
-      if orders_number.count = 1
-         @order.amount = price
+    if  @order.order_meals.count(params[:id]) == 1
+         @order.amount = @order_meal.price
       else
-         @order.amount += price
+         @order.amount += @order_meal.price
       end
+    @order.save
     redirect_to cart_path
   end
 
