@@ -127,7 +127,20 @@ poulet_basquaise = astier.meals.create!(
   stock: 12
 )
 
-
+gratin = astier.meals.create!(
+  price: 4.50,
+  name: "Gratin dauphinois",
+  quantity: 12,
+  description: "Pomme de terre au four et crème fraiche",
+  picture: File.open(Rails.root.join("db/seeds/pictures/gratin.jpeg")),
+  starting_date: Date.current,
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true,
+  stock: 8
+)
 
 
 
