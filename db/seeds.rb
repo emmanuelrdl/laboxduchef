@@ -41,15 +41,32 @@ coque_au_vin = les_saltimbanques.meals.create!(
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
+  starting_date: Date.today - 2,
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true,
+  stock: 12
+
+)
+
+hachis = les_saltimbanques.meals.create!(
+  price: 7,
+  name: "Hachis Parmentier",
+  quantity: 7,
+  description: "Bonne viande de boeuf et pommes de terre du jardin",
+  picture: File.open(Rails.root.join("db/seeds/pictures/hachis-parmentier.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
-  active: false,
+  active: true,
   stock: 12
 
 )
+
 
 proprio_le_blue_valentine = User.create!(
   first_name: "Marie",
@@ -88,6 +105,40 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   active: true,
   stock: 12
 )
+
+
+choucroute = le_blue_valentine.meals.create!(
+  price: 5,
+  name: "Choucroute ",
+  quantity: 12,
+  description: "Viande de boeuf mijoté au vin et aux légumes",
+  picture: File.open(Rails.root.join("db/seeds/pictures/choucroute.jpg")),
+  starting_date: Date.current,
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true,
+  stock: 12
+)
+
+tomates = le_blue_valentine.meals.create!(
+  price: 5.5,
+  name: "Tomates farcies",
+  quantity: 12,
+  description: "Bonnes tomates farcies accompagnées de riz basmati",
+  picture: File.open(Rails.root.join("db/seeds/pictures/tomates.jpg")),
+  starting_date: Date.current,
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true,
+  stock: 12
+)
+
+
+
 
 proprio_astier = User.create!(
   first_name: "Jean",
