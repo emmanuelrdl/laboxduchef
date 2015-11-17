@@ -23,4 +23,7 @@ class Meal < ActiveRecord::Base
 
   monetize :price_cents
 
+
+
+
 end
