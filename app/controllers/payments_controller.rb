@@ -4,11 +4,11 @@ class PaymentsController < ApplicationController
 
   def new
     @amount = @order.amount
+
   end
 
   def create
-    @amount = @order.amount
-
+    @amount = @order.amount_cents
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email: params[:stripeEmail]
