@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :phone_number, numericality: true, length:{ is: 10 }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   has_many :restaurants
   has_many :orders

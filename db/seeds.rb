@@ -11,6 +11,21 @@ Restaurant.destroy_all
 User.destroy_all
 
 
+
+
+emmanuel = User.create!(
+  first_name: "Emmanuel",
+  last_name: "Rudelle",
+  phone_number: "0145506070",
+  restaurant_owner: false,
+  email: "eml.rudelle@gmail.com",
+  password: "password",
+  password_confirmation: "password",
+
+)
+
+
+
 proprio_les_saltimbanques= User.create!(
   first_name: "Melanie",
   last_name: "Laurent",
