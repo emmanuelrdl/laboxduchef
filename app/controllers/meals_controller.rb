@@ -11,18 +11,15 @@ class MealsController < ApplicationController
     @meal = Meal.new
     @meals = Meal.all.page(params[:page])
 
-    when_group = params[:when_group].to_date
-     if when_group
-       @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
-     else
-      @meals = Meal.all.order('created_at DESC').page(params[:page])
-     end
+    when_group = params[:when_group]
+
+    if when_group
+      @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
+    end
 
     price_group = params[:price_group]
     if price_group
       @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
-    else
-      @meals = Meal.all.order('created_at DESC').page(params[:page])
     end
 
     # start_group = params[:start_time]
