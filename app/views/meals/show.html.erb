@@ -13,7 +13,7 @@
             <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
               <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
               <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-              <%= f.submit :reserver, class: "btn btn-success lg " %>
+              <%= f.submit :reserver, class: "btn btn-reserver lg " %>
             <% end %>
           </div>
 
@@ -42,10 +42,14 @@
           <%= javascript_tag do %>
             $(document).on('ready', function() {
               handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
+
+              handler.buildMap({
+                provider: { maxZoom: 16},
+                internal: { id: 'map' } }, function(){
+
                 markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
                 handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
+                handler.fitMapToBounds().getMap();
               });
             })
           <% end %>
