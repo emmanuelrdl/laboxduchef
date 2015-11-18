@@ -1,64 +1,56 @@
 <div id="body-container" >
-    <h2 class="text-center title-body" style="margin-top:0px; padding-top:20px" >VOS COMMANDES</h2>
+  <h2 class="text-center title-body" style="margin-top:0px; padding-top:20px" >VOS COMMANDES</h2>
 
+    <div class="row">
+      <div class="container">
+        <div class="meal-index-search col-xs-12 text-center" style=" border-radius:3px">
 
-          <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-sm-offset-2 meal-index-search text-center" style="border-radius:3px">
-                  <h3 class="text-center"> Commande #<%= @order.id %></h3>
-                    <% if @order_meals.exists? %>
-                      <% @order_meals.each do |order_meal| %>
-                      <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-                        <p id="card-name-position"><%= order_meal.meal.name.upcase %> </p>
-                        <p id="card-price-position" ><%= order_meal.price.format %> </p>
-                      </div>
-                        <% end %>
-                        <div class="col-xs-12 col-sm-12" style="margin:15px">
-                           <div class="input-group">
-                              <div style="margin:1px">
+          <h3 class="text-center"> Commande #<%= @order.id %></h3>
+            <% if @order_meals.exists? %>
+              <% @order_meals.each do |order_meal| %>
 
-                              <%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter btn-sm" %>
+                <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
+                  <p id="card-name-position"><%= order_meal.meal.name.upcase %> </p>
+                  <p id="card-price-position" ><%= order_meal.price.format %> </p>
+                </div>
+              <% end %>
+              <div class="col-xs-12" style="margin:15px">
+                <div style="margin:1px">
 
-                              <%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning btn-sm", style: "border-radius:3px;padding:5.5px;margin:1px"%>
+                <%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter btn-sm" %>
 
-                              </div>
-                            </div>
-                        </div>
-
-                    <% else %>
-
-                      <p>Votre panier est vide.</p>
-
-                       <div class="input-group">
-                              <div style="margin: 10px"><%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter btn-sm" %></div>
-                        </div>
-
-
-
-                    <% end %>
-
+                <%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning btn-sm", style: "border-radius:3px;padding:5.5px;margin:1px"%>
 
                 </div>
               </div>
-            </div>
+            <% else %>
+
+              <p>Votre panier est vide.</p>
 
 
-
-                <div class="container text-center" id="price-box">
-                  <div class="row">
-                    <div style="margin:15px">
-                      <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
-                    </div>
-
-
-
-                      <div style="margin:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%> </div>
-
-
-                  </div>
+              <div style="margin: 10px"><%= link_to "Ajouter un meal", meals_path, class: "btn btn-ajouter btn-sm" %>
               </div>
+
+          <% end %>
+
         </div>
+      </div>
+    </div>
+
+    <div class="container text-center" id="price-box">
+      <div class="row">
+        <div style="margin:15px">
+          <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
+        </div>
+
+        <div style="margin:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%>
+        </div>
+        </div>
+      </div>
+    </div>
 </div>
+
+
 
 
 
