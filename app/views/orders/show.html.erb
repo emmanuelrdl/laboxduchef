@@ -7,10 +7,11 @@
           <th>Nom du client</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
 
-          <td class="success"><%= @order.order_meals.count %></td>
+          <td class="success"><%= @order_meals.first.quantity %></td>
           <td class="success"><%= @order_meals.first.meal.name %></td>
           <td class="success"><%= @order.user.last_name %></td>
         </tr>
