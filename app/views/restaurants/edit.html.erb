@@ -23,8 +23,6 @@
           <%= f.input :street, label: "Numéro de votre rue", input_html: { id: "street" } %>
           <%= f.input :postal_code , label: "Code postal", hidden: true, input_html: {id: "postal_code"} %>
           <%= f.input :locality, label: "Ville", hidden: true, input_html: {id: "locality"} %>
-          <%= f.input :iban, label: "IBAN de l'étalissement" %>
-
           <%= f.button :submit, "Valider", class: "btn btn-success" %>
 
         <% end %>
