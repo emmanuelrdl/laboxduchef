@@ -44,7 +44,6 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145506070",
-  iban: "867676756757",
   picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
   confirmed: true
 
@@ -102,7 +101,6 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145678989",
-  iban: "99797878678",
   picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
   confirmed: true
 
@@ -177,7 +175,6 @@ astier = proprio_astier.restaurants.create!(
   locality: "Paris",
   postal_code: 75011,
   phone_number: "0145789056",
-  iban: "97878679678676",
   picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
   confirmed: true
 
