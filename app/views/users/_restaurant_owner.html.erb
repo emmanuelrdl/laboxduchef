@@ -51,7 +51,7 @@
 
         </div>
 
-<% if current_user.restaurants.orders.count > 1 %>
+
 
         <div class="row dashbord-restaurant">
 
@@ -70,17 +70,18 @@
 
 
 
+
                   </tr>
                 </thead>
-                    <% @restaurant_orders.each do |order| %>
+                    <% @meal.order_meals.each do |order_meal| %>
 
                       <tbody>
                       <tr>
-                        <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
-                        <td><strong><%= link_to "Numéro: #{order.id}", order_path(order), class: "btn btn-success btn-xs" %></strong></td>
-                        <td><%= order.amount %></td>
-                        <td><%= order.amount * 0.20 %></td>
-                        <td><%= order.amount * 0.80 %></td>
+                        <td><%= order_meal.order.created_at.strftime("%Y-%m-%d") %></td>
+                        <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(@order), class: "btn btn-success btn-xs" %></strong></td>
+                        <td><%= order_meal.order.amount %></td>
+                        <td><%= order_meal.order.amount * 0.20 %></td>
+                        <td><%= order_meal.order.amount * 0.80 %></td>
                       </tr>
                     </tbody>
                   <% end %>
@@ -94,7 +95,7 @@
 
   </div>
 
-<% end %>
+
 
 
 

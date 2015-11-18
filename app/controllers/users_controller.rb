@@ -5,10 +5,17 @@ class UsersController < ApplicationController
     @last_order = current_user.orders.where(status: 'paid').last
     @restaurants = current_user.restaurants
     @paid_orders = current_user.orders.where(status: "paid")
+    @order = Order.find(params[:id])
 
-    if current_user.restaurants.orders.count > 1
-    @restaurant_orders = current_user.restaurants.orders.where(status:"paid")
-    end
+    @restaurants.first.meals.each do |meal|
+      @meal = meal
+      end
+
+
+
+
+
+
 
   end
 
