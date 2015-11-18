@@ -13,8 +13,8 @@
 
         <div><%= image_tag order_meal.meal.picture.url(:thumb) %></div>
         <p><strong><%= order_meal.meal.restaurant.name %></strong></p>
-        <p><i class="fa fa-phone"></i><%= order_meal.meal.restaurant.phone_number %></p>
-        <p><i class="fa fa-map-marker"></i><%= order_meal.meal.restaurant.street %>
+        <p><i class="fa fa-phone"></i> <%= order_meal.meal.restaurant.phone_number %></p>
+        <p><i class="fa fa-map-marker"></i> <%= order_meal.meal.restaurant.street %>
           <%= order_meal.meal.restaurant.postal_code %>
           <%= order_meal.meal.restaurant.locality %></p>
         <p><strong><i class="fa fa-clock-o"></i> Horaires de retrait</strong></p>
@@ -35,7 +35,9 @@
         $(document).on('ready', function() {
           <% @last_order.order_meals.each do |order_meal| %>
             handler<%= order_meal.id %> = Gmaps.build('Google');
-            handler<%= order_meal.id %>.buildMap({ internal: { id: 'map-<%= order_meal.id %>' } }, function(){
+            handler<%= order_meal.id %>.buildMap({
+            provider: { maxZoom: 15},
+            internal: { id: 'map-<%= order_meal.id %>' } }, function(){
               markers = handler<%= order_meal.id %>.addMarkers(<%= raw [{ lat: order_meal.meal.restaurant.latitude, lng: order_meal.meal.restaurant.longitude }].to_json %>);
               handler<%= order_meal.id %>.bounds.extendWith(markers);
               handler<%= order_meal.id %>.fitMapToBounds();
