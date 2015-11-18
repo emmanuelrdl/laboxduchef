@@ -47,12 +47,13 @@ coque_au_vin = les_saltimbanques.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 12
 
 )
 
 hachis = les_saltimbanques.meals.create!(
-  price: 7,
+  price: 5.5,
   name: "Hachis Parmentier",
   quantity: 7,
   description: "Bonne viande de boeuf et pommes de terre du jardin",
@@ -63,7 +64,8 @@ hachis = les_saltimbanques.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 12
 
 )
 
@@ -92,7 +94,7 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
 )
 
 boeuf_bourguignon = le_blue_valentine.meals.create!(
-  price: 10,
+  price: 7,
   name: "Boeuf Bourguignon",
   quantity: 12,
   description: "Viande de boeuf mijoté au vin et aux légumes",
@@ -103,7 +105,8 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 14
 )
 
 
@@ -119,7 +122,8 @@ choucroute = le_blue_valentine.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 16
 )
 
 tomates = le_blue_valentine.meals.create!(
@@ -134,7 +138,8 @@ tomates = le_blue_valentine.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 17.5
 )
 
 
@@ -175,8 +180,10 @@ poulet_basquaise = astier.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 13.5
 )
+
 
 
 quiche_lorraine = astier.meals.create!(
@@ -191,8 +198,10 @@ quiche_lorraine = astier.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 12
   )
+
 
 gratin = astier.meals.create!(
   price: 4.50,
@@ -206,10 +215,9 @@ gratin = astier.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12
+  stock: 12,
+  seated_price: 12
 )
-
-
 
 
 

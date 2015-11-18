@@ -9,7 +9,9 @@
                     <% if @order_meals.exists? %>
                       <% @order_meals.each do |order_meal| %>
                       <div class="card col-xs-12" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-                        <p><%= order_meal.meal.name %> </p> <p><%= order_meal.price %> </p> </div>
+                        <p id="card-name-position"><%= order_meal.meal.name.upcase %> </p>
+                        <p id="card-price-position" ><%= order_meal.price.format %> </p>
+                      </div>
                         <% end -%>
 
                     <% else %>
@@ -33,8 +35,9 @@
                         <div style="margin: 10px"><%= link_to "Ajouter une commande", meals_path, class: "btn btn-primary" %></div>
                     </div>
                      <div class="input-group">
-                        <div style="margin: 10px"><%= link_to "Retour sur l'index", root_path, class: "btn btn-warning" %></div>
+                        <div style="margin: 10px"><%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning" %></div>
                     </div>
+
 
                       <div style="margin: 10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg" %></div>
 
