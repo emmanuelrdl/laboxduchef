@@ -11,6 +11,7 @@ class MealsController < ApplicationController
     @meal = Meal.new
     @meals = Meal.all.page(params[:page])
 
+
     when_group = params[:when_group]
     if when_group
       @meals = @meals.where("starting_date = ?", when_group).order("created_at DESC")
@@ -32,6 +33,7 @@ class MealsController < ApplicationController
         end
       end
     end
+
 
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       marker.lat meal.restaurant.latitude

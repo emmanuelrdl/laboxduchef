@@ -1,19 +1,19 @@
 <div id="body-container" >
     <div class="row text-body">
 
-      <div class="col-xs-12 col-sm-4 col-sm-offset-1 meal-index-search">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
         <h4 class="title-body" style="text-align:left"><%= @meal.name.upcase %></h4>
-        <div class="text-center"><%= image_tag @meal.picture.url(:medium) %> </div>
+        <div class="text-center" id:"banner-content" style="border-radius:3px"><%= image_tag @meal.picture.url(:medium) %></div>
         <h4 class="border-box">
           <%= @meal.price %> € / unité</h4><h4 class="border-box"> <%= @meal.stock %> boxes disponibles</h4>
 
 
-        <div class="row">
+        <div class="row" >
           <div class="col-xs-12 text-center" style="margin-bottom:15px">
             <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
               <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
               <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-              <%= f.submit :reserver, class: "btn btn-success lg " %>
+              <%= f.submit :reserver, class: "btn btn-reserver lg " %>
             <% end %>
           </div>
 
@@ -31,37 +31,42 @@
         </div>
       </div>
 
-    <div>
 
 
-    </div class="row">
-      <div class="col-xs-12 col-sm-6 meal-index-search ">
+
+    <div class="row" >
+      <div class="col-xs-12 col-sm-6">
         <h4 class="title-body">LOCALISATION</h4>
-        <div id="map" style="width:100%; height:450px;" ></div>
+        <div id="map" class="border-box-shadow" style="width:100%; height:450px; border-radius:3px" ></div>
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).on('ready', function() {
               handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
+
+              handler.buildMap({
+                provider: { maxZoom: 16},
+                internal: { id: 'map' } }, function(){
+
                 markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
                 handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
+                handler.fitMapToBounds().getMap();
               });
             })
           <% end %>
         <% end %>
 
-          <div class="col-xs-12 text-left">
-            <h4 class="title-body">INFORMATIONS SUR LE RESTAURANT</h4>
-            <div  style="font-size:16px">
-              <p><%= @meal.restaurant.name %></p>
-              <p><%= @meal.restaurant.full_address %></p>
-              <p> Téléphone: <%= @meal.restaurant.phone_number %></p>
-              <div style="height:115px"></div>
-            </div>
+        <div class="col-xs-12 text-left" style="height:100%">
+          <h4 class="title-body">INFORMATIONS SUR LE RESTAURANT</h4>
+          <div  style="font-size:16px">
+            <p><%= @meal.restaurant.name %></p>
+            <p><%= @meal.restaurant.full_address %></p>
+            <p> Téléphone: <%= @meal.restaurant.phone_number %></p>
+         <!--    <div style="height:115px"></div> -->
           </div>
+        </div>
+
 
       </div>
-    </div>
-
+   </div>
   </div>
+</div>
