@@ -52,7 +52,7 @@ class PaymentsController < ApplicationController
 
 
   def show
-    @order = current_user.orders.where(status: "paid").first
+    @order = current_user.orders.where(status: "paid").last
     @order_meals = @order.order_meals
 
     @amount = @order.amount

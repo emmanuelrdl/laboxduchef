@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     #   render :new
     # end
 
-@restaurant = current_user.restaurants.build(params_restaurant)
+    @restaurant = current_user.restaurants.build(params_restaurant)
 
     if @restaurant.save
       RestaurantMailer.creation_confirmation(@restaurant).deliver_now
