@@ -6,11 +6,11 @@
     </div>
   </div>
 
-  <% @last_order.order_meals.each do |order_meal| %>
-    <div class="row">
+<div>
+    <% @last_order.order_meals.each do |order_meal| %>
+    <div class="row paid-card" style="margin-bottom:15px">
       <div class="col-xs-12 col-md-6">
-        <h1><%= order_meal.meal.name %></h1>
-
+        <h3><%= order_meal.meal.name %></h3>
         <div><%= image_tag order_meal.meal.picture.url(:thumb) %></div>
         <p><strong><%= order_meal.meal.restaurant.name %></strong></p>
         <p><i class="fa fa-phone"></i> <%= order_meal.meal.restaurant.phone_number %></p>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-xs-12 col-sm-6">
           <h4>Itinéraire <i class="fa fa-map-marker"></i></h4>
-          <div id="map-<%= order_meal.id %>" style="width:100%;height:300px"></div>
+          <div id="map-<%= order_meal.id %>" style="width:100%;height:300px;border-radius:3px" class="border-box-shadow" ></div>
         </div>
       </div>
     <% end %>
@@ -46,4 +46,6 @@
         })
       <% end %>
     <% end %>
+</div>
+
 </div>
