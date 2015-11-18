@@ -111,43 +111,61 @@
 
   <% else %>
 
-        <h1 class="text-center">MES DERNIÈRES COMMANDES</h1>
 
-         <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center">
-            <%= image_tag ("eating.png"), size:"50x50" %>
-             <table class="table table-hover table-responsive">
-                    <thead>
-                      <tr>
-                        <th>Date</th>
-                        <th>Repas</th>
-                        <th>Restaurant</th>
-                        <th>Qté</th>
-                        <th>Prix</th>
 
-                      </tr>
-                    </thead>
-                      <% current_user.orders.each do |order| %>
-                          <% order.order_meals.each do |order_meal| %>
-                            <tbody>
-                              <tr>
-                                <td class="style-table"><%= order_meal.created_at.strftime("%Y-%m-%d") %></td>
-                                <td class="style-table"><%= order_meal.meal.name %></td>
-                                <td class="style-table"><%= order_meal.meal.restaurant.name %></td>
-                                <td class="style-table"><%= order_meal.quantity %></td>
-                                <td class="style-table"><%= number_to_currency(order_meal.price, :unit => "€") %></td>
-                              </tr>
-                            </tbody>
-                         <% end %>
-                      <% end %>
-                </table>
-                <h2><%= link_to "Commander ici", meals_path, class: "btn btn-success lg" %>
-                </h2>
-           </div>
+      <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+           <h1><%= @last_order.order_meals.first.meal.name %></h1>
+           <div class="col-m-4 col-md-4">
+           <div class="thumbnail"><%= image_tag @last_order.order_meals.first.meal.picture.url(:thumb) %></div>
+         </div>
+
+
+            <div>
+              <p><strong><%= @last_order.order_meals.first.meal.restaurant.name %></strong></p>
+              <p>Tel: <%= @last_order.order_meals.first.meal.restaurant.phone_number %></p>
+              <%= @last_order.order_meals.first.meal.restaurant.street %>
+              <%= @last_order.order_meals.first.meal.restaurant.postal_code %>
+              <%= @last_order.order_meals.first.meal.restaurant.locality %>
+            <p><strong>Horaires de retrait</strong></p>
+            <p><%= @last_order.order_meals.first.meal.take_away_noon_starts_at.strftime('%H:%M') %> <%= @last_order.order_meals.first.meal.take_away_noon_ends_at.strftime('%H:%M') %> -
+            <%= @last_order.order_meals.first.meal.take_away_evening_starts_at.strftime('%H:%M') %> <%= @last_order.order_meals.first.meal.take_away_evening_ends_at.strftime('%H:%M') %></p>
+            </div>
+
+
+
         </div>
       </div>
-<% end %>
+
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-6 col-md-offset-3">
+        <h4>Itinéraire <i class="fa fa-map-marker"></i></h4>
+        <div id="map" style="width:100%; height:450px;"></div>
+      </div>
+    </div>
+
+
+     <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).on('ready', function() {
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          <% end %>
+        <% end %>
+  </div>
+
+
+
+
+
 </div>
+<% end %>
 
 
 
