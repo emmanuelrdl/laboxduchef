@@ -12,27 +12,26 @@ class MealsController < ApplicationController
     @meals = Meal.all.page(params[:page])
 
     when_group = params[:when_group]
-
     if when_group
-      @meals = @meals.where("starting_date <= ?", when_group).order("created_at DESC")
+      @meals = @meals.where("starting_date = ?", when_group).order("created_at DESC")
     end
 
     price_group = params[:price_group]
     if price_group
       @meals = @meals.where("price_cents <= ?", price_group).order("created_at DESC")
     end
-
-    # start_group = params[:start_time]
-    # end_group = params[:end_time]
-    # start_time = params[:start]["{:prefix=>:start_date}(4i)"] +":"+ params[:start]["{:prefix=>:start_date}(5i)"]+":00 UTC"
-    # end_time = params[:end]["{:prefix=>:end_date}(4i)"] +":"+ params[:end]["{:prefix=>:end_date}(5i)"]+":00 UTC"
-    # if start_group || end_group
-    # @meals = Meal.where(take_away_noon_starts_at: (start_time)..end_time)
-    #  Meal.where('take_away_noon_starts_at < ? AND take_away_noon_ends_at > ?', "start_time", "end_time")
-    # else
-    #   @meals = Meal.all.order('created_at DESC').page(params[:page])
-    # end
-
+    if params[:start] && params[:end]
+      start_time = params[:start]["{:prefix=>:start_date}(4i)"] +":"+ params[:start]["{:prefix=>:start_date}(5i)"]+":00"
+      end_time = params[:end]["{:prefix=>:end_date}(4i)"] +":"+ params[:end]["{:prefix=>:end_date}(5i)"]+":00"
+      if start_time || end_time
+          @meals_noon = @meals.where('take_away_noon_starts_at < ? AND take_away_noon_ends_at > ?', start_time, end_time)
+        if @meals_noon.count == 0
+          @meals = @meals.where('take_away_evening_starts_at < ? AND take_away_evening_ends_at > ?', start_time, end_time)
+        else
+          @meals = @meals_noon
+        end
+      end
+    end
 
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       marker.lat meal.restaurant.latitude
