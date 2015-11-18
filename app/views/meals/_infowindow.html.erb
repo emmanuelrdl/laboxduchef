@@ -1,11 +1,8 @@
-<h1><%= @my_meal.name %></h1>
-<%= image_tag @my_meal.picture.url(:thumb) %>
+<p><%= @my_meal.name %> vous propose: </p>
+
+<% @my_meal.meals.each do |meal| %>
+<p><%= link_to meal.name, meal_path(meal) %></p>
+
+<% end %>
 
 
-<script type="text/javascript">
-  $(document).ready(function() {
-  Gmaps.map.callback = function() {
-  console.log(Gmaps.map.markers)
-  }
-});
-</script>
