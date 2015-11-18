@@ -21,7 +21,7 @@
 
   resource :cart, only: [:show], controller: 'cart' do
     resources :order_meals, only: [:create]
-    resources :payments,    only: [:new, :create]
+    resources :payments,    only: [:new, :create, :show]
   end
 
   resources :orders,  only: [:show, :create]
