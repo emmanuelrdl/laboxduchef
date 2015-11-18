@@ -40,14 +40,22 @@ class PaymentsController < ApplicationController
       order_meal.meal.save
     end
 
-
+    @order = current_user.orders.where(status: "paid")
+    redirect_to cart_payment_path(@order)
 
     rescue Stripe::CardError => e
 
     flash[:error] = e.message
 
-    @order = current_user.orders.where(status: "paid")
-    redirect_to orders_path
+  end
+
+
+
+  def show
+    @order = current_user.orders.where(status: "paid").first
+    @order_meals = @order.order_meals
+
+    @amount = @order.amount
   end
 
   private

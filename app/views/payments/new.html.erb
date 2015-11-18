@@ -4,11 +4,12 @@
       <div class="col-xs-12 col-md-12 text-center" >
 
         <div class="container" style="width:300px">
+          <h3 class="title-body">VOTRE PANIER</h3>
           <table class="table table-hover">
             <thead>
               <tr>
-                <th class="text-left">Qté</th>
-                <th>Nom du meal</th>
+                <th class="text-left">Quantité</th>
+                <th>Plat</th>
                 <th class="text-center">Prix</th>
               </tr>
             </thead>
@@ -18,7 +19,7 @@
                   <tr>
                     <td><%= order_meal.quantity %></td>
                     <td  class="text-left"><%= order_meal.meal.name %></td>
-                    <td><%= order_meal.price %></td>
+                    <td><%= order_meal.price.format %></td>
               </tbody>
             <% end %>
           </table>
@@ -42,6 +43,9 @@
               amount_cents-currency="EUR"></script>
 
           <% end %>
+
+
+
         </div>
 
       </div>
