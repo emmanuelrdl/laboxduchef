@@ -5,7 +5,7 @@
         <h4 class="title-body" style="text-align:left"><%= @meal.name.upcase %></h4>
         <div class="text-center"><%= image_tag @meal.picture.url(:medium) %> </div>
         <h4 class="border-box">
-          <%= @meal.price %> € / unité</h4><h4 class="border-box"> <%= @meal.quantity %> meals dispo</h4>
+          <%= @meal.price %> € / unité</h4><h4 class="border-box"> <%= @meal.stock %> boxes disponibles</h4>
 
 
         <div class="row">

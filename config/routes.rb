@@ -19,7 +19,7 @@
     resources :meals #only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resource :cart, only: [:show], controller: 'cart' do
+  resource :cart, only: [:show, :destroy], controller: 'cart' do
     resources :order_meals, only: [:create]
     resources :payments,    only: [:new, :create, :show]
   end
