@@ -103,15 +103,31 @@
     </div>
 
   <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
+    <script>
       $(document).on('ready', function() {
-        handler = Gmaps.build('Google');
+        var handler = Gmaps.build('Google');
         handler.buildMap({ internal: { id: 'map' } }, function(){
           markers = handler.addMarkers(<%= raw @markers.to_json %>);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
+          console.log(markers)
+
+          var i, len, marker;
+
+          for (i = 0, len = markers.length; i < len; i++) {
+            marker = markers[i];
+            google.maps.event.addListener(marker.getServiceObject(), 'click', function(e, b,c) {
+              console.log(this);
+              console.log(this.position.lat());
+              console.log(this.position.lng());
+            });
+          }
+
         });
-      })
-    <% end %>
+
+      });
+
+
+    </script>
   <% end %>
 
