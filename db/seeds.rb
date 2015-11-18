@@ -178,6 +178,21 @@ poulet_basquaise = astier.meals.create!(
   stock: 12
 )
 
+quiche_lorraine = astier.meals.create!(
+  price: 5.50,
+  name: "Quiche Lorraine",
+  quantity: 12,
+  description: "Tarte aux lardons et crème fraiche",
+  picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
+  starting_date: Date.current,
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
+  active: true,
+  stock: 12
+)
+
 
 
 
