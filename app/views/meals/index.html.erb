@@ -112,16 +112,19 @@
           handler.fitMapToBounds();
           console.log(markers)
 
-          var i, len, marker;
+          // var i, len, marker;
 
-          for (i = 0, len = markers.length; i < len; i++) {
-            marker = markers[i];
-            google.maps.event.addListener(marker.getServiceObject(), 'click', function(e, b,c) {
-              console.log(this);
-              console.log(this.position.lat());
-              console.log(this.position.lng());
-            });
-          }
+          // var infowindow = new google.maps.InfoWindow();
+          // for (i = 0, len = markers.length; i < len; i++) {
+            // marker = markers[i];
+            // google.maps.event.addListener(marker.getServiceObject(), 'mouseover', function(e, b,c) {
+              // console.log(this);
+              // console.log(handler);
+              // infowindow.open(map, this);
+              // console.log(this.position.lat());
+              // console.log(this.position.lng());
+            // });
+          // }
 
         });
 
