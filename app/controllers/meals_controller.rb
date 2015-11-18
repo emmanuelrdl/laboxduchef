@@ -35,12 +35,22 @@ class MealsController < ApplicationController
     end
 
 
-    @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
-      marker.lat meal.restaurant.latitude
-      marker.lng meal.restaurant.longitude
 
-    end
+  @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
+    @my_meal = meal.restaurant
+    marker.lat meal.restaurant.latitude
+    marker.lng meal.restaurant.longitude
+    # marker.infowindow render_to_string(:partial => "/meals/infowindow")
+    marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
+
+    # marker.picture({
+    #   :url => ActionController::Base.helpers.asset_path('marker.png'),#{ }"http://placehold.it/30x30
+    #   :width   => 28,
+    #   :height  => 35
+    #  })
+   end
   end
+
 
   def show
     @meal = Meal.find(params[:id])
