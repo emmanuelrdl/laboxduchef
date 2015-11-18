@@ -25,6 +25,7 @@ class Meal < ActiveRecord::Base
 
 
 
+
   def update_active
     @all_meals = Meal.all
     @meals = @all_meals.where("active = ?", true)
