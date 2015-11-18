@@ -35,7 +35,6 @@ class MealsController < ApplicationController
     #   @meals = Meal.all.order('created_at DESC').page(params[:page])
     # end
 
-
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       marker.lat meal.restaurant.latitude
       marker.lng meal.restaurant.longitude

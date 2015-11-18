@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @last_order = current_user.orders.where(status: 'paid').last
     @restaurants = current_user.restaurants
+    @paid_orders = current_user.orders.where(status: "paid")
   end
 
   private
