@@ -9,7 +9,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
+    if current_user.restaurants(params[:id]).count >= 1
+         flash[:alert] = "Vous ne pouvez avoir qu'un restaurant"
+         redirect_to root_path
+    else
+      @restaurant = Restaurant.new
+    end
   end
 
   def create
@@ -17,17 +22,13 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     @restaurant.confirmed = false
 
-    # if @restaurant.save
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
+
 
     @restaurant = current_user.restaurants.build(params_restaurant)
 
     if @restaurant.save
-      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
-      redirect_to restaurant_path(@restaurant)
+      # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      redirect_to user_path(current_user)
     else
       render :new
     end
