@@ -36,10 +36,10 @@
 
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-name="Ma commande"
-                    data-description="Teddy "
+                    data-name="Ma boxe"
+                    data-description="@La Box du Chef "
                     data-amount="<%= @order.amount_cents %>"
-                    amount_cents-currency="EUR"></script>
+                    data-currency="EUR"></script>
 
                 <% end %>
         </div>
