@@ -21,9 +21,8 @@
             <h4 class="title-body">INFORMATIONS SUR LA BOX</h4>
             <div class="grey-card" style="font-size:16px">
               <p><%= @meal.description %> <p>
-              <p> <i class="fa fa-calendar-times-o"></i>
-               La boxe est disponible le <strong> <%= @meal.starting_date %> </p> </strong>
-              <p> <i class="fa fa-clock-o"> Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+              <p> La boxe est disponible le <strong> <%= @meal.starting_date %> </p> </strong>
+              <p> Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
               <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
               <p> Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
               <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
@@ -31,7 +30,6 @@
           </div>
         </div>
       </div>
-
 
 
 
