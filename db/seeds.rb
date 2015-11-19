@@ -55,13 +55,13 @@ coque_au_vin = les_saltimbanques.meals.create!(
   quantity: 12,
   description: "Coque cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
-  starting_date: Date.today - 2,
+  starting_date: Date.today,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12,
+  stock: 6,
   seated_price: 12
 
 )
@@ -78,7 +78,7 @@ hachis = les_saltimbanques.meals.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
-  stock: 12,
+  stock: 9,
   seated_price: 12
 
 )
@@ -198,21 +198,7 @@ poulet_basquaise = astier.meals.create!(
 
 
 
-quiche_lorraine = astier.meals.create!(
-  price: 5.50,
-  name: "Quiche Lorraine",
-  quantity: 12,
-  description: "Tarte aux lardons et crème fraiche",
-  picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
-  starting_date: Date.current,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
-  active: true,
-  stock: 12,
-  seated_price: 12
-  )
+
 
 
 gratin = astier.meals.create!(
