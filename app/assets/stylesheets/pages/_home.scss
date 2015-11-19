@@ -1,12 +1,10 @@
-
 #banner-container {
-
- background-image: asset-url('banner.jpg');
- background-size: cover;
- background-repeat: no-repeat;
- background-position: left top;
- min-height: 500px;
- height: 100%;
+  background-image: asset-url('banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  min-height: 500px;
+  height: 100%;
 }
 
 .banner-index {
@@ -14,10 +12,8 @@
 }
 
 .filter {
-
   width: 100%;
   background: rgba(0,0,0,0.4);
-
 }
 
 
@@ -37,40 +33,60 @@
 }
 
 #price_group {
-
-width: 120px;
-color:black;
-
-
+  width: 120px;
+  color:black;
 }
 
 #when_group {
-
-width: 120px;
-color:black;
-
+  width: 120px;
+  color:black;
 }
 
 
 .filter-hiw {
-
-
   position: relative;
   width: 100%;
   background: rgba(255,240,240,0.4);
   color:black;
-
 }
 
 .filter-title {
-
-    position: absolute;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
-
+  position: absolute;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
 }
 
 #banner {
   display: flex;
   justify-content: center;
 }
+
+.btn-home {
+  min-height: 120px;
+  min-width: 120px;
+  text-align: center;
+  front-size: 25px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  border: 3px solid white;
+  background: #F9690E;
+  opacity: 0.85;
+  // display: flex;
+  margin: auto;
+  &:hover {
+   border: 1px solid white;
+   text-decoration: none;
+   color: white;
+   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+}
+
+
+// .text-btn {
+
+// color; g
+// }
