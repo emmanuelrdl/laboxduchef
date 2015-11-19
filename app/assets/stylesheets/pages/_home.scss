@@ -5,6 +5,7 @@
   background-position: left top;
   min-height: 500px;
   height: 100%;
+
 }
 
 .banner-index {
@@ -46,7 +47,7 @@
 .filter-hiw {
   position: relative;
   width: 100%;
-  background: rgba(255,240,240,0.4);
+  background: rgba(255,240,240,0.6);
   color:black;
 }
 
@@ -62,8 +63,8 @@
 }
 
 .btn-home {
-  min-height: 120px;
-  min-width: 120px;
+  min-height: 150px;
+  min-width: 150px;
   text-align: center;
   front-size: 25px;
   text-decoration: none;
@@ -85,8 +86,57 @@
   }
 }
 
+.title-home-lg {
+margin-top:60px;
+border:3px;
+color: white;
+border:solid;
+padding: 20px;
+background: rgba(0,0,0,0.6);
+
+}
+
 
 // .text-btn {
 
 // color; g
 // }
+
+
+.sub-title-home-lg {
+
+font-size: 30px;
+}
+
+.sub-sub-title-home-lg{
+
+font-size: 15px;
+border:1px;
+color: white;
+border:solid;
+padding: 5px;
+background: rgba(0,0,0,0.6);
+}
+
+.sub-title-home-xs {
+
+font-size: 15px;
+margin-top:15px;
+border:10px;
+color: white;
+border:solid;
+padding: 5px;
+background: rgba(0,0,0,0.6);
+}
+
+.title-home-xs {
+margin-top:14px;
+border:10px;
+color: white;
+border:solid;
+padding: 5px;
+padding-top: 10px;
+background: rgba(0,0,0,0.6);
+font-size: 22px;
+
+}
