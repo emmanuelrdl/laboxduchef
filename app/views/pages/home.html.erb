@@ -1,98 +1,68 @@
 <div class="banner-index" id="banner-container">
-  <div class="container filter-hiw" >
+  <div class="container" >
      <div class="row ">
         <div class="col-xs-12 col-sm-12 ">
-              <div  class="text-center" >
-                <h1 class="hidden-xs"> DES PLATS DE CHEFS A PETITS PRIX</h1>
-                <h4 class="hidden-sm">DES PLATS DE CHEFS A PETITS PRIX</h4>
-                  <div class="hidden-xs col-sm-12">
-                  <h4 style="margin:auto; padding-bottom:15px"> Cliquez, commandez, récuperez, savourez !</h4>
-                 </div>
-              </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="row" id="banner">
-    <%= form_tag('/meals', method: "get", class:"black-box") do %>
-    <h3 class="text-center">RESERVEZ VOTRE BOX</h3>
-
-      <div class="form-group" id="form-field" >
-        <h4>Mon budget</h4>
-        <%= select_tag :price_group, options_for_select([["0 à 5 €", 500],["Jusqu'à 10 €",1000 ], ["Jusqu'à 15 €",1500 ]])  %>
-       </div>
-          <h4>Quand ?</h4>
-         <div class="form-group" id="form-field ">
-          <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
-         </div>
-       <ul class="list-inline">
-          <li>
-             <h4>Retrait de ?</h4>
-             <div class="form-group" style="color:black;">
-              <%= time_select "start", prefix: :start_date  %>
+          <div  class="text-center" >
+            <h1 class="hidden-xs"> MANGEZ MIEUX, MOINS CHER, LUTTEZ CONTRE LE GASPILLAGE</h1>
+            <h4 class="hidden-sm">MANGEZ MIEUX, MOINS CHER, LUTTEZ CONTRE LE GASPILLAGE</h4>
+              <div class="hidden-xs col-sm-12">
+              <h4 style="margin:auto; padding-bottom:15px"> Cliquez, commandez, récuperez, savourez !</h4>
              </div>
-          </li>
-          <li>
-            <h4>Retrait à ?</h4>
-           <div class="form-group" style="color:black;">
-             <%= time_select "end", prefix: :end_date  %>
-           </div>
-           </li>
-        </ul>
-
-         <div class="form-group" >
-          <ul class="list-inline">
-            <li>
-              <%= button_tag(type: "submit", class: "btn btn-success btn-xs", style: " margin-bottom: 5px;border-radius: 4px") do %>
-              <h5>RECHERCHER</h5>
-            </li>
-            <li>
-               <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
-            </li>
-          </ul>
-        </div>
-        <% end %>
-    <% end %>
-  </div>
-
-
-
-
-
-    <div class="row ">
-      <div class="col-xs-12 filter-hiw text-center">
-
-            <h3 class="text-center" > Comment ça marche ?</h3>
-
-          <div>
-            <div class="text-center col-xs-6 col-sm-3">
-              <%= image_tag ("eshop.png"), size:"70x70"%>
-              <p>Trouvez un bon deal</p>
-              <p>Commandez le en ligne</p>
-            </div>
-            <div class="text-center col-xs-6 col-sm-3">
-              <%= image_tag ("walker.png"), size:"70x70" %>
-              <p>Récupérer votre repas</p>
-              <p>dans le restaurant partenaire</p>
-            </div>
-            <div class="text-center col-xs-6 col-sm-3">
-              <%= image_tag ("foodbox.png"), size:"70x70" %>
-              <p>Récupérer votre box</p>
-              <p>sans avoir à patienter</p>
-            </div>
-            <div class="text-center col-xs-6 col-sm-3">
-              <%= image_tag ("eating.png"), size:"70x70" %>
-              <p>Maintenant à table</p>
-              <p>Bon appétit !</p>
-            </div>
           </div>
         </div>
+    </div>
+  </div >
+
+  <div class= "col-xs-12">
+      <div class="row" id="banner">
+          <div class="icon-big">
+            <p style="front-size:7px">Only in Paris</p>
+          </div>
       </div>
 
+   <%= link_to "VOIR LES OFFRES", meals_path, class:"btn btn-primary btn-success btn-lg " %>
 
+  </div>
+
+
+
+
+  <div class="row ">
+    <div class="col-xs-12 filter-hiw text-center">
+          <h3 class="text-center" > Comment ça marche ?</h3>
+      <div>
+        <div class="text-center col-xs-6 col-sm-3">
+          <%= image_tag ("eshop.png"), size:"70x70"%>
+          <p>Trouvez un bon deal</p>
+          <p>Commandez le en ligne</p>
+        </div>
+        <div class="text-center col-xs-6 col-sm-3">
+          <%= image_tag ("walker.png"), size:"70x70" %>
+          <p>Récupérer votre repas</p>
+          <p>dans le restaurant partenaire</p>
+        </div>
+        <div class="text-center col-xs-6 col-sm-3">
+          <%= image_tag ("foodbox.png"), size:"70x70" %>
+          <p>Récupérer votre box</p>
+          <p>sans avoir à patienter</p>
+        </div>
+        <div class="text-center col-xs-6 col-sm-3">
+          <%= image_tag ("eating.png"), size:"70x70" %>
+          <p>Maintenant à table</p>
+          <p>Bon appétit !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:5px">
+    <div class="col-xs-12 filter-hiw text-center">
+      <h3 class="text-center" > Principe de La Box du Chef </h3>
+      <p class="justify" style="margin-left:20px; margin-right:20px"> Afin d'éviter au maximum le gaspillage, nous proposons aux restaurateurs de conditionner leurs invendus sous forme de box à emporter et de les vendres ici, à un prix défiant toute concurrence.</p>
+      <p>Vous pouvez ainsi profitez de plats dignes d'un restaurant à petit prix.</p>
+    </div>
+  </div>
 </div>
 
-</div>
 
 
 

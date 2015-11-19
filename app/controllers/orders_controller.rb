@@ -8,9 +8,7 @@ class OrdersController < ApplicationController
     @restaurants = current_user.restaurants
       @restaurants.first.meals.each do |meal|
       @meal = meal
-      @order_meals.each do |order_meal|
 
-          end
       end
   end
 

@@ -9,15 +9,9 @@ class UsersController < ApplicationController
 
 
 
-    if current_user.restaurant_owner?
-      @restaurants = current_user.restaurants
-      @restaurants.first.meals.each do |meal|
-        @meal = meal
-        @meal.order_meals.each do |order_meal|
-          @order_direction = order_meal.order.id
-        end
-      end
-
+    if current_user.restaurant_owner
+      @restaurant = current_user.restaurants.first
+      @meals = @restaurant.meals
     else
     @order = Order.find(params[:id])
     @last_order = current_user.orders.where(status: 'paid').last
