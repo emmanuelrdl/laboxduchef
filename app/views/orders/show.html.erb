@@ -1,25 +1,30 @@
-<div class="col-md-6 col-md-offset-3 text-center">
-  <table class="table table-striped table-responsive">
-      <thead>
-        <tr>
-          <th>Quantité</th>
-          <th>Désignation</th>
-          <th>Nom du client</th>
-        </tr>
-      </thead>
+<div id="body-container" >
 
-      <tbody>
-        <tr>
+    <div class="col-xs-12 col-sm-8 text-center">
+      <table class="table table-striped table-responsive">
+          <thead>
+            <tr>
+              <th>Quantité</th>
+              <th>Désignation</th>
+              <th>Nom du client</th>
+            </tr>
+          </thead>
 
-          <td class="success"><%= @order_meals.first.quantity %></td>
-          <td class="success"><%= @order_meals.first.meal.name %></td>
-          <td class="success"><%= @order.user.last_name %></td>
-        </tr>
-        <tr>
-      </tbody>
-    </table>
-    <div class="button-padding"><%= link_to "Retour", user_path(current_user), class: "btn btn-success" %></div>
+          <tbody>
+            <tr>
+              <% @order.order_meals.each do |order_meal| %>
 
-  <div class="spacer hidden-xs"></div>
+              <td class="success"><%= order_meal.quantity %></td>
+              <td class="success"><%= order_meal.meal.name %></td>
+              <td class="success"><%= @order.user.last_name %></td>
+            <% end -%>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="button-padding"><%= link_to "Retour", user_path(current_user), class: "btn btn-success" %></div>
+    </div>
+
 </div>
 

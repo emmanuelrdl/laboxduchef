@@ -3,7 +3,15 @@ class OrdersController < ApplicationController
   def show
     @order = Order.where(status: "paid").find(params[:id])
     @order_meals = @order.order_meals
-    # @order_meal = OrderMeal.find(params[:meal_id][:order_id]) => pourquoi ca??
+
+
+    @restaurants = current_user.restaurants
+      @restaurants.first.meals.each do |meal|
+      @meal = meal
+      @order_meals.each do |order_meal|
+
+          end
+      end
   end
 
   def update
