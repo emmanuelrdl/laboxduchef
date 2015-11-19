@@ -1,6 +1,6 @@
   <div id="body-container">
   <div class="container">
-    <div class="row" style="margin:20px">
+    <div class="row">
       <div class="col-xs-12 col-md-12 text-center" >
 
         <div class="container" style="width:300px">
@@ -13,14 +13,14 @@
                 <th class="text-center">Prix</th>
               </tr>
             </thead>
-                <% @order.order_meals.each do |order_meal| %>
-
-              <tbody>
-                  <tr>
-                    <td><%= order_meal.quantity %></td>
-                    <td  class="text-left"><%= order_meal.meal.name %></td>
-                    <td><%= order_meal.price.format %></td>
-              </tbody>
+            <% @order.order_meals.each do |order_meal| %>
+            <tbody>
+              <tr>
+                <td><%= order_meal.quantity %></td>
+                <td  class="text-left"><%= order_meal.meal.name %></td>
+                <td><%= order_meal.price.format %></td>
+              </tr>
+            </tbody>
             <% end %>
           </table>
              <div class="thumbnail col-xs-12 col-sm-12 " style="margin:auto; border-radius:3px">
