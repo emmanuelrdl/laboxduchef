@@ -1,14 +1,10 @@
-
 <div class="container text-center">
   <div class="row">
-    <div clas="col-xs-12 col-sm-6">
+    <div clas="col-xs-12 col-sm-6 col-sm-offset-3">
       <h4 class="title-body">CONFIRMATION DE VOTRE COMMANDE</h4>
 
       <% @order.order_meals.each do |order_meal| %>
-
-
-
-      <div class="thumbnail paid-card col-xs-12 col-sm-6" >
+        <div class="thumbnail paid-card col-xs-12 col-sm-6 col-sm-offset-3" >
 
         <h4><%= order_meal.meal.name %> </h4>
 
