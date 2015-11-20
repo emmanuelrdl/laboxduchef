@@ -2,50 +2,61 @@
   <div class="row text-center">
     <div class="col-xs-12">
       <div class="visible-xs hidden-sm hidden-md hidden-lg"><h4>Votre dernière commande</h4></div>
-      <div class="hidden-xs"><h2>Détails de ma dernière commande</h2></div>
+
+ <% if current_user.orders.count >= 1 %>
+    <div class="hidden-xs"><h2>Détails de ma dernière commande</h2></div>
     </div>
-  </div>
-
-<div>
-    <% @last_order.order_meals.each do |order_meal| %>
-    <div class="row paid-card" style="margin-bottom:15px">
-      <div class="col-xs-12 col-md-6">
-        <h3><%= order_meal.meal.name %></h3>
-        <div><%= image_tag order_meal.meal.picture.url(:thumb) %></div>
-        <p><strong><%= order_meal.meal.restaurant.name %></strong></p>
-        <p><i class="fa fa-phone"></i> <%= order_meal.meal.restaurant.phone_number %></p>
-        <p><i class="fa fa-map-marker"></i> <%= order_meal.meal.restaurant.street %>
-          <%= order_meal.meal.restaurant.postal_code %>
-          <%= order_meal.meal.restaurant.locality %></p>
-        <p><strong><i class="fa fa-clock-o"></i> Horaires de retrait</strong></p>
-        <p>En journée: <%= order_meal.meal.take_away_noon_starts_at.strftime('%H:%M') %> <%= order_meal.meal.take_away_noon_ends_at.strftime('%H:%M') %> - En soirée:
-          <%= order_meal.meal.take_away_evening_starts_at.strftime('%H:%M') %> <%= order_meal.meal.take_away_evening_ends_at.strftime('%H:%M') %></p>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <h4>Itinéraire <i class="fa fa-map-marker"></i></h4>
-          <div id="map-<%= order_meal.id %>" style="width:100%;height:300px;border-radius:3px" class="border-box-shadow" ></div>
-        </div>
       </div>
-    <% end %>
+        <div>
 
-    <div class="spacer hidden-xs"></div>
-
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        $(document).on('ready', function() {
           <% @last_order.order_meals.each do |order_meal| %>
-            handler<%= order_meal.id %> = Gmaps.build('Google');
-            handler<%= order_meal.id %>.buildMap({
-            provider: { maxZoom: 15},
-            internal: { id: 'map-<%= order_meal.id %>' } }, function(){
-              markers = handler<%= order_meal.id %>.addMarkers(<%= raw [{ lat: order_meal.meal.restaurant.latitude, lng: order_meal.meal.restaurant.longitude }].to_json %>);
-              handler<%= order_meal.id %>.bounds.extendWith(markers);
-              handler<%= order_meal.id %>.fitMapToBounds();
-            });
+          <div class="row paid-card" style="margin-bottom:15px">
+            <div class="col-xs-12 col-md-6">
+              <h3><%= order_meal.meal.name %></h3>
+              <div><%= image_tag order_meal.meal.picture.url(:thumb) %></div>
+              <p><strong><%= order_meal.meal.restaurant.name %></strong></p>
+              <p><i class="fa fa-phone"></i> <%= order_meal.meal.restaurant.phone_number %></p>
+              <p><i class="fa fa-map-marker"></i> <%= order_meal.meal.restaurant.street %>
+                <%= order_meal.meal.restaurant.postal_code %>
+                <%= order_meal.meal.restaurant.locality %></p>
+              <p><strong><i class="fa fa-clock-o"></i> Horaires de retrait</strong></p>
+              <p>En journée: <%= order_meal.meal.take_away_noon_starts_at.strftime('%H:%M') %> <%= order_meal.meal.take_away_noon_ends_at.strftime('%H:%M') %> - En soirée:
+                <%= order_meal.meal.take_away_evening_starts_at.strftime('%H:%M') %> <%= order_meal.meal.take_away_evening_ends_at.strftime('%H:%M') %></p>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <h4>Itinéraire <i class="fa fa-map-marker"></i></h4>
+                <div id="map-<%= order_meal.id %>" style="width:100%;height:300px;border-radius:3px" class="border-box-shadow" ></div>
+              </div>
+            </div>
           <% end %>
-        })
-      <% end %>
-    <% end %>
-</div>
+
+          <div class="spacer hidden-xs"></div>
+
+              <% content_for(:after_js) do %>
+                <%= javascript_tag do %>
+                  $(document).on('ready', function() {
+                    <% @last_order.order_meals.each do |order_meal| %>
+                      handler<%= order_meal.id %> = Gmaps.build('Google');
+                      handler<%= order_meal.id %>.buildMap({
+                      provider: { maxZoom: 15},
+                      internal: { id: 'map-<%= order_meal.id %>' } }, function(){
+                        markers = handler<%= order_meal.id %>.addMarkers(<%= raw [{ lat: order_meal.meal.restaurant.latitude, lng: order_meal.meal.restaurant.longitude }].to_json %>);
+                        handler<%= order_meal.id %>.bounds.extendWith(markers);
+                        handler<%= order_meal.id %>.fitMapToBounds();
+                      });
+                    <% end %>
+                  })
+                <% end %>
+              <% end %>
+          </div>
+
+      <% else %>
+
+      <div id="body-container">
+        <h4> Vous n'avez pas de commandes en cours</h4>
+      </div>
+      <% end -%>
+
+
 
 </div>
