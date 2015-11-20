@@ -40,7 +40,7 @@ background: rgba(70,70,70,0.6);
 #card-price-position {
   position: absolute;
   font-size: 25px;
-  right: 0 ;
+  left: 0 ;
   bottom: 0 ;
   margin: 1px;
   padding: 1px;
@@ -48,10 +48,10 @@ background: rgba(70,70,70,0.6);
 
 #card-seated-price-position {
   position: absolute;
-  font-size: 25px;
-  right: 0 ;
+  font-size: 20px;
+  left: 0 ;
   text-align: center;
-  margin: 1px;
+  margin-top: 100px;
   padding: 1px;
 }
 
@@ -60,9 +60,9 @@ background: rgba(70,70,70,0.6);
   margin: 1px;
   padding: 1px;
   color: white;
-  border: withe;
-  border: 1px;
-  border:solid;
+  // border: withe;
+  // border: 1px;
+  // border:solid;
   width:75px;
 
 }
