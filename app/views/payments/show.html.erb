@@ -6,7 +6,7 @@
       <% @order.order_meals.each do |order_meal| %>
         <div class="thumbnail paid-card col-xs-12 col-sm-6 col-sm-offset-3" >
 
-        <h4><%= order_meal.meal.name %> x <%= order_meal.meal.quantity %> </h4>
+        <h4><%= order_meal.meal.name %>  </h4>
 
         <h5>A retirer le <%= order_meal.meal.starting_date.strftime("%d/%m/%y") %></h5>
         Le midi entre
