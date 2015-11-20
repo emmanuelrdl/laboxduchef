@@ -126,7 +126,7 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
 choucroute = le_blue_valentine.meals.create!(
   price: 5,
   name: "Choucroute ",
-  quantity: 12,
+  quantity: 6,
   description: "Belle choucroute garnie et savoureuse",
   picture: File.open(Rails.root.join("db/seeds/pictures/choucroute.jpg")),
   starting_date: Date.current,
@@ -142,7 +142,7 @@ choucroute = le_blue_valentine.meals.create!(
 tomates = le_blue_valentine.meals.create!(
   price: 5.5,
   name: "Tomates farcies",
-  quantity: 12,
+  quantity: 8,
   description: "Belles tomates farcies accompagnées de riz basmati",
   picture: File.open(Rails.root.join("db/seeds/pictures/tomates.jpg")),
   starting_date: Date.current,

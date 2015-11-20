@@ -76,7 +76,7 @@
 
                   <p id="card-price-position"><%= meal.price.format %></p>
 
-                  <p id="card-seated-price-position" style="color:red"> € <s> <%= meal.seated_price %> </s> </p>
+                  <p id="card-seated-price-position" style="color:red">€<s><%= meal.seated_price %> </s> </p>
                   <p class="icon-badge icon-badge-white icon-badge-bordered-orange" style="font-size:15px">x<%= meal.stock %></p>
                    <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
                     <%= meal.restaurant.postal_code %>
