@@ -12,11 +12,11 @@ class UsersController < ApplicationController
     if current_user.restaurant_owner
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
-    else
-
+    elsif current_user.orders.count >= 1
     @last_order = current_user.orders.where(status: 'paid').last
     @restaurants = current_user.restaurants
     @paid_orders = current_user.orders.where(status: "paid")
+
     end
 
 
