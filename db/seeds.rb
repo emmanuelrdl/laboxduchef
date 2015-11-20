@@ -50,7 +50,7 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
 )
 
 coq_au_vin = les_saltimbanques.meals.create!(
-  price: 6,
+  price: 5,
   name: "Coq au vin",
   quantity: 12,
   description: "Coq cuisiné au vin rouge avec riz en accompagnement",
@@ -62,7 +62,7 @@ coq_au_vin = les_saltimbanques.meals.create!(
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 6,
-  seated_price: 12
+  seated_price: 16
 
 )
 
@@ -183,7 +183,7 @@ astier = proprio_astier.restaurants.create!(
 poulet_basquaise = astier.meals.create!(
   price: 5.50,
   name: "Poulet Basquaise",
-  quantity: 12,
+  quantity: 5,
   description: "Poulet poivrons rouges et sauce piquante accompagné de riz",
   picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
   starting_date: Date.current,
