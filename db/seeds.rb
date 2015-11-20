@@ -49,11 +49,11 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
 
 )
 
-coque_au_vin = les_saltimbanques.meals.create!(
+coq_au_vin = les_saltimbanques.meals.create!(
   price: 6,
   name: "Coq au vin",
   quantity: 12,
-  description: "Coque cuisiné au vin rouge avec riz en accompagnement",
+  description: "Coq cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
   starting_date: Date.today,
   take_away_noon_starts_at: Date.current.noon,
@@ -110,7 +110,7 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   price: 7,
   name: "Boeuf Bourguignon",
   quantity: 12,
-  description: "Viande de boeuf mijoté au vin et aux légumes",
+  description: "Viande de boeuf mijotée au vin et aux légumes",
   picture: File.open(Rails.root.join("db/seeds/pictures/bourguignon.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
@@ -127,7 +127,7 @@ choucroute = le_blue_valentine.meals.create!(
   price: 5,
   name: "Choucroute ",
   quantity: 12,
-  description: "Viande de boeuf mijoté au vin et aux légumes",
+  description: "Belle choucroute garnie et savoureuse",
   picture: File.open(Rails.root.join("db/seeds/pictures/choucroute.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
@@ -143,7 +143,7 @@ tomates = le_blue_valentine.meals.create!(
   price: 5.5,
   name: "Tomates farcies",
   quantity: 12,
-  description: "Bonnes tomates farcies accompagnées de riz basmati",
+  description: "Belles tomates farcies accompagnées de riz basmati",
   picture: File.open(Rails.root.join("db/seeds/pictures/tomates.jpg")),
   starting_date: Date.current,
   take_away_noon_starts_at: Date.current.noon,
