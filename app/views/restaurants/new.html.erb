@@ -28,6 +28,8 @@
           <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
           <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
 
+          <%= f.input :iban, label: "IBAN de l'étalissement" %>
+
 
           <%= f.button :submit, "Valider", class: "btn btn-success margin-btn-validation" %>
 
