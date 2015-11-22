@@ -63,7 +63,8 @@ class MealsController < ApplicationController
 
   def update
 
-    @meal = @restaurant.meals.update(params_meal)
+    @meal = @restaurant.meals.find(params[:id])
+    @meal.update(params_meal)
     if @meal.save
     redirect_to user_path(current_user)
     else
@@ -114,7 +115,7 @@ class MealsController < ApplicationController
   end
 
   def params_meal
-    params.require(:meal).permit(:name, :description, :price, :quantity, :picture, :starting_date, :take_away_noon_starts_at, :take_away_evening_starts_at, :take_away_noon_ends_at, :take_away_evening_ends_at, :restaurant_id)
+    params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date, :take_away_noon_starts_at, :take_away_evening_starts_at, :take_away_noon_ends_at, :take_away_evening_ends_at, :restaurant_id)
   end
 
 end

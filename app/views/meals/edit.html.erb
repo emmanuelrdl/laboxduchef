@@ -7,6 +7,7 @@
                 <%= f.input :name, label: 'Nom:',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
                 <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
+                <%= f.input :seated_price, label: 'Prix en salle', placeholder: 'en €' %>
                 <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
                 <%= f.input :quantity, label: 'Nombre de deal disponibles', :collection => (0..20), placeholder: 'ex: 2' %>
                 <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
