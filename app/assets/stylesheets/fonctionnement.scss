@@ -7,17 +7,9 @@ background: rgba(0,0,0,0.2);
 
 }
 
-.text-border-intro {
 
 
-color:white;
-padding:30px;
-background: rgba(0,0,0,0.2);
-
-
-}
-
-.banner-hiw {
+.banner-fonctionnement {
 
   background-image: asset-url('coq.jpg');
   background-size: cover;
@@ -25,7 +17,17 @@ background: rgba(0,0,0,0.2);
   background-position: center ;
   min-height: 300px;
   height:300px;
+  position:absolute;
+  z-index:0;
+  opacity: 0.3;
+
+}
+
+.content-fonctionnement {
+
+  z-index:10;
   position:relative;
+  color:black;
 
 
 }
