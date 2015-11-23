@@ -1,17 +1,33 @@
 .title-ccm {
 
-color:#F9690E;
+color:white;
 border: solid 4px;
 padding: 10px;
+background: rgba(0,0,0,0.2);
 
 }
 
 .text-border-intro {
 
-border: solid 4px;
 
-padding:10px;
-opacity: 0.8;
+color:white;
+padding:30px;
+background: rgba(0,0,0,0.2);
 
 
 }
+
+.banner-hiw {
+
+  background-image: asset-url('coq.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center ;
+  min-height: 300px;
+  height:300px;
+  position:relative;
+
+
+}
+
+
