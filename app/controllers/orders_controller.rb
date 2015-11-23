@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.where(status: "paid").find(params[:id])
+    @order = Order.where(status: "confirmed").find(params[:id])
     @order_meals = @order.order_meals
 
 

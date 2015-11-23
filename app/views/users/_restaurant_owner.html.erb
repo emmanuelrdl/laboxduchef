@@ -1,21 +1,22 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
-    <div class="form-group" >
-      <h4>ÉTALISSEMENT(S)</h4>
-        <% current_user.restaurants.each do |restaurant| %>
-          <p><%= restaurant.name.upcase %></p>
-          <%= image_tag restaurant.picture.url(:thumb), class: "img-thumbnail padding-btn-profil"  %>
-        </div>
-        <div class="form-group" >
-          <%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil" %>
-        </div>
-        <div class="form-group" >
-          <%= link_to "Ajouter un deal", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil" %>
-         </div>
-        <% end %>
 
+  <div class="row restaurant_profil-box">
+    <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
+      <div class="form-group" >
+        <h4>ÉTALISSEMENT(S)</h4>
+          <% current_user.restaurants.each do |restaurant| %>
+            <p><%= restaurant.name.upcase %></p>
+            <%= image_tag restaurant.picture.url(:thumb), class: "img-thumbnail padding-btn-profil"  %>
+          </div>
+          <div class="form-group" >
+            <%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil" %>
+          </div>
+          <div class="form-group" >
+            <%= link_to "Ajouter un deal", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil" %>
+           </div>
+          <% end %>
+
+    </div>
   </div>
-</div>
 
 <div class="row dashbord-restaurant">
   <h4 class="text-center">VOS OFFRES EN COURS</h4>
@@ -27,11 +28,12 @@
             <th>Nom</th>
             <th>Prix</th>
             <th>Stock</th>
-            <th>Modifier</th>
+            <th>Modifier/Déactiver</th>
+
           </tr>
             </thead>
               <%  @restaurants.each do |restaurant| %>
-                <% restaurant.meals.each do |meal| %>
+                <% restaurant.meals.where(active: true).find_each do |meal| %>
                   <tbody>
                     <tr>
                       <td><%= meal.starting_date.strftime("%d/%m/%y") %></td>
@@ -39,6 +41,7 @@
                       <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
                       <td ><%= meal.stock %></td>
                       <td ><%= link_to image_tag("gants.png", size: "50x50", color:"grey"), edit_restaurant_meal_path(restaurant, meal) %></td>
+
                     </tr>
                   </tbody>
                 <% end %>
@@ -51,7 +54,7 @@
 
 <div class="row dashbord-restaurant">
   <div class="col-xs-12">
-    <h4 class="text-center">COMMANDES</h4>
+    <h4 class="text-center">DERNIÈRES COMMANDES</h4>
 
       <div class="table-responsive">
         <table class="table table-hover" >
@@ -60,21 +63,24 @@
               <th>Date</th>
               <th>Commande</th>
               <th>Prix total</th>
-              <th>Commission</th>
               <th>A percevoir</th>
+              <th>Status</th>
             </tr>
           </thead>
             <% @meals.each do |meal| %>
-              <% meal.order_meals.each do |order_meal| %>
-              <tbody>
-              <tr>
-                <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
-                <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(order_meal.order), class: "btn btn-success btn-xs" %></strong></td>
-                <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
-                <td><%= number_to_currency(order_meal.order.amount * 0.20, :unit => "€") %></td>
-                <td><%= number_to_currency(order_meal.order.amount * 0.80, :unit => "€") %></td>
-              </tr>
-            </tbody>
+              <% meal.order_meals.last(10).each do |order_meal| %>
+
+
+                <tbody>
+                <tr>
+                  <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
+                  <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(order_meal.order), class: "btn btn-success btn-xs" %></strong></td>
+                  <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
+                  <td><%= number_to_currency(order_meal.order.amount * 0.80, :unit => "€") %></td>
+                  <td><%= order_meal.order.status %></td>
+                </tr>
+              </tbody>
+
               <% end -%>
             <% end -%>
           </ul>

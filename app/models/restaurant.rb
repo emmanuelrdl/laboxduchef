@@ -18,6 +18,7 @@ class Restaurant < ActiveRecord::Base
   validates :postal_code, presence: true
   validates :phone_number, presence: true
   validates :picture, presence: true
+  validates :iban, presence: true
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?

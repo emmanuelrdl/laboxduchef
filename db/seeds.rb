@@ -35,6 +35,7 @@ proprio_les_saltimbanques= User.create!(
   password: "12345678",
   password_confirmation: "12345678",
 
+
 )
 
 les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
@@ -45,7 +46,9 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145506070",
   picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
-  confirmed: true
+  confirmed: true,
+  iban: "12345678"
+
 
 )
 
@@ -102,7 +105,8 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145678989",
   picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
-  confirmed: true
+  confirmed: true,
+  iban: "12345678"
 
 )
 
@@ -176,7 +180,8 @@ astier = proprio_astier.restaurants.create!(
   postal_code: 75011,
   phone_number: "0145789056",
   picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
-  confirmed: true
+  confirmed: true,
+  iban: "12345678"
 
 )
 
