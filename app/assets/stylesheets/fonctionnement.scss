@@ -1,12 +1,17 @@
 .title-ccm {
 
-color:white;
+color:black;
 border: solid 4px;
 padding: 10px;
-background: rgba(0,0,0,0.2);
+margin-top: -220px;
+
 
 }
 
+.text-border-intro {
+  margin-top:40px;
+  color:black;
+}
 
 
 .banner-fonctionnement {
@@ -15,20 +20,10 @@ background: rgba(0,0,0,0.2);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center ;
-  min-height: 300px;
-  height:300px;
-  position:absolute;
-  z-index:0;
-  opacity: 0.3;
-
-}
-
-.content-fonctionnement {
-
-  z-index:10;
+  min-height: 250px;
+  height:250px;
   position:relative;
-  color:black;
-
+  opacity: 0.3;
 
 }
 
