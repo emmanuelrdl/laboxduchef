@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
 
   has_many :order_meals
   monetize :amount_cents
-  validates :status, inclusion: { in: [ "cart", "paid", "cancel"] }
+
 
 
 end

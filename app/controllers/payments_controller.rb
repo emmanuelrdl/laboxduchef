@@ -26,7 +26,7 @@ class PaymentsController < ApplicationController
     )
 
     @current_user ||= order.orders.where(status: "cart").first_or_create
-    @order.update(payment: charge.to_json, status: 'paid')
+    @order.update(payment: charge.to_json, status: 'confirmed')
 
 
     @order_meals = @order.order_meals
@@ -40,7 +40,7 @@ class PaymentsController < ApplicationController
       order_meal.meal.save
     end
 
-    @order = current_user.orders.where(status: "paid")
+    @order = current_user.orders.where(status: "confirmed")
     redirect_to cart_payment_path(@order)
 
     rescue Stripe::CardError => e
@@ -52,7 +52,7 @@ class PaymentsController < ApplicationController
 
 
   def show
-    @order = current_user.orders.where(status: "paid").last
+    @order = current_user.orders.where(status: "confirmed").last
     @order_meals = @order.order_meals
 
     @amount = @order.amount
