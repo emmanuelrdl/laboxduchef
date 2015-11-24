@@ -67,31 +67,36 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6" >
           <h3 class="title-body" id="text-meal-index">OFFRES EN COURS</h3>
-          <% @meals.each do |meal| %>
-          <% if meal.active? %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
-              <div class="card-filter card-bg">
-                <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
-                  <%= meal.restaurant.postal_code %>
-                </a>
-                <p id="card-name-position"><%= meal.name.upcase %></p>
-                <div class="prices-meal-container">
-                  <p id="card-price-position"><%= meal.price.format %></p>
+           <% if  @meals.where(active:true).count == 0 %>
+              <h4>Il n'y a malhreusement pas d'offres en cours pour le moment :( </h4>
+              <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
+            <% else %>
+            <% @meals.each do |meal| %>
+            <% if meal.active? %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
+                <div class="card-filter card-bg">
+                  <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
+                    <%= meal.restaurant.postal_code %>
+                  </a>
+                  <p id="card-name-position"><%= meal.name.upcase %></p>
+                  <div class="prices-meal-container">
+                    <p id="card-price-position"><%= meal.price.format %></p>
 
-                  <p id="card-seated-price-position" style="color:red">€<s><%= meal.seated_price %> </s> </p>
+                    <p id="card-seated-price-position" style="color:red">€<s><%= meal.seated_price %> </s> </p>
 
-                  <div  class="position">
-                    <%= link_to "VOIR LE DÉTAIL", meal_path(meal), class: "btn btn-reserver "%>
+                    <div  class="position">
+                        <%= link_to "VOIR LE DÉTAIL", meal_path(meal), class: "btn btn-reserver "%>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <% end -%>
+            <% end %>
+            <% end -%>
+            <%= paginate @meals %>
           </div>
-          <% end -%>
-          <% end %>
-          <%= paginate @meals %>
-        </div>
 
 
         <div class="col-xs-12 col-sm-6">
