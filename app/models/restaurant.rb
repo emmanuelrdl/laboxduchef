@@ -11,7 +11,6 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :category, presence: true
   validates :locality, presence: true
   validates :street, uniqueness: true
   validates :locality, presence: true
