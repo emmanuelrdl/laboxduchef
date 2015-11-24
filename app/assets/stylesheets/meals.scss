@@ -125,13 +125,29 @@ margin-left: 30px;
 
   height:300px;
   width: 400px;
-  padding-top:240px;
+
 }
 
-.cart-show-infos {
+
+.cart-img-size-xs{
+  height:300px;
+  width: 300px;
+
+}
+
+.cart-show-name-description {
 
   background: rgba(0,0,0,0.5);
   color:white;
+  padding: 5px;
+  margin: 0px;
+}
+
+.cart-show-prices-quantity {
+
+background-color: white;
+margin: 0px;
+
 }
 
 
@@ -154,4 +170,62 @@ margin-left: 30px;
  margin-top: -23px;
  margin-left: 180px;
 
+}
+
+.cart-show-meal-seated-price-position{
+
+  color:red;
+  padding-left: 10px
+
+
+
+}
+
+.cart-show-meal-price-position {
+
+ color:#006C26;
+ padding-left: 120px
+
+
+}
+
+
+.cart-show-meal-price-position-xs {
+ color:#006C26;
+ padding-left: 70px
+}
+
+.cart-show-stock-position {
+ margin-left:140px
+}
+
+.cart-show-stock-position-xs {
+ margin-left:80px
+}
+
+#navlist li {
+display: inline;
+list-style-type: none;
+padding-right: 2px;
+}
+
+#navlist {
+  padding:5px;
+  margin: -10px;
+  font-size: 18px;
+}
+
+.grey-card {
+
+
+  margin-top: 10px;
+}
+
+.cart-show-address {
+
+  margin-top: 0px;
+  background: rgba(0,0,0,0.5);
+  margin-bottom: 160px;
+  color:white;
+  padding-left: 10px;
 }
