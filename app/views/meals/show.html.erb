@@ -5,24 +5,23 @@
         <h4 class="title-body" style="text-align:left"><%= @meal.name.upcase %></h4>
           <div class="hidden-xs hidden-sm cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
                 <div class="cart-show-infos">
-
+                    <p class="meal-price-position"> <%= @meal.price %> €  </p>
+                    <p class="meal-stock-position"> <%= @meal.stock %> restante(s)</p>
                     <p><%= @meal.description %> <p>
-                    <p> <%= @meal.price %> €  </p>
-                    <p> <%= @meal.stock %> restante(s)</p>
 
                 </div>
             </div>
 
             <div class="hidden-sm hidden-lg"><%= image_tag @meal.picture.url(:medium) %>
                 <div class="cart-show-infos">
-                  <p><%= @meal.description %> <p>
-                  <p> <%= @meal.price %> €  </p>
-                  <p> <%= @meal.stock %> restante(s)</p>
+                  <p class="meal-price-position"> <%= @meal.price %> €  </p>
+                  <p class="meal-stock-position-xs"> <%= @meal.stock %> restante(s)</p>
+                  <p ><%= @meal.description %> <p>
                 </div>
             </div>
 
             <div class="col-xs-12 text-left card-show-details" >
-              <div class="grey-card" style="font-size:16px">
+              <div class="grey-card" style="font-size:16px; padding:10px;">
                 <p><i class="fa fa-calendar-times-o"></i>
                    Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
                 </p>
