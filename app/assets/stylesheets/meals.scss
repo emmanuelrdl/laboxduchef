@@ -14,21 +14,7 @@
   margin-top: 25px;
 }
 
-#meal-name {
-text-align: center;
-}
 
-#meal-padding {
-padding-top: 100px;
-}
-
-#meal-price{
-text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-#meal-quantity {
-text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
 
 #filter-meals-list {
 
@@ -39,30 +25,31 @@ background: rgba(70,70,70,0.6);
 
 #card-price-position {
   position: absolute;
-  font-size: 25px;
+  font-size: 16px;
   left: 0 ;
   bottom: 0 ;
   margin: 1px;
   padding: 1px;
+  color:#006C26;
+  margin-left: 5px;
+
 }
 
 #card-seated-price-position {
   position: absolute;
-  font-size: 20px;
+  font-size: 18px;
   left: 0 ;
   text-align: center;
-  margin-top: 90px;
+  margin-top: 5px;
   padding: 1px;
+  margin-left: 5px;
 }
 
 
 #card-postal_code-position{
-  margin: 1px;
+  margin-left: 170px;
   padding: 1px;
   color: white;
-  // border: withe;
-  // border: 1px;
-  // border:solid;
   width:75px;
 
 }
@@ -70,7 +57,11 @@ background: rgba(70,70,70,0.6);
 #card-name-position {
 
   font-size: 18px;
-  font-weight:bold
+  background: rgba(0,0,0,0.6);
+  margin-top:103px;
+  margin-bottom: 0px;
+
+
 
 }
 
@@ -90,4 +81,54 @@ padding-bottom: 20px;
 margin-left: 30px;
 }
 
+
+
+.prices-meal-container {
+
+  background-color: white;
+  height:50px;
+  margin-top: 0px;
+  text-shadow: 3px 3px 3px rgba(0,0,0,0);
+}
+
+
+.border-box {
+  border: black solid 1px;
+  text-align: center;
+
+  border-radius: 3px;
+
+}
+
+.card-show-details {
+ border: black solid 1px;
+ margin-top: 20px;
+
+}
+
+
+
+.card-cart-show {
+
+
+  color: black;
+  border-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  border-radius: 3px;
+  position: absolute;
+  margin-bottom: 8px;
+
+ }
+
+
+.cart-img-size {
+
+  height:300px;
+  width: 400px;
+}
+
+.cart-show-infos {
+
+  background: rgba(0,0,0,0.6);
+
+}
 

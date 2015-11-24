@@ -3,37 +3,52 @@
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-1">
         <h4 class="title-body" style="text-align:left"><%= @meal.name.upcase %></h4>
-        <div class="text-center" id:"banner-content" style="border-radius:3px"><%= image_tag @meal.picture.url(:medium) %></div>
-        <h4 class="border-box">
-          <%= @meal.price %> € / unité</h4><h4 class="border-box"> <%= @meal.stock %> box(es) disponibles</h4>
+          <div class="hidden-xs hidden-sm cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
+                <div class="cart-show-infos">
 
+                    <p><%= @meal.description %> <p>
+                    <p> <%= @meal.price %> €  </p>
+                    <p> <%= @meal.stock %> restante(s)</p>
 
-        <div class="row" >
-          <div class="col-xs-12 text-center" style="margin-bottom:15px">
-            <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
-              <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
-              <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-              <%= f.submit :reserver, class: "btn btn-success btn-lg " %>
-            <% end %>
-          </div>
-
-          <div class="col-xs-12 text-left" >
-            <h4 class="title-body">INFORMATIONS SUR LA BOX</h4>
-            <div class="grey-card" style="font-size:16px">
-              <p><%= @meal.description %> <p>
-              <p><i class="fa fa-calendar-times-o"></i>
-                 Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
-              </p>
-              <p> <i class="fa fa-clock-o"></i>
-               Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
-              <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
-              <p> <i class="fa fa-clock-o"></i>
-                Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
-              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+                </div>
             </div>
-          </div>
+
+            <div class="hidden-sm hidden-lg"><%= image_tag @meal.picture.url(:medium) %>
+                <div class="cart-show-infos">
+                  <p><%= @meal.description %> <p>
+                  <p> <%= @meal.price %> €  </p>
+                  <p> <%= @meal.stock %> restante(s)</p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 text-left card-show-details" >
+              <div class="grey-card" style="font-size:16px">
+                <p><i class="fa fa-calendar-times-o"></i>
+                   Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                </p>
+                <p> <i class="fa fa-clock-o"></i>
+                 Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+                <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
+                <p> <i class="fa fa-clock-o"></i>
+                  Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+                <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+
+                <div class="row" >
+                <div class="col-xs-12 text-center" style="margin-bottom:15px">
+                  <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
+                    <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
+                    <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+                    <%= f.submit :reserver, class: "btn btn-success btn-lg " %>
+                  <% end %>
+                </div>
+                </div>
+
+              </div>
+            </div>
+
+
+
         </div>
-      </div>
 
 
 

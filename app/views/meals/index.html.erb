@@ -1,141 +1,140 @@
-<div id="body-container" >
-<div class=" meal-index-search text-center">
-  <div class="btn btn-ajouter" style="margin:3px" data-toggle="collapse" data-target="#demo">Plus de filtres</div>
-</div>
-    <div id="demo" class="collapse">
-
-            <div class="row">
-              <div class="text-center col-xs-12 col-sm-12 meal-index-search">
-                    <%= form_tag('/meals', method: "get", class:"form-inline") do %>
-                    <h3 class="text-center" style="margin-top:10px;">RESERVEZ VOTRE BOX</h3>
-                <div class="text-center col-xs-6 col-sm-3">
-                   <div class="input-group">
-                      <div class="form-group" id="form-field">
-                        <h4>Mon budget</h4>
-                          <%= select_tag :price_group, options_for_select([["Jusqu'à 5 €", 500],["Jusqu'à 10 €",1000 ], ["Jusqu'à 15 €",1500 ]]) %>
-                       </div>
-                    </div>
-                  </div>
-               <div class="text-center col-xs-6 col-sm-3">
-                  <div class="input-group">
-                          <h4>Quand ?</h4>
-                         <div class="form-group" id="form-field ">
-                          <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
-                         </div>
-                  </div>
-               </div>
-               <div class="text-center col-xs-12 col-sm-3">
-                  <div class="input-group">
-                       <ul class="list-inline">
-                          <li>
-                             <h4>Retrait de ?</h4>
-                             <div class="form-group" style="color:black;">
-                              <%= time_select "start", prefix: :start_date  %>
-                             </div>
-                          </li>
-                          <li>
-                            <h4>Retrait à ?</h4>
-                           <div class="form-group" style="color:black;">
-                             <%= time_select "end", prefix: :end_date  %>
-                           </div>
-                           </li>
-                        </ul>
-                    </div>
-                 </div>
-                 <div class="text-center col-xs-12 col-sm-3 btn-search-position">
-                     <div class="input-group">
-                       <ul class="list-inline">
-                          <li class="col-xs-6">
-                            <%= button_tag(type: "submit", class: "btn btn-success btn-xs", style: " border-radius: 4px") do %>
-                            <h5>RECHERCHER</h5>
-                          </li>
-                          <li class="col-xs-6">
-                          <!--   <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %> -->
-                             <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
-                          </li>
-                       </ul>
-
-                        <% end %>
-                    <% end %>
-                  </div>
-               </div>
-            </div>
-        </div>
+    <div id="body-container" >
+      <div class=" meal-index-search text-center">
+        <div class="btn btn-ajouter" style="margin:3px" data-toggle="collapse" data-target="#demo">Plus de filtres</div>
       </div>
+      <div id="demo" class="collapse">
+
+        <div class="row">
+          <div class="text-center col-xs-12 col-sm-12 meal-index-search">
+            <%= form_tag('/meals', method: "get", class:"form-inline") do %>
+            <h3 class="text-center" style="margin-top:10px;">RESERVEZ VOTRE BOX</h3>
+            <div class="text-center col-xs-6 col-sm-3">
+             <div class="input-group">
+              <div class="form-group" id="form-field">
+                <h4>Mon budget</h4>
+                <%= select_tag :price_group, options_for_select([["Jusqu'à 5 €", 500],["Jusqu'à 10 €",1000 ], ["Jusqu'à 15 €",1500 ]]) %>
+              </div>
+            </div>
+          </div>
+          <div class="text-center col-xs-6 col-sm-3">
+            <div class="input-group">
+              <h4>Quand ?</h4>
+              <div class="form-group" id="form-field ">
+                <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
+              </div>
+            </div>
+          </div>
+          <div class="text-center col-xs-12 col-sm-3">
+            <div class="input-group">
+             <ul class="list-inline">
+              <li>
+               <h4>Retrait de ?</h4>
+               <div class="form-group" style="color:black;">
+                <%= time_select "start", prefix: :start_date  %>
+              </div>
+            </li>
+            <li>
+              <h4>Retrait à ?</h4>
+              <div class="form-group" style="color:black;">
+               <%= time_select "end", prefix: :end_date  %>
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
+     <div class="text-center col-xs-12 col-sm-3 btn-search-position">
+       <div class="input-group">
+         <ul class="list-inline">
+          <li class="col-xs-6">
+            <%= button_tag(type: "submit", class: "btn btn-success btn-xs", style: " border-radius: 4px") do %>
+            <h5>RECHERCHER</h5>
+          </li>
+          <li class="col-xs-6">
+            <!--   <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %> -->
+            <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
+          </li>
+        </ul>
+
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
     <div class="container">
       <div class="row">
-          <div class="col-xs-12 col-sm-6" >
-              <h3 class="title-body" id="text-meal-index">OFFRES EN COURS</h3>
-            <% @meals.each do |meal| %>
-            <% if meal.active? %>
-              <div class="col-xs-12 col-sm-6">
-                <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
-                  <div class="card-filter card-bg">
-                  <p id="card-name-position"><%= meal.name.upcase %></p>
-
+        <div class="col-xs-12 col-sm-6" >
+          <h3 class="title-body" id="text-meal-index">OFFRES EN COURS</h3>
+          <% @meals.each do |meal| %>
+          <% if meal.active? %>
+          <div class="col-xs-12 col-sm-6">
+            <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
+              <div class="card-filter card-bg">
+                <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
+                  <%= meal.restaurant.postal_code %>
+                </a>
+                <p id="card-name-position"><%= meal.name.upcase %></p>
+                <div class="prices-meal-container">
                   <p id="card-price-position"><%= meal.price.format %></p>
 
                   <p id="card-seated-price-position" style="color:red">€<s><%= meal.seated_price %> </s> </p>
-                  <p class="icon-badge icon-badge-white icon-badge-bordered-orange" style="font-size:15px">x<%= meal.stock %></p>
-                   <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
-                    <%= meal.restaurant.postal_code %>
-                   </a>
 
-
-                    <div  class="position">
-                    <%= link_to "RESERVER", meal_path(meal), class: "btn btn-reserver"%>
-                    </div>
+                  <div  class="position">
+                    <%= link_to "VOIR LE DÉTAIL", meal_path(meal), class: "btn btn-reserver "%>
                   </div>
                 </div>
               </div>
-            <% end -%>
-            <% end %>
-          <%= paginate @meals %>
-          </div>
-
-
-            <div class="col-xs-12 col-sm-6">
-               <h3 class="title-body" id="text-meal-index">ITINÉRAIRE</h3>
-
-              <div id="map" name="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:15px; border-radius:3px;border:1px solid black">
-              </div>
-
             </div>
           </div>
+          <% end -%>
+          <% end %>
+          <%= paginate @meals %>
         </div>
-      </div>
+
+
+        <div class="col-xs-12 col-sm-6">
+         <h3 class="title-body" id="text-meal-index">ITINÉRAIRE</h3>
+
+         <div id="map" name="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:15px; border-radius:3px;border:1px solid black">
+         </div>
+
+       </div>
+     </div>
+    </div>
+    </div>
     </div>
 
-  <% content_for(:after_js) do %>
+    <% content_for(:after_js) do %>
     <script>
-      $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function(){
-          markers = handler.addMarkers(<%= raw @markers.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          console.log(markers)
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        console.log(markers)
 
-          // var i, len, marker;
+              // var i, len, marker;
 
-          // var infowindow = new google.maps.InfoWindow();
-          // for (i = 0, len = markers.length; i < len; i++) {
-            // marker = markers[i];
-            // google.maps.event.addListener(marker.getServiceObject(), 'mouseover', function(e, b,c) {
-              // console.log(this);
-              // console.log(handler);
-              // infowindow.open(map, this);
-              // console.log(this.position.lat());
-              // console.log(this.position.lng());
-            // });
-          // }
+              // var infowindow = new google.maps.InfoWindow();
+              // for (i = 0, len = markers.length; i < len; i++) {
+                // marker = markers[i];
+                // google.maps.event.addListener(marker.getServiceObject(), 'mouseover', function(e, b,c) {
+                  // console.log(this);
+                  // console.log(handler);
+                  // infowindow.open(map, this);
+                  // console.log(this.position.lat());
+                  // console.log(this.position.lng());
+                // });
+              // }
 
-        });
+            });
 
-      });
+    });
 
 
     </script>
-  <% end %>
+    <% end %>
 
