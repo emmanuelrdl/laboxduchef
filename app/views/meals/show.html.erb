@@ -3,7 +3,7 @@
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-1">
         <h4 class="title-body" style="text-align:left"> DÉTAIL DE LA BOX</h4>
-        <div class="hidden-xs cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
+        <div class="hidden-xs hidden-md cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
                 <div class="cart-show-address">
 
                   <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
