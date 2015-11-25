@@ -20,7 +20,7 @@
               <% if current_user.restaurants.empty? %>
                 <li><%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path %> </li>
                 <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
-                <li> <%= link_to "CONTACT", "#" %></li>
+                <li> <%= link_to "CONTACT", new_contact_path %></li>
                 <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                <% else %>
                  <% current_user.restaurants.each do |restaurant| %>
@@ -28,7 +28,7 @@
                   <% end -%>
                   <li><%= link_to "TABLEAU DE BORD", user_path(current_user) %> </li>
                   <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path %></li>
-                  <li> <%= link_to "CONTACT", "#" %></li>
+                  <li> <%= link_to "CONTACT", new_contact_path %></li>
                   <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                <% end -%>
 
@@ -36,7 +36,7 @@
               <li><%= link_to "TROUVER UNE BOXE", meals_path %> </li>
               <li><%= link_to "MON ESPACE", user_path(current_user) %> </li>
               <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
-              <li> <%= link_to "CONTACT", "#" %></li>
+              <li> <%= link_to "CONTACT", new_contact_path %></li>
               <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
             <% end -%>
         </ul>
@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
-          <li> <%= link_to "CONTACT", "#" %></li>
+          <li> <%= link_to "CONTACT", new_contact_path %></li>
           <li>
             <%= link_to  "CONNEXION", new_user_session_path%>
           </li>

@@ -4,9 +4,11 @@
 
   root to: 'pages#home'
 
-  get "/contact" => "pages#contact"
+
   get "/service" => "pages#service"
   get "/fonctionnement"   => "pages#fonctionnement"
+
+  resources :contacts, only: [:new, :create]
 
 
   resources :meals, only: [ :index, :show ]

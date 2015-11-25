@@ -11,44 +11,47 @@
             <%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil" %>
           </div>
           <div class="form-group" >
-            <%= link_to "Ajouter un deal", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil" %>
+            <%= link_to "Ajouter une offre", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil" %>
            </div>
           <% end %>
 
     </div>
   </div>
 
-<div class="row dashbord-restaurant">
-  <h4 class="text-center">VOS OFFRES EN COURS</h4>
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Mise en ligne</th>
-            <th>Nom</th>
-            <th>Prix</th>
-            <th>Stock</th>
-            <th>Modifier/Déactiver</th>
 
-          </tr>
-            </thead>
-              <%  @restaurants.each do |restaurant| %>
-                <% restaurant.meals.where(active: true).find_each do |meal| %>
-                  <tbody>
-                    <tr>
-                      <td><%= meal.starting_date.strftime("%d/%m/%y") %></td>
-                      <td><%= link_to meal.name, meal_path(meal), class: "btn btn-primary btn-xs" %> </td>
-                      <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
-                      <td ><%= meal.stock %></td>
-                      <td ><%= link_to image_tag("gants.png", size: "50x50", color:"grey"), edit_restaurant_meal_path(restaurant, meal) %></td>
+      <div class="row dashbord-restaurant">
+        <h4 class="text-center">VOS OFFRES EN COURS</h4>
+       <div class="col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
 
-                    </tr>
-                  </tbody>
-                <% end %>
-              <% end %>
-        </table>
-      </div>
-</div>
+                  <th>Nom</th>
+                  <th>Prix</th>
+                  <th>Stock</th>
+                  <th>Modifier</th>
+
+                </tr>
+                  </thead>
+                    <%  @restaurants.each do |restaurant| %>
+                      <% restaurant.meals.where(active: true).find_each do |meal| %>
+                        <tbody>
+                          <tr>
+
+                            <td><%= link_to meal.name, meal_path(meal), class: "btn btn-primary btn-xs" %> </td>
+                            <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
+                            <td ><%= meal.stock %></td>
+                            <td ><%= link_to "Modifier", edit_restaurant_meal_path(restaurant, meal), class: "btn btn-warning btn-xs" %></td>
+
+                          </tr>
+                        </tbody>
+                      <% end %>
+                    <% end %>
+              </table>
+            </div>
+        </div>
+    </div>
 
 
 

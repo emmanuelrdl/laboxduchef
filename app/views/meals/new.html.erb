@@ -11,10 +11,12 @@
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
                 <%= f.input :name, label: 'Nom',input_html: {:maxlength => 20}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
-                <%= f.input :description, placeholder: 'Décrivez le au maximum!' ,input_html: {:maxlength => 40} %>
-                <%= f.input :seated_price, label: 'Prix en salle', placeholder: 'en €' %>
-                <%= f.input :price, label: 'Prix du deal', placeholder: 'en €' %>
-                <%= f.input :quantity, label: 'Nombre de portions disponibles', :collection => (1..20), placeholder: 'ex: 2' %>
+                <%= f.input :description, placeholder: 'Décrivez le plat en une phrase' ,input_html: {:maxlength => 40} %>
+                <ul class="list-inline">
+                    <li class="col-xs-6"><%= f.input :seated_price, label: 'Prix en salle', placeholder: 'en €' %> </li>
+                  <li class="col-xs-6">  <%= f.input :price, label: 'Prix de la box', placeholder: 'en €' %> </li>
+                </ul>
+                <%= f.input :quantity, label: 'Nombre de box(es)', :collection => (1..20), placeholder: 'ex: 2' %>
                 <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
                 <p> <strong> Horaires de retrait le midi </strong></p>
                   <ul class="list-inline">
