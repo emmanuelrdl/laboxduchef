@@ -27,6 +27,7 @@ gem 'whenever', :require => false
 
 gem 'kaminari'
 gem "geocoder"
+gem 'mail_form'
 
 gem "coffee-rails"
 gem "gmaps4rails"
