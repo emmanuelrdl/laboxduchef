@@ -5,12 +5,11 @@ class PagesController < ApplicationController
     @restaurant = Restaurant.all
   end
 
-  def service
+  def espace_restaurants
   end
 
   def fonctionnement
   end
 
-  def contact
-  end
+
 end
