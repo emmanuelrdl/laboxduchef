@@ -5,6 +5,7 @@ class Meal < ActiveRecord::Base
   validates :picture, presence: true
   validates :name, presence: true, length: { maximum: 20 }
   validates :price, presence: true
+  validates :seated_price, presence: true
   validates :quantity, presence: true
   validates :description, presence: true, length: { maximum: 100 }
   validates :starting_date, presence: true
