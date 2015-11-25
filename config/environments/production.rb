@@ -83,14 +83,9 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { host: 'laboxduchef.herokuapp.com' }
-  Rails.application.routes.default_url_options[:host] = 'laboxduchef.herokuapp.com'
+
 
   ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-  :address => 'smtp.laboxduchef.org',
-  :domain => 'laboxduchef.org'
-}
 
 
 

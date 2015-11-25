@@ -45,9 +45,5 @@ Rails.application.configure do
 
 
   ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-  :address => 'smtp.laboxduchef.org',
-  :domain => 'laboxduchef.org'
-}
 
 end
