@@ -1,49 +1,90 @@
 <div id="body-container"  >
-    <div class="banner-fonctionnement"> </div>
     <div class="container ">
        <div class="row text-center" >
           <div class="col-xs-12">
 
-                <h2 class="title-ccm">REJOIGNEZ LE MOUVEMENT !</h2>
+                <h2 class="title-body">REJOIGNEZ LE MOUVEMENT !</h2>
 
                 <h4 class="text-border-intro"> Mettez en vente en quelques secondes le surplus de votre service précédent sous forme de boxes à emporter vendues à petit prix !
                 </h4>
 
 
 
-              <div class="row" style="margin-top:50px">
+              <div class="row" style="margin-top:10px">
                 <div class="col-xs-12">
 
-                  <h3><strong>POURQUOI NOUS REJOINDRE ?</strong></h3>
+                  <h3 class="title-illustration"><strong>POURQUOI NOUS REJOINDRE ?</strong></h3>
 
-                  <div>
+                  <div style="margin-top:45px;">
                     <div class="text-center col-xs-12 col-sm-4">
-
-                        <p><STRONG>1</STRONG>.</p> <p>POUR VALORISER VOTRE SURPLUS!</p>
+                     <%= image_tag ("euro.png"), size:"80x80" %>
+                        <p style="margin-top:30px">POUR VALORISER VOTRE SURPLUS!</p>
                     </div>
                     <div class="text-center col-xs-12 col-sm-4">
-
-                        <p><STRONG>2</STRONG>.</p> <p>POUR LUTTER CONTRE LE GASPILLAGE</p>
+                       <%= image_tag ("basket.png"), size:"80x80" %>
+                        <p style="margin-top:30px">POUR LUTTER CONTRE LE GASPILLAGE</p>
                     </div>
                     <div class="text-center col-xs-12 col-sm-4">
-
-                        <p><STRONG>3</STRONG>.</p> <p>POUR BÉNÉFICIER DE VISIBILITÉ AUPRÈS DE LA COMMUNAUTÉ LA BOX DU CHEF</p>
+                        <%= image_tag ("community.svg"), size:"110x110" %>
+                         <p>POUR BÉNÉFICIER DE VISIBILITÉ </p>
                     </div>
 
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="row text-center" style="margin-top:30px;">
+            <div class="col-xs-12">
+
+              <h3 class="title-illustration"><strong> VENDRE UNE BOX</strong></h3>
+
+              <div style="margin-top:45px;">
+                <div class="text-center col-xs-12 col-sm-3">
+                 <%= image_tag ("smartphone.png"), size:"65x65" %>
+                    <p><p><STRONG>1.</STRONG></p> SE CONNECTER À SON INTERFACE</p>
+                </div>
+                <div class="text-center col-xs-12 col-sm-3">
+                   <%= image_tag ("form.png"), size:"65x65" %>
+                    <p><p><STRONG>2.</STRONG></p> REMPLIR LES INFORMATIONS RELATIVES À LA BOX (MOINS D'UNE MINUTE)</p>
+                </div>
+                <div class="text-center col-xs-12 col-sm-3">
+                    <%= image_tag ("givebox.png"), size:"65x65" %>
+                     <p><p><STRONG>3.</STRONG></p> REMETTRE LES BOXES AUX CLIENTS SE PRÉSENTANT DANS VOTRE ÉTABLISSEMENT </p>
+                </div>
+                  <div class="text-center col-xs-12 col-sm-3">
+                    <%= image_tag ("receivingmoney.png"), size:"65x65" %>
+                     <p><p><STRONG>4.</STRONG></p> RECEVEZ 2 FOIS PAR MOIS UN VIREMENT CORRESPONDANT AUX BOXES VENDUES</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
 
 
-                  <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-success btn-lg btn-margin" %>
+        <div class="row" style="margin-top:30px;">
+          <div class="col-xs-12 col-sm-6">
+            <h3 class="title-illustration"><strong> DEVENIR PARTENAIRE</strong></h3>
+                <h5>1. Se créer un compte</h5>
+                <h5>2. Recevoir une validation de l'équipe de la box du chef vous permettant de poster des offres</h5>
+                <h5>3. Recevoir les boxes expédiées lors de la validation</h5>
+                <h5>4. C'est parti ! </h5>
+            </div>
+          <div class="col-xs-12 col-sm-6">
+            <h3 class="title-illustration"><strong>TARIFICATION & PAIEMENTS</strong></h3>
+                <h5>- La box du chef prélève une commission de 17% HT par transaction</h5>
+                <h5>- Ces 17% HT comprennent l'intermédiation et la fourniture des boxes</h5>
+                <h5>- Les virements vers les comptes des partenaires sont effectués le 15 et le 30 de chaque </h5>
 
-         </div>
-      </div>
+            </div>
+          </div>
 
 
+        <div class="text-center">
+          <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-success btn-lg btn-margin " %>
+        </div>
 
 
-
-  </div>
-
+    </div>
 </div>
