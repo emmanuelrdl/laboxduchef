@@ -14,16 +14,23 @@
                 <%= f.input :quantity, label: 'Nombre de box(es)', :collection => (1..20), placeholder: 'ex: 2' %>
                 <%= f.input :starting_date, label: 'Date de mise en ligne', placeholder: 'lundi 3 mars 2015' %>
                 <p> <strong> Horaires de retrait le midi </strong></p>
-                  <ul class="list-inline">
-                    <li> <%= f.input :take_away_noon_starts_at, label: "de"%> </li>
-                     <li> <%= f.input :take_away_noon_ends_at, label: "à"%> </li>
-                  </ul>
+                  <div class="col-xs-12">
+                      <div class="col-xs-6">
+                     <%= f.input :take_away_noon_starts_at, :default => "11:00".to_time , label: "de" %>
+                     </div>
+                      <div class="col-xs-6">
+                      <%= f.input :take_away_noon_ends_at, :default => "14:00".to_time , label: "à"%>
+                       </div>
+                  </div>
                 <p><strong>Horaires de retrait le soir </strong></p>
-                  <ul class="list-inline">
-                     <li> <%= f.input :take_away_evening_starts_at, label: "de" %> </li>
-                     <li> <%= f.input :take_away_evening_ends_at, label: "à" %>
-                     </li>
-                  </ul>
+                  <div class="col-xs-12">
+                     <div class="col-xs-6">
+                      <%= f.input :take_away_evening_starts_at, :default => "19:00".to_time , label: "de" %>
+                    </div>
+                     <div class="col-xs-6">
+                      <%= f.input :take_away_evening_ends_at, :default => "22:00".to_time , label: "à" %>
+                    </div>
+                  </div>
                <%= f.button :submit, "valider", class: "btn btn-success margin-btn-validation" %>
                <% end %>
         </div>
