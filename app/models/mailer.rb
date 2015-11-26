@@ -1,4 +1,4 @@
-class TestMailer < ActionMailer::Base
+class ApplicationMailer < ActionMailer::Base
   def message
     mail(
       :subject => 'Hello from Postmark',
