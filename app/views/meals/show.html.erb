@@ -1,17 +1,10 @@
-<% title "#{@meal.name} à seulement #{@meal.price} €" %>
-<% meta_description @meal.description %>
-<% meta_image @meal.url %>
-
-
-
-
 
 <div id="body-container" >
     <div class="row text-body">
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-1">
         <h4 class="title-body" style="text-align:left"> DÉTAIL DE LA BOX</h4>
-        <div class="hidden-xs hidden-sm cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
+        <div class="hidden-xs cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
                 <div class="cart-show-address">
 
                   <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
@@ -52,7 +45,7 @@
 
 
 
-          <div class="hidden-md hidden-lg cart-img-size-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
+          <div class="hidden-md hidden-lg hidden-sm cart-img-size-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
                 <div class="cart-show-address">
 
                   <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
@@ -106,7 +99,7 @@
 <div class="hidden-md hidden-lg" style="padding:275px;">- </div>
 
         <div class="row" >
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-lg-6 col-lg-offset-0">
             <h4 class="title-body">LOCALISATION</h4>
 
             <div id="map" class="border-box-shadow" style="width:100%; height:450px; border-radius:3px" ></div>

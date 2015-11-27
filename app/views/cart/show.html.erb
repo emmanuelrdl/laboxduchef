@@ -3,15 +3,15 @@
 
     <div class="row">
       <div class="container">
-        <div class="meal-index-search col-xs-12 text-center" style="border-radius:3px">
+        <div class="meal-index-search col-xs-12 col-sm-6 col-sm-offset-3 text-center" style="border-radius:3px">
 
           <h3> Commande #<%= @order.id %></h3>
             <% if @order_meals.exists? %>
               <% @order_meals.each do |order_meal| %>
 
-                <div class="card" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
-                  <p id="card-name-position"><%= order_meal.meal.name.upcase %> </p>
-                  <p id="card-price-position" ><%= order_meal.price.format %> </p>
+                <div class="card-cart" style="background-image: url('<%=image_path order_meal.meal.picture.url(:medium)%>')">
+                  <p class="cart-meal-name"><%= order_meal.meal.name %> </p>
+                  <p class="cart-meal-price"><%= order_meal.price.format %> / unité </p>
                 </div>
               <% end %>
               <ul class="list-unstyled list-inline">
@@ -19,9 +19,14 @@
 
                 <li><%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning btn-sm", style: "border-radius:3px;padding:5.5px;margin:1px"%></li>
               </ul>
-
-
               </div>
+              <div class="col-xs-12 text-center" id="price-box">
+                <div style="margin:15px">
+                  <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
+                </div>
+                <div style="margin-top:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%>
+                </div>
+            </div>
             <% else %>
 
               <p>Votre panier est vide.</p>
@@ -34,16 +39,8 @@
       </div>
     </div>
 
-    <div class="container text-center" id="price-box">
-      <div class="row">
-        <div style="margin:15px">
-          <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
-        </div>
 
-        <div style="margin:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%>
-        </div>
-        </div>
-      </div>
+
     </div>
 </div>
 

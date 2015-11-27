@@ -231,3 +231,25 @@ padding-right: 2px;
 }
 
 
+.cart-meal-name {
+
+  background: rgba(0,0,0,0.5);
+  color:white;
+}
+
+.cart-meal-price {
+  background: white;
+  color:green;
+  margin-top: 155px;
+}
+
+.card-cart {
+
+position: relative;
+height: 200px;
+width: 200px;
+color: #FFF;
+border-radius: 3px;
+background-size: cover;
+margin: auto auto 8px;
+}
