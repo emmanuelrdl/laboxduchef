@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
   content_type: /\Aimage\/.*\z/
 
+
   after_create :send_welcome_email
   # after_create :subscribe_to_newsletter
 
