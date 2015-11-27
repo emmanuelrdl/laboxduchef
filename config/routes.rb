@@ -2,12 +2,16 @@
 
   devise_for :users, :controllers => { registrations: 'registrations'}
 
+  devise_scope :user do
+   get "/partner/sign_up" => "registrations#new_partner"
+  end
+
+
   root to: 'pages#home'
-
-
-
   get "/fonctionnement"   => "pages#fonctionnement"
   get "/espacerestaurants" => "pages#espace_restaurants"
+  get "/espacerestaurants" => "pages#espace_restaurants"
+
 
   resources :contacts, only: [:new, :create]
 
