@@ -18,14 +18,14 @@ class User < ActiveRecord::Base
 
 
   after_create :send_welcome_email
-
+  # after_create :subscribe_to_newsletter
 
 
  def send_welcome_email
-    if current_user.restaurant_owner?
-    UserMailer.welcome_partner(self).deliver_now
-    else
+    if User.last.restaurant_owner == false
     UserMailer.welcome(self).deliver_now
+    else
+    UserMailer.welcome_partner(self).deliver_now
     end
  end
 
@@ -37,8 +37,6 @@ class User < ActiveRecord::Base
   def full_address_changed?
     street_changed? || postal_code_changed? || locality_changed?
   end
-
-
 
 
 
