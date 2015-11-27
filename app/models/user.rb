@@ -18,11 +18,15 @@ class User < ActiveRecord::Base
 
 
   after_create :send_welcome_email
-  # after_create :subscribe_to_newsletter
+
 
 
  def send_welcome_email
+    if current_user.restaurant_owner?
+    UserMailer.welcome_partner(self).deliver_now
+    else
     UserMailer.welcome(self).deliver_now
+    end
  end
 
 
