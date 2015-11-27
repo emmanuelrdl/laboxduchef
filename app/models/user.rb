@@ -26,13 +26,15 @@ class User < ActiveRecord::Base
  end
 
 
-  def full_address
-    "#{street}, #{postal_code} #{locality}"
-  end
+def full_address
+  "#{street}, #{postal_code} #{locality}"
+end
 
-  def full_address_changed?
-    street_changed? || postal_code_changed? || locality_changed?
-  end
+def full_address_changed?
+  street_changed? || postal_code_changed? || locality_changed?
+end
+
+
 
 
 
