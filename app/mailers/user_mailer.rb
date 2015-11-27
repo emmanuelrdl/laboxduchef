@@ -15,4 +15,11 @@ class UserMailer < ApplicationMailer
     # This will render a view in `app/views/user_mailer`!
   end
 
+
+  def notification_mail(user, meal)
+    @user = user
+    @meal = meal
+    mail(to: @user.email, subject: 'La carte du jour')
+  end
+
 end

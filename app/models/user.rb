@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
 
 
   after_create :send_welcome_email
-  # after_create :subscribe_to_newsletter
+  after_create :notification_mail
+
 
 
  def send_welcome_email
@@ -37,6 +38,10 @@ class User < ActiveRecord::Base
   def full_address_changed?
     street_changed? || postal_code_changed? || locality_changed?
   end
+
+
+
+
 
 
 

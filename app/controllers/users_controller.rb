@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :show ]
 
+
   def show
 
     @last_order = current_user.orders.where(status: 'confirmed').last
@@ -28,5 +29,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+
 
 end
