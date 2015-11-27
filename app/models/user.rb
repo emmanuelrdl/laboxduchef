@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   content_type: /\Aimage\/.*\z/
 
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
   # after_create :subscribe_to_newsletter
 
 
@@ -26,13 +26,13 @@ class User < ActiveRecord::Base
  end
 
 
-def full_address
-  "#{street}, #{postal_code} #{locality}"
-end
+  def full_address
+    "#{street}, #{postal_code} #{locality}"
+  end
 
-def full_address_changed?
-  street_changed? || postal_code_changed? || locality_changed?
-end
+  def full_address_changed?
+    street_changed? || postal_code_changed? || locality_changed?
+  end
 
 
 
