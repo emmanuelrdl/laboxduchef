@@ -10,9 +10,10 @@ skip_before_action :authenticate_user!, only: [:new, :create]
     @contact = Contact.new(params[:contact])
     @contact.request = request
     if @contact.deliver
-      flash.now[:notice] = 'Thank you for your message. We will contact you soon!'
+      flash.now[:notice] = 'Merci pour votre message! Nous vous recontacterons bientôt'
+      redirect_to root_path
     else
-      flash.now[:error] = 'Cannot send message.'
+      flash.now[:error] = 'Echec envoi.'
       render :new
     end
   end
