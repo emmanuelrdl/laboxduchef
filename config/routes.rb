@@ -11,6 +11,9 @@
   get "/fonctionnement"   => "pages#fonctionnement"
   get "/espacerestaurants" => "pages#espace_restaurants"
   get "/espacerestaurants" => "pages#espace_restaurants"
+  get "/conditionsgenerales" => "pages#conditionsgenerales"
+  get "/chartepartenaire" => "pages#chartepartenaire"
+  get "/charteconsommateur" => "pages#charteconsommateur"
 
 
   resources :contacts, only: [:new, :create]

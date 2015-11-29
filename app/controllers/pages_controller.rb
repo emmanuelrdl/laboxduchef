@@ -11,5 +11,14 @@ class PagesController < ApplicationController
   def fonctionnement
   end
 
+  def conditionsgenerales
+  end
+
+  def chartepartenaire
+  end
+
+  def charteconsommateur
+  end
+
 
 end
