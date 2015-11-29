@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.72754395"
+     inkscape:cx="288.43988"
+     inkscape:cy="542.9245"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3008"
+     showgrid="false"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2997"
+       inkscape:export-xdpi="92"
+       inkscape:export-ydpi="92"
+       inkscape:export-filename="/home/emmanuel/code/emmanuelrdl/laboxduchef/app/assets/images/logo.png">
+      <g
+         transform="matrix(0.76023054,0,0,0.68184824,77.599342,555.1437)"
+         id="g2998">
+        <g
+           id="g2992">
+          <g
+             id="g2987">
+            <g
+               style="fill:#d38d5f"
+               transform="translate(-8.3943476,1.9889213)"
+               id="g3002">
+              <g
+                 id="g2999">
+                <g
+                   id="g3014"
+                   inkscape:export-xdpi="92"
+                   inkscape:export-ydpi="92" />
+                <g
+                   id="g3026">
+                  <g
+                     id="g3000">
+                    <g
+                       id="g3008">
+                      <g
+                         id="g3003">
+                        <flowRoot
+                           xml:space="preserve"
+                           id="flowRoot3013"
+                           style="fill:#ffffff;font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic"
+                           transform="matrix(1.3153905,0,0,1.466602,64.167769,-376.18318)"
+                           inkscape:export-filename="/home/emmanuel/code/emmanuelrdl/laboxduchef/app/assets/images/logo.png"
+                           inkscape:export-xdpi="92"
+                           inkscape:export-ydpi="92"><flowRegion
+                             id="flowRegion3015"><rect
+                               id="rect3017"
+                               width="372.96265"
+                               height="74.008202"
+                               x="44"
+                               y="256.36218"
+                               style="font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic" /></flowRegion><flowPara
+                             id="flowPara3019"
+                             style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">la box du chef </flowPara></flowRoot>                        <path
+                           style="fill:#d38d5f"
+                           sodipodi:nodetypes="ccccccccccccccccsccccccccscccccccccccccc"
+                           inkscape:connector-curvature="0"
+                           id="path4"
+                           d="m 19.881004,36.104807 22.532149,-11.229499 8.938373,5.749504 2.793242,1.79672 -26.442687,13.116055 z m 0,21.740311 7.821077,-9.432779 26.442687,13.205891 -11.731615,7.456388 z m 35.474168,37.820954 -19.925123,-10.151467 -1.675945,-9.792124 -1.675945,-9.342943 9.962562,4.94098 c 0.186216,0.08984 0.372432,0.08984 0.558648,0.08984 0.186216,0 0.46554,-0.08984 0.651757,-0.179672 L 55.355172,63.50479 z m 23.92877,-19.943591 -1.769053,9.792124 -19.832015,10.151467 0,-32.161286 12.197154,7.725896 c 0.186217,0.08984 0.372433,0.179672 0.651757,0.179672 0.186216,0 0.372432,0 0.558648,-0.08984 l 9.962562,-4.94098 z M 93.157042,57.845118 70.531785,69.074618 58.80017,61.61823 85.242857,48.412339 z M 85.335965,45.537587 58.80017,32.421532 l 2.793242,-1.79672 8.938373,-5.749504 22.532148,11.229499 z" />
+                        <path
+                           style="fill:#ff8080;fill-rule:evenodd"
+                           inkscape:connector-curvature="0"
+                           clip-rule="evenodd"
+                           d="M 71.443746,35.400926 56.787532,57.01643 42.131321,35.400926 h 0.06661 c -1.732098,-2.882068 -2.731385,-6.340548 -2.731385,-10.087234 0,-10.375444 7.727821,-18.7334395 17.320978,-18.7334395 9.593158,0 17.320979,8.3579955 17.320979,18.7334395 0,3.746686 -0.999287,7.205166 -2.731383,10.087234 h 0.06661 z M 56.787532,18.108522 c -3.664052,0 -6.661915,3.242326 -6.661915,7.20517 0,3.962841 2.997863,7.205166 6.661915,7.205166 3.664055,0 6.661918,-3.242325 6.661918,-7.205166 0,-3.962844 -2.997863,-7.20517 -6.661918,-7.20517 z"
+                           id="path4-4" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3050"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Ubuntu Mono;font-style:normal;font-weight:normal;font-size:11px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Ubuntu Mono;font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion3052"><rect
+           id="rect3054"
+           width="0"
+           height="14"
+           x="-376"
+           y="560.36218"
+           style="-inkscape-font-specification:Ubuntu Mono;font-family:Ubuntu Mono;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal" /></flowRegion><flowPara
+         id="flowPara3056" /></flowRoot>  </g>
+</svg>
