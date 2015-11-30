@@ -1,67 +1,32 @@
-    <div id="body-container" >
-      <div class=" meal-index-search text-center">
-        <div class="btn btn-ajouter" style="margin:3px" data-toggle="collapse" data-target="#demo">Plus de filtres</div>
-      </div>
-      <div id="demo" class="collapse">
+<div id="body-container" >
+    <!-- <div class=" meal-index-search text-center">
+      <div class="btn btn-ajouter" style="margin:3px" data-toggle="collapse" data-target="#demo">Plus de filtres</div>
+        </div>
+          <div id="demo" class="collapse">
 
-        <div class="row">
-          <div class="text-center col-xs-12 col-sm-12 meal-index-search">
-            <%= form_tag('/meals', method: "get", class:"form-inline") do %>
-            <h3 class="text-center" style="margin-top:10px;">RESERVEZ VOTRE BOX</h3>
-            <div class="text-center col-xs-6 col-sm-3">
-             <div class="input-group">
-              <div class="form-group" id="form-field">
-                <h4>Mon budget</h4>
-                <%= select_tag :price_group, options_for_select([["Jusqu'à 5 €", 500],["Jusqu'à 10 €",1000 ], ["Jusqu'à 15 €",1500 ]]) %>
-              </div>
-            </div>
-          </div>
-          <div class="text-center col-xs-6 col-sm-3">
-            <div class="input-group">
-              <h4>Quand ?</h4>
-              <div class="form-group" id="form-field ">
-                <%= select_tag :when_group, options_for_select([["Aujourd'hui", Date.today], ["Demain", Date.today+1]]) %>
-              </div>
-            </div>
-          </div>
-          <div class="text-center col-xs-12 col-sm-3">
-            <div class="input-group">
-             <ul class="list-inline">
-              <li>
-               <h4>Retrait de ?</h4>
-               <div class="form-group" style="color:black;">
-                <%= time_select "start", prefix: :start_date  %>
-              </div>
-            </li>
-            <li>
-              <h4>Retrait à ?</h4>
-              <div class="form-group" style="color:black;">
-               <%= time_select "end", prefix: :end_date  %>
-             </div>
-           </li>
-         </ul>
-       </div>
-     </div>
-     <div class="text-center col-xs-12 col-sm-3 btn-search-position">
-       <div class="input-group">
-         <ul class="list-inline">
-          <li class="col-xs-6">
-            <%= button_tag(type: "submit", class: "btn btn-success btn-xs", style: " border-radius: 4px") do %>
-            <h5>RECHERCHER</h5>
-          </li>
-          <li class="col-xs-6">
-            <!--   <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %> -->
-            <%= link_to "TOUT VOIR", meals_path, class:"btn btn-primary btn-search-size" %>
-          </li>
-        </ul>
+          <div class="row">
+            <div class="text-center col-xs-12 col-sm-12">
+              <%= form_tag('/meals', method: "get", class:"form-inline") do %>
 
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-    </div>
-    </div>
-    </div>
+              <label for="">
+                Entrez l'adresse autour de laquelle vous souhaitez être notifié:
+              </label>
+              <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control"   %>
+
+              <div style="margin-bottom:10p.rbx;"></div>
+              <%= text_field_tag :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+              <%= text_field_tag :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+              <%= text_field_tag :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+
+
+                <%= submit_tag("Search", class:"btn btn-primary") %>
+
+          <% end %>
+          </div>
+        </div>
+      </div> -->
+
+
 
     <div class="container">
       <div class="row">
