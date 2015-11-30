@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -85,7 +85,10 @@
                          inkscape:export-xdpi="92"
                          inkscape:export-ydpi="92">
                         <g
-                           id="g3067">
+                           id="g3067"
+                           inkscape:export-filename="/home/emmanuel/code/emmanuelrdl/laboxduchef/app/assets/images/logo-media.png"
+                           inkscape:export-xdpi="92"
+                           inkscape:export-ydpi="92">
                           <rect
                              y="-613.29156"
                              x="-30.399519"
