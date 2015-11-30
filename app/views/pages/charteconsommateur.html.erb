@@ -1,4 +1,16 @@
-<div style="margin-top:20px;">
+  <BR><BR><BR><BR>
+    <button onclick="getLocation()">get Location</button>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(alertPosition);
+            } else {
+                alert("Geolocation is not supported.");
+            }
+        }
 
-<p><%= request.location.city %></p>
-</div>
+    function alertPosition(position) {
+        alert("Latitude: " + position.coords.latitude +
+              "<br>Longitude: " + position.coords.longitude);
+    }
+    </script>
