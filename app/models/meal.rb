@@ -1,5 +1,7 @@
 class Meal < ActiveRecord::Base
   belongs_to :restaurant
+
+  reverse_geocoded_by "restaurants.latitude", "restaurants.longitude"
   has_many :order_meals
 
   validates :picture, presence: true

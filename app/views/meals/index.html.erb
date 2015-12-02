@@ -1,30 +1,30 @@
 <div id="body-container" >
-    <!-- <div class=" meal-index-search text-center">
+    <div class=" meal-index-search text-center">
       <div class="btn btn-ajouter" style="margin:3px" data-toggle="collapse" data-target="#demo">Plus de filtres</div>
         </div>
           <div id="demo" class="collapse">
 
           <div class="row">
-            <div class="text-center col-xs-12 col-sm-12">
-              <%= form_tag('/meals', method: "get", class:"form-inline") do %>
+              <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3">
+                 <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
 
-              <label for="">
-                Entrez l'adresse autour de laquelle vous souhaitez être notifié:
-              </label>
-              <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control"   %>
+                <label for="">
+                  Entrez l'adresse autour de laquelle vous souhaitez faire une recherche:
+                </label>
+                <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control"   %>
 
-              <div style="margin-bottom:10p.rbx;"></div>
-              <%= text_field_tag :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
-              <%= text_field_tag :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
-              <%= text_field_tag :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+                <div style="margin-bottom:10p.rbx;"></div>
+                <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+                <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+                <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
 
 
-                <%= submit_tag("Search", class:"btn btn-primary") %>
+                  <%= f.button :submit, "Valider", class: "btn btn-success margin-btn-validation" %>
 
-          <% end %>
-          </div>
+            <% end %>
+            </div>
         </div>
-      </div> -->
+      </div>
 
 
 
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
           <h3 class="title-body" id="text-meal-index">OFFRES EN COURS</h3>
-           <% if  @meals.where(active:true).count == 0 %>
+           <% if  Meal.where(active:true).count == 0 %>
               <h4>Il n'y a malhreusement pas d'offres en cours pour le moment :( </h4>
               <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
             <% else %>
@@ -42,7 +42,7 @@
               <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
                 <div class="card-filter card-bg">
                   <a href="http://laboxduchef.herokuapp.com/meals/#map" id="card-postal_code-position" > <i class="fa fa-map-marker"></i>
-                    <%= meal.restaurant.postal_code %>
+                    <%= meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km
                   </a>
                   <p id="card-name-position"><%= meal.name %></p>
                   <div class="prices-meal-container">

@@ -22,6 +22,8 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
+
+
   def full_address
     "#{street}, #{postal_code} #{locality}"
   end
