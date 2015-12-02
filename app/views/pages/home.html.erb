@@ -21,11 +21,25 @@
     </div>
   </div >
 
+            <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3">
+                 <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
+
+                <label class="label-search-home">
+                  ENTREZ VOTRE ADRESSE:
+                </label>
+                <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
+
+                <div style="margin-bottom:10p.rbx;"></div>
+                <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+                <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+                <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+
+                  <%= f.button :submit, "G0", class: "btn-home" %>
+
+            <% end %>
+            </div>
 
 
-  <div class= "col-xs-12 text-center" style="margin-top:35px;margin-bottom:35px;font-size:40px">
-    <%= link_to "GO", meals_path, class: "btn-home" %>
-  </div>
 
 
 
