@@ -1,12 +1,13 @@
 // Your footer style
 .footer {
   overflow-x: visible;
-  color: black;
+  color: white;
   position: relative;
   bottom: 0px;
-  height: 170px;
+  height: 190px;
   font-family: 'Varela Round', sans-serif;
-  background-color: lightgrey;
+  background-color: #006C26;
+  opacity: 0.8px;
 
 
   &-fixed {
@@ -26,7 +27,7 @@
     // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
     // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     flex: 1 1 0;
-    color: black;
+    color: white;
     border: black;
     font-size: 20px;
     padding: 10px 0;
@@ -41,4 +42,9 @@
       size: 110%;
     }
   }
+}
+
+.footer-links {
+
+list-style: none;
 }
