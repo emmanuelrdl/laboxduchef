@@ -25,7 +25,7 @@
                  <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
 
                 <label class="label-search-home">
-                  ENTREZ VOTRE ADRESSE:
+                  LIEU DE VOTRE RECHERCHE:
                 </label>
                 <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
 
@@ -37,6 +37,7 @@
                   <%= f.button :submit, "G0", class: "btn-home" %>
 
             <% end %>
+            <button onclick="getLocation()">Try It</button>
             </div>
 
 
