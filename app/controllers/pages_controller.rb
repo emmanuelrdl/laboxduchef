@@ -20,5 +20,6 @@ class PagesController < ApplicationController
   def charteutilisateur
   end
 
-
+  def geolocation
+  end
 end
