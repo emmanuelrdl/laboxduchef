@@ -11,7 +11,7 @@
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
                 <%= f.input :name, label: 'Nom',input_html: {:maxlength => 24}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
-                <%= f.input :description, placeholder: 'Décrivez le plat en une phrase' ,input_html: {:maxlength => 60} %>
+                <%= f.input :description, placeholder: 'Délicieux boeuf accompagné de riz' ,input_html: {:maxlength => 60} %>
                 <ul class="list-inline">
                     <li class="col-xs-6"><%= f.input :seated_price, label: 'Prix en salle', placeholder: 'en €' %> </li>
                   <li class="col-xs-6">  <%= f.input :price, label: 'Prix de la box', placeholder: 'en €' %> </li>
