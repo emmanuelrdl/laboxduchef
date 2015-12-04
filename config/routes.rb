@@ -32,7 +32,7 @@
     resources :payments,    only: [:new, :create, :show]
   end
 
-  resources :orders,  only: [:show, :create]
+  resources :orders,  only: [:index, :show, :create]
   resources :users,   only: [:show]
 
 
