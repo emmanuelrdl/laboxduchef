@@ -13,7 +13,7 @@
   get "/espacerestaurants" => "pages#espace_restaurants"
   get "/conditionsgenerales" => "pages#conditionsgenerales"
   get "/chartepartenaire" => "pages#chartepartenaire"
-  get "/charteconsommateur" => "pages#charteconsommateur"
+  get "/charteconsommateur" => "pages#charteutilisateur"
 
 
   resources :contacts, only: [:new, :create]

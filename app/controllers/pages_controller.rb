@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   def chartepartenaire
   end
 
-  def charteconsommateur
+  def charteutilisateur
   end
 
 
