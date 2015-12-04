@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :phone_number, numericality: true, length:{ is: 10 }
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :cgv, presence: true
 
   has_many :restaurants
   has_many :orders

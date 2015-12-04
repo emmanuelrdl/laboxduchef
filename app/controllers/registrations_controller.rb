@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:user).permit(:first_name, :email, :password, :password_confirmation, :last_name, :phone_number,
-     :restaurant_owner, :notification, :postal_code, :locality, :street)
+     :restaurant_owner, :notification, :postal_code, :locality, :street, :cgv)
   end
 
   def new_partner
