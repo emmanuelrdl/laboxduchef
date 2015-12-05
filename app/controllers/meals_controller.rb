@@ -63,8 +63,6 @@ class MealsController < ApplicationController
   def create
     @meal = @restaurant.meals.create(params_meal)
     @meal.active = true
-    @meal.latitude = @restaurant.latitude
-    @meal.longitude = @restaurant.longitude
     @meal.stock = @meal.quantity
     if @meal.save
       redirect_to user_path(current_user)
