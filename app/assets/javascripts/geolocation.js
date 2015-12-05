@@ -1,9 +1,11 @@
+var geocoder;
 
-
-  var geocoder;
+function initiate_geolocation() {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+
+}
 }
 //Get the latitude and the longitude;
 function successFunction(position) {
