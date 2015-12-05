@@ -52,7 +52,7 @@
 
 <button onclick="getLocation()">Try It</button>
 
-<p id="demo" type="text" value="41.714224,-73.961452"></p>
+<input id="demo" type="text" value="41.714224,-73.961452">
 
     <div id="floating-panel">
       <input id="latlng" type="text" value="40.714224,-73.961452">
@@ -83,7 +83,7 @@ function initMap() {
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
-  var input = document.getElementById('demo').value;
+  var input = document.getElementById('latlng').value;
   var latlngStr = input.split(',', 2);
   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
   geocoder.geocode({'location': latlng}, function(results, status) {
