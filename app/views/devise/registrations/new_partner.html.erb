@@ -16,6 +16,8 @@
           <%= f.input :restaurant_owner, :as => :hidden, input_html: { :value => true } %>
           <%= f.input :password, label: "Mot de passe", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, label: "Confirmation du mot de passe", required: true %>
+
+          <%= f.input :cgv, as: :boolean, checked_value: true, unchecked_value: false, label:"J'ai lu et j'accepte les condition générales de vente & la charte du partenaire" %>
         </div>
 
         <div class="form-actions">
