@@ -52,3 +52,7 @@ function errorFunction(){
       }
     });
   }
+
+function setting_addrress() {
+    document.getElementById("user_input_autocomplete_address").value = "Johnny Bravo";
+}
