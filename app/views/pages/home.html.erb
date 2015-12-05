@@ -31,15 +31,16 @@
                   LIEU DE VOTRE RECHERCHE:
                 </label>
 
-
-                  <div class="col-xs-11" style='padding-right:0px'>
+              <div class="col-xs-12" style='padding-right:0px;'>
+                  <div class="col-xs-10" style="padding-right:0px;" >
                   <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
                  </div>
 
-                   <div class="col-xs-1" onclick="initiate_geolocation()" style="padding-left:3px">
-                    <%= image_tag ("geolocation.png"), size:"35x35"%>
-                  </div>
+                   <div class="col-xs-1 geolocation-field" onclick="initiate_geolocation()" >
+                     <button class="fa fa-map-marker btn-geolocation" > </button>
+                   </div>
 
+              </div>
 
 
                 <div style="margin-bottom:10p.rbx;"></div>
