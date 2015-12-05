@@ -83,7 +83,7 @@ function initMap() {
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
-  var input = document.getElementById('latlng').value;
+  var input = document.getElementById('demo').value;
   var latlngStr = input.split(',', 2);
   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
   geocoder.geocode({'location': latlng}, function(results, status) {
