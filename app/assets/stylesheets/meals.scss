@@ -46,19 +46,22 @@ background: rgba(70,70,70,0.6);
 }
 
 
-#card-postal_code-position{
-  margin-left: 140px;
-  padding: 1px;
+.card-postal_code-position{
+  margin-top:0px;
+  padding-right: 3px;
   color: white;
-  width:75px;
+  text-align: right;
+  float:right;
+  font-size: 15px;
+
 
 }
 
 #card-name-position {
 
-  font-size: 18px;
+  font-size: 16px;
   background: rgba(0,0,0,0.6);
-  margin-top:103px;
+  margin-top:127px;
   margin-bottom: 0px;
 
 
@@ -78,6 +81,7 @@ background: rgba(70,70,70,0.6);
 #text-meal-index {
 
 padding-bottom: 20px;
+padding-top:20px;
 margin-left: 30px;
 }
 
@@ -87,7 +91,8 @@ margin-left: 30px;
 
   background-color: white;
   height:50px;
-  margin-top: 0px;
+
+  bottom: 0px;
   text-shadow: 3px 3px 3px rgba(0,0,0,0);
 }
 
@@ -227,7 +232,8 @@ padding-right: 2px;
   background: rgba(0,0,0,0.5);
   margin-bottom: 160px;
   color:white;
-  padding-left: 10px;
+  padding-right: 4px;
+  text-align: right;
 }
 
 
@@ -252,4 +258,10 @@ color: #FFF;
 border-radius: 3px;
 background-size: cover;
 margin: auto auto 8px;
+}
+
+.address-compenents {
+
+padding: 0px;
+margin: 0px;
 }
