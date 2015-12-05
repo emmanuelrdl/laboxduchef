@@ -11,7 +11,7 @@
         padding: 0;
       }
       #map {
-        height: 100%;
+        height: 50%;
       }
 #floating-panel {
   position: absolute;
@@ -46,6 +46,14 @@
     </style>
   </head>
   <body>
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
     <div id="floating-panel">
       <input id="latlng" type="text" value="40.714224,-73.961452">
       <input id="submit" type="button" value="Reverse Geocode">
