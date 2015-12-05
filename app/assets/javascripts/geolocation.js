@@ -18,9 +18,9 @@ function errorFunction(){
     alert("Geocoder failed");
 }
 
-  function initialize() {
+
     geocoder = new google.maps.Geocoder();
-  }
+
 
   function codeLatLng(lat, lng) {
 
