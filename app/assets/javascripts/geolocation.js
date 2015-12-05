@@ -28,7 +28,7 @@ function errorFunction(){
       console.log(results)
         if (results[1]) {
          //formatted address
-         alert(results[0].formatted_address)
+document.getElementById("user_input_autocomplete_address").value = (results[0].formatted_address)
         //find country name
              for (var i=0; i<results[0].address_components.length; i++) {
             for (var b=0;b<results[0].address_components[i].types.length;b++) {
@@ -53,6 +53,5 @@ function errorFunction(){
     });
   }
 
-function setting_addrress() {
-    document.getElementById("user_input_autocomplete_address").value = "Johnny Bravo";
-}
+
+
