@@ -31,15 +31,16 @@
                   LIEU DE VOTRE RECHERCHE:
                 </label>
 
-                <div>
-                  <div>
-                  <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
-                  </div>
-                </div>
 
-                <div onclick="initiate_geolocation()">
-                  <%= image_tag ("geolocation.png"), size:"65x65"%>
-                </div>
+                  <li>
+                  <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
+                  </li>
+
+
+                 <!--  <li onclick="initiate_geolocation()">
+                    <%= image_tag ("geolocation.png"), size:"40x40"%>
+                  </li> -->
+
 
                 <div style="margin-bottom:10p.rbx;"></div>
                 <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
