@@ -28,7 +28,8 @@
                               <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
                               <p> <i class="fa fa-clock-o"></i>
                                 Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
-                              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+                              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </strong>
+                              </p>
 
                               <div class="row" >
                               <div class="col-xs-12 text-center" style="margin-bottom:15px">
@@ -37,6 +38,7 @@
                                   <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
                                   <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
                                 <% end %>
+                                <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
                               </div>
                             </div>
                           </div>
@@ -85,6 +87,7 @@
                                       </li>
                                   </ul>
                                 <% end %>
+                                    <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
                               </div>
                             </div>
                           </div>

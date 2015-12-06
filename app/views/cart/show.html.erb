@@ -1,6 +1,5 @@
 <div id="body-container" >
   <h2 class="text-center title-body" style="margin-top:0px; padding-top:20px" >VOS COMMANDES</h2>
-
     <div class="row">
       <div class="container">
         <div class="meal-index-search col-xs-12 col-sm-6 col-sm-offset-3 text-center" style="border-radius:3px">
@@ -13,32 +12,35 @@
                   <p class="cart-meal-name"><%= order_meal.meal.name %> </p>
                   <p class="cart-meal-price"><%= order_meal.price/order_meal.quantity %> €/ unité </p>
                 </div>
+
               <% end %>
               <ul class="list-unstyled list-inline">
                 <li style="margin-bottom: 3px"><%= link_to "Ajouter une box", meals_path, class: "btn btn-ajouter btn-sm" %></li>
 
                 <li><%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning btn-sm", style: "border-radius:3px;padding:5.5px;margin:1px"%></li>
               </ul>
+               <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
+          </div>
+            <div class="col-xs-12 text-center" id="price-box">
+              <div style="margin:15px">
+                <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
               </div>
-              <div class="col-xs-12 text-center" id="price-box">
-                <div style="margin:15px">
-                  <h4>PRIX TOTAL TTC : <STRONG><%= number_to_currency(@total_price) %></STRONG></h4>
-                </div>
-                <div style="margin-top:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%>
-                </div>
-            </div>
-            <% else %>
-
-              <p>Votre panier est vide.</p>
-              <div style="margin: 10px"><%= link_to "Ajouter une box", meals_path, class: "btn btn-ajouter btn-sm" %>
+              <div style="margin-top:10px"><%= link_to "Valider et payer", new_cart_payment_path, class: "btn btn-success btn-lg", style: "border-radius:3px;"%>
               </div>
-
-          <% end %>
-
+          </div>
         </div>
       </div>
-    </div>
+      <% else %>
 
+                  <p>Votre panier est vide.</p>
+                  <div style="margin: 10px"><%= link_to "Ajouter une box", meals_path, class: "btn btn-ajouter btn-sm" %>
+                  </div>
+
+                  <div style="height:300px;"></div>
+
+
+
+      <% end %>
 
 
     </div>
