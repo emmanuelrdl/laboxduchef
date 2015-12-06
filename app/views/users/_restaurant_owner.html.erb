@@ -73,6 +73,7 @@
           </thead>
             <% @meals.each do |meal| %>
               <% meal.order_meals.last(10).each do |order_meal| %>
+                <% if order_meal.order.status == "confirmed" || order_meal.order.status == "paid"  %>
 
 
                 <tbody>
@@ -80,10 +81,13 @@
                   <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
                   <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(order_meal.order), class: "btn btn-success btn-xs" %></strong></td>
                   <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
-                  <td><%= number_to_currency(order_meal.order.amount * 0.80, :unit => "€") %></td>
+                  <td><%= number_to_currency(order_meal.order.amount - order_meal.order.amount*0.18*1.2) %></td>
                   <td><%= order_meal.order.status %></td>
                 </tr>
               </tbody>
+
+              <% else %>
+              <% end %>
 
               <% end -%>
             <% end -%>
@@ -94,7 +98,10 @@
     </div>
 
 
+ <%= link_to "Mes payements", orders_path(@order), class: "btn btn-success padding-btn-profil btn-sm" %>
+
 </div>
+
 
 
 

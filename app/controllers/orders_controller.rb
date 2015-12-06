@@ -11,12 +11,9 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @order = Order.where(status: "confirmed").find(params[:id])
-    @order_meals = @order.order_meals
-    @restaurants = current_user.restaurants
-      @restaurants.first.meals.each do |meal|
-      @meal = meal
-
+     if current_user.restaurant_owner
+      @restaurant = current_user.restaurants.first
+      @meals = @restaurant.meals.page(params[:page])
       end
   end
 
