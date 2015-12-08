@@ -22,6 +22,10 @@
                            <div class="grey-card" style="font-size:16px; padding:10px;">
                               <p><i class="fa fa-calendar-times-o"></i>
                                  Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                  <% if @meal.second_date? %>
+                                    et le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                                  <% end -%>
+
                               </p>
                               <p> <i class="fa fa-clock-o"></i>
                                Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
@@ -38,7 +42,7 @@
                                   <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
                                   <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
                                 <% end %>
-                                <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
+
                               </div>
                             </div>
                           </div>

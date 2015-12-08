@@ -18,7 +18,8 @@
                   <li class="col-xs-6">  <%= f.input :price, label: 'Prix de la box', placeholder: 'en €' %> </li>
                 </ul>
                 <%= f.input :quantity, label: 'Nombre de box(es)', :collection => (1..20), placeholder: 'ex: 2' %>
-                <%= f.input :starting_date, label: 'Date de disponibilité', placeholder: 'lundi 3 mars 2015' %>
+                <%= f.input :starting_date, as: :boolean, checked_value: Date.today, unchecked_value: false, label:'Ce jour' %>
+                 <%= f.input :second_date, as: :boolean, checked_value: Date.today + 1, unchecked_value: false, label:'Demain' %>
                 <p> <strong> Horaires de retrait le midi </strong></p>
                   <div class="col-xs-12">
                       <div class="col-xs-6">

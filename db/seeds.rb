@@ -45,7 +45,6 @@ proprio_les_saltimbanques= User.create!(
 
 les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   name: "Les Saltimbanques",
-  category: "Cuisine Francaise",
   street: "17 Villa Gaudelet",
   locality: "Paris",
   postal_code: 75011,
@@ -64,6 +63,7 @@ coq_au_vin = les_saltimbanques.meals.create!(
   description: "Coq cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
   starting_date: Date.today,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -81,6 +81,7 @@ hachis = les_saltimbanques.meals.create!(
   description: "Bonne viande de boeuf et pommes de terre du jardin",
   picture: File.open(Rails.root.join("db/seeds/pictures/hachis-parmentier.jpg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -106,7 +107,6 @@ proprio_le_blue_valentine = User.create!(
 
 le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   name: "Le Blue Valentine",
-  category: "Cuisine Francaise",
   street: "13 Rue de la Pierre Levée",
   locality: "Paris",
   postal_code: 75011,
@@ -124,6 +124,7 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   description: "Viande de boeuf mijotée au vin et aux légumes",
   picture: File.open(Rails.root.join("db/seeds/pictures/bourguignon.jpg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -141,6 +142,7 @@ choucroute = le_blue_valentine.meals.create!(
   description: "Belle choucroute garnie et savoureuse",
   picture: File.open(Rails.root.join("db/seeds/pictures/choucroute.jpg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -157,6 +159,7 @@ tomates = le_blue_valentine.meals.create!(
   description: "Belles tomates farcies accompagnées de riz basmati",
   picture: File.open(Rails.root.join("db/seeds/pictures/tomates.jpg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -183,7 +186,6 @@ proprio_astier = User.create!(
 
 astier = proprio_astier.restaurants.create!(
   name: "Astier",
-  category: "Cuisine Francaise",
   street: "44 rue Jean Pierre Timbaud",
   locality: "Paris",
   postal_code: 75011,
@@ -201,6 +203,7 @@ poulet_basquaise = astier.meals.create!(
   description: "Poulet poivrons rouges et sauce piquante accompagné de riz",
   picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
@@ -222,6 +225,7 @@ gratin = astier.meals.create!(
   description: "Pomme de terre au four et crème fraiche",
   picture: File.open(Rails.root.join("db/seeds/pictures/gratin.jpeg")),
   starting_date: Date.current,
+  second_date: Date.today + 1,
   take_away_noon_starts_at: Date.current.noon,
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
