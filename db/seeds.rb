@@ -22,6 +22,7 @@ emmanuel = User.create!(
   password: "password",
   password_confirmation: "password",
   notification: false,
+  cgv: true
 
 )
 
@@ -36,7 +37,7 @@ proprio_les_saltimbanques= User.create!(
   password: "12345678",
   password_confirmation: "12345678",
   notification: false,
-
+  cgv: true
 
 
 
@@ -99,7 +100,8 @@ proprio_le_blue_valentine = User.create!(
   email: "boss@valentine.com",
   password: "12345678",
   password_confirmation: "12345678",
-  notification: false
+  notification: false,
+  cgv: true
 )
 
 le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
@@ -174,7 +176,8 @@ proprio_astier = User.create!(
   restaurant_owner: true,
   email: "boss@astier.com",
   password: "12345678",
-  password_confirmation: "12345678"
+  password_confirmation: "12345678",
+  cgv: true
 
 )
 
