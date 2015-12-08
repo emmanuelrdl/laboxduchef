@@ -10,7 +10,6 @@ class Meal < ActiveRecord::Base
   validates :seated_price, presence: true
   validates :quantity, presence: true
   validates :description, presence: true, length: { maximum: 100 }
-  validates :starting_date, presence: true
   validates :take_away_noon_starts_at, presence: true
   validates :take_away_evening_starts_at, presence: true
   validates :take_away_noon_ends_at, presence: true
