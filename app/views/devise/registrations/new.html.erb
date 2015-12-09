@@ -17,7 +17,7 @@
                 <%= f.input :password, label: "Mot de passe", required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
                 <%= f.input :password_confirmation, label: "Confirmation du mot de passe", required: true %>
                 <%= f.input :cgv, as: :boolean, checked_value: true, unchecked_value: false, label:("J'ai lu et j'accepte les #{link_to "conditions générales d'utilisation", conditionsgenerales_path} ainsi que la #{link_to "charte de l'utilisateur", charteutilisateur_path}").html_safe %>
-                <%= f.input :notification, as: :check, label:"Je veux recevoir une notification lorsqu'une offre est proposée dans ma zone",  id:"notification" %>
+                <%= f.input :notification, label:"Je veux recevoir une notification lorsqu'une offre est proposée dans ma zone",  id:"notification" %>
 
                 <div id="address-box">
                   <label for="">
