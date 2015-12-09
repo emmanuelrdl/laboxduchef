@@ -8,7 +8,7 @@ namespace :scheduler do
         @meals = @all_meals.where("active = ?", true)
         @meals.each do |meal|
           if
-            meal.starting_date < Date.today + 2
+            meal.second_date < Date.today
             meal.active = false
           else
             meal.active = true
