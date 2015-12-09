@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   content_type: /\Aimage\/.*\z/
 
 
-  after_create :send_welcome_email
 
 
 
