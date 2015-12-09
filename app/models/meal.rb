@@ -14,6 +14,8 @@ class Meal < ActiveRecord::Base
   validates :take_away_evening_starts_at, presence: true
   validates :take_away_noon_ends_at, presence: true
   validates :take_away_evening_ends_at, presence: true
+  validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present?}
+  validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present?}
 
   paginates_per 6
 
