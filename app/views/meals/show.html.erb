@@ -72,7 +72,14 @@
                   </ul>
                            <div class="grey-card" style="font-size:16px; padding:10px;">
                               <p><i class="fa fa-calendar-times-o"></i>
-                                 Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                  <% if @meal.starting_date? && @meal.second_date?  %>
+                                    Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                    et le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                                  <% elsif @meal.starting_date? %>
+                                      Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                  <% elsif @meal.second_date? %>
+                                      Disponible le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                                  <% end -%>
                               </p>
                               <p> <i class="fa fa-clock-o"></i>
                                Retrait de <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à

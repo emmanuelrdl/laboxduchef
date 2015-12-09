@@ -9,7 +9,20 @@
 
               <h4><%= order_meal.meal.name %> x<%= order_meal.quantity %>   </h4>
 
-              <p> <i class="fa fa-calendar-o"> </i> A retirer le <%= order_meal.meal.starting_date.strftime("%d/%m/%y") %> entre:</p>
+              <p> <i class="fa fa-calendar-o"> </i>
+                 <% if @meal.starting_date? && @meal.second_date?  %>
+                      A retirer le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                      ou le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                      entre:
+                <% elsif @meal.starting_date? %>
+                      A retirer le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                      entre:
+                <% elsif @meal.second_date? %>
+                      A retirer le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                      entre:
+                <% end -%>
+
+             </p>
 
               <div class="col-xs-12 ">
                 <div class="col-xs-6">
