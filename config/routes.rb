@@ -15,10 +15,11 @@
   get "/conditionsgenerales" => "pages#conditionsgenerales"
   get "/chartepartenaire" => "pages#chartepartenaire"
   get "/charteutilisateur" => "pages#charteutilisateur"
-  get "/landing" => "pages#landing"
+
 
 
   resources :contacts, only: [:new, :create]
+  resources :newsletters, only: [:new, :create]
 
 
   resources :meals, only: [ :index, :show ]

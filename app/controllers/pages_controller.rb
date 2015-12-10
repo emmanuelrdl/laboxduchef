@@ -20,6 +20,5 @@ class PagesController < ApplicationController
   def charteutilisateur
   end
 
-  def landing
-  end
+
 end
