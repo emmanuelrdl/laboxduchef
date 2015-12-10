@@ -19,6 +19,7 @@ class NewslettersController < ApplicationController
 
   def landing_page
   @disable_nav = true
+  @disable_footer = true
   end
 
 private

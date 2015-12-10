@@ -38,7 +38,7 @@
 
     <%= yield %>
 
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' unless @disable_footer %>
 
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBJQy3SG32KdsEkfEYA4HvjzTM3EO6jcRk" %>
     <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
