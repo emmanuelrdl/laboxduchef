@@ -15,7 +15,7 @@
   get "/conditionsgenerales" => "pages#conditionsgenerales"
   get "/chartepartenaire" => "pages#chartepartenaire"
   get "/charteutilisateur" => "pages#charteutilisateur"
-  get "/geolocation" => "pages#geolocation"
+  get "/landing" => "pages#landing"
 
 
   resources :contacts, only: [:new, :create]
