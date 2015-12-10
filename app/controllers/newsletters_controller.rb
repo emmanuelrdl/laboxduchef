@@ -1,8 +1,10 @@
 class NewslettersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :landing_page
 
  def new
     @newsletter = Newsletter.new
-  end
+ end
 
 
   def create
@@ -13,6 +15,10 @@ class NewslettersController < ApplicationController
     else
       render :new
      end
+  end
+
+  def landing_page
+  @disable_nav = true
   end
 
 private
