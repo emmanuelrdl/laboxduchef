@@ -68,7 +68,7 @@
               <th>Commande</th>
               <th>Prix total</th>
               <th>A percevoir</th>
-              <th>Status</th>
+              <th>Statut</th>
             </tr>
           </thead>
             <% @meals.each do |meal| %>
@@ -97,8 +97,9 @@
 
     </div>
 
-
- <%= link_to "Mes payements", orders_path(@order), class: "btn btn-success padding-btn-profil btn-sm" %>
+     <div class='text-center'>
+     <%= link_to "Mes payements", orders_path(@order), class: "btn btn-success btn-sm btn-margin" %>
+     </div>
 
 </div>
 
