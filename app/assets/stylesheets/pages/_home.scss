@@ -175,7 +175,17 @@ padding-left: 0px;
   border-radius: 3px;
   border:none;
   height:36px;
-  width: 36px;
+  width: 80px;
   padding: 2px;
   margin: 0px;
+  font-size:9px;
+  display:flex;
+}
+
+.btn-geolocation li {
+
+  display:inline;
+ text-align: center;
+ margin-left: -3px;
+ padding-top: 3px;
 }
