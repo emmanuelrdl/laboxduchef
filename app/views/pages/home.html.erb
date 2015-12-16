@@ -1,60 +1,60 @@
-<div class="banner-index" id="banner-container">
-  <div class="container" >
-     <div class="row ">
+<div id="banner-container">
+  <div class="layer hidden-xs"></div>
+    <div class="layer-xs hidden-sm hidden-md hidden-lg"></div>
+    <div class="container" >
+      <div class="row ">
 
-            <div class="col-xs-12 col-sm-12 ">
-              <div  class="text-center" >
-                <h1 class="hidden-xs title-home-lg"> MANGEZ MIEUX, MOINS CHER,
-                  <p> LUTTEZ CONTRE LE GASPILLAGE </p>
+              <div class="col-xs-12 col-sm-12 ">
+                <div  class="text-center" >
+                  <h1 class="hidden-xs title-home-lg"> MANGEZ MIEUX, MOINS CHER,
+                    <p> LUTTEZ CONTRE LE GASPILLAGE </p>
 
-                  <b class="sub-title-home-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</b>
-                  </h1>
-                  <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> MANGEZ MIEUX, MOINS CHER, LUTTEZ CONTRE LE GASPILLAGE !</p>
-                  <h1>
-                  <p class="sub-title-home-xs hidden-sm hidden-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</p>
-
-
+                    <b class="sub-title-home-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</b>
+                    </h1>
+                    <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> MANGEZ MIEUX, MOINS CHER, LUTTEZ CONTRE LE GASPILLAGE !</p>
+                    <h1>
+                    <p class="sub-title-home-xs hidden-sm hidden-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</p>
 
 
-                </div>
-            </div>
-      </div>
-  </div >
 
-    <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3">
-                 <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
 
-                <label class="label-search-home">
-                  LIEU DE VOTRE RECHERCHE:
-                </label>
-
-            <div class="col-xs-12 search-place" style='padding-right:0px;'>
-                  <div class="col-xs-8 col-sm-10" style="padding-right:0px;" >
-                    <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
                   </div>
-                    <div class="col-xs-4 col-sm-2 geolocation-field" onclick="initiate_geolocation()" >
-                          <div class="btn-geolocation" >
-                              <li>
-                               <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
-                              </li>
-                              <li>
-                                Trouver ma position
-                              </li>
-                         </div>
-                    </div>
               </div>
+        </div>
+    </div >
 
+      <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3 ">
+                   <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
+        <div class="filter-search">
+                  <label class="label-search-home ">
+                    LIEU DE VOTRE RECHERCHE:
+                  </label>
 
+              <div class="col-xs-12 search-place" style='padding-right:0px;'>
+                    <div class="col-xs-8 col-sm-10" style="padding-right:0px;" >
+                      <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
+                    </div>
+                      <div class="col-xs-4 col-sm-2 geolocation-field" onclick="initiate_geolocation()" >
+                            <div class="btn-geolocation" >
+                                <li>
+                                 <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
+                                </li>
+                                <li>
+                                  Trouver ma position
+                                </li>
+                           </div>
+                      </div>
+                </div>
                 <div style="margin-bottom:10p.rbx;"></div>
-                <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
-                <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
-                <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+                  <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+                  <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+                  <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
 
-                  <%= f.button :submit, "GO", class: "btn-home" %>
+                    <%= f.button :submit, "GO", class: "btn-home" %>
 
-            <% end %>
-
-    </div>
+              <% end %>
+          </div>
+      </div>
 
 
 
@@ -63,7 +63,7 @@
 
   <div class="row">
     <div class="col-xs-12 filter-hiw text-center">
-          <h4 class="text-center" style="padding-bottom:30px;" > <strong>  FONCTIONNEMENT  </strong></h4>
+          <h4 class="text-center title-line" style="padding-bottom:30px;" > <strong>  FONCTIONNEMENT  </strong></h4>
       <div>
         <div class="text-center col-xs-6 col-sm-3">
           <img src="https://maxcdn.icons8.com/Color/PNG/96/Mobile/tablet_android-96.png" title="Android Tablet" width="96">
