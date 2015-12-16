@@ -28,11 +28,11 @@
                   LIEU DE VOTRE RECHERCHE:
                 </label>
 
-            <div class="col-xs-12" style='padding-right:0px;'>
-                  <div class="col-xs-8" style="padding-right:0px;" >
+            <div class="col-xs-12 search-place" style='padding-right:0px;'>
+                  <div class="col-xs-8 col-sm-10" style="padding-right:0px;" >
                     <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
                   </div>
-                    <div class="col-xs-4 geolocation-field" onclick="initiate_geolocation()" >
+                    <div class="col-xs-4 col-sm-2 geolocation-field" onclick="initiate_geolocation()" >
                           <div class="btn-geolocation" >
                               <li>
                                <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
@@ -54,7 +54,7 @@
 
             <% end %>
 
-            </div>
+    </div>
 
 
 
