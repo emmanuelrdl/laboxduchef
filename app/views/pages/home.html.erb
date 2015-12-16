@@ -63,7 +63,7 @@
 
   <div class="row">
     <div class="col-xs-12 filter-hiw text-center">
-          <h4 class="text-center title-line" style="padding-bottom:30px;" > <strong>  FONCTIONNEMENT  </strong></h4>
+          <h3 class="text-center title-line" style="padding-bottom:30px;" > <strong>  FONCTIONNEMENT  </strong></h3>
       <div>
         <div class="text-center col-xs-6 col-sm-3">
           <img src="https://maxcdn.icons8.com/Color/PNG/96/Mobile/tablet_android-96.png" title="Android Tablet" width="96">
@@ -84,6 +84,37 @@
       </div>
     </div>
   </div>
+
+
+
+  <div class=" col-sm-8 col-sm-offset-2 hidden-xs map-home">
+         <h3 class="text-center title-line" style="padding-bottom:30px;" > <strong>  NOS PARTENAIRES </strong></h3>
+
+         <div id="map" name="map" style="height:420px; width:900px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:15px; border-radius:3px;border:1px solid black">
+         </div>
+
+  </div>
+
+
+    <% content_for(:after_js) do %>
+    <script>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        console.log(markers)
+
+            });
+
+    });
+
+
+    </script>
+    <% end %>
+
+
 
 
 
