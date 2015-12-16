@@ -48,10 +48,10 @@ background: rgba(70,70,70,0.6);
 
 .card-postal_code-position{
   margin-top:0px;
-  padding-right: 3px;
+  padding-left: 3px;
   color: white;
-  text-align: right;
-  float:right;
+  text-align: left;
+  float:left;
   font-size: 15px;
 
 
@@ -264,6 +264,12 @@ margin: auto auto 8px;
 
 padding: 0px;
 margin: 0px;
+}
+
+.restaurant-name-meal {
+  padding: 0px;
+  margin: 0px;
+  font-weight: bold;
 }
 
 .form-time {

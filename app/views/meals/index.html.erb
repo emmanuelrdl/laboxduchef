@@ -14,11 +14,8 @@
               <div class="card" style="width:100%; padding:10px; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
                 <div class="card-filter card-bg">
                   <div class="card-postal_code-position">
-                      <a href="http://laboxduchef.herokuapp.com/meals/#map" style="color:white;" >
+                        <p class="restaurant-name-meal"> <%= meal.restaurant.name %> </p>
                         <p class="address-compenents" > <i class="fa fa-map-marker"></i> <%= meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km </p>
-                        <p class="address-compenents"  > <%= meal.restaurant.street %> </p>
-                        <p class="address-compenents" > <%= meal.restaurant.postal_code %> <%= meal.restaurant.locality %> </p>
-                      </a>
                   </div>
                   <p id="card-name-position"><%= meal.name %></p>
                   <div class="prices-meal-container">
