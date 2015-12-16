@@ -130,13 +130,19 @@ margin-left: 30px;
 
   height:300px;
   width: 400px;
+  border-image-outset: 0 0 0 0;
 
 }
 
 
-.cart-img-size-xs{
-  height:300px;
-  width: 300px;
+.cart-img-size-sm{
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  box-sizing:border-box;
+  height: 300px;
+
 
 }
 
@@ -229,11 +235,11 @@ padding-right: 2px;
 .cart-show-address {
 
   margin-top: 0px;
-  background: rgba(0,0,0,0.5);
+
   margin-bottom: 160px;
   color:white;
-  padding-right: 4px;
-  text-align: right;
+  padding-left: 5px;
+  text-align: left;
 }
 
 

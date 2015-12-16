@@ -1,13 +1,14 @@
-
+<!-- View md-ld -->
 <div id="body-container" >
-    <div class="row text-body">
-
+    <div class="row text-body hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-        <h4 class="title-body" style="text-align:left"> DÉTAIL DE LA BOX</h4>
-        <div class="hidden-xs cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
+        <h4 class="title-body " style="text-align:left"> DÉTAIL DE LA BOX</h4>
+          <div class="hidden-xs cart-img-size" style="background-image: url('<%=image_path @meal.picture.url(:large)%>')">
                 <div class="cart-show-address">
-
-                  <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
+                  <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.street %></p>
+                  <p>  <%= @meal.restaurant.postal_code %>,
+                    <%= @meal.restaurant.locality %>
+                  </p>
                 </div>
                 <div class="cart-show-name-description">
                     <p class="text-center"> <strong><%= @meal.name %> </strong> <p>
@@ -19,7 +20,7 @@
                       <li class="cart-show-meal-price-position"> <%= @meal.price %> €  </li>
                        <li class="cart-show-stock-position">X <%= @meal.stock %> </li>
                   </ul>
-                           <div class="grey-card" style="font-size:16px; padding:10px;">
+                        <div class="grey-card" style="font-size:16px; padding:10px;">
                               <p><i class="fa fa-calendar-times-o"></i>
                                  <% if @meal.starting_date? && @meal.second_date?  %>
                                     Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
@@ -40,82 +41,25 @@
                               </p>
 
                               <div class="row" >
-                              <div class="col-xs-12 text-center" style="margin-bottom:15px">
-                                <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
-                                  <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
-                                  <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-                                  <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
-                                <% end %>
+                                <div class="col-xs-12 text-center" style="margin-bottom:15px">
+                                  <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
+                                    <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
+                                    <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+                                    <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
+                                  <% end %>
 
                               </div>
                             </div>
-                          </div>
-                      </div>
-                  </div>
 
-
-
-          <div class="hidden-md hidden-lg hidden-sm cart-img-size-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
-                <div class="cart-show-address">
-                  <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
                 </div>
-                <div class="cart-show-name-description">
-                    <p class="text-center"> <strong><%= @meal.name %> </strong> <p>
-                    <p ><%= @meal.description %> <p>
-                </div>
-                <div class="cart-show-prices-quantity">
-                  <ul id="navlist">
-                      <li class="cart-show-meal-seated-price-position"> <s><%= @meal.seated_price %> € </s> </li>
-                      <li class="cart-show-meal-price-position-xs"> <%= @meal.price %> €  </li>
-                       <li class="cart-show-stock-position-xs">X <%= @meal.stock %> </li>
-                  </ul>
-                           <div class="grey-card" style="font-size:16px; padding:10px;">
-                              <p><i class="fa fa-calendar-times-o"></i>
-                                  <% if @meal.starting_date? && @meal.second_date?  %>
-                                    Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                                    et le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
-                                  <% elsif @meal.starting_date? %>
-                                      Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                                  <% elsif @meal.second_date? %>
-                                      Disponible le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
-                                  <% end -%>
-                              </p>
-                              <p> <i class="fa fa-clock-o"></i>
-                               Retrait de <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
-                              <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %></strong> et de <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
-                              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
-
-                              <div class="row"  >
-                              <div class="col-xs-12 text-center" style="margin-bottom:10px">
-                                <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
-
-                                  <ul class="list-inline">
-                                    <li>
-                                      <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
-                                    </li>
-                                     <li>
-                                      <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
-                                     </li>
-                                      <li>
-                                      <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
-                                      </li>
-                                  </ul>
-                                <% end %>
-                                    <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
+            </div>
+        </div>
+    </div>
 
 
 
-              </div>
 
-
-<div class="hidden-md hidden-lg" style="padding:275px;">- </div>
-
-        <div class="row" >
+        <div class="row hidden-xs hidden-sm" >
           <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-lg-6 col-lg-offset-0">
             <h4 class="title-body">LOCALISATION</h4>
 
@@ -132,8 +76,11 @@
                     markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
                     handler.bounds.extendWith(markers);
                     handler.fitMapToBounds().getMap();
+
                   });
                 })
+
+
               <% end %>
             <% end %>
 
@@ -148,8 +95,84 @@
             </div>
           </div>
        </div>
+    </div>
+</div>
+<!-- end view md-ld -->
+
+<!-- view sm-xs -->
+<div id="body-container " class="hidden-sm hidden-md hidden-lg visible-xs" >
+  <div class="row ">
+    <div class="cart-img-size-sm" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
+                  <div class="cart-show-address">
+                    <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.street %>
+                    </p>
+                     <p>
+                      <%= @meal.restaurant.postal_code %>,
+                      <%= @meal.restaurant.locality %>
+                    </p>
+                  </div>
+                  <div class="cart-show-name-description">
+                      <p class="text-center"> <strong><%= @meal.name %> </strong> <p>
+                      <p ><%= @meal.description %> <p>
+                  </div>
+                  <div class="cart-show-prices-quantity">
+                    <ul id="navlist">
+                        <li class="cart-show-meal-seated-price-position"> <s><%= @meal.seated_price %> € </s> </li>
+                        <li class="cart-show-meal-price-position-xs"> <%= @meal.price %> €  </li>
+                         <li class="cart-show-stock-position-xs">X <%= @meal.stock %> </li>
+                    </ul>
+                             <div class="grey-card" style="font-size:16px; padding:10px;">
+                                <p><i class="fa fa-calendar-times-o"></i>
+                                    <% if @meal.starting_date? && @meal.second_date?  %>
+                                      Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                      et le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                                    <% elsif @meal.starting_date? %>
+                                        Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                    <% elsif @meal.second_date? %>
+                                        Disponible le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                                    <% end -%>
+                                </p>
+                                <p> <i class="fa fa-clock-o"></i>
+                                 Retrait de <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+                                <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %></strong> et de <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+                                <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+
+                                <div class="row"  >
+                                  <div class="col-xs-12 text-center" style="margin-bottom:10px">
+                                    <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
+
+                                      <ul class="list-inline">
+                                        <li>
+                                          <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
+                                        </li>
+                                         <li>
+                                          <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+                                         </li>
+                                          <li>
+                                          <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
+                                          </li>
+                                      </ul>
+                                    <% end %>
+                                        <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
+                                  </div>
+                              </div>
+                  </div>
+              </div>
+
+          <div class="col-xs-12 text-left" style="height:100%">
+                    <h5 class="title-body">INFORMATIONS SUR <%= @meal.restaurant.name.upcase %> </h5>
+                    <div  style="font-size:16px">
+                      <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
+                      <p> <i class="fa fa-phone"></i> <%= @meal.restaurant.phone_number %></p>
+                    </div>
+          </div>
+
+
+
+
 
 
 
   </div>
 </div>
+<!-- view-sm-xs -->
