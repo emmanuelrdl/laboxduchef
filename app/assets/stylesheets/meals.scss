@@ -25,7 +25,7 @@ background: rgba(70,70,70,0.6);
 
 #card-price-position {
   position: absolute;
-  font-size: 16px;
+  font-size: 17px;
   left: 0 ;
   bottom: 0 ;
   margin: 1px;
@@ -36,13 +36,32 @@ background: rgba(70,70,70,0.6);
 }
 
 #card-seated-price-position {
-  position: absolute;
-  font-size: 18px;
-  left: 0 ;
-  text-align: center;
-  margin-top: 5px;
+
+  font-size: 17px;
+  margin-top: 1px;
   padding: 1px;
   margin-left: 5px;
+}
+
+#card-seated-price-position-xs {
+
+  font-size: 14px;
+  padding-left: 1px;
+  margin-left: 5px;
+}
+
+
+#card-price-position-xs{
+
+  font-size: 14px;
+  margin: 1px;
+  margin-top:-17px;
+  padding: 1px;
+  color:#006C26;
+  margin-left: 2px;
+  position: absolute;
+
+
 }
 
 
@@ -54,6 +73,16 @@ background: rgba(70,70,70,0.6);
   float:left;
   font-size: 15px;
 
+}
+
+
+.card-postal_code-position-xs{
+  margin-top:0px;
+  padding-left: 3px;
+  color: white;
+  text-align: left;
+  float:left;
+  font-size: 13px;
 
 }
 
@@ -64,6 +93,17 @@ background: rgba(70,70,70,0.6);
   margin-top:128px;
   margin-bottom: 0px;
 
+
+
+}
+
+
+#card-name-position-xs {
+
+  font-size: 13px;
+  background: rgba(0,0,0,0.6);
+  margin-top:131px;
+  margin-bottom: 0px;
 
 
 }
@@ -95,6 +135,16 @@ margin-left: 30px;
   bottom: 0px;
   text-shadow: 3px 3px 3px rgba(0,0,0,0);
 }
+
+.prices-meal-container-xs {
+
+  background-color: white;
+  height:60px;
+
+
+  text-shadow: 3px 3px 3px rgba(0,0,0,0);
+}
+
 
 
 .border-box {
@@ -146,12 +196,26 @@ margin-left: 30px;
 
 }
 
+
+.meal-img-size-sm{
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  box-sizing:border-box;
+  height: 150px;
+  width: 150px;
+
+
+}
+
 .cart-show-name-description {
 
   background: rgba(0,0,0,0.5);
   color:white;
   padding: 5px;
   margin: 0px;
+  height:95px;
 }
 
 .cart-show-prices-quantity {
@@ -195,7 +259,7 @@ margin: 0px;
 .cart-show-meal-price-position {
 
  color:#006C26;
- padding-left: 120px
+ padding-left: 110px
 
 
 }
@@ -222,14 +286,16 @@ padding-right: 2px;
 
 #navlist {
   padding:5px;
+  padding-left:10px;
   margin: -10px;
   font-size: 18px;
 }
 
 .grey-card {
 
- margin-top: 10px;
- position:relative;
+font-size:16px;
+padding:10px;
+
 }
 
 .cart-show-address {
@@ -281,4 +347,29 @@ margin: 0px;
 .form-time {
 
   width:150px;
+}
+
+.container-index-xs {
+
+background-color: #DADFE1;
+margin: 0px;
+
+}
+
+.block-index-xs {
+
+padding:2px;
+}
+
+.card-index-take-away-postion {
+
+  color:black;
+  font-size: 12px;
+
+  margin-top: -31px;
+  list-style: none;
+  text-align:right;
+  padding-right: 3px;
+
+
 }
