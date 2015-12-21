@@ -47,6 +47,7 @@
                                   <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
                                     <%= f.input :quantity, collection: 1..@meal.stock, label:"Quantité" %>
                                     <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+
                                     <%= f.submit "RÉSERVER", class: "btn btn-success btn-lg " %>
                                   <% end %>
 
