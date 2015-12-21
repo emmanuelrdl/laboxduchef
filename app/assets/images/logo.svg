@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/emmanuel/code/emmanuelrdl/laboxduchef/app/assets/images/logo.png"
+   inkscape:export-xdpi="92"
+   inkscape:export-ydpi="92">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -87,20 +90,20 @@
                         <flowRoot
                            xml:space="preserve"
                            id="flowRoot3013"
-                           style="fill:#ffffff;font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic"
+                           style="font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic"
                            transform="matrix(1.3153905,0,0,1.466602,64.167769,-376.18318)"
                            inkscape:export-filename="/home/emmanuel/code/emmanuelrdl/laboxduchef/app/assets/images/logo.png"
                            inkscape:export-xdpi="92"
                            inkscape:export-ydpi="92"><flowRegion
                              id="flowRegion3015"><rect
                                id="rect3017"
-                               width="372.96265"
-                               height="74.008202"
+                               width="590.13165"
+                               height="79.506142"
                                x="44"
                                y="256.36218"
-                               style="font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic" /></flowRegion><flowPara
+                               style="font-size:24px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;font-family:Vemana2000;-inkscape-font-specification:Vemana2000 Bold Italic" /></flowRegion><flowPara
                              id="flowPara3019"
-                             style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">la box du chef </flowPara></flowRoot>                        <path
+                             style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono">LA BOX DES CHEFS</flowPara></flowRoot>                        <path
                            style="fill:#d38d5f"
                            sodipodi:nodetypes="ccccccccccccccccsccccccccscccccccccccccc"
                            inkscape:connector-curvature="0"
@@ -112,7 +115,37 @@
                            clip-rule="evenodd"
                            d="M 71.443746,35.400926 56.787532,57.01643 42.131321,35.400926 h 0.06661 c -1.732098,-2.882068 -2.731385,-6.340548 -2.731385,-10.087234 0,-10.375444 7.727821,-18.7334395 17.320978,-18.7334395 9.593158,0 17.320979,8.3579955 17.320979,18.7334395 0,3.746686 -0.999287,7.205166 -2.731383,10.087234 h 0.06661 z M 56.787532,18.108522 c -3.664052,0 -6.661915,3.242326 -6.661915,7.20517 0,3.962841 2.997863,7.205166 6.661915,7.205166 3.664055,0 6.661918,-3.242325 6.661918,-7.205166 0,-3.962844 -2.997863,-7.20517 -6.661918,-7.20517 z"
                            id="path4-4" />
-                      </g>
+                        <flowRoot
+                           xml:space="preserve"
+                           id="flowRoot3005"
+                           style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Standard Symbols L;font-style:normal;font-weight:normal;font-size:11px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Standard Symbols L;font-stretch:normal;font-variant:normal"><flowRegion
+                             id="flowRegion3007"><rect
+                               id="rect3009"
+                               width="78.345779"
+                               height="434.33801"
+                               x="-329.87698"
+                               y="329.38181" /></flowRegion><flowPara
+                             id="flowPara3011"></flowPara></flowRoot>                        <flowRoot
+                           xml:space="preserve"
+                           id="flowRoot3014"
+                           style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Standard Symbols L;font-style:normal;font-weight:normal;font-size:11px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Standard Symbols L;font-stretch:normal;font-variant:normal"><flowRegion
+                             id="flowRegion3016"><rect
+                               id="rect3018"
+                               width="399.97583"
+                               height="299.63824"
+                               x="-285.89337"
+                               y="154.8219" /></flowRegion><flowPara
+                             id="flowPara3020"></flowPara></flowRoot>                        <flowRoot
+                           xml:space="preserve"
+                           id="flowRoot3022"
+                           style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Standard Symbols L;font-style:normal;font-weight:normal;font-size:11px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Standard Symbols L;font-stretch:normal;font-variant:normal"><flowRegion
+                             id="flowRegion3024"><rect
+                               id="rect3026"
+                               width="23.366285"
+                               height="456.32983"
+                               x="-269.39954"
+                               y="351.3736" /></flowRegion><flowPara
+                             id="flowPara3028"></flowPara></flowRoot>                      </g>
                     </g>
                   </g>
                 </g>

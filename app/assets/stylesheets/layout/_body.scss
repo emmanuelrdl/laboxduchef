@@ -1,14 +1,9 @@
 #body-container {
-
-
  background-repeat: no-repeat;
  background-position: left top;
  margin-top: 0px;
  background-color: #DADFE1;
-
-
-
-
+ font-family: 'Ropa Sans', sans-serif;
  z-index: 1;
  position: relative;
 
@@ -52,5 +47,11 @@
 
 margin-top:20px;
 margin-bottom:20px;
+
+}
+
+ h1, h2, h3, h4, h5, p {
+
+font-family: 'Ropa Sans', sans-serif;
 
 }
