@@ -1,10 +1,6 @@
  <div class="meal">
 
- <h4 class="title-body " id="text-meal-index">OFFRES EN COURS</h4>
-           <% if  Meal.where(active:true).count == 0 %>
-              <h4>Il n'y a malhreusement pas d'offres en cours pour le moment ! </h4>
-              <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
-            <% else %>
+
             <% @meals.each do |meal| %>
             <% if meal.active? %>
             <div class="col-xs-12 col-sm-6" >
@@ -28,7 +24,5 @@
               </div>
             </div>
             <% end -%>
-            <% end %>
-            <% end -%>
-
+             <% end -%>
 </div>

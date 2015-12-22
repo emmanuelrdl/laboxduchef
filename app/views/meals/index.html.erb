@@ -3,7 +3,16 @@
     <div class="container hidden-sm hidden-xs">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 ">
-              <%= render @meals %>
+           <h4 class="title-body " id="text-meal-index">OFFRES EN COURS</h4>
+           <% if  Meal.where(active:true).count == 0 %>
+              <h4>Il n'y a malhreusement pas d'offres en cours pour le moment ! </h4>
+              <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
+            <% else %>
+              <div id="all-meals">
+                <%= render "meals/meals" %>
+             </div>
+            <% end -%>
+
                <%= will_paginate @meals %>
           </div>
 

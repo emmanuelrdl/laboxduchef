@@ -78,18 +78,14 @@ $(".input-number").keydown(function (e) {
 
 // start meals pagination
 
-$(document).ready(function() {
-  if ($('.pagination').length) {
-    $(window).scroll(function() {
-      var url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        $('.pagination').text("Please Wait...");
-        return $.getScript(url);
-      }
-    });
-    return $(window).scroll();
-  }
-});
+$ ->
+  loading_meals = false
+  $('a.load-more-meals').on 'inview', (e, visible) ->
+    return if loading_meals or not visible
+    loading_meals = true
+    $.getScript $(this).attr('href'), ->
+      loading_meals = false
+
 
 
 // end meals pagination
