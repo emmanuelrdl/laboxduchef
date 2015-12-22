@@ -10,11 +10,12 @@ class MealsController < ApplicationController
 
   def index
     @meal = Meal.new
-    @meals = Meal.all.page(params[:page])
+    @meals = Meal.all.paginate(:page => params[:page], :per_page => 6)
 
     where_group = params[:full_addressuser_input_autocomplete_address]
     if where_group
-    @meals = Meal.joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').page(params[:page])
+    @meals = Meal.joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
+
     end
 
 

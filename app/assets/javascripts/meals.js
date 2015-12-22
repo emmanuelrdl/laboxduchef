@@ -1,5 +1,8 @@
 //plugin bootstrap minus and plus
 //http://jsfiddle.net/laelitenetwork/puJ6G/
+
+
+ // start btn meal show quantity
 $('.btn-number').click(function(e){
     e.preventDefault();
 
@@ -71,3 +74,22 @@ $(".input-number").keydown(function (e) {
             e.preventDefault();
         }
     });
+// end btn meal show quantity
+
+// start meals pagination
+
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Please Wait...");
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});
+
+
+// end meals pagination

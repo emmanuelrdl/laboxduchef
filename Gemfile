@@ -25,7 +25,8 @@ gem 'stripe'
 gem 'coffee-script'
 gem 'whenever', :require => false
 
-gem 'kaminari'
+# gem 'kaminari'
+gem 'will_paginate'
 gem "geocoder"
 gem 'mail_form'
 gem 'postmark-rails'
