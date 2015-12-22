@@ -78,13 +78,7 @@ $(".input-number").keydown(function (e) {
 
 // start meals pagination
 
-$ ->
-  loading_meals = false
-  $('a.load-more-meals').on 'inview', (e, visible) ->
-    return if loading_meals or not visible
-    loading_meals = true
-    $.getScript $(this).attr('href'), ->
-      loading_meals = false
+
 
 
 
