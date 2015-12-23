@@ -51,9 +51,14 @@
 
           <%else %>
 
-          <p>Votre restaurant est en cours de validation. Une fois celui-ci validé vous pourrez poster vos offres. L'étape de validation prend entre 24 heures et 48 heures.</p>
+      <div id="text-center" style="height:500px;">
+          <h2>Votre restaurant est en cours de validation. Une fois celui-ci validé vous pourrez poster vos offres. L'étape de validation prend entre 24 heures et 48 heures.</h2>
+          <div class="text-center">
+          <%= link_to "Retour", root_path, class:"btn btn-primary text-center btn-margin" %>
+          </div>
+     </div>
 
-          <%= link_to "Index", root_path, class:"btn btn-primary" %>
+
           <% end -%>
            <% end %>
      </div>
