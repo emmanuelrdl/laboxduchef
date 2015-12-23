@@ -7,17 +7,19 @@
 
 
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
-            <h3 class="title-illustration">CRÉATION DE VOTRE OFFRE</h3>
+            <h4 class="title-illustration">CRÉATION DE VOTRE OFFRE</h4>
              <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</p>
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label: 'Nom',input_html: {:maxlength => 24}, placeholder: 'boeuf bourguignon' %>
+                <%= f.input :name, label: 'Nom du plat',input_html: {:maxlength => 24}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
                 <%= f.input :description, placeholder: 'Délicieux boeuf accompagné de riz' ,input_html: {:maxlength => 60} %>
                 <ul class="list-inline">
                     <li class="col-xs-6"><%= f.input :seated_price, as: :string, label: 'Prix en salle', placeholder: '0.00' %> </li>
                   <li class="col-xs-6">  <%= f.input :price, label: 'Prix de la box', placeholder: 'en €' %> </li>
                 </ul>
-                <%= f.input :quantity, label: 'Nombre de portions', :collection => (1..20), placeholder: 'ex: 2' %>
+
+                    <%= f.input :quantity, label: 'Nombre de box(es)', :collection => (1..20), placeholder: 'ex: 2' %>
+
 
                  <p> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
                 <div class="col-xs-6">
