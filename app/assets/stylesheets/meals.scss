@@ -14,6 +14,27 @@
   margin-top: 25px;
 }
 
+.container {
+
+  width:1250px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.meals-list {
+
+  border: solid 2px;
+  border-color:grey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  height:620px;
+  overflow-y: scroll;
+  margin-bottom:50px;
+
+}
 
 
 #filter-meals-list {

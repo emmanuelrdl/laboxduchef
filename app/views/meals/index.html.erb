@@ -1,30 +1,28 @@
 <div id="body-container" >
 
-    <div class="container hidden-sm hidden-xs">
+    <div class="container hidden-xs">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 ">
-           <h4 class="title-body " id="text-meal-index">OFFRES EN COURS</h4>
-           <% if  Meal.where(active:true).count == 0 %>
-              <h4>Il n'y a malhreusement pas d'offres en cours pour le moment ! </h4>
-              <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
-            <% else %>
-              <div id="all-meals">
-                <%= render "meals/meals" %>
-             </div>
-            <% end -%>
-
-               <%= will_paginate @meals %>
-          </div>
-
-
-
-                <div class="col-xs-12 col-sm-6">
-                 <h4 class="title-body" id="text-meal-index">CARTE</h4>
-
-                 <div id="map" name="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:15px; border-radius:3px;border:1px solid black">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <h4 class="title-illustration " id="text-meal-index">OFFRES EN COURS</h4>
+             <% if  Meal.where(active:true).count == 0 %>
+                <h4>Il n'y a malhreusement pas d'offres en cours pour le moment ! </h4>
+                <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
+              <% else %>
+              <div class=" meals-list">
+                  <div id="my-meals">
+                    <%= render @meals %>
                  </div>
-
+                <% end -%>
+                  <div id="infinite-scrolling">
+                   <%= will_paginate @meals, renderer: BootstrapPagination::Rails %>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <h4 class="title-illustration" id="text-meal-index">CARTE</h4>
+               <div id="map" name="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:12px; border-radius:3px;border:1px solid grey">
                </div>
+          </div>
         </div>
       </div>
     </div>
@@ -33,74 +31,25 @@
 
 
 
-    <div class="container-index-xs hidden-md hidden-lg">
+    <div class="container-index-xs hidden-md hidden-lg hidden-sm">
       <div class="row" >
         <div class="col-xs-12 col-sm-12 block-index-xs  ">
            <% if  Meal.where(active:true).count == 0 %>
               <h4>Il n'y a malhreusement pas d'offres en cours pour le moment ! </h4>
               <p>N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
             <% else %>
-            <% @meals.each do |meal| %>
-            <% if meal.active? %>
-            <div class="col-xs-6 col-sm-6 block-index-xs " >
-              <div class="card" style="width:100%; background-image: url('<%=image_path meal.picture.url(:medium)%>')">
-                <div class="card-filter card-bg">
-                  <div class="card-postal_code-position-xs">
-                        <p class="restaurant-name-meal"> <%= meal.restaurant.name %> </p>
-                        <p class="address-compenents" > <i class="fa fa-map-marker"></i> <%= meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km </p>
-                  </div>
-                  <p id="card-name-position-xs"><%= meal.name %></p>
-                  <div class="prices-meal-container-xs">
-                    <p id="card-seated-price-position-xs" style="color:red">€<s><%= meal.seated_price %> </s> </p>
-                     <p id="card-price-position-xs"><%= meal.price.format %></p>
-                     <ul class="card-index-take-away-postion">
-                          <li>
-                                <i class="fa fa-clock-o"></i>
-                                <%= meal.take_away_noon_starts_at.strftime('%H:%M') %>
-                                <%= meal.take_away_noon_ends_at.strftime('%H:%M') %>
-                          </li>
-                          <li>
-                                <i class="fa fa-clock-o"></i>
-                                <%= meal.take_away_evening_starts_at.strftime('%H:%M') %>
-                                <%= meal.take_away_evening_ends_at.strftime('%H:%M') %>
-                          </li>
-
-                    </ul>
-                          <li class="text-center">
-                                <%= link_to " VOIR LE DÉTAIL", meal_path(meal), class: "btn btn-reserver-xs btn-xs "%>
-                          </li>
-
-
-                  </div>
-                </div>
+               <div id="my-meals-xs">
+                  <%= render 'meals/mealxs', renderer: BootstrapPagination::Rails  %>
+               </div>
+            <% end -%>
+              <div id="infinite-scrolling">
+               <%= will_paginate @meals %>
               </div>
-            </div>
-            <% end -%>
-            <% end %>
-            <% end -%>
-            <%= paginate @meals %>
           </div>
         </div>
       </div>
-    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
@@ -132,6 +81,20 @@
             });
 
     });
+
+    $(document).ready(function() {
+      if ($('.pagination').length) {
+        $(window).scroll(function() {
+          var url = $('.pagination .next_page').attr('href');
+          if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+            $('.pagination').text("Chargement en cours...");
+            return $.getScript(url);
+          }
+        });
+        return $(window).scroll();
+      }
+    });
+
 
 
     </script>
