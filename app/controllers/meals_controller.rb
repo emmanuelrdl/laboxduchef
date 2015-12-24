@@ -97,7 +97,7 @@ class MealsController < ApplicationController
 
   def params_meal
     params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date, :take_away_noon_starts_at, :take_away_evening_starts_at, :take_away_noon_ends_at,
-     :take_away_evening_ends_at, :restaurant_id, :active, :second_date)
+     :take_away_evening_ends_at, :restaurant_id, :active, :second_date, :stock)
   end
 
 end
