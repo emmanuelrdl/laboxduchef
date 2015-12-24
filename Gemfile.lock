@@ -337,6 +337,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   letter_opener
   mail_form
   money-rails
