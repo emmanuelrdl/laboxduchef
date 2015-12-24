@@ -17,10 +17,7 @@
                     <li class="col-xs-6"><%= f.input :seated_price, as: :string, label: 'Prix en salle', placeholder: '0.00' %> </li>
                   <li class="col-xs-6">  <%= f.input :price, label: 'Prix de la box', placeholder: 'en €' %> </li>
                 </ul>
-
                     <%= f.input :quantity, label: 'Nombre de box(es)', :collection => (1..20), placeholder: 'ex: 2' %>
-
-
                  <p> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
                 <div class="col-xs-6">
                  <%= f.input :starting_date, as: :boolean, checked_value: Date.today, unchecked_value: false, label:'Ce jour' %>

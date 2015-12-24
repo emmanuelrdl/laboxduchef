@@ -1,0 +1,67 @@
+<div class="cart-img-size-sm" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
+            <div class="cart-show-address">
+              <p> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.street %>
+              </p>
+               <p>
+                <%= @meal.restaurant.postal_code %>,
+                <%= @meal.restaurant.locality %>
+              </p>
+            </div>
+            <div class="cart-show-name-description">
+                <p class="text-center"> <strong><%= @meal.name.upcase %> </strong> <p>
+                <p ><%= @meal.description %> <p>
+            </div>
+            <div class="cart-show-prices-quantity">
+              <ul id="navlist">
+                  <li class="cart-show-meal-seated-price-position"> <s><%= @meal.seated_price %> € </s> </li>
+                  <li class="cart-show-meal-price-position-xs"> <%= @meal.price %> €  </li>
+                   <li class="cart-show-stock-position-xs">X <%= @meal.stock %> </li>
+              </ul>
+                       <div class="grey-card" style="font-size:16px; padding:10px;">
+                          <p><i class="fa fa-calendar-times-o"></i>
+                              <% if @meal.starting_date? && @meal.second_date?  %>
+                                Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                                et le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                              <% elsif @meal.starting_date? %>
+                                  Disponible le <strong> <%= @meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                              <% elsif @meal.second_date? %>
+                                  Disponible le <strong> <%= @meal.second_date.strftime("%d/%m/%y") %> </strong>
+                              <% end -%>
+                          </p>
+                          <p> <i class="fa fa-clock-o"></i>
+                           Retrait de <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+                          <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %></strong> et de <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+                          <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+
+                          <div class="row"  >
+                            <div class="col-xs-12 text-center" >
+                              <%= simple_form_for OrderMeal.new, url: cart_order_meals_path do |f| %>
+
+                                <div class="col-xs-12">
+                                  <div class="input-group">
+                                    <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default btn-number"  data-type="minus" data-field="order_meal[quantity]">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                      </button>
+                                    </span>
+                                       <%= f.input :quantity,  label:"Quantité", input_html: { max: @meal.stock, type:"text", min:1, value:1} %>
+
+                                    <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="order_meal[quantity]">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                      </button>
+                                    </span>
+                                  </div>
+                                <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+                              </div>
+                                <div class="col-xs-12">
+                                  <%= f.submit "RÉSERVER", class: "btn btn-success btn-md btn-meal-show-reserver " %>
+                                </div>
+                            </div>
+                              <% end %>
+
+                            </div>
+                        </div>
+            </div>
+        </div>
+</div>
