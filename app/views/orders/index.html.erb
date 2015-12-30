@@ -26,10 +26,10 @@
                                 <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
                                 <td><%= order_meal.order.id %></td>
                                 <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
-                                <td><%= number_to_currency(order_meal.order.amount * 0.18) %></td>
-                                  <td><%= number_to_currency(order_meal.order.amount * 0.18 * 0.2) %>
+                                <td><%= number_to_currency(order_meal.quantity*1) %></td>
+                                  <td><%= number_to_currency(order_meal.quantity*1*0.2) %>
                                  </td>
-                                <td><%= number_to_currency(order_meal.order.amount - order_meal.order.amount*0.18*1.2) %></td>
+                                <td><%= number_to_currency(order_meal.order.amount.to_i - 1*1.2*order_meal.quantity) %></td>
                                 <td><%= order_meal.order.status %></td>
                               </tr>
                             </tbody>
