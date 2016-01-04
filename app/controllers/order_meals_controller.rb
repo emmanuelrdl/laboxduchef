@@ -26,6 +26,9 @@ class OrderMealsController < ApplicationController
     @order.amount_cents = @order.order_meals.sum('price_cents')
     @order.save
 
+    @order_meal.meal.stock -= @order_meal.quantity
+    @order_meal.meal.save
+
     redirect_to new_cart_payment_path
   end
 

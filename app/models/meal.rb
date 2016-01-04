@@ -10,10 +10,10 @@ class Meal < ActiveRecord::Base
   validates :seated_price, presence: true
   validates :quantity, presence: true
   validates :description, presence: true, length: { maximum: 100 }
-  validates :take_away_noon_starts_at, presence: true
-  validates :take_away_evening_starts_at, presence: true
-  validates :take_away_noon_ends_at, presence: true
-  validates :take_away_evening_ends_at, presence: true
+  validates :take_away_noon_starts_at, presence: true,  unless: ->(meal){meal.take_away_evening_starts_at.present?}
+  validates :take_away_evening_starts_at, presence: true, unless: ->(meal){meal.take_away_noon_starts_at.present?}
+  validates :take_away_noon_ends_at, presence: true,  unless: ->(meal){meal.take_away_evening_starts_at.present?}
+  validates :take_away_evening_ends_at, presence: true, unless: ->(meal){meal.take_away_noon_starts_at.present?}
   validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present?}
   validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present?}
 

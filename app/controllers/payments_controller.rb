@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount:       @amount,  # in cents
-      description:  "Payment for teddy  for order ",
+      description:  "Payement d'une portion ",
       currency:     'eur'
     )
 

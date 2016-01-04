@@ -14,7 +14,7 @@
                  <div id="my-meals">
                     <%= render @meals %>
                  </div>
-                  <div id="infinite-scrolling">
+                  <div class="col-xs-12" id="infinite-scrolling">
                    <%= will_paginate @meals, renderer: BootstrapPagination::Rails %>
                   </div>
                   <% end -%>

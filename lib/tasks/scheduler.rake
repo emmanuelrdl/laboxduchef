@@ -7,11 +7,20 @@ namespace :scheduler do
         @all_meals = Meal.all
         @meals = @all_meals.where("active = ?", true)
         @meals.each do |meal|
-          if
-            meal.second_date < Date.today
-            meal.active = false
+          if meal.second_date?
+            if
+              meal.second_date < Date.today
+              meal.active = false
+            else
+              meal.active = true
+            end
           else
-            meal.active = true
+            if
+              meal.starting_date < Date.today
+              meal.active = false
+            else
+              meal.active = true
+            end
           end
           meal.save
         end
@@ -20,11 +29,12 @@ namespace :scheduler do
     end
 
    task :empty_basket => :environment do
-
         @orders = Order.where(status: "cart")
         @orders.each do |order|
-        order.status == "cancelled"
-        order.save
+        order.update(status:"cancelled")
+          order_meal = order.order_meals.first
+          order_meal.meal.stock += order_meal.quantity
+          order_meal.meal.save
         end
     end
 
