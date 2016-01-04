@@ -26,7 +26,7 @@ class OrderMealsController < ApplicationController
     @order.amount_cents = @order.order_meals.sum('price_cents')
     @order.save
 
-    redirect_to cart_path
+    redirect_to new_cart_payment_path
   end
 
 
