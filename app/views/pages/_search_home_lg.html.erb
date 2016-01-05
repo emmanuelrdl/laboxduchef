@@ -1,0 +1,28 @@
+  <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3  " >
+                   <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
+        <div class="filter-search">
+
+
+              <div class="col-xs-8 col-lg-offset-2 search-place">
+                    <div class="col-md-10" style="padding-right:0px;" >
+                      <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control home-address-field-lg", placeholder:"Saisissez votre addresse"   %>
+                    </div>
+                      <a class="col-md-2 geolocation-field" onclick="initiate_geolocation()" href="#">
+                            <div class="btn-geolocation" >
+                                 <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
+
+                           </div>
+                      </a>
+              </div>
+
+                      <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+                      <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+                      <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+
+                      <div class="col-md-12">
+                        <%= f.button :submit, "Voir les offres", class: "btn-home btn-lg" %>
+                     </div>
+
+              <% end %>
+          </div>
+      </div>

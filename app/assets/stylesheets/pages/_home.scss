@@ -8,7 +8,7 @@
   background-position: top;
   position: relative;
   z-index: 1;
-  padding-top: 60px;
+  padding-top: 50px;
 
 }
 
@@ -125,28 +125,35 @@
 }
 
 .btn-home {
-  min-height: 80px;
-  min-width: 80px;
-  text-align: center;
-  font-size: 35px;
-  text-decoration: none;
-  padding: 10px;
-  margin-top:30px;
-  margin-bottom: 40px;
-  color: white;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.8);
-  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
-  border-radius: 50%;
-  border: 3px solid white;
-  background: #F9690E;
-    // display: flex;
+ background: #DD562C;
+ border-radius: 3px;
+ border:none;
+ font-size: 25px;
+ font-family: 'Ropa Sans', sans-serif;
+ margin-bottom: 50px;
+ color:white;
+ padding-left: 157px;
+ padding-right: 157px;
+ height:58px;
+
 
   &:hover {
    border: 1px solid white;
    text-decoration: none;
-   color: white;
+   color: #F9690E ;
    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   }
+}
+
+
+.btn-home-xs {
+ background: #F9690E;
+ border-radius: 3px;
+ border:none;
+ font-size: 22px;
+ width: 90%;
+ font-family: 'Ropa Sans', sans-serif;
+
 }
 
 .title-home-lg {
@@ -196,33 +203,63 @@ font-size: 25px;
 
 }
 
-.label-search-home {
 
-color:white;
-margin-top: 20px;
 
+.home-address-field-xs {
+  border-radius: 3px;
+}
+
+.home-address-field-lg {
+  border:none;
+  height: 40px;
 }
 
 .geolocation-field  {
 
+padding-left: 30px;
+font-family: 'Ropa Sans', sans-serif;
+padding-top: 5px;
+
+}
+
+.geolocation-field-xs {
+
+margin-left: 0px;
+margin-right: 0px;
 padding-left: 0px;
+padding-right: 0px;
+margin-top: 15px;
+}
+
+.btn-geolocation-xs {
+
+  color:white;
+  background-color:#278F75;
+  border-radius: 3px;
+  border:none;
+  font-size: 16px;
+  display: center;
+  list-style:none;
+  margin-top: 20px;
+  padding-top: 6px;
+
+  height:35px;
 
 }
 
 
-
 .btn-geolocation {
 
-  color:white;
-  background-color:#006C26;
+  color:black;
+  background-color:white;
   border-radius: 3px;
   border:none;
-  height:36px;
-  width: 90px;
-  padding: 2px;
-  margin: 0px;
-  font-size:9px;
-  display:flex;
+  text-align: right;
+  height:25px;
+  width: 25px;
+
+
+
 }
 
 .btn-geolocation li {
@@ -236,6 +273,19 @@ padding-left: 0px;
 .search-place div {
 
   display:flex;
+
+
+}
+
+.search-place {
+
+
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  height: 58px;
+  border-radius: 3px;
+  padding-top: 10px;
 
 }
 

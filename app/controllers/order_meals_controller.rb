@@ -27,8 +27,12 @@ class OrderMealsController < ApplicationController
     @order.save
 
     @order_meal.meal.stock -= @order_meal.quantity
+      if @order_meal.meal.stock <= 0
+         @order_meal.meal.active = false
+      else
+         @order_meal.meal.active = true
+      end
     @order_meal.meal.save
-
     redirect_to new_cart_payment_path
   end
 

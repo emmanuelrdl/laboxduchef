@@ -29,16 +29,16 @@ class PaymentsController < ApplicationController
     @order.update(payment: charge.to_json, status: 'confirmed')
 
 
-    @order_meals = @order.order_meals
-    @order_meals.each do |order_meal|
-    order_meal.meal.stock -= order_meal.quantity
-      if order_meal.meal.stock <= 0
-         order_meal.meal.active = false
-      else
-         order_meal.meal.active = true
-      end
-      order_meal.meal.save
-    end
+    # @order_meals = @order.order_meals
+    # @order_meals.each do |order_meal|
+    # order_meal.meal.stock -= order_meal.quantity
+    #   if order_meal.meal.stock <= 0
+    #      order_meal.meal.active = false
+    #   else
+    #      order_meal.meal.active = true
+    #   end
+    #   order_meal.meal.save
+    # end
 
     @order = current_user.orders.where(status: "confirmed")
     redirect_to cart_payment_path(@order)

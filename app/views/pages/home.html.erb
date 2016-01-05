@@ -1,6 +1,6 @@
 <div id="banner-container">
   <div class="layer hidden-xs"></div>
-    <div class="layer-xs hidden-sm hidden-md hidden-lg"></div>
+  <div class="layer-xs hidden-sm hidden-md hidden-lg"></div>
     <div class="container" >
       <div class="row ">
 
@@ -24,40 +24,12 @@
         </div>
     </div >
 
-      <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3 " >
-                   <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
-        <div class="filter-search">
-                  <label class="label-search-home">
-                    LIEU DE VOTRE RECHERCHE:
-                  </label>
-
-              <div class="col-xs-12 search-place" style='padding-right:0px;'>
-                    <div class="col-xs-8 col-sm-10" style="padding-right:0px;" >
-                      <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control", placeholder:"16 Villa Gaudelet, 75011, Paris"   %>
-                    </div>
-                      <div class="col-xs-4 col-sm-2 geolocation-field" onclick="initiate_geolocation()" >
-                            <div class="btn-geolocation" >
-                                <li>
-                                 <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
-                                </li>
-                                <li>
-                                  Trouver ma position
-                                </li>
-                           </div>
-                      </div>
-                </div>
-                <div style="margin-bottom:20p.rbx;"></div>
-                  <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
-                  <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
-                  <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
-
-                    <%= f.button :submit, "GO", class: "btn-home" %>
-
-              <% end %>
-          </div>
-      </div>
-
-
+    <div class="hidden-xs hidden-sm">
+    <%= render 'pages/search_home_lg' %>
+    </div>
+    <div class="hidden-md hidden-lg">
+    <%= render 'pages/search_home_xs' %>
+    </div>
 
 
 
