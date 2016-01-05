@@ -35,23 +35,16 @@ $('.btn-number').click(function(e){
 });
 
 
-$("#take_away_noon_content").hide();
-$("#take_away_noon").click(function() {
-    if($(this).is(":checked")) {
-        $("#take_away_noon_content").show(300);
-    } else {
-        $("#take_away_noon_content").hide(200);
-    }
-});
+// $("#").hide();
+// $("#take-away-noon-box").click(function() {
+//     if($(this).is(":checked")) {
+//         $("#take-away-noon-content").show(300);
+//     } else {
+//         $("#take-away-noon-content").hide(200);
+//     }
+// });
 
-$("#take_away_evening_content").hide();
-$("#take_away_evening").click(function() {
-    if($(this).is(":checked")) {
-        $("#take_away_evening_content").show(300);
-    } else {
-        $("#take_away_evening_content").hide(200);
-    }
-});
+
 
 
 
