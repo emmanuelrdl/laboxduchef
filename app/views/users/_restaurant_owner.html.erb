@@ -1,22 +1,22 @@
 
-  <div class="row restaurant_profil-box">
-    <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
-      <div class="form-group" >
-        <h4>ÉTALISSEMENT(S)</h4>
-          <% current_user.restaurants.each do |restaurant| %>
-          <div class="restaurant-name-edit">
-            <p><%= restaurant.name.upcase %></p>
-            <p><%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil btn-xs" %> </p>
-          </div>
-            <%= image_tag restaurant.picture.url(:thumb), class: "img-thumbnail padding-btn-profil"  %>
-          </div>
-          <div class="form-group" >
-            <%= link_to "Ajouter une offre", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil btn-sm" %>
-           </div>
-          <% end %>
+    <div class="row restaurant_profil-box" >
+      <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
+        <div class="form-group" >
+          <h4>ÉTALISSEMENT(S)</h4>
+            <% current_user.restaurants.each do |restaurant| %>
+            <div class="restaurant-name-edit">
+              <p><%= restaurant.name.upcase %></p>
+              <p><%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil btn-xs" %> </p>
+            </div>
+              <%= image_tag restaurant.picture.url(:thumb), class: "img-thumbnail padding-btn-profil"  %>
+            </div>
+            <div class="form-group" >
+              <%= link_to "Ajouter une offre", new_restaurant_meal_path(restaurant), class: "btn btn-success padding-btn-profil btn-sm" %>
+             </div>
+            <% end %>
 
+      </div>
     </div>
-  </div>
 
 
       <div class="row dashbord-restaurant">
@@ -101,9 +101,7 @@
      <%= link_to "Mes payements", orders_path(@order), class: "btn btn-success btn-sm btn-margin" %>
      </div>
 
-</div>
-
-
+  </div>
 
 
 

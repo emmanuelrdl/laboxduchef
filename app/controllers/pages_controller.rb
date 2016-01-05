@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :navbar_choice
   def home
     @meals = Meal.all
     @restaurants = Restaurant.all
@@ -27,6 +28,11 @@ class PagesController < ApplicationController
 
   def charteutilisateur
   end
+
+ def navbar_choice
+  @navbar_home = true
+ end
+
 
 
 end

@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :navbar_choice
 
   def index
     @restaurants = Restaurant.all
@@ -53,11 +54,8 @@ class RestaurantsController < ApplicationController
 
 
 
-  def show
-  end
-
-
-  def destroy
+  def navbar_choice
+    @navbar_other = true
   end
 
 private

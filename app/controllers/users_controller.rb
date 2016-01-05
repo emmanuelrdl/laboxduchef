@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :show ]
+  before_action :navbar_choice
 
 
   def show
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
 
 
 
+  end
+
+  def navbar_choice
+    @navbar_other = true
   end
 
   private

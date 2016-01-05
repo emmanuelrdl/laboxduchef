@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :navbar_choice
 
   def show
     @order = Order.where(status: "confirmed").find(params[:id])
@@ -25,6 +26,9 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(order)
   end
 
+  def navbar_choice
+    @navbar_other = true
+  end
 
   private
 

@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 before_action :authenticate_user!
 skip_before_action :authenticate_user!, only: [:new, :create]
+before_action :navbar_choice
 
   def new
     @contact = Contact.new
@@ -17,4 +18,10 @@ skip_before_action :authenticate_user!, only: [:new, :create]
       render :new
     end
   end
+
+
+  def navbar_choice
+    @navbar_other = true
+  end
+
 end

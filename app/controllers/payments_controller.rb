@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_order
+  before_action :navbar_choice
   # before_action :set_order_meal, only: [:new]
 
   def new
@@ -56,6 +57,10 @@ class PaymentsController < ApplicationController
     @order_meals = @order.order_meals
 
     @amount = @order.amount
+  end
+
+  def navbar_choice
+    @navbar_other = true
   end
 
   private

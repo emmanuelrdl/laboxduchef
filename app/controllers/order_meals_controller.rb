@@ -1,5 +1,6 @@
 class OrderMealsController < ApplicationController
   # before_action :set_order_meal, only: [:show, :edit, :update, :destroy]
+  before_action :navbar_choice
 
   # def index
 
@@ -49,6 +50,10 @@ class OrderMealsController < ApplicationController
   def destroy
     @meal.delete
     redirect_to meal_path
+  end
+
+  def navbar_choice
+    @navbar_other = true
   end
 
 

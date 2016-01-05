@@ -1,6 +1,7 @@
 class NewslettersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :landing_page
+  before_action :navbar_choice
 
  def new
     @newsletter = Newsletter.new
@@ -20,6 +21,10 @@ class NewslettersController < ApplicationController
   def landing_page
   @disable_nav = true
   @disable_footer = true
+  end
+
+  def navbar_choice
+    @navbar_home = true
   end
 
 private

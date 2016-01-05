@@ -4,6 +4,7 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy ]
   before_action :set_meal, only: [ :edit, :update, :destroy]
+  before_action :navbar_choice
 
 
 
@@ -82,6 +83,11 @@ class MealsController < ApplicationController
       render :destroy
     end
   end
+
+   def navbar_choice
+    @navbar_other = true
+   end
+
 
 
   private

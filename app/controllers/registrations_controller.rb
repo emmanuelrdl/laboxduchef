@@ -1,5 +1,6 @@
 # app/controllers/registrations_controller.rb
 class RegistrationsController < Devise::RegistrationsController
+  before_action :navbar_choice
 
   def after_sign_up_path_for(resource)
     if resource.restaurant_owner
@@ -7,6 +8,10 @@ class RegistrationsController < Devise::RegistrationsController
     else
       root_path
     end
+  end
+
+  def navbar_choice
+    @navbar_other = true
   end
 
   private
