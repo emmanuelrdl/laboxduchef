@@ -10,6 +10,7 @@
             <h4 class="title-illustration">CRÉATION DE VOTRE OFFRE</h4>
              <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</p>
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
+
                 <%= f.input :name, label: 'Nom du plat',input_html: {:maxlength => 24}, placeholder: 'boeuf bourguignon' %>
                 <%= f.input :picture, label: 'Photo' %>
                 <%= f.input :description, placeholder: 'Délicieux boeuf accompagné de riz' ,input_html: {:maxlength => 60} %>
@@ -26,24 +27,32 @@
                  <%= f.input :second_date, as: :boolean, checked_value: Date.today + 1, unchecked_value: false, label:'Demain' %>
                 </div>
 
-                <p> <strong> Horaires de retrait le midi </strong></p>
-                  <div class="col-xs-12">
-                      <div class="col-xs-6">
-                     <%= f.input :take_away_noon_starts_at, :default => "11:00".to_time , label: "de" %>
-                     </div>
-                      <div class="col-xs-6">
-                      <%= f.input :take_away_noon_ends_at, :default => "14:00".to_time , label: "à"%>
-                       </div>
-                  </div>
-                <p><strong>Horaires de retrait le soir </strong></p>
-                  <div class="col-xs-12">
-                     <div class="col-xs-6">
-                      <%= f.input :take_away_evening_starts_at, :default => "19:00".to_time , label: "de" %>
+                <%= f.input :take_away_noon, label:"Retrait possible le midi",  id:"take_away_noon" %>
+                <div id="take_away_noon_content">
+                    <p> <strong> Horaires de retrait le midi </strong></p>
+                      <div class="col-xs-12">
+                          <div class="col-xs-6">
+                         <%= f.input :take_away_noon_starts_at, :default => "11:00".to_time , label: "de" %>
+                         </div>
+                          <div class="col-xs-6">
+                          <%= f.input :take_away_noon_ends_at, :default => "14:00".to_time , label: "à"%>
+                           </div>
+                      </div>
+                </div>
+                 <%= f.input :take_away_evening, label:"Retrait possible le soir",  id:"take_away_evening" %>
+                <div id="take_away_evening_content">
+                  <p><strong>Horaires de retrait le soir </strong></p>
+                    <div class="col-xs-12">
+                       <div class="col-xs-6">
+                        <%= f.input :take_away_evening_starts_at, :default => "19:00".to_time , label: "de" %>
+                      </div>
+                       <div class="col-xs-6">
+                        <%= f.input :take_away_evening_ends_at, :default => "22:00".to_time , label: "à" %>
+                      </div>
                     </div>
-                     <div class="col-xs-6">
-                      <%= f.input :take_away_evening_ends_at, :default => "22:00".to_time , label: "à" %>
-                    </div>
-                  </div>
+                </div>
+
+
                <%= f.button :submit, "Mettre en ligne", class: "btn btn-success margin-btn-validation" %>
                <% end %>
         </div>
