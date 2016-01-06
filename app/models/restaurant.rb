@@ -18,6 +18,10 @@ class Restaurant < ActiveRecord::Base
   validates :phone_number, presence: true
   validates :picture, presence: true
   validates :iban, presence: true
+  validates :take_away_noon_starts_at, presence: true
+  validates :take_away_evening_starts_at, presence: true
+  validates :take_away_noon_ends_at, presence: true
+  validates :take_away_evening_ends_at, presence: true
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?

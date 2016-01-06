@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105155853) do
+ActiveRecord::Schema.define(version: 20160106141213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,18 +43,14 @@ ActiveRecord::Schema.define(version: 20160105155853) do
     t.text     "description"
     t.integer  "restaurant_id"
     t.date     "starting_date"
-    t.time     "take_away_noon_starts_at"
-    t.time     "take_away_evening_starts_at"
-    t.time     "take_away_noon_ends_at"
-    t.time     "take_away_evening_ends_at"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "active"
-    t.integer  "price_cents",                 default: 0, null: false
+    t.integer  "price_cents",          default: 0, null: false
     t.integer  "stock"
     t.integer  "seated_price"
     t.date     "second_date"
@@ -101,8 +97,8 @@ ActiveRecord::Schema.define(version: 20160105155853) do
     t.string   "phone_number"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -110,6 +106,10 @@ ActiveRecord::Schema.define(version: 20160105155853) do
     t.string   "street"
     t.boolean  "confirmed"
     t.string   "iban"
+    t.time     "take_away_noon_starts_at"
+    t.time     "take_away_noon_ends_at"
+    t.time     "take_away_evening_starts_at"
+    t.time     "take_away_evening_ends_at"
   end
 
   add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree

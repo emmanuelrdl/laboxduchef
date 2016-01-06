@@ -42,8 +42,8 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant.user = current_user
-    current_user.restaurant.update(params_restaurant)
+
+    current_user.restaurants.first.update(params_restaurant)
     if @restaurant.save
     redirect_to user_path(current_user)
     else
@@ -66,6 +66,6 @@ private
 
   def params_restaurant
     params.require(:restaurant).permit(:name, :category, :street, :locality, :postal_code, :picture, :phone_number,
-     :iban, :picture, :latitude, :longitude)
+     :iban, :picture, :latitude, :longitude, :take_away_evening_ends_at, :take_away_noon_starts_at, :take_away_evening_starts_at, :take_away_noon_ends_at)
   end
 end

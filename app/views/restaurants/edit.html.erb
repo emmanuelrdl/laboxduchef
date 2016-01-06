@@ -9,16 +9,26 @@
   <%= f.input :name, label: 'Nom du restaurant:', placeholder: 'La belle marmite'%>
           <%= f.input :phone_number, label: 'Numéro de téléphone:',input_html: {:maxlength => 10}, placeholder: '0142505310' %>
           <%= f.input :picture, label: 'Photo du restaurant' %>
-
           <label for="">
             Entrez votre addresse:
           </label>
           <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control"   %>
-          <div style="margin-bottom:10px;"></div>
+          <div style="margin-bottom:10p.rbx;"></div>
 
-          <%= f.input :street, label: "Numéro de votre rue", input_html: { id: "street" } %>
-          <%= f.input :postal_code , label: "Code postal", hidden: true, input_html: {id: "postal_code"} %>
-          <%= f.input :locality, label: "Ville", hidden: true, input_html: {id: "locality"} %>
+          <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+          <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+          <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+
+          <div  class="col-xs-12">
+                 <strong> Horaires de retrait le midi </strong>
+                     <%= f.input :take_away_noon_starts_at, :default => "11:00".to_time , label: "de" %>
+                      <%= f.input :take_away_noon_ends_at, :default => "14:00".to_time , label: "à"%>
+          </div>
+           <div class="col-xs-12">
+              <strong>Horaires de retrait le soir </strong>
+                    <%= f.input :take_away_evening_starts_at, :default => "19:00".to_time , label: "de" %>
+                    <%= f.input :take_away_evening_ends_at, :default => "22:00".to_time , label: "à" %>
+           </div>
 
           <%= f.input :iban, label: "IBAN de l'étalissement" %>
           <%= f.button :submit, "Valider", class: "btn btn-success" %>

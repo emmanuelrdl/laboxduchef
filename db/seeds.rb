@@ -41,6 +41,7 @@ proprio_les_saltimbanques= User.create!(
 
 
 
+
 )
 
 les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
@@ -51,7 +52,11 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   phone_number: "0145506070",
   picture: File.open(Rails.root.join("db/seeds/pictures/saltimbanques.jpg")),
   confirmed: true,
-  iban: "12345678"
+  iban: "12345678",
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
 
 
 )
@@ -64,13 +69,11 @@ coq_au_vin = les_saltimbanques.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
   starting_date: Date.today,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 6,
-  seated_price: 16
+  seated_price: 16,
+  take_away_noon: true,
+  take_away_evening: false
 
 )
 
@@ -82,13 +85,11 @@ hachis = les_saltimbanques.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/hachis-parmentier.jpg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 9,
-  seated_price: 12
+  seated_price: 12,
+  take_away_noon: true,
+  take_away_evening: true
 
 )
 
@@ -113,7 +114,11 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   phone_number: "0145678989",
   picture: File.open(Rails.root.join("db/seeds/pictures/blue.jpg")),
   confirmed: true,
-  iban: "12345678"
+  iban: "12345678",
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
 
 )
 
@@ -125,13 +130,11 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/bourguignon.jpg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 12,
-  seated_price: 14
+  seated_price: 14,
+  take_away_noon: true,
+  take_away_evening: true
 )
 
 
@@ -143,13 +146,11 @@ choucroute = le_blue_valentine.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/choucroute.jpg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 12,
-  seated_price: 16
+  seated_price: 16,
+  take_away_noon: true,
+  take_away_evening: true
 )
 
 tomates = le_blue_valentine.meals.create!(
@@ -160,13 +161,11 @@ tomates = le_blue_valentine.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/tomates.jpg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 12,
-  seated_price: 17.5
+  seated_price: 17.5,
+  take_away_noon: true,
+  take_away_evening: true
 )
 
 
@@ -192,7 +191,11 @@ astier = proprio_astier.restaurants.create!(
   phone_number: "0145789056",
   picture: File.open(Rails.root.join("db/seeds/pictures/astier.jpg")),
   confirmed: true,
-  iban: "12345678"
+  iban: "12345678",
+  take_away_noon_starts_at: Date.current.noon,
+  take_away_noon_ends_at: Date.current.noon + 1.hour,
+  take_away_evening_starts_at: Date.current.noon + 8.hour,
+  take_away_evening_ends_at: Date.current.noon + 10.hour,
 
 )
 
@@ -204,13 +207,11 @@ poulet_basquaise = astier.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/basquaise.jpg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 12,
-  seated_price: 13.5
+  seated_price: 13.5,
+  take_away_noon: true,
+  take_away_evening: true
 )
 
 
@@ -226,13 +227,11 @@ gratin = astier.meals.create!(
   picture: File.open(Rails.root.join("db/seeds/pictures/gratin.jpeg")),
   starting_date: Date.current,
   second_date: Date.today + 1,
-  take_away_noon_starts_at: Date.current.noon,
-  take_away_noon_ends_at: Date.current.noon + 1.hour,
-  take_away_evening_starts_at: Date.current.noon + 8.hour,
-  take_away_evening_ends_at: Date.current.noon + 10.hour,
   active: true,
   stock: 12,
-  seated_price: 12
+  seated_price: 12,
+  take_away_noon: true,
+  take_away_evening: true
 )
 
 
