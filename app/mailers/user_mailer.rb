@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   def welcome(user)
 
     @user = user  # Instance variable => available in view
-    mail(to: @user.email, subject: 'Bienvenue sur La Box du Chef')
+    mail(to: @user.email, subject: 'Bienvenue sur La Box des Chefs')
     # This will render a view in `app/views/user_mailer`!
   end
 
@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
    def welcome_partner(user)
 
     @user = user  # Instance variable => available in view
-    mail(to: @user.email, subject: 'Bienvenue sur La Box du Chef')
+    mail(to: @user.email, subject: 'Bienvenue sur La Box des Chefs')
     # This will render a view in `app/views/user_mailer`!
   end
 
