@@ -32,11 +32,17 @@
 
                               </p>
                               <p> <i class="fa fa-clock-o"></i>
-                               Horaire de retrait le midi: <strong><%= @meal.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
-                              <strong> <%= @meal.take_away_noon_ends_at.strftime('%H:%M') %> </p></strong>
-                              <p> <i class="fa fa-clock-o"></i>
-                                Horaire de retrait le soir: <strong><%= @meal.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
-                              <strong> <%= @meal.take_away_evening_ends_at.strftime('%H:%M') %> </strong>
+                                <% if @meal.take_away_noon? && @meal.take_away_evening? %>
+                                     Retrait de <strong><%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+                                    <strong> <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></strong> et de <strong><%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+                                    <strong> <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+                                  <% elsif @meal.take_away_noon? %>
+                                    Retrait de <strong><%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> </strong> à
+                                    <strong> <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></strong>
+                                  <% elsif @meal.take_away_noon? %>
+                                    Retrait de <strong><%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> </strong> à
+                                    <strong> <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %> </p> </strong>
+                              <% end -%>
                               </p>
 
                               <div class="row" >

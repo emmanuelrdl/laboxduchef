@@ -14,19 +14,35 @@
                       </p>
                        <p id="card-price-position-xs"><%= meal.price.format %>
                        </p>
-                       <ul class="card-index-take-away-postion">
-                          <li>
+                       <% if meal.take_away_noon? && meal.take_away_evening %>
+                         <ul class="card-index-take-away-postion">
+                            <li>
+                                  <i class="fa fa-clock-o"></i>
+                                  <%= meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
+                                  <%= meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                            </li>
+                            <li>
                                 <i class="fa fa-clock-o"></i>
-                                <%= meal.take_away_noon_starts_at.strftime('%H:%M') %>
-                                <%= meal.take_away_noon_ends_at.strftime('%H:%M') %>
-                          </li>
+                                <%= meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
+                                <%= meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                            </li>
+                        </ul>
+                      <% elsif meal.take_away_noon? %>
+                        <ul class="card-index-take-away-postion">
+                       <li>
+                              <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                              <%= meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
+                              <%= meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                        </li>
+                       </ul>
+                      <% elsif meal.take_away_evening? %>
                           <li>
-                                <i class="fa fa-clock-o"></i>
-                                <%= meal.take_away_evening_starts_at.strftime('%H:%M') %>
-                                <%= meal.take_away_evening_ends_at.strftime('%H:%M') %>
+                              <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                              <%= meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
+                              <%= meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
                           </li>
+                      <% end %>
 
-                      </ul>
                       <li class="text-center">
                             <%= link_to " VOIR LE DÉTAIL", meal_path(meal), class: "btn btn-reserver-xs btn-xs "%>
                       </li>
