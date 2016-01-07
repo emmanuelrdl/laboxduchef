@@ -24,27 +24,47 @@
           <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
           <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
           <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
-       <div  class="col-xs-12">
-                 <strong> Horaires de retrait le midi </strong>
-                 <!--   <!--   <%= f.input :take_away_noon_starts_at, :default => "11:00".to_time , label: "de", id:"restaurant_take_away_noon_starts_at" %> -->
- -->             <div class="form-group">
-              <div class='input-group date' id='datetimepicker3'>
-              <input type="text"  id="datetimepicker3" name="restaurant[take_away_noon_starts_at]">
-              <span class="input-group-addon">
+         <strong>Horaires de retrait le midi </strong>
+          <div class="form-group">
+              <div class='input-group date datetimepicker3'>
+              <input type="text"  class="datetimepicker3" name="restaurant[take_away_noon_starts_at]" label="de" default="11:00">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+              </div>
+          </div>
+
+            <div class="form-group">
+              <div class='input-group date datetimepicker3'>
+              <input type="text"  class="datetimepicker3" name="restaurant[take_away_noon_ends_at]" label="de" default="11:00">
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
-               </div>
-
-
-                      <%= f.input :take_away_noon_ends_at,  :as => :time_picker,
-                      :default => "14:00".to_time , label: "à"%>
           </div>
-           <div class="col-xs-12">
-              <strong>Horaires de retrait le soir </strong>
-                    <%= f.input :take_away_evening_starts_at, :default => "19:00".to_time , label: "de"  %>
-                    <%= f.input :take_away_evening_ends_at, :default => "22:00".to_time , label: "à" %>
-           </div>
+
+        <strong>Horaires de retrait le soir </strong>
+        <div class="form-group">
+            <div class='input-group date datetimepicker3'>
+              <input type="text"  class="datetimepicker3" name="restaurant[take_away_evening_starts_at]" label="de" default="11:00">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class='input-group date datetimepicker3'>
+              <input type="text"  class="datetimepicker3" name="restaurant[take_away_evening_ends_at]" label="de" default="11:00">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+            </div>
+          </div>
+
+
+
+
 
           <%= f.input :iban, label: "IBAN de l'étalissement" %>
 

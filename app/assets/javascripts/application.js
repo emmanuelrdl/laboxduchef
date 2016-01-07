@@ -6,8 +6,8 @@
 //= require gmaps/google
 
 //= require_tree
-
-
+//= require bootstrap-timepicker
 //= require moment
 //= require bootstrap-datetimepicker
-//= require pickers
+
+

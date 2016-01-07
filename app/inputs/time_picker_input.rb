@@ -1,7 +1,15 @@
-class TimePickerInput < SimpleForm::Inputs::Base
-  # This method usually returns input's html like <input ... />
-  # but in this case it returns just a value of the attribute.
-  def input
-    @builder.object.send(attribute_name)
+class TimePickerInput < DatePickerInput
+  private
+
+  def display_pattern
+    I18n.t('timepicker.dformat', default: '%R')
+  end
+
+  def picker_pattern
+    I18n.t('timepicker.pformat', default: 'HH:mm')
+  end
+
+  def date_options
+    date_options_base
   end
 end
