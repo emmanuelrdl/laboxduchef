@@ -34,7 +34,7 @@
     resources :payments,    only: [:new, :create, :show]
   end
 
-  resources :orders,  only: [:index, :show, :create]
+  resources :orders,  only: [:index, :show, :create, :edit, :update]
   resources :users,   only: [:show]
 
 

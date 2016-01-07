@@ -18,6 +18,10 @@ class OrdersController < ApplicationController
       end
   end
 
+  def edit
+    @order = Order.find(params[:order_id])
+  end
+
 
   def update
     @order = current_user.orders.where(status: "cart").find(params[:id])
