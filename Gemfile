@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'activeadmin_hstore_editor'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 
 gem 'sass-rails', '~> 5.0'

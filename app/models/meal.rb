@@ -13,7 +13,7 @@ class Meal < ActiveRecord::Base
   validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present?}
   validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present?}
   validates :take_away_noon, presence: true, unless: ->(meal){meal.take_away_evening.present?}
-  validates :second_away_evening, presence: true, unless: ->(meal){meal.take_away_noon.present?}
+  validates :take_away_evening, presence: true, unless: ->(meal){meal.take_away_noon.present?}
 
   paginates_per 6
 

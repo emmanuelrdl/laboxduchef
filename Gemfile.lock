@@ -16,6 +16,15 @@ GIT
       ransack (~> 1.3)
       sass-rails
 
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -170,6 +179,8 @@ GEM
     mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.2)
+    momentjs-rails (2.10.6)
+      railties (>= 3.1)
     monetize (1.1.0)
       money (~> 6.5.0)
     money (6.5.1)
@@ -331,6 +342,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails
   coffee-script
+  datetimepicker-rails!
   devise
   devise-i18n
   figaro
@@ -343,6 +355,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   mail_form
+  momentjs-rails (>= 2.9.0)
   money-rails
   omniauth-facebook
   paperclip
