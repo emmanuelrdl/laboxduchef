@@ -28,15 +28,15 @@ namespace :scheduler do
 
     end
 
-   # task :empty_basket => :environment do
-   #      @orders = Order.where(status: "cart")
-   #      @orders.each do |order|
-   #      order.update(status:"cancelled")
-   #        order_meal = order.order_meals.first
-   #        order_meal.meal.stock += order_meal.quantity
-   #        order_meal.meal.save
-   #      end
-   #  end
+   task :empty_basket => :environment do
+        @orders = Order.where(status: "cart")
+        @orders.each do |order|
+        order.update(status:"cancelled")
+          order_meal = order.order_meals.first
+          order_meal.meal.stock += order_meal.quantity
+          order_meal.meal.save
+        end
+    end
 
 
     # task :send_notification => :environment do

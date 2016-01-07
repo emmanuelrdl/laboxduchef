@@ -107,6 +107,8 @@ ActiveAdmin.setup do |config|
   config.logout_link_path = :destroy_user_session_path
   config.logout_link_method = :delete
 
+  config.register_stylesheet  'active_admin/hstore_editor.css'
+  config.register_javascript 'active_admin/hstore_editor.js'
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
   #

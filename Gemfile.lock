@@ -39,6 +39,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activeadmin_hstore_editor (0.0.5)
+      railties (>= 3.0, < 5.0)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -321,6 +323,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activeadmin_hstore_editor
   autoprefixer-rails
   aws-sdk (< 2.0)
   better_errors
