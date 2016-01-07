@@ -18,9 +18,7 @@ class OrdersController < ApplicationController
       end
   end
 
-  def edit
-    @order = Order.find(params[:order_id])
-  end
+
 
 
   def update
