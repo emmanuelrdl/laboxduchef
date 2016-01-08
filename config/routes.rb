@@ -41,7 +41,7 @@
 
 
 
-  # root 'welcome#index'
+  # rot 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
