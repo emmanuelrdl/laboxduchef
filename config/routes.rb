@@ -22,11 +22,11 @@
   resources :newsletters, only: [:new, :create]
 
 
-  resources :meals, only: [ :index, :show ]
+  resources :meals, only: [ :index, :show]
 
 
   resources :restaurants do
-    resources :meals #only: [:new, :create, :edit, :update, :destroy]
+    resources :meals, only: [:new, :create, :edit, :update, :destroy]
   end
 
   resource :cart, only: [:show, :destroy], controller: 'cart' do
