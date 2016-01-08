@@ -139,3 +139,62 @@ margin-right: auto;
 .input-group-time {
   text-align: left;
 }
+
+
+.incremented-input-field {
+
+  width: 20%;
+}
+
+.incremented-field input {
+
+  display: inline;
+}
+
+.increment-field-block {
+
+  margin-bottom: 10px;
+  text-align: center;
+
+
+}
+
+.label-increment-field {
+  text-align: left
+}
+
+.btn-qtyplus {
+  background-color:#23826A;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.btn-minus {
+  background-color:#E08283;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.take_away_times_meal {
+
+  margin-top: 0px;
+  padding-top: 0px;
+  font-size: 13px;
+
+}
+
+.meal_take_away_noon {
+
+  margin-bottom: 0px;
+}
+
+
+.meal_take_away_evening {
+
+  margin-bottom: 0px;
+}
+
+.checkbox {
+
+  margin-bottom: 0px;
+}

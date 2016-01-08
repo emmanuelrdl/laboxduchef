@@ -1,46 +1,47 @@
 <div id="body-container" >
     <div class="container">
        <div class="row">
-
           <% current_user.restaurants.each do |restaurant| %>
           <% if restaurant.confirmed? %>
-
-
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
-            <h4 class="title-illustration">CRÉATION DE VOTRE OFFRE</h4>
+            <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
              <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</p>
                 <%= simple_form_for ([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label: 'Nom du plat',input_html: {:maxlength => 24, class:"form-input-radius"}, placeholder: 'boeuf bourguignon' %>
-                <%= f.input :picture, label: 'Photo' %>
-                <%= f.input :description, placeholder: 'Délicieux boeuf accompagné de riz' ,input_html: {:maxlength => 60, class:"form-input-radius"} %>
+                <%= f.input :name, label:false,input_html: {:maxlength => 24, class:"form-input-text"}, placeholder: 'Nom du plat' %>
+                <div class="form-input-picture">
+                  <p class="label-picture">Photo(obligatoire)</p>
+                  <%= f.input :picture, label:false %>
+                </div>
 
-              <div class="col-xs-12 col-sm-6" >
-                  <label class="string required control-label" for="meal_seated_price">
-                   <abbr title="required">*</abbr> Prix en salle</label>
+                <%= f.input :description, placeholder: 'Description' ,input_html: {:maxlength => 60, class:"form-input-text"}, label: false %>
+
+              <div class="col-xs-12 increment-field-block" >
                   <div class="incremented-field">
-                      <input type='button' value='-' class='qtyminus' field='meal_seated_price' />
+                      <span >&nbsp&nbspPrix en salle</span>
+                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
                         <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
-                      <input type='button' value='+' class='qtyplus' field='meal_seated_price' />
+                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
+                      <span>€</span>
                  </div>
               </div>
 
-              <div class="col-xs-12 col-sm-6">
-                  <label class="string required control-label" for="meal_price">
-                   <abbr title="required">*</abbr> Prix de la box</label>
+              <div class="col-xs-12 increment-field-block">
                   <div class="incremented-field">
-                      <input type='button' value='-' class='qtyminus' field='meal_price' />
+                      <span > Prix de la box</span>
+                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
                         <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
-                      <input type='button' value='+' class='qtyplus' field='meal_price' />
+                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
+                      <span>€</span>
                  </div>
               </div>
 
-              <div class="col-xs-12">
-                  <label class="string required control-label" for="meal_quantity">
-                   <abbr title="required">*</abbr> Quantité</label>
+              <div class="col-xs-12 increment-field-block">
+
                   <div class="incremented-field">
-                      <input type='button' value='-' class='qtyminus' field='meal_quantity' />
+                      <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
+                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
                         <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5">
-                      <input type='button' value='+' class='qtyplus' field='meal_quantity' />
+                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
                  </div>
               </div>
 
@@ -57,15 +58,17 @@
 
                 <p> <strong> Retrait possible </strong>(cochez une ou deux cases)</p>
 
-                 <div class="col-xs-12 col-sm-6" >
-                 <%= f.input :take_away_noon, as: :boolean, label:("Le midi (#{current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M')} - #{current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M')}) ").html_safe, id:'take_away_noon', value:'1' %>
+                 <div class="col-xs-6 col-sm-6" >
+                 <p><%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
+                 <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>
                  </div>
-                <div class="col-xs-12 col-sm-6" >
-                <%= f.input :take_away_evening, as: :boolean, label:("Le soir (#{current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M')} - #{current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M')}) ").html_safe %>
+                <div class="col-xs-6 col-sm-6" >
+                <%= f.input :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
+                <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
                 </div>
-               <%= f.button :submit, "Mettre en ligne", class: "btn btn-success margin-btn-validation" %>
+               <%= f.button :submit, "Mettre en ligne", class: "btn btn-validation " %>
                <% end %>
-        </div>
+            </div>
 
           <%else %>
 
