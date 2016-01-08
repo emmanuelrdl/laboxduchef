@@ -49,17 +49,9 @@
   border-radius: 3px;
 }
 
-.form-box {
 
-background-color: #F0E8C4;
-border:solid 2px;
-color:black;
-margin-top: 40px;
-margin-bottom: 40px;
-border-radius: 4px;
-}
 
-h3:before, h3:after {
+.h3-lined:before, .h3-lined:after {
     position: absolute;
     top: 40%;
     overflow: hidden;
@@ -70,7 +62,7 @@ h3:before, h3:after {
 
   }
 
-h3 {
+.h3-lined {
     position: relative;
     font-size: 30px;
     z-index: 1;
@@ -78,7 +70,7 @@ h3 {
     text-align: center;
 }
 
-h3:before {
+.h3-lined:before {
     margin-left: -30%;
     text-align: right;
 }
