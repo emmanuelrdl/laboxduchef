@@ -40,6 +40,51 @@ padding-bottom:10px;
 
 }
 
+.form-input-time {
+
+
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:20px;
+  margin-bottom: 20px;
+  height: 40px;
+  font-size:17px;
+  display:inline;
+  padding-left: 0px;
+  padding-right: 0px;
+
+
+}
+
+.form-input-time-box  {
+ border: solid 2px;
+  border-color:#ABB7B7;
+  width:80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  padding:10px;
+  margin-bottom: 10px;
+
+}
+
+
+
+.datetimepicker3 {
+  width:70%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0px;
+
+
+
+
+}
+
+
 .form-input-text-labelized {
 
   width:80%;
@@ -61,8 +106,36 @@ padding-bottom:10px;
 
 
 }
+.form-input-picture {
 
-.deleting-account {
+  border: solid 2px;
+  border-color:#ABB7B7;
+  width:80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
 
-  padding: 20px;
+
+
+.photo-label {
+
+  font-size: 18px;
+  text-align: left;
+  padding-left: 10px;
+  color:#ABB7B7;
+}
+
+
+
+#restaurant_picture {
+
+margin-left: auto;
+margin-right: auto;
+
+}
+
+.input-group-time {
+  text-align: left;
 }

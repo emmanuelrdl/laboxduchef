@@ -22,9 +22,6 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user = current_user
     @restaurant.confirmed = false
-
-
-
     @restaurant = current_user.restaurants.build(params_restaurant)
 
     if @restaurant.save
