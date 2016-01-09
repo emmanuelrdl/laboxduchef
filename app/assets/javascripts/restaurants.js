@@ -1,14 +1,17 @@
- $(function () {
-                $('.datetimepicker3').datetimepicker({
-                    format: 'LT'
-                });
-            });
 
 
 
 
 
+ $(function() {
+    $('.datetimepicker3').datetimepicker({
 
+      format:"LT"
+
+
+
+    });
+  });
 
 
 

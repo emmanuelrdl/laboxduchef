@@ -22,10 +22,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.user = current_user
     @restaurant.confirmed = false
-    @restaurant = current_user.restaurants.build(params_restaurant)
+    @restaurant = current_user.restaurants.create(params_restaurant)
 
-    if @restaurant.save
-      # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+
+    if @restaurant.save!
+
       redirect_to user_path(current_user)
     else
       render :new
