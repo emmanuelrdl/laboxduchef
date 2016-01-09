@@ -15,51 +15,14 @@
           <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
           <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
           <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
-          <div class="form-input-time-box">
-              <p>Horaires de retrait le midi</p>
-              <div class="form-input-time">
-                  <div class='input-group date datetimepicker3'>
-                   <span>de</span>
-                  <input type="text"  class="datetimepicker3" name="restaurant[take_away_noon_starts_at]" label="de" default="11:00">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-                  </div>
-              </div>
 
-              <div class="form-input-time">
-                  <div class='input-group date datetimepicker3'>
-                   <span>à&nbsp</span>
-                  <input type="text"  class="datetimepicker3" name="restaurant[take_away_noon_ends_at]" label="de" default="11:00">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-                </div>
-              </div>
+          <div class="hidden-xs hidden-sm">
+            <%= render 'restaurants/timeselection_lg' %>
+          </div>
+          <div class="hidden-md hidden-lg">
+            <%= render 'restaurants/timeselection_xs' %>
           </div>
 
-        <div class="form-input-time-box">
-            <p>Horaires de retrait le soir</p>
-            <div class="form-input-time">
-                <div class='input-group date datetimepicker3'>
-                  <span>de</span>
-                  <input type="text"  class="datetimepicker3" name="restaurant[take_away_evening_starts_at]" label="de" default="11:00">
-                  <span class="input-group-addon input-group-time">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-                </div>
-            </div>
-
-              <div class="form-input-time">
-                <div class='input-group date datetimepicker3'>
-                  <span>à&nbsp</span>
-                  <input type="text"  class="datetimepicker3" name="restaurant[take_away_evening_ends_at]" label="de" default="11:00">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                </div>
-              </div>
-        </div>
 
           <%= f.input :iban, label:false, placeholder:"Iban",  input_html: { class:"form-input-text"} %>
 
@@ -72,3 +35,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+

@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :update, :destroy]
   before_action :navbar_choice
 
   def index
@@ -36,7 +36,7 @@ class RestaurantsController < ApplicationController
 
 
   def edit
-
+      @restaurant = Restaurant.find(current_user.restaurants.first.id)
   end
 
   def update
