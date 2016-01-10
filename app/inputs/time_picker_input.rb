@@ -1,4 +1,5 @@
 class TimePickerInput < DatePickerInput
+
   private
 
   def display_pattern

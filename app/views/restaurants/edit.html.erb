@@ -16,12 +16,7 @@
           <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
           <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
 
-          <div class="hidden-xs hidden-sm">
-            <%= render 'restaurants/timeselection_lg' %>
-          </div>
-          <div class="hidden-md hidden-lg">
-            <%= render 'restaurants/timeselection_xs' %>
-          </div>
+          <%= render partial:'restaurants/edit_timeselection',  locals: {f: f} %>
 
 
           <%= f.input :iban, label:false, placeholder:"Iban",  input_html: { class:"form-input-text"} %>

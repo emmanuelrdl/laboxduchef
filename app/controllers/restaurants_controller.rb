@@ -41,7 +41,7 @@ class RestaurantsController < ApplicationController
 
   def update
 
-    current_user.restaurants.first.update(params_restaurant)
+    @restaurant.update(params_restaurant)
     if @restaurant.save
     redirect_to user_path(current_user)
     else
