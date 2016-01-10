@@ -9,12 +9,13 @@ Devise.setup do |config|
   # config.secret_key = 'a620f556707d20b2705bc2c5625cbeeb52c4b565a0e5641fd570b7da53ae703e5782b080f9b09ddd5414eea56d90f63645edf8e7c66194343b8cc5033e48aaf9'
   config.secret_key = '181ede6834c84a0115f3f8b2241f53cbfa88f038e0e02c6ccbdd50327c0c41540204015c30876bb9b82a865eb92161ffa3c32d4028975790e6ae3d4634a74925'
 
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], scope: 'email', info_fields: 'email, first_name,last_name'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'request@laboxduchef.org'
+  config.mailer_sender = 'mailer@laboxdeschefs.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

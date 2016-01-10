@@ -15,10 +15,10 @@
                       ou le <strong> <%= order_meal.meal.second_date.strftime("%d/%m/%y") %> </strong>
                       entre:
                 <% elsif order_meal.meal.starting_date? %>
-                      A retirer le <strong> <%= order_meal.meal.restaurant.starting_date.strftime("%d/%m/%y") %> </strong>
+                      A retirer le <strong> <%= order_meal.meal.starting_date.strftime("%d/%m/%y") %> </strong>
                       entre:
                 <% elsif order_meal.meal.second_date? %>
-                      A retirer le <strong> <%= order_meal.meal.restaurant.second_date.strftime("%d/%m/%y") %> </strong>
+                      A retirer le <strong> <%= order_meal.meal.second_date.strftime("%d/%m/%y") %> </strong>
                       entre:
                 <% end -%>
 
