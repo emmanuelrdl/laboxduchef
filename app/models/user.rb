@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.token = auth.credentials.token
+      user.restaurant_owner = false
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end

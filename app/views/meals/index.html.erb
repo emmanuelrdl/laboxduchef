@@ -1,9 +1,17 @@
 <div id="body-container" >
 
+
+  <div class='hidden-xs hidden-xs col-xs-12 edit_search_box text-center'>
+    <p> OFFRES AUTOUR DE: </p>
+    <h3> <%= params[:full_addressuser_input_autocomplete_address].upcase %> </h3>
+  </div>
+
+
+
+
     <div class="container-meal-index hidden-xs">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-          <h4 class="title-illustration " id="text-meal-index">OFFRES EN COURS</h4>
             <div class=" meals-list">
              <% if  Meal.where(active:true).count == 0 %>
                 <div class="text-center">
@@ -22,13 +30,12 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <h4 class="title-illustration" id="text-meal-index">CARTE</h4>
                <div id="map" name="map" style="height:620px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:12px; border-radius:3px;border:1px solid grey">
                </div>
           </div>
         </div>
       </div>
-    </div>
+
 
 
 
