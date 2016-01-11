@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <div class="visible-xs hidden-sm hidden-md hidden-lg"><h4>Votre dernière commande</h4></div>
 
-   <% if current_user.orders.count >= 1 %>
+   <% if current_user.orders.where(status:"confirmed").count >= 1 %>
       <div class="hidden-xs"><h2>Détails de votre dernière commande</h2></div>
       </div>
         </div>

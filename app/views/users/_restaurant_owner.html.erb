@@ -82,7 +82,15 @@
                   <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(order_meal.order), class: "btn btn-success btn-xs" %></strong></td>
                   <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
                   <td><%= number_to_currency(order_meal.order.amount.to_i - 1*1.2*order_meal.quantity) %></td>
-                  <td><%= order_meal.order.status %></td>
+                  <td>
+                    <% if order_meal.order.status == "confirmed" %>
+                      confirmé
+                    <% elsif order_meal.order.status == "paid" %>
+                      payé
+                    <% else %>
+                      inconnu
+                    <% end -%>
+                  </td>
                 </tr>
               </tbody>
 

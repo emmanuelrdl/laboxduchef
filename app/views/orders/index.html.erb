@@ -21,7 +21,7 @@
                             <% meal.order_meals.each do |order_meal| %>
                              <% if order_meal.order.status == "confirmed" || order_meal.order.status == "paid"  %>
 
-                              <tbody>
+                            <tbody>
                               <tr>
                                 <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
                                 <td><%= order_meal.order.id %></td>
@@ -30,7 +30,15 @@
                                   <td><%= number_to_currency(order_meal.quantity*1*0.2) %>
                                  </td>
                                 <td><%= number_to_currency(order_meal.order.amount.to_i - 1*1.2*order_meal.quantity) %></td>
-                                <td><%= order_meal.order.status %></td>
+                                <td>
+                                   <% if order_meal.order.status == "confirmed" %>
+                                    confirmé
+                                  <% elsif order_meal.order.status == "paid" %>
+                                    payé
+                                  <% else %>
+                                    inconnu
+                                  <% end -%>
+                                </td>
                               </tr>
                             </tbody>
 

@@ -56,7 +56,8 @@
                  <%= f.input :second_date, as: :boolean, checked_value: Date.today + 1, unchecked_value: false, label:'Demain' %>
                  </div>
 
-                <p> <strong> Retrait possible </strong>(cochez une ou deux cases)</p>
+                <p> <strong> Retrait possible </strong>(cochez une ou deux cases <%= link_to "Modifier mes horaires", edit_restaurant_path(@restaurant) %> )</p>
+
 
                  <div class="col-xs-6 col-sm-6" >
                  <p><%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
