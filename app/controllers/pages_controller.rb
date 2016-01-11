@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :navbar_choice
+  before_action :navbar_choice, only: [:home]
   def home
     @meals = Meal.all
     @restaurants = Restaurant.all
@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     # marker.infowindow render_to_string(:partial => "/meals/infowindow")
     marker.infowindow render_to_string(:partial => 'pages/infowindow', :locals => { :object => @my_restaurant})
     end
+    @newsletter = Newsletter.new
   end
 
   def espace_restaurants

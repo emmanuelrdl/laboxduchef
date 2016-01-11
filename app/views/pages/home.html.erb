@@ -5,13 +5,14 @@
       <div class="row ">
         <div class="col-xs-12 col-sm-12 ">
           <div  class="text-center" >
-            <h1 class="hidden-xs title-home-lg"> MANGEZ MIEUX, MOINS CHER,
-              <p> LUTTEZ CONTRE LE GASPILLAGE </p>
-              <b class="sub-title-home-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</b>
+              <h1 class="hidden-xs title-home-lg"> MANGEZ MIEUX, MOINS CHER,
+                <p> LUTTEZ CONTRE LE GASPILLAGE </p>
               </h1>
+              <p class="sub-title-home-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS</p>
+
               <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHERS </p>
               <h1>
-            </div>
+          </div>
         </div>
       </div>
   </div >
@@ -28,81 +29,104 @@
 
   <div class="row">
     <div class="col-xs-12 filter-hiw text-center">
-          <h3 class="text-center  title-standard"  > <strong>  FONCTIONNEMENT  </strong></h3>
-      <div>
-        <div class="text-center col-xs-6 col-sm-3">
-          <img src="https://maxcdn.icons8.com/Color/PNG/96/Mobile/tablet_android-96.png" title="Android Tablet" width="96">
-          <p><p><STRONG>1.</STRONG></p> COMMANDEZ VOTRE BOX </p>
-        </div>
-        <div class="text-center col-xs-6 col-sm-3">
-          <img src="https://maxcdn.icons8.com/Color/PNG/96/Sports/walking-96.png" title="Walking" width="96">
-          <p><p><STRONG>2.</STRONG></p> RENDEZ-VOUS DANS LE RESTAURANT PARTENAIRE</p>
-        </div>
-        <div class="text-center col-xs-6 col-sm-3">
-          <img src="https://maxcdn.icons8.com/Color/PNG/96/City/market_square-96.png" title="Market Square" width="96">
-          <p><p><STRONG>3.</STRONG></p> RECUPÉREZ VOTRE BOX</p>
-        </div>
-        <div class="text-center col-xs-6 col-sm-3">
-          <img src="https://maxcdn.icons8.com/Color/PNG/96/Household/dining_room-96.png" title="Dining Room" width="96">
-          <p><p><STRONG>4.</STRONG></p> BON APPÉTIT !</p>
-        </div>
+      <h2 class="title_hiw ">COMMENT ÇA MARCHE ?</h2>
+      <div class="col-xs-12 hiw_gobal_box">
+        <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag "choose_localization.svg", size:"140x170"  %>
+          <p><strong> OU ÊTES VOUS ? </strong></p>
+          <p>Renseignez votre adresse</p>
+       </div>
+       <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag "choose_box.svg", size:"140x170"  %>
+          <p><strong> FAITES VOTRE CHOIX </strong></p>
+          <p>Parmi nos restaurants partenaires</p>
+       </div>
+       <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag "pay_online.svg", size:"140x170"  %>
+          <p><strong> PAYEZ EN LIGNE </strong></p>
+          <p>C'est facile, rapide et sécurisé !</p>
+       </div>
+       <div class="text-center col-xs-12 col-sm-3">
+          <%= image_tag "take_box.svg", size:"140x170"  %>
+          <p><strong> RÉCUPÉREZ VOTRE BOX </strong></p>
+          <p>Rendez vous dans le restaurant partenaire</p>
+       </div>
       </div>
     </div>
   </div>
 
 
 
-  <div class=" col-sm-8 col-sm-offset-2 hidden map-home">
-         <h3 class="text-center title-line" style="padding-bottom:30px;" > <strong>  NOS PARTENAIRES </strong></h3>
 
-         <div id="map" name="map" style="height:420px; width:900px; margin-left:10px; margin-right:10px; margin-bottom:10px; margin-top:15px; border-radius:3px;border:1px solid black">
-         </div>
 
+<div class="row hidden-xs " >
+   <div class="text-center col-xs-12 joins-us-box">
+     <h2 class="title_hiw ">UN CONCEPT VERTUEUX</h2>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_eat_better">
+        <%= image_tag "eat_restaurant.svg", size:"70x70"  %>
+        <h3 >DES PLATS DE RESTAURANTS</h3>
+      </div>
+     </div>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_eat_cheaper">
+      <%= image_tag "save_money.svg", size:"70x70"  %>
+        <h3>JUSQU'À 75% MOINS CHERS</h3>
+      </div>
+     </div>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_no_waste">
+        <%= image_tag "no_waste.svg", size:"70x70"  %>
+        <h3>LUTTANT CONTRE LE GASPILLAGE</h3>
+      </div>
+     </div>
+
+      <%= link_to "S'inscrire", new_user_registration_path, class:" btn btn-join-us" %>
   </div>
-
-
-    <% content_for(:after_js) do %>
-    <script>
-    $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        console.log(markers)
-
-            });
-
-    });
-
-
-    </script>
-    <% end %>
-
-
-
-
-
-    <div class="row hidden-xs filter-philosophie" >
-      <div class="layer-philosophie"></div>
-        <div class="col-xs-6 off-set-3 col-lg-12">
-            <h3 class="text-center subtitle-philosophie"> <strong>NOTRE DEMARCHE </strong> </h3>
-            <h4 class="subtitle-philosophie">  <strong> MISSIONS  </strong></h4>
-              <p>1. LIMITER LE GASPILLAGE ALIMENTAIRE DANS LES RESTAURANTS EN VALORISANT LEURS INVENDUS</p>
-              <p>2. PERMETTRE A NOS UTILISATEURS DE MANGER DE BONS PLATS SERVIS EN RESTAURANT À PETIT PRIX !</p>
-             <h4 class="subtitle-philosophie">  <strong> CONCEPT  </strong></h4>
-             <p> TOUS LES JOURS LES RESTAURANTS PARTENAIRES METTENT EN LIGNE LES SURPLUS QU'ILS ONT SUR UN PLAT: QUANTITÉ, PRIX, HORAIRES DE RETRAIT</p>
-             <p>CES PORTIONS VENDUES À PRIX CASSÉES SONT À VENIR CHERCHER DANS LES RESTAURANTS PARTENAIRES</p>
-             <p> APRÈS VOUS ÊTRE LOCALISÉS VOUS POUVEZ CONSULTER LES OFFRES PRÈS DE CHEZ VOUS ET RÉSERVER VOTRE PORTION; VOUS PERMETTANT DE BIEN MANGER À PETIT PRIX ET DE LUTTER CONTRE LE GASPILLAGE !!</p>
-            <h4 class="text-center subtitle-philosophie"> <strong>BON APPÉTIT !!</strong></h4>
-
-
-
-    </div>
-
-
 </div>
 
 
 
 
+
+
+<div class="row hidden-xs " >
+   <div class="text-center col-xs-12 newsletter-box">
+   <h3 class="title_hiw ">&nbsp Se tenir informé &nbsp </h3>
+    <%= simple_form_for @newsletter do |f| %>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <p> <%= f.input :email, placeholder:"marinalaporte@gmail.com", label:false, input_html: {class:"input-email-newsletter"} %> </p>
+        <p><%= f.button :submit, "ME TENIR INFORMÉ", class: "btn-validation" %></p>
+      </div>
+      <% end %>
+     </div>
+</div>
+
+
+
+<!-- <div class="row hidden-xs " >
+   <div class="text-center col-xs-12 joins-us-box">
+     <h2 class="title_hiw ">POUR LES RESTAURANTS</h2>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_eat_better">
+        <%= image_tag "eat_restaurant.svg", size:"70x70"  %>
+        <h3 >DES PLATS DE RESTAURANTS</h3>
+      </div>
+     </div>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_eat_cheaper">
+      <%= image_tag "save_money.svg", size:"70x70"  %>
+        <h3>JUSQU'À 75% MOINS CHERS</h3>
+      </div>
+     </div>
+     <div class="col-xs-12 col-sm-4">
+      <div class="box_advantages_no_waste">
+        <%= image_tag "no_waste.svg", size:"70x70"  %>
+        <h3>LUTTANT CONTRE LE GASPILLAGE</h3>
+      </div>
+     </div>
+
+      <%= link_to "S'inscrire", new_user_registration_path, class:" btn btn-join-us" %>
+  </div>
+</div>
+ -->

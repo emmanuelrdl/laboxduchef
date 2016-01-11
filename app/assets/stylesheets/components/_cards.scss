@@ -138,3 +138,67 @@ width:80%;
 
 }
 
+.btn-geolocation-xs {
+
+  color:white;
+  background-color:#278F75;
+  border-radius: 3px;
+  border:none;
+  font-size: 16px;
+  display: center;
+  list-style:none;
+  margin-top: 20px;
+  padding-top: 6px;
+
+  height:35px;
+
+}
+
+.btn-join-us {
+  color:white;
+  background-color:#DD562C;
+  border-radius: 3px;
+  border:none;
+  font-size: 25px;
+  display: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding-top: 6px;
+  padding-left:70px;
+  padding-right:70px;
+
+}
+
+.btn-home {
+ background: #DD562C;
+ border-radius: 3px;
+ border:none;
+ font-size: 25px;
+ font-family: 'Ropa Sans', sans-serif;
+ margin-bottom: 70px;
+ color:white;
+ padding-left: 137px;
+ padding-right: 137px;
+ height:58px;
+
+
+  &:hover {
+   border: 1px solid white;
+   text-decoration: none;
+   color: #F9690E ;
+   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+}
+
+
+.btn-home-xs {
+ background: #F9690E;
+ border-radius: 3px;
+ border:none;
+ font-size: 22px;
+ width: 90%;
+ font-family: 'Ropa Sans', sans-serif;
+ margin-top:20px;
+ margin-bottom:50px;
+
+}
