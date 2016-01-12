@@ -1,5 +1,4 @@
 
-
 namespace :scheduler do
 
     task :update_meal_active => :environment do
