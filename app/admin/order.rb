@@ -4,13 +4,14 @@ ActiveAdmin.register Order do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 
-permit_params :user_id, :status, :amount_cents, :payment
+permit_params :user_id, :status, :amount_cents, :payment, :quantity
 
   form do |f|
     f.inputs do
       f.input :user_id
       f.input :status
       f.input :amount_cents
+      f.input :quantiy
       f.input :payment,  as: :hstore
     end
     f.actions
