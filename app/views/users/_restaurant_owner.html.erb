@@ -72,20 +72,20 @@
             </tr>
           </thead>
             <% @meals.each do |meal| %>
-              <% meal.order_meals.last(10).each do |order_meal| %>
-                <% if order_meal.order.status == "confirmed" || order_meal.order.status == "paid"  %>
+              <% meal.orders.last(10).each do |order| %>
+                <% if order.status == "confirmed" || order.status == "paid"  %>
 
 
                 <tbody>
                 <tr>
-                  <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
-                  <td><strong><%= link_to "Numéro: #{order_meal.order.id}", order_path(order_meal.order), class: "btn btn-success btn-xs" %></strong></td>
-                  <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
-                  <td><%= number_to_currency(order_meal.order.amount.to_i - 1*1.2*order_meal.quantity) %></td>
+                  <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+                  <td><strong><%= link_to "Numéro: #{order.id}", order_path(order), class: "btn btn-success btn-xs" %></strong></td>
+                  <td><%= number_to_currency(order.amount, :unit => "€") %></td>
+                  <td><%= number_to_currency(order.amount.to_i - 1*1.2*order.quantity) %></td>
                   <td>
-                    <% if order_meal.order.status == "confirmed" %>
+                    <% if order.status == "confirmed" %>
                       confirmé
-                    <% elsif order_meal.order.status == "paid" %>
+                    <% elsif order.status == "paid" %>
                       payé
                     <% else %>
                       inconnu

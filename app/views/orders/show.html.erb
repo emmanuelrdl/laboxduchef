@@ -10,16 +10,16 @@
                 <th>Nom du client</th>
               </tr>
             </thead>
-            <% @order.order_meals.each do |order_meal| %>
+
             <tbody>
               <tr>
-                <td class="success"><%= order_meal.quantity %></td>
-                <td class="success"><%= order_meal.meal.name %></td>
+                <td class="success"><%= @order.quantity %></td>
+                <td class="success"><%= @order.meal.name %></td>
                 <td class="success"><%= @order.user.last_name %></td>
               </tr>
 
             </tbody>
-          <% end %>
+
           </table>
         </div>
     <div class="button-padding text-center"><%= link_to "Retour", user_path(current_user), class: "btn btn-success" %></div>

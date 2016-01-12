@@ -1,12 +1,12 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_order
+  before_action :check_order , only: [:new, :create]
   before_action :navbar_choice
   # before_action :set_order_meal, only: [:new]
 
   def new
     # @order = current_user.orders.where(status: "cart")
-    @order_meals = @order.order_meals
+    @order = current_user.orders.where(status: "cart").first
 
     @amount = @order.amount
   end
@@ -26,21 +26,8 @@ class PaymentsController < ApplicationController
       currency:     'eur'
     )
 
-    @current_user ||= order.orders.where(status: "cart").first_or_create
+
     @order.update(payment: charge.to_json, status: 'confirmed')
-
-
-    # @order_meals = @order.order_meals
-    # @order_meals.each do |order_meal|
-    # order_meal.meal.stock -= order_meal.quantity
-    #   if order_meal.meal.stock <= 0
-    #      order_meal.meal.active = false
-    #   else
-    #      order_meal.meal.active = true
-    #   end
-    #   order_meal.meal.save
-    # end
-
     @order = current_user.orders.where(status: "confirmed")
     redirect_to cart_payment_path(@order)
 
@@ -54,8 +41,6 @@ class PaymentsController < ApplicationController
 
   def show
     @order = current_user.orders.where(status: "confirmed").last
-    @order_meals = @order.order_meals
-
     @amount = @order.amount
   end
 
@@ -76,12 +61,6 @@ class PaymentsController < ApplicationController
     @order = current_user.orders.where(status: "cart").first_or_create
   end
 
-  # def set_order_meal
-  #   @restaurant = OrderMeal.find(params[:meal_id][:quantity])
-  # end
 
-  def params_order_meal
-    params.require(:order_meal).permit(:meal_id, :quantity, :order_id)
-  end
 
 end

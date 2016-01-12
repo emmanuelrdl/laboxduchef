@@ -1,9 +1,27 @@
 class OrdersController < ApplicationController
   before_action :navbar_choice
 
+
+    def create
+    @meal = Meal.find(params_order[:meal_id])
+    @order = current_user.orders.where(status: "cart").first_or_create
+    @order.update(meal_id: @meal.id)
+    @order.quantity = params_order[:quantity].to_i
+    @order.amount_cents = @meal.price_cents * @order.quantity
+    @order.save
+    @order.meal.stock -= @order.quantity
+      if @order.meal.stock <= 0
+         @order.meal.active = false
+      else
+         @order.meal.active = true
+      end
+    @order.meal.save
+    redirect_to new_cart_payment_path
+
+    end
+
   def show
     @order = Order.where(status: "confirmed").find(params[:id])
-    @order_meals = @order.order_meals
     @restaurants = current_user.restaurants
       @restaurants.first.meals.each do |meal|
       @meal = meal
@@ -23,7 +41,6 @@ class OrdersController < ApplicationController
 
   def update
     @order = current_user.orders.where(status: "cart").find(params[:id])
-    @order_meal = OrderMeal.find(params[:meal_id][:order_id])
     order = Order.update!(amount: @order.amount, status: 'cart')
     redirect_to new_order_payment_path(order)
   end
@@ -35,11 +52,13 @@ class OrdersController < ApplicationController
   private
 
 
-  def params_order_meal
-      params.require(:order_meal).permit(:meal_id, :quantity)
+  def params_order
+      params.require(:order).permit(:meal_id, :quantity)
   end
 
-
+  def current_order
+    @order ||= current_user.orders.where(status: "cart").first_or_create
+  end
 
 
 

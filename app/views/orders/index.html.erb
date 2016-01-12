@@ -18,22 +18,22 @@
                           </tr>
                         </thead>
                           <% @meals.each do |meal| %>
-                            <% meal.order_meals.each do |order_meal| %>
-                             <% if order_meal.order.status == "confirmed" || order_meal.order.status == "paid"  %>
+                            <% meal.orders.each do |order| %>
+                             <% if order.status == "confirmed" || order.status == "paid"  %>
 
                             <tbody>
                               <tr>
-                                <td><%= order_meal.order.created_at.strftime("%d/%m/%y") %></td>
-                                <td><%= order_meal.order.id %></td>
-                                <td><%= number_to_currency(order_meal.order.amount, :unit => "€") %></td>
-                                <td><%= number_to_currency(order_meal.quantity*1) %></td>
-                                  <td><%= number_to_currency(order_meal.quantity*1*0.2) %>
+                                <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+                                <td><%= order.id %></td>
+                                <td><%= number_to_currency(order.amount, :unit => "€") %></td>
+                                <td><%= number_to_currency(order.quantity*1) %></td>
+                                  <td><%= number_to_currency(order.quantity*1*0.2) %>
                                  </td>
-                                <td><%= number_to_currency(order_meal.order.amount.to_i - 1*1.2*order_meal.quantity) %></td>
+                                <td><%= number_to_currency(order.amount.to_i - 1*1.2*order.quantity) %></td>
                                 <td>
-                                   <% if order_meal.order.status == "confirmed" %>
+                                   <% if order.status == "confirmed" %>
                                     confirmé
-                                  <% elsif order_meal.order.status == "paid" %>
+                                  <% elsif order.status == "paid" %>
                                     payé
                                   <% else %>
                                     inconnu
