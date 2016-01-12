@@ -2,7 +2,7 @@ class Meal < ActiveRecord::Base
   belongs_to :restaurant
 
   reverse_geocoded_by "restaurants.latitude", "restaurants.longitude"
-  has_many :order_meals
+  has_many :orders
 
   validates :picture, presence: true
   validates :name, presence: true, length: { maximum: 30 }

@@ -32,9 +32,8 @@ namespace :scheduler do
         @orders = Order.where(status: "cart")
         @orders.each do |order|
         order.update(status:"cancelled")
-          order_meal = order.order_meals.first
-          order_meal.meal.stock += order_meal.quantity
-          order_meal.meal.save
+          order.meal.stock += order.quantity
+          order.meal.save
         end
     end
 

@@ -4,55 +4,56 @@
         <div clas="col-xs-12 col-sm-6 col-sm-offset-3">
           <h4 class="title-body">CONFIRMATION DE VOTRE COMMANDE</h4>
 
-          <% @order.order_meals.each do |order_meal| %>
+
             <div class="thumbnail col-xs-12 col-sm-6 col-sm-offset-3" >
 
-              <h4><%= order_meal.meal.name %> x<%= order_meal.quantity %>   </h4>
+              <h4><%= @order.meal.name %> x<%= @order.quantity %>   </h4>
 
               <p> <i class="fa fa-calendar-o"> </i>
-                 <% if order_meal.meal.starting_date? && order_meal.meal.second_date?  %>
-                      A retirer le <strong> <%= order_meal.meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                      ou le <strong> <%= order_meal.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                 <% if @order.meal.starting_date? && @order.meal.second_date?  %>
+                      A retirer le <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                      ou le <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                       entre:
-                <% elsif order_meal.meal.starting_date? %>
-                      A retirer le <strong> <%= order_meal.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                <% elsif @order.meal.starting_date? %>
+                      A retirer le <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
                       entre:
-                <% elsif order_meal.meal.second_date? %>
-                      A retirer le <strong> <%= order_meal.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                <% elsif @order.meal.second_date? %>
+                      A retirer le <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                       entre:
-                <% end -%>
+              <% end -%>
 
              </p>
-             <% if order_meal.meal.take_away_noon? && order_meal.meal.take_away_evening? %>
+
+             <% if @order.meal.take_away_noon? && @order.meal.take_away_evening? %>
                 <div class="col-xs-12 ">
                   <div class="col-xs-6">
                     <i class="fa fa-clock-o"></i> Midi
-                    <p><%= order_meal.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= order_meal.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
+                    <p><%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
                   </div>
                    <div class="col-xs-6">
                     <i class="fa fa-clock-o"></i> Soirée
-                    <p><%= order_meal.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= order_meal.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
+                    <p><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
                   </div>
                 </div>
-              <% elsif order_meal.meal.take_away_noon? %>
+              <% elsif @order.meal.take_away_noon? %>
                  <div class="col-xs-12">
                       <i class="fa fa-clock-o"></i> Midi
-                      <p><%= order_meal.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= order_meal.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
+                      <p><%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
                  </div>
-              <% elsif order_meal.meal.take_away_evening? %>
+              <% elsif @order.meal.take_away_evening? %>
                  <div class="col-xs-12">
                       <i class="fa fa-clock-o"></i> Midi
-                      <p><%= order_meal.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= order_meal.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
+                      <p><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
                  </div>
               <% end %>
 
               <i class="fa fa-map-marker" style="font-size:20px;"></i>
-              <p style='margin-bottom:0px;'> <i> <%= order_meal.meal.restaurant.name %> </i> </p>
-              <p><%= order_meal.meal.restaurant.full_address %></p>
+              <p style='margin-bottom:0px;'> <i> <%= @order.meal.restaurant.name %> </i> </p>
+              <p><%= @order.meal.restaurant.full_address %></p>
              <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
           </div>
 
-          <% end %>
+
           <div class="col-xs-12">
             <p>Bon appetit et merci pour votre confiance !</p>
             <h6>Cliquez "mon compte" pour voir l'itinéraire</h6>

@@ -11,15 +11,15 @@
                 <th class="text-center">Prix</th>
               </tr>
             </thead>
-            <% @order.order_meals.each do |order_meal| %>
+
             <tbody>
               <tr>
-                <td class="text-left"><%= order_meal.quantity %></td>
-                <td  class="text-left"><%= order_meal.meal.name %></td>
-                <td><%= order_meal.price.format %></td>
+                <td class="text-left"><%= @order.quantity %></td>
+                <td  class="text-left"><%= @order.meal.name %></td>
+                <td><%= @order.amount.format %></td>
               </tr>
             </tbody>
-            <% end %>
+
           </table>
              <div class="thumbnail col-xs-12 col-sm-12 " style="margin:auto; border-radius:3px">
                 <label >
