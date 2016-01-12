@@ -75,10 +75,12 @@ class MealsController < ApplicationController
 
   def destroy
     @meal = @restaurant.meals.find(params[:id])
-    if @meal.delete
+    @meal.update(active:false)
+    if @meal.save
+       flash[:notice] = 'Offre désactivée'
        redirect_to user_path(current_user)
     else
-      render :destroy
+      render :edit
     end
   end
 

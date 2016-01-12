@@ -57,6 +57,7 @@
                 <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
                 </div>
                <%= f.button :submit, "Mettre en ligne", class: "btn btn-validation " %>
+                <%= link_to "Désactiver l'offre", restaurant_meal_path, :method => :delete, :confirm => "You sure?", class:"btn btn-danger btn-delete" %>
                <% end %>
             </div>
 
@@ -66,6 +67,7 @@
           <h2>Votre restaurant est en cours de validation. Une fois celui-ci validé vous pourrez poster vos offres. L'étape de validation prend entre 24 heures et 48 heures.</h2>
           <div class="text-center">
           <%= link_to "Retour", root_path, class:"btn btn-primary text-center btn-margin" %>
+
           </div>
      </div>
 

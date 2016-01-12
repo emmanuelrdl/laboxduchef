@@ -24,6 +24,7 @@ class Meal < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   monetize :price_cents
+  monetize :seated_price_cents
 
 
 
