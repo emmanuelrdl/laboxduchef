@@ -11,7 +11,7 @@ permit_params :user_id, :status, :amount_cents, :payment, :quantity
       f.input :user_id
       f.input :status
       f.input :amount_cents
-      f.input :quantiy
+      f.input :quantity
       f.input :payment,  as: :hstore
     end
     f.actions
