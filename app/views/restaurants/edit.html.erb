@@ -12,7 +12,7 @@
             <% if @restaurant.picture.exists? %>
               <%= image_tag @restaurant.picture.url(:thumb) %><br/>
             <% end %>
-          <%= f.file_field :picture, require:false, label: false  %>
+          <%= f.file_field :picture, label: false  %>
           </div>
           <%= text_field_tag :full_addressuser_input_autocomplete_address, @restaurant.full_address, id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant" %>
           <%= f.hidden_field  :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>

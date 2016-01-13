@@ -10,6 +10,9 @@
                 <%= f.input :name, label:false,input_html: {:maxlength => 24, class:"form-input-text"}, placeholder: 'Nom du plat' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
+                    <% if @restaurant.picture.exists? %>
+                      <%= image_tag @restaurant.picture.url(:thumb) %><br/>
+                   <% end %>
                   <%= f.input :picture, label:false %>
                 </div>
 
