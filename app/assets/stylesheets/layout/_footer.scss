@@ -20,6 +20,14 @@
   }
 }
 
+.footer-xs {
+  margin-top: 180px;
+  height: 160px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
 .share-links {
   display: flex;
   align-items: center;
@@ -38,7 +46,7 @@
     cursor: pointer;
     width: 100%;
     &:hover {
-      color: red;
+      color: #DD562C;
       font-size: 110%;
       size: 110%;
     }

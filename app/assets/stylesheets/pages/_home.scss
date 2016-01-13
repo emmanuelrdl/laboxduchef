@@ -2,7 +2,7 @@
   background-image:asset-url('banner2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 650px;
+  height: 700px;
   background-position: center top;
   position: relative;
   z-index: 1;
@@ -17,6 +17,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+
+
+
 }
 
 .layer-xs {
@@ -36,7 +39,7 @@
   background-color: #E6EAED;
   color:black;
   padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 
 
 }
@@ -51,14 +54,7 @@
 
 
 
-.title-standard {
 
-  padding-top: 0px;
-  padding-bottom: 20px;
-  color:#006C26;
-  text-align:center;
-
-}
 
 .filter-title {
   position: absolute;
@@ -66,10 +62,7 @@
   background: rgba(0,0,0,0.4);
 }
 
-#banner {
-  display: flex;
-  justify-content: center;
-}
+
 
 
 
@@ -78,7 +71,7 @@ margin-top:100px;
 border:3px;
 color: white;
 padding: 20px;
-font-size: 38px;
+font-size: 45px;
 
 }
 
@@ -91,7 +84,7 @@ font-size: 18px;
 font-weight: 400;
 color: white;
 font-size: 20px;
-margin-bottom: 40px;
+margin-bottom: 60px;
 
 }
 
@@ -233,5 +226,35 @@ margin-top: 30px;
   padding: 40px;
   border: solid 4px;
   border-color:#3F4B56;
+
+}
+
+.partner-joins-us {
+
+  background-image:asset-url('cooker.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center top;
+  position: relative;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: auto
+
+}
+
+.partner-joins-us h2 {
+    padding: 100px;
+    position: relative;
+    z-index: 2;
+    color:white;
+    font-size: 50px;
+    pointer-events: auto
+}
+
+.partner-joins-us p {
+    position: relative;
+    z-index: 4;
+   pointer-events: auto
 
 }

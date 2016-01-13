@@ -18,8 +18,6 @@ class PagesController < ApplicationController
   def espace_restaurants
   end
 
-  def fonctionnement
-  end
 
   def conditionsgenerales
   end

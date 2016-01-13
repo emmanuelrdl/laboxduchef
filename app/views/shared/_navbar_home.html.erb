@@ -22,7 +22,6 @@
 
               <% if current_user.restaurants.empty? %>
                 <li><%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path %> </li>
-                <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
                 <li> <%= link_to "CONTACT", new_contact_path %></li>
                 <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                <% else %>
@@ -30,7 +29,6 @@
                   <li><%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(restaurant) %> </li>
                   <% end -%>
                   <li><%= link_to "TABLEAU DE BORD", user_path(current_user) %> </li>
-                  <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path %></li>
                   <li> <%= link_to "CONTACT", new_contact_path %></li>
                   <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                <% end -%>
@@ -39,7 +37,6 @@
 
 
               <li><%= link_to "MON ESPACE", user_path(current_user) %> </li>
-              <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
               <li> <%= link_to "CONTACT", new_contact_path %></li>
               <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
             <% end -%>
@@ -48,13 +45,11 @@
       <% else %>
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li> <%= link_to "FONCTIONNEMENT", fonctionnement_path  %></li>
-          <li> <%= link_to "CONTACT", new_contact_path %></li>
           <li>
             <%= link_to  "CONNEXION", new_user_session_path%>
           </li>
           <li><%= link_to "INSCRIVEZ-VOUS", new_user_registration_path %></li>
-          <li><%= link_to "ESPACE RESTAURANTS", espacerestaurants_path %></li>
+          <li> <%= link_to "CONTACT", new_contact_path %></li>
         </ul>
 
       <% end -%>
