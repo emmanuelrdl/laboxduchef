@@ -16,7 +16,20 @@
           <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
           <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
 
-          <%= render partial:'restaurants/edit_timeselection',  locals: {f: f} %>
+         <div class="form-input-time-box">
+          <p>Horaires de retrait le midi</p>
+          <span>de</span>
+          <%= f.input :take_away_noon_starts_at, label: false  %>
+          <span>à</span>
+          <%= f.input :take_away_noon_ends_at, label: false  %>
+        </div>
+       <div class="form-input-time-box">
+        <p>Horaires de retrait le soir</p>
+         <span>de</span>
+          <%= f.input :take_away_evening_starts_at,label: false  %>
+        <span>à</span>
+          <%= f.input :take_away_evening_ends_at, label: false %>
+        </div>
 
 
           <%= f.input :iban, label:false, placeholder:"Iban",  input_html: { class:"form-input-text"} %>
