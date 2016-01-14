@@ -87,3 +87,12 @@ jQuery(document).ready(function(){
 
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+
+$("#index_address_input").hide();
+$("#change_place").click(function(){
+    $("#index_address_input").toggle();
+     return false;
+
+});
+

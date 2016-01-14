@@ -16,7 +16,7 @@
 
 .container-meal-index {
 
-  width:1250px;
+  width:1300px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -25,8 +25,7 @@
 
 .meals-list {
 
-  border: solid 2px;
-  border-color:grey;
+  border: solid 1px;
   padding-top: 10px;
   padding-bottom: 10px;
   position: relative;
@@ -34,6 +33,7 @@
   overflow-y: scroll;
   margin-bottom:50px;
   margin-top: 20px;
+  border-color: #DADFE1;
 
 }
 
@@ -45,8 +45,8 @@ background: rgba(70,70,70,0.6);
 
   }
 
-#card-price-position {
-  position: absolute;
+#card-price-position-lg {
+  position: relative;
   font-size: 16px;
   left: 0 ;
   bottom: 0 ;
@@ -54,15 +54,20 @@ background: rgba(70,70,70,0.6);
   padding: 1px;
   color:#006C26;
   margin-left: 5px;
+  width: 40%;
+  font-size: 20px;
 
 }
 
-#card-seated-price-position {
+#card-seated-price-lg {
 
   font-size: 16px;
   margin-top: 1px;
   padding: 1px;
+  color:grey;
   margin-left: 5px;
+  width:40%;
+  font-size: 20px;
 }
 
 #card-seated-price-position-xs {
@@ -87,13 +92,12 @@ background: rgba(70,70,70,0.6);
 }
 
 
-.card-postal_code-position{
-  margin-top:0px;
-  padding-left: 3px;
+.meal-place-infos-lg{
+  padding-top: 7px;
+  padding-left: 7px;
   color: white;
-  text-align: left;
-  float:left;
   font-size: 15px;
+
 
 }
 
@@ -108,14 +112,10 @@ background: rgba(70,70,70,0.6);
 
 }
 
-#card-name-position {
-
-  font-size: 16px;
+#index_meal_name_position {
+  font-size: 18px;
   background: rgba(0,0,0,0.6);
-  margin-top:128px;
-  margin-bottom: 0px;
-
-
+  bottom: 0;
 
 }
 
@@ -149,13 +149,13 @@ margin-left: 30px;
 
 
 
-.prices-meal-container {
+.index_meal_details_box {
 
   background-color: white;
-  height:50px;
+  display: flex;
+  padding: 5px;
 
-  bottom: 0px;
-  text-shadow: 3px 3px 3px rgba(0,0,0,0);
+
 }
 
 .prices-meal-container-xs {
@@ -424,13 +424,15 @@ margin-top: -5px;
 .index-take-away-times {
 
   color:black;
-  position:absolute;
   list-style: none;
-  font-size: 12px;
-  text-align: right-top;
-  margin-top:-28px;
+  font-size: 16px;
+  float: right;
   margin-left: 10px;
+  width:40%;
+  color:#414243;
   }
+
+
 
 .position-btn-reserver {
 
@@ -453,11 +455,88 @@ padding-bottom: 20px;
 .map-index-lg {
 
 height:620px;
-width: 550px;
-margin-left:10px;
+width: 450px;
+left:0;
 margin-right:10px;
 margin-bottom:10px;
-margin-top:20px;
+margin-top:30px;
 border-radius:3px;
 border:1px solid grey;
+position: absolute;
+}
+
+.change_place {
+  background-color: #414243;
+  margin-top: -10px;
+  color:white;
+  padding: 20px;
+}
+
+.index-address-field-lg {
+  float:left;
+  width: 70%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height:40px;
+}
+
+.btn-search-meal-index-lg {
+ float:left;
+  background: transparent;
+  color:white;
+  border: solid 2px;
+  border-color: white;
+  font-size: 20px;
+  width: 30%;
+  height:40px;
+  }
+
+.search-meal-index-toggled {
+  background-color: #414243;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+#index_address_input {
+  text-align: center;
+  margin-top: 0px;
+  background-color: #414243;
+
+
+}
+
+ #index_meal_name_position {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding:10px;
+
+
+}
+
+
+
+.meal-index-restaurant-pic {
+
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top:0;
+  margin-right: 7px;
+  margin-top: 7px;
+
+
+}
+
+#change_place {
+  background: transparent;
+  color:white;
+  border: solid 2px;
+  border-color: white;
+  font-size: 20px;
+
 }

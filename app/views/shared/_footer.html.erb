@@ -1,19 +1,24 @@
 
 <div class="hidden-xs ">
-    <div class="footer footer-fixed share-links" style="padding:70px">
-     <p style="font-size:16px">
-      2015 © LA BOX DES CHEFS
-    </p>
-    <a href="#" class="share-links-item share-links-item-hover bg-facebook">
-      <i class="fa fa-facebook" style="font-size:50px"></i>
-    </a>
-    <a href="#" class="share-links-item share-links-item-hover bg-twitter">
-      <i class="fa fa-twitter" style="font-size:50px"></i>
-    </a>
-    <a href="#" class="share-links-item share-links-item-hover bg-email">
-      <i class="fa fa-envelope-o" style="font-size:50px"></i>
-    </a>
-    <ul class="footer-links">
+    <div class="footer footer-fixed share-links col-xs-12">
+     <div class="col-xs-4">
+       <%= link_to root_path do %>
+          <%= image_tag "logo3.png", size:"250x40"  %>
+      <% end %>
+    </div>
+    <div class="col-xs-4 text-center">
+      <h4>Suivez nous !</h4>
+      <a href="#" class="share-links-item share-links-item-hover">
+        <i class="fa fa-facebook" style="font-size:30px"></i>
+      </a>
+      <a href="#" class="share-links-item share-links-item-hover ">
+        <i class="fa fa-twitter" style="font-size:30px"></i>
+      </a>
+      <a href="#" class="share-links-item share-links-item-hover">
+        <i class="fa fa-envelope-o" style="font-size:30px"></i>
+      </a>
+    </div>
+    <ul class="footer-links col-xs-4 ">
       <li>
         <%= link_to "Restaurants, inscrivez-vous", partner_sign_up_path, class: "share-links-item", style: "font-size:16px" %>
       </li>
@@ -24,7 +29,7 @@
         <%= link_to "Nous contacter", new_contact_path, class: "share-links-item", style: "font-size:16px" %>
       </li>
     </ul>
-    <ul class="footer-links">
+    <ul class="footer-links col-xs-4">
       <li>
       <%= link_to "Cvg",conditionsgenerales_path, class: "share-links-item", style: "font-size:16px"%>
       </li>
@@ -36,11 +41,14 @@
       </li>
     </ul>
   </div>
+    <p class="signature_footer text-center">
+      2015 © SAS LA BOX DES CHEFS
+    </p>
 </div>
 
 
 <div class="hidden-sm hidden-md hidden-lg visible-xs ">
-  <div class="footer-xs text-center" >
+  <div class="footer-home-xs text-center" >
     <div class="text-center">
       <p>
         <%= link_to "Restaurants, inscrivez-vous", partner_sign_up_path, class: "share-links-item", style: "font-size:16px" %>
