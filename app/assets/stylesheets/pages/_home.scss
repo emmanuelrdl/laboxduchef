@@ -118,11 +118,13 @@ font-size: 25px;
 
 .home-address-field-xs {
   border-radius: 3px;
+
 }
 
 .home-address-field-lg {
   border:none;
   height: 40px;
+
 }
 
 .geolocation-field  {
@@ -146,7 +148,6 @@ margin-top: 30px;
 
 .search-place div {
 
-  display:flex;
 
 
 }
@@ -160,6 +161,10 @@ margin-top: 30px;
   height: 58px;
   border-radius: 3px;
   padding-top: 10px;
+  width:60%;
+  margin-left: auto;
+  margin-right: auto;
+
 
 }
 
