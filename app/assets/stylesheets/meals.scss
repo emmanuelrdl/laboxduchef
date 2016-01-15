@@ -55,7 +55,19 @@ background: rgba(70,70,70,0.6);
   color:#006C26;
   margin-left: 5px;
   width: 40%;
-  font-size: 20px;
+
+
+}
+
+.meal_show_xs_price {
+  position: relative;
+  font-size: 16px;
+  left: 0 ;
+  bottom: 0 ;
+  margin: 1px;
+  padding: 1px;
+  color:#006C26;
+  width: 40%;
 
 }
 
@@ -94,6 +106,14 @@ background: rgba(70,70,70,0.6);
   margin-left: 5px;
   width:40%;
   font-size: 18px;
+}
+
+.meal_show_xs_seated_price {
+  font-size: 16px;
+  margin-top: 1px;
+  padding: 1px;
+  margin-left: 5px;
+  width:40%;
 }
 
 
@@ -187,6 +207,12 @@ margin-left: 30px;
 
 }
 
+.meal_show_xs_detail_box {
+  display: flex;
+  padding: 5px;
+
+}
+
 .prices-meal-container-xs {
 
   background-color: white;
@@ -232,17 +258,21 @@ margin-left: 30px;
   height:300px;
   width: 400px;
   border-image-outset: 0 0 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 
 }
 
 
-.cart-img-size-sm{
-
-  background-repeat: no-repeat;
+.meal-show-img-xs{
+  position: relative;
+  height: 280px;
+  color: white;
   background-size: cover;
-  background-position: 50% 50%;
-  box-sizing:border-box;
-  height: 300px;
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 100%
 
 
 }
@@ -472,6 +502,15 @@ margin-top: -5px;
 
   }
 
+  .show-take-away-times-xs {
+  list-style: none;
+  font-size: 15px;
+  float: right;
+  width:40%;
+  color:white;
+
+  }
+
 
 
 .position-btn-reserver {
@@ -557,7 +596,6 @@ position: absolute;
 }
 
 
-
 .meal-index-restaurant-pic {
 
   border-radius: 50%;
@@ -578,5 +616,38 @@ position: absolute;
   border: solid 2px;
   border-color: white;
   font-size: 20px;
+
+}
+
+.meal-show-global-box-xs {
+  margin:0px;
+  padding: 0px;
+  margin-top: 50px;
+}
+
+.meal_show_xs_description {
+  font-size: 14px;
+}
+
+.meal_show_xs_price_box {
+padding-top: 20px;
+margin-left:0px;
+margin-right:0px;
+padding-left: 0px;
+padding-right: 0px;
+background-color: #DADFE1;
+}
+
+.meal_show_xs_total_price {
+padding-top: 5px;
+}
+
+.total_xs {
+  color:grey;
+  font-size: 20px;
+}
+
+.price {
+font-size: 20px;
 
 }
