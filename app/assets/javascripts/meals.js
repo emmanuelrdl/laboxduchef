@@ -2,19 +2,48 @@
 //http://jsfiddle.net/laelitenetwork/puJ6G/
 
 
-// increment total price
+// price calculation meal
+$('.btn-number').click(function(e){
+    e.preventDefault();
+
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 0).change();
+            }
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 0).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+
 
 $(document).ready(function()
 {
     var basePrice = parseFloat($(".price").text());
-    var quantity = $("#quantity").val();
 
 
           $(".minus").click(function()
           {
-
               changeValue(-1);
-
           });
 
 
@@ -33,11 +62,10 @@ $(document).ready(function()
         var newValue = (basePrice * countValue).toFixed(2);
         $(".price").text(newValue);
     }
-
 });
 
 
-// increment total price
+// price calculation meal
 
 
 
