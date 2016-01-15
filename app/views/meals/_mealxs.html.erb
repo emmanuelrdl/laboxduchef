@@ -13,12 +13,12 @@
               <div id="index_meal_name_position"><%= meal.name %></div>
           </div>
           <div class="index_meal_details_box">
-              <div id="card-seated-price-lg">€<s><%= meal.seated_price %> </s>
+              <div id="card-seated-price-xs">€<s><%= meal.seated_price %> </s>
               </div>
                <div id="card-price-position-lg"><%= meal.price.format %>
                </div>
                <% if meal.take_away_noon? && meal.take_away_evening %>
-                 <div class="index-take-away-times">
+                 <div class="index-take-away-times-xs">
                     <li>
                       <i class="fa fa-clock-o"></i>
                       <%= meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
