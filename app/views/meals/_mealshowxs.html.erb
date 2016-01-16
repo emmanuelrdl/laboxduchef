@@ -67,7 +67,7 @@
             </div>
             <div class='col-xs-6 meal_show_xs_total_price'>
             <span class="total_xs">Total:</span>
-            <span class="price"> <%= @meal.price %> </span>&nbsp;<span>€</span>
+            <span class="price"> <%= @meal.price.to_f %> </span>&nbsp;<span>€</span>
             </div>
               <div class="col-xs-12 text-center">
                 <%= f.submit "Réserver", class: "btn-reserver-xs " %>

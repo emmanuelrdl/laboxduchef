@@ -38,6 +38,9 @@
 }
 
 
+
+
+
 #filter-meals-list {
 
 
@@ -69,6 +72,19 @@ background: rgba(70,70,70,0.6);
   color:#006C26;
   width: 40%;
 
+}
+
+.meal_show_lg_price {
+  font-size: 20px;
+  color:#006C26;
+  float:left;
+  margin-left: 85px;
+
+}
+
+.meal_show_lg_stock {
+  float:right;
+  font-size: 20px;
 }
 
 
@@ -114,6 +130,11 @@ background: rgba(70,70,70,0.6);
   padding: 1px;
   margin-left: 5px;
   width:40%;
+}
+
+.meal_show_lg_seated_price{
+  font-size: 20px;
+  float: left;
 }
 
 
@@ -213,6 +234,12 @@ margin-left: 30px;
 
 }
 
+.meal_show_lg_detail_box {
+  padding-bottom: 10px;
+  height: 40px;
+  border-bottom: solid 2px;
+}
+
 .prices-meal-container-xs {
 
   background-color: white;
@@ -307,11 +334,6 @@ margin: 0px;
 }
 
 
-.meal-stock-position {
-
-  margin-top: -25px;
-  margin-left: 280px;
-}
 
 
 .meal-price-position {
@@ -321,19 +343,11 @@ margin: 0px;
 }
 
 
-.meal-stock-position-xs {
-
- margin-top: -23px;
- margin-left: 180px;
-
-}
 
 .cart-show-meal-seated-price-position{
 
   color:red;
   padding-left: 10px
-
-
 
 }
 
@@ -351,13 +365,7 @@ margin: 0px;
  padding-left: 70px
 }
 
-.cart-show-stock-position {
- margin-left:135px
-}
 
-.cart-show-stock-position-xs {
- margin-left:80px
-}
 
 #navlist li {
 display: inline;
@@ -625,6 +633,13 @@ position: absolute;
   margin-top: 50px;
 }
 
+.meal-show-global-box-lg {
+  margin:0px;
+  padding: 0px;
+  padding-top: 15px;
+
+}
+
 .meal_show_xs_description {
   font-size: 14px;
 }
@@ -638,8 +653,22 @@ padding-right: 0px;
 background-color: #DADFE1;
 }
 
+.meal_show_lg_price_box {
+padding-top: 10px;
+margin-left:0px;
+margin-right:0px;
+padding-left: 0px;
+padding-right: 0px;
+
+
+}
+
 .meal_show_xs_total_price {
 padding-top: 5px;
+}
+
+.meal_show_lg_total_price {
+padding-top: 20px;
 }
 
 .total_xs {
@@ -650,4 +679,55 @@ padding-top: 5px;
 .price {
 font-size: 20px;
 
+}
+
+.meal_show_lg_global_box {
+
+  border: solid 2px;
+  border-color: grey;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  background-color: #FFFFFF;
+  padding-right: 0px;
+  padding-left:0px;
+  background-color: #F6F9FA;
+  padding-bottom: 20px;
+
+}
+
+.map_show_lg {
+
+  height:400px;
+
+}
+
+
+
+.meal_show_lg_restaurant_infos {
+  padding: 15px;
+}
+
+.meal_show_lg_restaurant_pic {
+float:left;
+}
+
+
+
+.meal_show_lg_restaurant_openings {
+  float:right;
+  list-style: none;
+}
+
+.meal-show-full-box-lg {
+margin-top: -100px;
+border-shadow: 0 1px 3px rgba(0,0,0,0.6);
+border-right: solid 1px;
+border-color: grey;
+
+}
+
+.meal_show_lg_order_box {
+
+  padding-top: 15px;
 }
