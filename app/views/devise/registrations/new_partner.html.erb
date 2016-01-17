@@ -16,9 +16,6 @@
                 <%= f.input :restaurant_owner, :as => :hidden, input_html: { :value => true } %>
                 <%= f.input :password, label: false, required: true, input_html: {class:"form-input-text"}, placeholder:"Mot de passe - Minimum 8 caractères" %>
                 <%= f.input :password_confirmation, label:false, required: true, input_html: {class:"form-input-text"}, placeholder:"Confirmation mot de passe" %>
-                 <div class="form-input-checkbox">
-                    <%= f.input :cgv, as: :boolean, checked_value: true, unchecked_value: false, label:("J'ai lu et j'accepte les #{link_to "conditions générales d'utilisation", conditionsgenerales_path} ainsi que la #{link_to "charte du partenaire", chartepartenaire_path}").html_safe %>
-                </div>
               </div>
 
                 <%= f.button :submit, "Validez", class: "btn btn-validation" %>

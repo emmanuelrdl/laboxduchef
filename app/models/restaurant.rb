@@ -15,8 +15,9 @@ class Restaurant < ActiveRecord::Base
   validates :street, uniqueness: true
   validates :locality, presence: true
   validates :postal_code, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, numericality: true
   validates :picture, presence: true, unless: ->(restaurant){restaurant.picture.present?}
+  validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
   validates :iban, presence: true
   validates :take_away_noon_starts_at, presence: true
   validates :take_away_evening_starts_at, presence: true
