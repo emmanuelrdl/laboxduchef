@@ -1,20 +1,7 @@
 <div id="body-container" >
-   <div class="col-xs-12 search-meal-index-toggled hidden-xs">
-    <div class='change_place text-center'>
-      <p> Offres autour de: <%= params[:full_addressuser_input_autocomplete_address] %>
-          <button href="" id="change_place"> MODIFIER </button>
-      </p>
-        <div id="index_address_input" class="col-sm-6 col-sm-offset-3 text-center">
-          <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
-              <p><%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"Châtelet - Les Halles, Paris, France"  %> </p>
-                <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
-                <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
-                <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
-             <p> <%= f.button :submit, "Voir les offres", class: "btn btn-search-meal-index-lg" %></p>
-            <% end -%>
-        </div>
-      </div>
-    </div>
+  <div id="banner-container-meal-index">
+    <h2 class="title_meal-index-lg text-center">LES MEILLEURS OFFRES AUTOUR DE <%= params[:full_addressuser_input_autocomplete_address] %> </h2>
+  </div>
     <div class="container-meal-index hidden-xs">
       <div class="row">
            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 ">
@@ -35,12 +22,27 @@
                   <% end -%>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4">
-               <div id="map" name="map" class="map-index-lg" >
-               </div>
-          </div>
+          <div class="search-meal-index-toggled hidden-xs col-xs-12 col-sm-4">
+            <div class='change_place text-center'>
+              <p id="change_place_block"> Lieu: <%= params[:full_addressuser_input_autocomplete_address] %>
+                  <button href="" id="change_place"> MODIFIER </button>
+              </p>
+                <div id="index_address_input">
+                  <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
+                      <p><%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"Châtelet - Les Halles, Paris, France"  %> </p>
+                        <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
+                        <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
+                        <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
+                     <p> <%= f.button :submit, "Voir", class: "btn btn-search-meal-index-lg" %></p>
+                    <% end -%>
+                </div>
+              </div>
+
+             <div id="map" name="map" class="map-index-lg" >
+             </div>
         </div>
       </div>
+    </div>
 
 
 

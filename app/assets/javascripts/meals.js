@@ -115,6 +115,7 @@ jQuery(document).ready(function(){
 $("#index_address_input").hide();
 $("#change_place").click(function(){
     $("#index_address_input").toggle();
+    $("#change_place_block").hide();
      return false;
 
 });

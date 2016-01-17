@@ -15,8 +15,8 @@
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-8 col-xs-offset-2 meal_show_lg_global_box text-center ">
         <div class="form-header">
-          <h3 > <%= @meal.restaurant.name.upcase %></h3>
-          <p <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
+          <h3 class="meal_show_lg_restaurant_name"> <%= @meal.restaurant.name.upcase %></h3>
+          <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-phone"></i> <%= @meal.restaurant.phone_number %></p>
           </div>
           <div class='col-xs-6 col-xs-offset-6 meal_show_lg_restaurant_infos'>
