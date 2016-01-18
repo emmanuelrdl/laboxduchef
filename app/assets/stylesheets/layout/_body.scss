@@ -19,13 +19,18 @@
 
   }
 
-.title-illustration {
-
-  color:#006C26;
 }
 
-
+#body-container-client-dashboard {
+ background-repeat: no-repeat;
+ background-position: left top;
+ margin-top: 0px;
+ background-color: #DADFE1;
+ font-family: 'Ropa Sans', sans-serif;
+ z-index: 1;
+ margin-bottom:0px;
 }
+
 
 .border-box-shadow {
   border-shadow: 2px 2px 3px rgba(0,0,0,0.6);
@@ -50,7 +55,23 @@ font-family: 'Ropa Sans', sans-serif;
 
 }
 
+
+
 .form-input-radius {
 
  border-radius: 4px;
+}
+
+
+@media (max-width: 600px) {
+          .container-fluid{
+          margin: 0px;
+          padding: 1px;
+          }
+
+
+          .container{
+          margin: 0px;
+          padding: 1px;
+          }
 }

@@ -14,6 +14,22 @@ box-shadow: 3px 3px 3px #888888;
 
 }
 
+@media (max-width: 800px) {
+          .form-box {
+          background-color: #FFFFFF;
+          border:solid 2px;
+          color:black;
+          margin:0px;
+          border-radius: 4px;
+          border-shadow: 0 1px 3px rgba(0,0,0,0.6);
+          box-shadow: 3px;
+          padding-left: 0px;
+          padding-right:0px;
+          box-shadow: 3px 3px 3px #888888;
+          }
+}
+
+
 .form-header {
 
 background-color: #278F75;
@@ -23,6 +39,19 @@ padding-left-left: 0px;
 padding-right:0px;
 padding-top: 10px;
 padding-bottom:10px;
+
+}
+
+.form-header-no-margin {
+
+background-color: #278F75;
+color:white;
+margin-top: 0px;
+padding-left-left: 0px;
+padding-right:0px;
+padding-top: 10px;
+padding-bottom:10px;
+margin-bottom:0px;
 
 }
 
@@ -254,4 +283,9 @@ margin-right: auto;
 .datetimepicker2 {
 
   display:flex;
+}
+
+.form-input-radius {
+
+ border-radius: 4px;
 }

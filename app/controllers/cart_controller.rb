@@ -9,9 +9,9 @@
   end
 
   def destroy
-    current_order.order_meals.destroy_all
-    current_order.update(amount: 0)
-    redirect_to cart_path
+    current_order.update(amount: 0, status:"cancelled")
+    flash[:notice] = "Votre panier a bien été vidé"
+    redirect_to root_path
   end
 
   private

@@ -26,13 +26,9 @@
                   <h4>Montant total = <%= humanized_money_with_symbol(@amount) %></h4>
 
             </div>
-
-        <div style="padding-top:50px;">
          <%= form_tag cart_payments_path(@order) do %>
              <script src="https://checkout.stripe.com/checkout.js"></script>
-
               <button id="customButton" class="btn btn-payer">Payer</button>
-
                <script>
                   var handler = StripeCheckout.configure({
                   key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -51,15 +47,15 @@
                       description: "<%= @order.meal.name %>",
                       amount: "<%= @order.amount_cents %>",
                       currency:"EUR",
+                      locale: "fr"
 
                     });
                     e.preventDefault();
                   });
                 </script>
-
                 <% end %>
-        </div>
 
+        <%= link_to "Vider mon panier", cart_path(@order), method: :delete, class: "btn btn-warning"%>
 
 
       </div>

@@ -3,21 +3,25 @@ class OrdersController < ApplicationController
 
 
     def create
-    @meal = Meal.find(params_order[:meal_id])
-    @order = current_user.orders.where(status: "cart").first_or_create
-    @order.update(meal_id: @meal.id)
-    @order.quantity = params_order[:quantity].to_i
-    @order.amount_cents = @meal.price_cents * @order.quantity
-    @order.save
-    @order.meal.stock -= @order.quantity
-      if @order.meal.stock <= 0
-         @order.meal.active = false
+      @meal = Meal.find(params_order[:meal_id])
+      if params[:order][:quantity].to_i < @meal.stock
+        @order = current_user.orders.where(status: "cart").first_or_create
+        @order.update(meal_id: @meal.id)
+        @order.quantity = params_order[:quantity].to_i
+        @order.amount_cents = @meal.price_cents * @order.quantity
+        @order.save
+        @order.meal.stock -= @order.quantity
+          if @order.meal.stock <= 0
+             @order.meal.active = false
+          else
+             @order.meal.active = true
+          end
+        @order.meal.save
+        redirect_to new_cart_payment_path
       else
-         @order.meal.active = true
+        flash[:alert] = "Stock insuffisant"
+        redirect_to meal_path(@meal)
       end
-    @order.meal.save
-    redirect_to new_cart_payment_path
-
     end
 
   def show

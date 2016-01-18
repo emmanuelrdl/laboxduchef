@@ -1,1 +1,38 @@
+.map_payment{
 
+  height:250px;
+  width:100%;
+}
+
+.payment_show_infos_box {
+  height:220px;
+  width: 100%;
+  border-image-outset: 0 0 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  color:white;
+  padding-top: 5px;
+
+
+
+
+}
+
+.payment_show_infos_box_postion {
+  position:relative;
+}
+
+.payment-filter {
+  background-size: cover;
+  background-color: rgba(0,0,0,0.7) ;
+  border-radius: 3px;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
