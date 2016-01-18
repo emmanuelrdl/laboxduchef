@@ -1,7 +1,9 @@
+
  <div id="body-container-client-dashboard">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
+           <% if current_user.orders.where(status:"confirmed").count >= 1 %>
           <h4 class="form-header-no-margin">VOTRE DERNIÈRE COMMANDE</h4>
             <div class="payment_show_infos_box" style="background-image: url('<%=image_path @last_order.meal.picture.url(:medium)%>')">
                <div class="payment-filter"> </div>
@@ -50,7 +52,11 @@
             <div class="col-xs-12">
               <%= image_tag "logo-black.png", size:"210x80"  %>
               <h5>Bon appetit et merci pour votre confiance !</h5>
+          <% else %>
+            <h4> Vous n'avez pas de commandes en cours</h4>
+              <%= image_tag "logo-black.png", size:"210x80"  %>
             </div>
+          <% end -%>
 
 
       <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>

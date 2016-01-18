@@ -25,7 +25,7 @@ class Restaurant < ActiveRecord::Base
   validates :take_away_evening_ends_at, presence: true
 
   geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
+  after_validation :geocode, if: :full_address_changed? && :lat_changed?
 
 
 
@@ -36,4 +36,15 @@ class Restaurant < ActiveRecord::Base
   def full_address_changed?
     street_changed? || postal_code_changed? || locality_changed?
   end
+
+#   def lat_changed?
+#     if (self.full_address_changed?)
+#         if !(self.latitude_changed?)
+#             self.errors.add(:address, "n'est pas valide")
+#             return false
+#         end
+#     end
+#     return true
+# end
+
 end

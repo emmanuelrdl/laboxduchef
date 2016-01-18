@@ -1,6 +1,7 @@
 # app/controllers/registrations_controller.rb
 class RegistrationsController < Devise::RegistrationsController
   before_action :navbar_choice
+  skip_before_filter :verify_authenticity_token, :only => :create
 
   def after_sign_up_path_for(resource)
     if resource.restaurant_owner
