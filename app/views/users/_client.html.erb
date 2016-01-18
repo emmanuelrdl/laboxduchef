@@ -52,24 +52,6 @@
             <div class="col-xs-12">
               <%= image_tag "logo-black.png", size:"210x80"  %>
               <h5>Bon appetit et merci pour votre confiance !</h5>
-          <% else %>
-            <h4> Vous n'avez pas de commandes en cours</h4>
-              <%= image_tag "logo-black.png", size:"210x80"  %>
-            </div>
-          <% end -%>
-
-
-      <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-</div>
-
 
 
 
@@ -89,3 +71,25 @@
         })
       <% end %>
     <% end %>
+          <% else %>
+            <h4> Vous n'avez pas de commandes en cours</h4>
+              <%= image_tag "logo-black.png", size:"210x80"  %>
+      <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>
+            </div>
+          <% end -%>
+
+
+      <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
