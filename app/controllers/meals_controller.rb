@@ -64,11 +64,11 @@ class MealsController < ApplicationController
     @meal = @restaurant.meals.create(params_meal)
     @meal.active = true
     @meal.stock = @meal.quantity
-    if @meal.save
-      redirect_to user_path(current_user)
-    else
-      render :new
-     end
+      if @meal.save
+        redirect_to user_path(current_user)
+      else
+        render :new
+       end
   end
 
 

@@ -5,15 +5,16 @@
           <% if restaurant.confirmed? %>
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
             <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
-             <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</p>
-                <%= simple_form_for ([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label:false, input_html: {:maxlength => 24, class:"form-input-text"}, placeholder: 'Nom du plat' %>
+             <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne. Tous les champs du formulaire sont obligatoires</p>
+              <%= bootstrap_form_for ([@restaurant, @meal]) do |f| %>
+
+                <%= f.text_field :name, label:false,  class:"form-input-text-bootstrap",:maxlength => 24, placeholder: 'Nom du plat*' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
-                  <%= f.input :picture, label:false, :required => true %>
+                  <%= f.file_field :picture, label:false, required:true %>
                 </div>
 
-                <%= f.input :description, placeholder: 'Description' ,input_html: {:maxlength => 60, class:"form-input-text"}, label: false %>
+                <%= f.text_area :description, placeholder: 'Description*', class:"form-input-description-bootstrap ",:maxlength => 60, label: false %>
 
               <div class="col-xs-12 increment-field-block" >
                   <div class="incremented-field">
@@ -50,24 +51,26 @@
 
                 <p> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
                  <div class="col-xs-6">
-                 <%= f.input :starting_date, as: :boolean, checked_value: Date.today.to_s, unchecked_value: false, label:'Ce jour' %>
+                  <p>Aujourd'hui</p>
+                <%= check_box_tag "meal[starting_date]", Date.today %>
                  </div>
                  <div class="col-xs-6">
-                 <%= f.input :second_date, as: :boolean, checked_value: (Date.today + 1).to_s, unchecked_value: false, label:'Demain' %>
+                  <p>Demain</p>
+               <%= check_box_tag "meal[second_date]", Date.today + 1 %>
                  </div>
 
                 <p> <strong> Retrait possible </strong>(cochez une ou deux cases)</p>
 
 
                  <div class="col-xs-6 col-sm-6" >
-                 <p><%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
+                 <p><%= f.check_box :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
                  <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>
                  </div>
                 <div class="col-xs-6 col-sm-6" >
-                <%= f.input :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
+                <%= f.check_box :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
                 <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
                 </div>
-               <%= f.button :submit, "Mettre en ligne", class: "btn btn-validation " %>
+               <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
                <% end %>
             </div>
 
