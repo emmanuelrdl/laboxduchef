@@ -7,48 +7,38 @@
             <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
              <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne. Tous les champs du formulaire sont obligatoires</p>
               <%= bootstrap_form_for ([@restaurant, @meal]) do |f| %>
-
                 <%= f.text_field :name, label:false,  class:"form-input-text-bootstrap",:maxlength => 24, placeholder: 'Nom du plat*' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
                   <%= f.file_field :picture, label:false, required:true %>
                 </div>
-
                 <%= f.text_area :description, placeholder: 'Description*', class:"form-input-description-bootstrap ",:maxlength => 60, label: false %>
-
-              <div class="col-xs-12 increment-field-block" >
-                  <div class="incremented-field">
-                      <span >&nbsp&nbspPrix en salle</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
-                      <span>€</span>
-                 </div>
-              </div>
-
-              <div class="col-xs-12 increment-field-block">
-                  <div class="incremented-field">
-                      <span > Prix de la box</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
-                      <span>€</span>
-                 </div>
-              </div>
-
-              <div class="col-xs-12 increment-field-block">
-
-                  <div class="incremented-field">
-                      <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5" min="1">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
-                 </div>
-              </div>
-
-
-
-
+                  <div class="col-xs-12 increment-field-block" >
+                      <div class="incremented-field">
+                          <span >&nbsp&nbspPrix en salle</span>
+                          <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
+                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
+                          <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
+                          <span>€</span>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 increment-field-block">
+                      <div class="incremented-field">
+                          <span > Prix de la box</span>
+                          <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
+                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
+                          <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
+                          <span>€</span>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 increment-field-block">
+                      <div class="incremented-field">
+                          <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
+                          <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
+                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5" min="1">
+                          <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
+                     </div>
+                  </div>
                 <p> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
                  <div class="col-xs-6">
                   <p>Aujourd'hui</p>
@@ -58,10 +48,7 @@
                   <p>Demain</p>
                <%= check_box_tag "meal[second_date]", Date.today + 1 %>
                  </div>
-
                 <p> <strong> Retrait possible </strong>(cochez une ou deux cases)</p>
-
-
                  <div class="col-xs-6 col-sm-6" >
                  <p><%= f.check_box :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
                  <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>

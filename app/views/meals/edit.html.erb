@@ -5,61 +5,52 @@
           <% if restaurant.confirmed? %>
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
             <h4 class="form-header">ÉDITION DE VOTRE OFFRE</h4>
-             <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne</p>
-                <%= simple_form_for ([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label:false,input_html: {:maxlength => 24, class:"form-input-text"}, placeholder: 'Nom du plat' %>
+              <%= bootstrap_form_for ([@restaurant, @meal]) do |f| %>
+                <%= f.text_field :name, label:false,  class:"form-input-text-bootstrap",:maxlength => 24, placeholder: 'Nom du plat*' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
                     <% if @restaurant.picture.exists? %>
                       <%= image_tag @restaurant.picture.url(:thumb) %><br/>
                    <% end %>
-                  <%= f.input :picture, label:false %>
+                   <%= f.file_field :picture, label:false %>
                 </div>
-
-                <%= f.input :description, placeholder: 'Description' ,input_html: {:maxlength => 60, class:"form-input-text"}, label: false %>
-
-              <div class="col-xs-12 increment-field-block" >
-                  <div class="incremented-field">
-                      <span >&nbsp&nbspPrix en salle</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
-                      <span>€</span>
-                 </div>
-              </div>
-
-              <div class="col-xs-12 increment-field-block">
-                  <div class="incremented-field">
-                      <span > Prix de la box</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
-                      <span>€</span>
-                 </div>
-              </div>
-
-              <div class="col-xs-12 increment-field-block">
-
-                  <div class="incremented-field">
-                      <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
-                      <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
-                        <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5">
-                      <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
-                 </div>
-              </div>
-
-
+                 <%= f.text_area :description, placeholder: 'Description*', class:"form-input-description-bootstrap ",:maxlength => 60, label: false %>
+                <div class="col-xs-12 increment-field-block" >
+                    <div class="incremented-field">
+                        <span >&nbsp&nbspPrix en salle</span>
+                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
+                          <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
+                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
+                        <span>€</span>
+                   </div>
+                </div>
+                <div class="col-xs-12 increment-field-block">
+                    <div class="incremented-field">
+                        <span > Prix de la box</span>
+                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
+                          <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
+                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
+                        <span>€</span>
+                   </div>
+                </div>
+                <div class="col-xs-12 increment-field-block">
+                    <div class="incremented-field">
+                        <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
+                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
+                          <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5">
+                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
+                   </div>
+                </div>
                 <p> <strong> Retrait possible </strong>(cochez une ou deux cases <%= link_to "Modifier mes horaires", edit_restaurant_path(@restaurant) %>)</p>
-
                  <div class="col-xs-6 col-sm-6" >
-                 <p><%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
-                 <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>
+                   <p><%= f.check_box :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
+                   <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>
                  </div>
                 <div class="col-xs-6 col-sm-6" >
-                <%= f.input :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
-                <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
+                  <%= f.check_box :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
+                  <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
                 </div>
-               <%= f.button :submit, "Mettre en ligne", class: "btn btn-validation " %>
+                <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
                 <%= link_to "Désactiver l'offre", restaurant_meal_path, :method => :delete, :confirm => "You sure?", class:"btn btn-danger btn-delete" %>
                <% end %>
             </div>
