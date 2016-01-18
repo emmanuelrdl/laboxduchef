@@ -10,7 +10,7 @@
             <p class="label-picture">Photo*</p>
             <%= f.file_field :picture, :required => true, label: false  %>
           </div>
-          <%= text_field_tag :full_addressuser_input_autocomplete_address,'', id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant*" %>
+          <%= text_field_tag :full_addressuser_input_autocomplete_address,'', :required => true, id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant*" %>
           <%= f.hidden_field  :street, :as => :hidden, label: "Numéro de votre rue", id: "street"  %>
           <%= f.hidden_field  :postal_code, :as => :hidden, label: "Code postal", id: "postal_code" %>
           <%= f.hidden_field  :locality, :as => :hidden, label: "Ville", id: "locality" %>
