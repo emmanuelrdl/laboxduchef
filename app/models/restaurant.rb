@@ -13,10 +13,9 @@ class Restaurant < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :locality, presence: true
   validates :postal_code, presence: true
-  validates :latitude, :presence => {message: "Not a valid location on Google Maps, please check name address & country fields" }
   validates :phone_number, presence: true
   validates :phone_number, numericality: true
-  validates :picture, presence: true, unless: ->(restaurant){restaurant.picture.present?}
+  validates :picture, presence: true
   validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
   validates :iban, presence: true
   validates :take_away_noon_starts_at, presence: true

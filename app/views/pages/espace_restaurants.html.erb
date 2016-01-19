@@ -1,39 +1,34 @@
-<div id="body-container"  >
-    <div class="container ">
-       <div class="row text-center" >
-          <div class="col-xs-12">
 
-
-
-                <h4 class="text-border-intro"> Mettez en vente en quelques secondes le surplus de votre service précédent sous forme de boxes à emporter vendues à petit prix !
-                </h4>
-
-
-
-              <div class="row" style="margin-top:10px">
-                <div class="col-xs-12">
-
-                  <h3 class="title-illustration"><strong>POURQUOI NOUS REJOINDRE ?</strong></h3>
-
-                  <div style="margin-top:45px;">
-                    <div class="text-center col-xs-12 col-sm-4">
-                     <%= image_tag ("euro.png"), size:"80x80" %>
-                        <p style="margin-top:30px">POUR VALORISER VOTRE SURPLUS!</p>
-                    </div>
-                    <div class="text-center col-xs-12 col-sm-4">
-                       <%= image_tag ("basket.png"), size:"80x80" %>
-                        <p style="margin-top:30px">POUR LUTTER CONTRE LE GASPILLAGE</p>
-                    </div>
-                    <div class="text-center col-xs-12 col-sm-4">
-                        <%= image_tag ("community.svg"), size:"110x110" %>
-                         <p>POUR BÉNÉFICIER DE VISIBILITÉ </p>
-                    </div>
-
-                  </div>
+<div class='partner-joins-us-espace-restaurant'>
+  <div class="layer"></div>
+    <div class="container" >
+      <div class="row ">
+        <div class="col-xs-12 col-sm-12 text-center">
+            <h2 class="">RESTAURANTS, REJOIGNEZ NOUS</h2>
+                <div class="col-xs-12 col-sm-4">
+                   <%= image_tag "community.svg", size:"50x50"  %>
+                  <h4 class="sub_title_partner_joins_us">ATTIREZ UNE NOUVELE CLIENTÈLE </h4>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div class="col-xs-12 col-sm-4">
+                   <%= image_tag "make_money.svg", size:"50x50"  %>
+                  <h4 class="sub_title_partner_joins_us">VALORISEZ VOS INVENDUS </h4>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                   <%= image_tag "no_waste.svg", size:"50x50"  %>
+                  <h4 class="sub_title_partner_joins_us"> LUTTEZ CONTRE LE GASPILLAGE  </h4>
+                </div>
+                 <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+            <%= link_to "Je deviens partenaire", partner_sign_up_path, class:" btn btn-join-us-responsive"   %>
+             <p><%= link_to "Déja partenaire? Connexion", new_user_session_path, class:"link-already-registered-white"%>
+                </div>
+        </div>
+      </div>
+  </div >
+</div>
+
+
+
+
 
           <div class="row text-center" style="margin-top:30px;">
             <div class="col-xs-12">

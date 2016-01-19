@@ -5,12 +5,13 @@
         <h3 class="form-header">CRÉER LA FICHE RESTAURANT</h3>
         <p>*Tous les champs du formulaire sont obligatoires</p>
 
-        <%= bootstrap_form_for @restaurant do |f| %>
-          <%= f.text_field :name, label: false, :placeholder => 'Nom*',  class:"form-input-text-bootstrap"%>
-          <%= f.text_field :phone_number, label: false, class:"form-input-text-bootstrap", :placeholder => 'Téléphone*', :maxlength => 10 %>
+        <%= simple_form_for @restaurant do |f| %>
+          <%= f.input :name, label: false, :placeholder => 'Nom*', input_html: {class:"form-input-text"}%>
+          <%= f.input :phone_number, label: false, input_html:{class:"form-input-text", :maxlength => 10}, :placeholder => 'Téléphone*' %>
           <div class="form-input-picture">
             <p class="label-picture">Photo*</p>
             <%= f.file_field :picture, :required => true, label: false  %>
+            <%= f.error :picture, style:"color:#E08283;" %>
 
           </div>
           <%= text_field_tag :full_addressuser_input_autocomplete_address,'', :required => true, id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant*" %>
@@ -40,7 +41,7 @@
             </div>
         </div>
 
-          <%= f.text_field :iban, label:false, :placeholder => 'Iban*',  class:"form-input-text-bootstrap" %>
+          <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
 
 
           <%= f.submit  "Valider", class: "btn btn-validation" %>

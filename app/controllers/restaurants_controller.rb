@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
       flash[:alert] = "Adresse non valide"
        render :new
     else
-       if @restaurant.save!
+       if @restaurant.save
         redirect_to user_path(current_user)
       else
         render :new
