@@ -118,6 +118,10 @@ font-size: 25px;
 
 .home-address-field-xs {
   border-radius: 3px;
+  float:left;
+  width:85%;
+  height:45px;
+  margin-bottom: 17px;
 
 }
 
@@ -146,11 +150,6 @@ margin-top: 30px;
 
 
 
-.search-place div {
-
-
-
-}
 
 .search-place {
 
@@ -228,8 +227,6 @@ margin-top: 30px;
 
 
 
-
-
 .partner-joins-us {
 
   background-image:asset-url('cooker.jpg');
@@ -274,7 +271,10 @@ margin-top: 30px;
   padding-top: 25px;
   margin-bottom: 20px;
 
-
-
 }
 
+.search_home_xs_global_box {
+
+  padding-left:0px;
+  padding-right:0px;
+}

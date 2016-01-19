@@ -1,18 +1,12 @@
-  <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3  " >
+  <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3 search_home_xs_global_box " >
                    <%= simple_form_for :search, url: meals_path, :method => :get do |f| %>
         <div class="filter-search">
-
-
               <div class="col-xs-12 geolocation-field-xs">
                     <div class="col-xs-12"  >
                       <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address_xs", class:"form-control home-address-field-xs", placeholder:"Saisissez votre addresse", value:"Châtelet - Les Halles, Paris, France"   %>
-                    </div>
-                      <div class="col-xs-12" onclick="initiate_geolocation()" >
-                            <div class="btn-geolocation-xs " >
-                                 <p>
+
+                            <div class="btn-geolocation-xs"  onclick="initiate_geolocation()" >
                                   <img src="https://maxcdn.icons8.com/Color/PNG/24/Maps/marker-24.png" title="Marker" width="24">
-                                  Autour de moi
-                                </p>
                            </div>
                       </div>
                 </div>
