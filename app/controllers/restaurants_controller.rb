@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  respond_to :html, :xml, :json
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :update, :destroy]
@@ -23,13 +23,15 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     @restaurant.confirmed = false
     @restaurant = current_user.restaurants.create(params_restaurant)
-
-
-    if @restaurant.save!
-
-      redirect_to user_path(current_user)
+    if @restaurant.longitude == nil
+      flash[:alert] = "Adresse non valide"
+       render :new
     else
-      render :new
+       if @restaurant.save!
+        redirect_to user_path(current_user)
+      else
+        render :new
+      end
     end
   end
 
@@ -40,7 +42,6 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-
     @restaurant.update(params_restaurant)
     if @restaurant.save
     redirect_to user_path(current_user)
