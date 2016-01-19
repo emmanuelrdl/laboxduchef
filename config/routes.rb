@@ -9,6 +9,7 @@
   end
 
 
+
   root to: 'pages#home'
   get "/fonctionnement"   => "pages#fonctionnement"
   get "/espacerestaurants" => "pages#espace_restaurants"
@@ -21,7 +22,6 @@
 
   resources :contacts, only: [:new, :create]
   resources :newsletters, only: [:new, :create]
-
 
   resources :meals, only: [ :index, :show]
 

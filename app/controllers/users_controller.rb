@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
 
 
+
+
   end
 
   def navbar_choice
@@ -35,6 +37,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
+  def sign_up_params
+    params.require(:user).permit(:first_name, :email, :password, :password_confirmation, :last_name, :phone_number,
+     :restaurant_owner, :notification, :postal_code, :locality, :street, :cgv)
+  end
 
 end
