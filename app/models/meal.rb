@@ -8,7 +8,9 @@ class Meal < ActiveRecord::Base
   validates_presence_of :picture, :message => "picture is required."
   validates :name, presence: true, length: { maximum: 30 }
   validates :price, presence: true, numericality: true
+  validates :price, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
   validates :seated_price, presence: true, numericality: true
+  validates :seated_price, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
   validates :quantity, presence: true, numericality:  {:greater_than_or_equal_to => 1 }
   validates :description, presence: true, length: { maximum: 100 }
   validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present?}

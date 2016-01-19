@@ -11,6 +11,7 @@
           <div class="form-input-picture">
             <p class="label-picture">Photo*</p>
             <%= f.file_field :picture, :required => true, label: false  %>
+
           </div>
           <%= text_field_tag :full_addressuser_input_autocomplete_address,'', :required => true, id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant*" %>
           <%= f.hidden_field  :street, :as => :hidden, label: "Numéro de votre rue", id: "street"  %>
