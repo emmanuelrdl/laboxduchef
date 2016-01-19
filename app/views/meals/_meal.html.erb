@@ -33,7 +33,7 @@
                   <% elsif meal.take_away_noon? %>
                     <div class="index-take-away-times">
                      <li>
-                        <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                        <i class="fa fa-clock-o" style="margin-bottom:25px"></i>
                         <%= meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
                         <%= meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
                      </li>
@@ -41,7 +41,7 @@
                   <% elsif meal.take_away_evening? %>
                     <div class="index-take-away-times">
                       <li>
-                        <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                        <i class="fa fa-clock-o" style="margin-bottom:25px"></i>
                         <%= meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
                         <%= meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
                       </li>
