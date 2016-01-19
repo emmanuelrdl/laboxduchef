@@ -16,8 +16,6 @@ class MealsController < ApplicationController
     if where_group
     @meals = Meal.where(active:true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
     end
-
-
   @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
     @my_meal = meal.restaurant
     marker.lat meal.restaurant.latitude
@@ -25,11 +23,6 @@ class MealsController < ApplicationController
     # marker.infowindow render_to_string(:partial => "/meals/infowindow")
     marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
 
-    # marker.picture({
-    #   :url => ActionController::Base.helpers.asset_path('marker.png'),#{ }"http://placehold.it/30x30
-    #   :width   => 28,
-    #   :height  => 35
-    #  })
    end
   end
 

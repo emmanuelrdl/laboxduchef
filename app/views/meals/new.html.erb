@@ -5,12 +5,12 @@
           <% if restaurant.confirmed? %>
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
             <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
-             <p>Créez en <strong>moins d'une minute</strong> le repas que vous souhaitez mettre en ligne. Tous les champs du formulaire sont obligatoires</p>
+             <p>*Tous les champs du formulaire sont obligatoires</p>
               <%= bootstrap_form_for ([@restaurant, @meal]) do |f| %>
                 <%= f.text_field :name, label:false,  class:"form-input-text-bootstrap",:maxlength => 24, placeholder: 'Nom du plat*' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
-                  <%= f.file_field :picture, label:false, required:true %>
+                  <%= f.file_field :picture, label:false, required:true, help:"La photo est obligatoire" %>
                 </div>
                 <%= f.text_area :description, placeholder: 'Description*', class:"form-input-description-bootstrap ",:maxlength => 60, label: false %>
                   <div class="col-xs-12 increment-field-block" >

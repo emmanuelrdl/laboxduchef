@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
 
 
+
  def send_welcome_email
     if User.last.restaurant_owner == false
     UserMailer.welcome(self).deliver_now

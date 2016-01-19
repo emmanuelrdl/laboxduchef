@@ -18,20 +18,25 @@
      <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-           <% if current_user.restaurant_owner? %>
+           <% if current_user.restaurant_owner?  %>
+
 
               <% if current_user.restaurants.empty? %>
                 <li><%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path %> </li>
                 <li> <%= link_to "CONTACT", new_contact_path %></li>
                 <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
-               <% else %>
+              <% elsif current_user.restaurants.first.confirmed == nil %>
+                <li><%= link_to "EN COURS DE VALIDATION", root_path %> </li>
+                <li> <%= link_to "CONTACT", new_contact_path %></li>
+                <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
+              <% elsif current_user.restaurants.first.confirmed? %>
                  <% current_user.restaurants.each do |restaurant| %>
                   <li><%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(restaurant) %> </li>
-                  <% end -%>
                   <li><%= link_to "TABLEAU DE BORD", user_path(current_user) %> </li>
                   <li> <%= link_to "CONTACT", new_contact_path %></li>
                   <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
-               <% end -%>
+                <% end -%>
+              <% end -%>
 
             <% else %>
 

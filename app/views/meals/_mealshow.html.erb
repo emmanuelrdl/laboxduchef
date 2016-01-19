@@ -13,8 +13,9 @@
           <div class="meal_show_lg_price"><%= @meal.price.format %> </div>
           <div class="meal_show_lg_stock"> <i class="fa fa-cutlery" style="font-size:13px;"></i> <%= @meal.stock %> </div>
       </div>
-
-
+    <% if current_user.restaurant_owner = true %>
+        <%= link_to "Retour tableau au bord", user_path(current_user), class:"btn btn-validation"%>
+    <% else %>
           <%= simple_form_for Order.new, url: cart_orders_path do |f| %>
               <div class="col-xs-6 meal_show_lg_order_box">
                   <div class="input-group">
@@ -24,7 +25,6 @@
                       </button>
                     </span>
                        <%= f.input :quantity,  label:false, input_html: { max: @meal.stock, type:"text", min:1, value:1, step:1} %>
-
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default btn-number plus" data-type="plus" data-field="order[quantity]">
                           <span class="glyphicon glyphicon-plus"></span>
@@ -42,6 +42,7 @@
                   <%= f.submit "Commander", class: "btn-reserver-xs " %>
                 </div>
               <% end %>
+      <% end -%>
       </div>
 </div>
 

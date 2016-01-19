@@ -120,3 +120,5 @@ $("#change_place").click(function(){
 
 });
 
+// validation
+

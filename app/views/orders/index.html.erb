@@ -1,57 +1,55 @@
 <div id="body-container">
     <div class="row">
+      <div class="col-xs-12 partner-paiements-box">
+        <h4 class="text-center form-header">MES PAIEMENTS</h4>
+          <div class="table-responsive">
+            <table class="table table-hover" >
+              <thead>
+                 <tr>
+                  <th>Date</th>
+                  <th>Numéro</th>
+                  <th>Prix total</th>
+                  <th>Commission HT</th>
+                  <th>TVA déductible</th>
+                  <th>A percevoir</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+                <% @meals.each do |meal| %>
+                  <% meal.orders.each do |order| %>
+                   <% if order.status == "confirmed" || order.status == "paid"  %>
 
-                <div class="col-xs-12">
-                  <h4 class="text-center title-illustration">DERNIÈRES COMMANDES</h4>
+                  <tbody>
+                    <tr>
+                      <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+                      <td><%= order.id %></td>
+                      <td><%= number_to_currency(order.amount, :unit => "€") %></td>
+                      <td><%= number_to_currency(order.quantity*1) %></td>
+                        <td><%= number_to_currency(order.quantity*1*0.2) %>
+                       </td>
+                      <td><%= number_to_currency(order.amount.to_i - 1*1.2*order.quantity) %></td>
+                      <td>
+                         <% if order.status == "confirmed" %>
+                          confirmé
+                        <% elsif order.status == "paid" %>
+                          payé
+                        <% else %>
+                          inconnu
+                        <% end -%>
+                      </td>
+                    </tr>
+                  </tbody>
 
-                    <div class="table-responsive">
-                      <table class="table table-hover" >
-                        <thead>
-                           <tr>
-                            <th>Date</th>
-                            <th>Numéro</th>
-                            <th>Prix total</th>
-                            <th>Commission HT</th>
-                            <th>TVA déductible</th>
-                            <th>A percevoir</th>
-                            <th>Statut</th>
-                          </tr>
-                        </thead>
-                          <% @meals.each do |meal| %>
-                            <% meal.orders.each do |order| %>
-                             <% if order.status == "confirmed" || order.status == "paid"  %>
+                <% else %>
+                <% end -%>
 
-                            <tbody>
-                              <tr>
-                                <td><%= order.created_at.strftime("%d/%m/%y") %></td>
-                                <td><%= order.id %></td>
-                                <td><%= number_to_currency(order.amount, :unit => "€") %></td>
-                                <td><%= number_to_currency(order.quantity*1) %></td>
-                                  <td><%= number_to_currency(order.quantity*1*0.2) %>
-                                 </td>
-                                <td><%= number_to_currency(order.amount.to_i - 1*1.2*order.quantity) %></td>
-                                <td>
-                                   <% if order.status == "confirmed" %>
-                                    confirmé
-                                  <% elsif order.status == "paid" %>
-                                    payé
-                                  <% else %>
-                                    inconnu
-                                  <% end -%>
-                                </td>
-                              </tr>
-                            </tbody>
+                <% end -%>
+              <% end -%>
+            </ul>
+          </table>
+        </div>
 
-                            <% else %>
-                            <% end -%>
-
-                            <% end -%>
-                          <% end -%>
-                        </ul>
-                      </table>
-                    </div>
-
-                  </div>
+      </div>
 
         </div>
 
