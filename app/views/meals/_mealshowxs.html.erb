@@ -7,6 +7,7 @@
               <p class="address-compenents" > <i class="fa fa-map-marker"></i> <%= @meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km </p>
         </div>
         <div id="index_meal_name_position"><%= @meal.name %>
+          <div class="meal_show_xs_stock_position"> <%= image_tag "foodbox_white.png", size:"20x20" %>  <%= @meal.stock %> </div>
           <p class="meal_show_xs_description"><%= @meal.description %></p>
            <div class="meal_show_xs_detail_box">
               <div class="meal_show_xs_seated_price">€<s><%= @meal.seated_price %> </s> </div>
@@ -47,9 +48,8 @@
   </div>
 
     <div class="col-xs-12 meal_show_xs_price_box text-center">
-   <% if current_user.restaurant_owner = true %>
-        <%= link_to "Retour tableau au bord", user_path(current_user), class:"btn btn-validation"%>
-    <% else %>
+
+
         <%= simple_form_for Order.new, url: cart_orders_path do |f| %>
             <div class="col-xs-6">
                 <div class="input-group">
@@ -76,7 +76,7 @@
                 <%= f.submit "Réserver", class: "btn-reserver-xs " %>
               </div>
             <% end %>
-        <% end -%>
+
     </div>
 
 
