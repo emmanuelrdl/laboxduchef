@@ -22,9 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
      :restaurant_owner, :notification, :postal_code, :locality, :street, :cgv)
   end
 
-  def new_partner
 
-  end
 
 
 end
