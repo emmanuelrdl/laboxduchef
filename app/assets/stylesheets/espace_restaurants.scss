@@ -13,3 +13,29 @@
   color:white;
 
 }
+
+@media (max-width: 600px) {
+  .partner-joins-us-espace-restaurant {
+    background-image:asset-url('cooker.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+    background-position: center top;
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: auto;
+    padding-top:30px;
+    color:white;
+
+  }
+}
+
+#espace-restaurant-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: relative;
+  z-index: 1;
+  padding-top: 50px;
+}
