@@ -1,8 +1,12 @@
 
 <% @meals.each do |meal| %>
   <% if meal.active? %>
-   <%= link_to "#", :onclick => "$('#user_address_xs').submit()" do %>
+
       <div class="col-xs-12 card-meal-global-box-xs " >
+           <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
+            <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"Châtelet - Les Halles, Paris, France"  %>
+              <%= f.submit "Commander", class: "btn-submit-index-address" %>
+            <% end -%>
           <div class="card_img_meal_index_xs" style=" background-image: url('<%=image_path meal.picture.url(:medium)%>')">
             <div class="card-filter card-bg"> </div>
               <div class="meal-place-infos-lg">
@@ -46,13 +50,10 @@
                   </li>
                 </div>
               <% end %>
-             <%= simple_form_for :search, url: meal_path(meal), :method => :get,  html:{id:"user_address_xs"} do |f| %>
-              <p><%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"Châtelet - Les Halles, Paris, France"  %> </p>
-              <% end -%>
           </div>
       </div>
 
   <% end -%>
  <% end -%>
-<% end -%>
+
 

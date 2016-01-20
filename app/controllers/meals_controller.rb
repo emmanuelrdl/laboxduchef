@@ -24,8 +24,8 @@ class MealsController < ApplicationController
 
 
   def show
-    @search_address = params[:full_addressuser_input_autocomplete_address]
     @meal = Meal.find(params[:id])
+    @search_address = params[:full_addressuser_input_autocomplete_address]
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
   end
 

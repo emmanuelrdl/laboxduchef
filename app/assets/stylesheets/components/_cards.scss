@@ -1,3 +1,14 @@
+.btn-submit-index-address {
+  position:absolute;
+  height:100%;
+  width: 100%;
+  color:transparent;
+  background-color: transparent;
+  top:0;
+  z-index: 1;
+  border:none;
+
+}
 
 
  .card_meal_index_lg {
@@ -42,6 +53,8 @@
 
 .card-meal-global-box-lg-shadow  {
   box-shadow: 1px 1px 1px #888888;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .card-info {
