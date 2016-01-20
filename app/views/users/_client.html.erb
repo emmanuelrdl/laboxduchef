@@ -14,7 +14,7 @@
                         - <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                   <% elsif @last_order.meal.starting_date? %>
                        Retrait: <strong> <%= @last_order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                  <% elsif @order.meal.second_date? %>
+                  <% elsif @last_order.meal.second_date? %>
                        Retrait: <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                 <% end -%>
                </p>
@@ -53,24 +53,7 @@
           <%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>
       </div>
 
-        <% else %>
-        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
-        <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
-            <h4> Vous n'avez pas de commandes en cours</h4>
-            <%= image_tag "logo-black.png", size:"210x80"  %>
-            <div><%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>  </div>
-        </div>
-        <% end -%>
-
-
-
-    </div>
-  </div>
-</div>
-
-
-
-  <% content_for(:after_js) do %>
+    <% content_for(:after_js) do %>
     <%= javascript_tag do %>
       $(document).on('ready', function() {
 
@@ -86,6 +69,25 @@
       })
     <% end %>
   <% end %>
+
+
+        <% else %>
+        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
+        <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
+            <%= image_tag "logo-black.png", size:"250x100"  %>
+              <h3> Vous n'avez pas de commandes en cours</h3>
+            <div><%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>  </div>
+        </div>
+        <% end -%>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
