@@ -17,14 +17,14 @@
 
 
           <%= simple_form_for Order.new, url: cart_orders_path do |f| %>
-              <div class="col-xs-6 meal_show_lg_order_box">
+              <div class="col-xs-5 meal_show_lg_order_box">
                   <div class="input-group">
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default btn-number minus"  data-type="minus" data-field="order[quantity]">
                           <span class="glyphicon glyphicon-minus"></span>
                       </button>
                     </span>
-                       <%= f.input :quantity,  label:false, input_html: { max: @meal.stock, type:"text", min:1, value:1, step:1} %>
+                       <%= f.input :quantity,  label:false, input_html: { max: @meal.stock, type:"text", min:1, value:1, step:1, id:"meal_show_lg_quantity_select"} %>
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default btn-number plus" data-type="plus" data-field="order[quantity]">
                           <span class="glyphicon glyphicon-plus"></span>

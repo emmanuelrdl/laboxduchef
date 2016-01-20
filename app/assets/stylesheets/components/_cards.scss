@@ -237,6 +237,36 @@ width:80%;
 
 }
 
+@media (max-width: 800px) {
+
+.btn-payer {
+  width:80%;
+  margin-bottom: 15px;
+}
+
+}
+
+.btn-empty-basket {
+  color:white;
+  background-color:#DD562C;
+  border-radius: 3px;
+  border:none;
+  font-size: 20px;
+  display: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px;
+  width:40%;
+
+}
+
+@media (max-width: 800px) {
+    .btn-empty-basket {
+      width:80%;
+    }
+
+}
+
 .btn-home {
  background: #DD562C;
  border-radius: 3px;
@@ -270,5 +300,7 @@ width:80%;
 
 }
 
+.form-header-content-title {
 
-
+  margin-top:15px;
+}

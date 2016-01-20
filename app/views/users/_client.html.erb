@@ -1,94 +1,97 @@
-
- <div id="body-container-client-dashboard">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
-           <% if current_user.orders.where(status:"confirmed").count >= 1 %>
-          <h4 class="form-header-no-margin">VOTRE DERNIÈRE COMMANDE</h4>
-            <div class="payment_show_infos_box" style="background-image: url('<%=image_path @last_order.meal.picture.url(:medium)%>')">
-               <div class="payment-filter"> </div>
-                <div class="payment_show_infos_box_postion">
-              <h4><%= @last_order.meal.name %> x<%= @last_order.quantity %>   </h4>
-                  <p> <i class="fa fa-calendar-o"> </i>
-                     <% if @last_order.meal.starting_date? && @last_order.meal.second_date?  %>
-                          A retirer le <strong> <%= @last_order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                          ou le <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
-                    <% elsif @last_order.meal.starting_date? %>
-                          A retirer le <strong> <%= @last_order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                    <% elsif @order.meal.second_date? %>
-                          A retirer le <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
-                  <% end -%>
-                 </p>
-                   <% if @last_order.meal.take_away_noon? && @last_order.meal.take_away_evening? %>
-                      <div class="col-xs-12 ">
-                        <div class="col-xs-6">
-                          <i class="fa fa-clock-o"></i> Midi
-                          <p><%= @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
-                        </div>
-                         <div class="col-xs-6">
-                          <i class="fa fa-clock-o"></i> Soirée
-                          <p><%= @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
-                        </div>
-                      </div>
-                    <% elsif @last_order.meal.take_away_noon? %>
-                       <div class="col-xs-12">
-                            <i class="fa fa-clock-o"></i> Midi
-                            <p><%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
-                       </div>
-                    <% elsif @last_order.meal.take_away_evening? %>
-                       <div class="col-xs-12">
-                            <i class="fa fa-clock-o"></i> Midi
-                            <p><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
-                       </div>
-                    <% end %>
-                  <div > <i> <%= @last_order.meal.restaurant.name %> </i> </div>
-                  <div>  <i class="fa fa-map-marker"></i> <%= @last_order.meal.restaurant.full_address %></div>
-               </div>
+<div id="body-container">
+  <div class="container">
+    <div class="row">
+      <% if current_user.orders.count >= 1 %>
+      <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="margin-top:-50px" >
+        <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
+          <div class="order_recap_meal_name col-xs-12">
+           <h4 > <%= @last_order.quantity %> <%= image_tag "foodbox_brown.png", size:"20x20" %> <%= @last_order.meal.name %> </h4>
+          </div>
+             <div class="payment_show_infos_box_postion col-xs-12">
+                <p> <i class="fa fa-calendar-o"> </i>
+                   <% if @last_order.meal.starting_date? && @last_order.meal.second_date?  %>
+                        Retrait: <strong> <%= @last_order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                        - <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                  <% elsif @last_order.meal.starting_date? %>
+                       Retrait: <strong> <%= @last_order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                  <% elsif @order.meal.second_date? %>
+                       Retrait: <strong> <%= @last_order.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                <% end -%>
+               </p>
+                 <% if @last_order.meal.take_away_noon? && @last_order.meal.take_away_evening? %>
+                    <div class="col-xs-12 ">
+                      <p> <i class="fa fa-clock-o"></i> <%= @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %> /
+                        <%= @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                      </p>
+                    </div>
+                  <% elsif @last_order.meal.take_away_noon? %>
+                     <div class="col-xs-12">
+                      <p> <i class="fa fa-clock-o"></i> <%= @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                      </p>
+                     </div>
+                  <% elsif @last_order.meal.take_away_evening? %>
+                     <div class="col-xs-12">
+                      <p><i class="fa fa-clock-o"></i><%= @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                      </p>
+                     </div>
+                  <% end %>
             </div>
-           <div id="map-<%= @last_order.id %>" class="map_payment" > </div>
-               <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
-               <h6>Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiquées ci-dessus en précisant le nom auquel vous avez effectué la réservation</h6>
-
             <div class="col-xs-12">
-              <%= image_tag "logo-black.png", size:"210x80"  %>
-              <h5>Bon appetit et merci pour votre confiance !</h5>
-              <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>   </div>
-
-
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        $(document).on('ready', function() {
-
-            handler<%= @last_order.id %> = Gmaps.build('Google');
-            handler<%= @last_order.id %>.buildMap({
-            provider: { maxZoom: 15},
-            internal: { id: 'map-<%= @last_order.id %>' } }, function(){
-              markers = handler<%= @last_order.id %>.addMarkers(<%= raw [{ lat: @last_order.meal.restaurant.latitude, lng: @last_order.meal.restaurant.longitude }].to_json %>);
-              handler<%= @last_order.id %>.bounds.extendWith(markers);
-              handler<%= @last_order.id %>.fitMapToBounds();
-            });
-
-        })
-      <% end %>
-    <% end %>
-          <% else %>
-            <h4> Vous n'avez pas de commandes en cours</h4>
-              <%= image_tag "logo-black.png", size:"210x80"  %>
-              <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>
+                <h4 class="form-header" <i> <%= @last_order.meal.restaurant.name.upcase %> </i> </h4>
+                <div>  <i class="fa fa-map-marker"></i> <%= @last_order.meal.restaurant.full_address %></div>
+                 <div id="map-<%= @last_order.id %>" class="map_payment" > </div>
             </div>
-          <% end -%>
+            <div class="col-xs-12 form-header-content-title">
+            <h4 class="form-header">RÉCUPÉRER MA BOX</h4>
+             <p>Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiquées ci-dessus en précisant le nom auquel vous avez effectué la réservation</p>
+             <p> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </p>
+            </div>
+            <div class="col-xs-12">
+            <h5>Bon appetit et merci pour votre confiance !</h5>
+            </div>
+
+          <%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>
+      </div>
+
+        <% else %>
+        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
+        <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
+            <h4> Vous n'avez pas de commandes en cours</h4>
+            <%= image_tag "logo-black.png", size:"210x80"  %>
+            <div><%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>  </div>
+        </div>
+        <% end -%>
 
 
 
-
-   </div>
+    </div>
+  </div>
 </div>
 
 
 
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).on('ready', function() {
+
+          handler<%= @last_order.id %> = Gmaps.build('Google');
+          handler<%= @last_order.id %>.buildMap({
+          provider: { maxZoom: 15},
+          internal: { id: 'map-<%= @last_order.id %>' } }, function(){
+            markers = handler<%= @last_order.id %>.addMarkers(<%= raw [{ lat: @last_order.meal.restaurant.latitude, lng: @last_order.meal.restaurant.longitude }].to_json %>);
+            handler<%= @last_order.id %>.bounds.extendWith(markers);
+            handler<%= @last_order.id %>.fitMapToBounds();
+          });
+
+      })
+    <% end %>
+  <% end %>
 
 
-</div>
+
+
+
+
 
 
 

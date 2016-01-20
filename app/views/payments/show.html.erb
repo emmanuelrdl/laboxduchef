@@ -3,64 +3,57 @@
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
           <h4 class="form-header-no-margin">CONFIRMATION DE VOTRE COMMANDE</h4>
-            <div class="payment_show_infos_box" style="background-image: url('<%=image_path @order.meal.picture.url(:medium)%>')">
-               <div class="payment-filter"> </div>
-                <div class="payment_show_infos_box_postion">
-              <h4><%= @order.meal.name %> x<%= @order.quantity %>   </h4>
+            <div class="order_recap_meal_name col-xs-12">
+             <h4 > <%= @order.quantity %> <%= image_tag "foodbox_brown.png", size:"20x20" %> <%= @order.meal.name %> </h4>
+            </div>
+               <div class="payment_show_infos_box_postion col-xs-12">
                   <p> <i class="fa fa-calendar-o"> </i>
                      <% if @order.meal.starting_date? && @order.meal.second_date?  %>
-                          A retirer le <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
-                          ou le <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                          Retrait: <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                          - <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                     <% elsif @order.meal.starting_date? %>
-                          A retirer le <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
+                         Retrait: <strong> <%= @order.meal.starting_date.strftime("%d/%m/%y") %> </strong>
                     <% elsif @order.meal.second_date? %>
-                          A retirer le <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
+                         Retrait: <strong> <%= @order.meal.second_date.strftime("%d/%m/%y") %> </strong>
                   <% end -%>
                  </p>
                    <% if @order.meal.take_away_noon? && @order.meal.take_away_evening? %>
                       <div class="col-xs-12 ">
-                        <div class="col-xs-6">
-                          <i class="fa fa-clock-o"></i> Midi
-                          <p><%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
-                        </div>
-                         <div class="col-xs-6">
-                          <i class="fa fa-clock-o"></i> Soirée
-                          <p><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
-                        </div>
+                        <p> <i class="fa fa-clock-o"></i> <%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %> /
+                          <%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                        </p>
                       </div>
                     <% elsif @order.meal.take_away_noon? %>
                        <div class="col-xs-12">
-                            <i class="fa fa-clock-o"></i> Midi
-                            <p><%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %></p>
+                        <p> <i class="fa fa-clock-o"></i> <%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                        </p>
                        </div>
                     <% elsif @order.meal.take_away_evening? %>
                        <div class="col-xs-12">
-                            <i class="fa fa-clock-o"></i> Midi
-                            <p><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %></p>
+                        <p><i class="fa fa-clock-o"></i><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                        </p>
                        </div>
                     <% end %>
-                  <div > <i> <%= @order.meal.restaurant.name %> </i> </div>
+              </div>
+              <div class="col-xs-12">
+                  <h4 class="form-header" <i> <%= @order.meal.restaurant.name.upcase %> </i> </h4>
                   <div>  <i class="fa fa-map-marker"></i> <%= @order.meal.restaurant.full_address %></div>
-               </div>
-            </div>
-               <h6> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </h6>
-               <h6>Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiquées ci-dessus en précisant le nom auquel vous avez effectué la réservation</h6>
-
-            <div class="col-xs-12">
-              <%= image_tag "logo-black.png", size:"210x80"  %>
+                   <div id="map1" class="map_payment" > </div>
+              </div>
+              <div class="col-xs-12 form-header-content-title">
+              <h4 class="form-header">RÉCUPÉRER MA BOX</h4>
+               <p>Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiquées ci-dessus en précisant le nom auquel vous avez effectué la réservation</p>
+               <p> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </p>
+              </div>
+              <div class="col-xs-12">
               <h5>Bon appetit et merci pour votre confiance !</h5>
-            </div>
+              </div>
 
+            <%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>
 
-      <div style="margin: 10px"><%= link_to "Accueil", root_path, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-</div>
-
-
-
-
-
 </div>
 
 
