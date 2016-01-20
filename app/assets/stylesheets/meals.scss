@@ -504,10 +504,9 @@ position: absolute;
   bottom: 0;
   width: 100%;
   padding:10px;
-
+  text-align:left;
 
 }
-
 
 .meal-index-restaurant-pic {
 
@@ -693,4 +692,13 @@ border-color: grey;
 
 .meal_show_xs_stock_position {
   float:right;
+}
+
+.meal_show_lg_distance {
+  color:white;
+  position:absolute;
+  float: left;
+  margin-left:10px;
+  font-size:18px;
+  margin-top:10px;
 }
