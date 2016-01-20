@@ -58,7 +58,7 @@
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
                   </span>
-                     <%= f.input :quantity,  label:false, input_html: { max: @meal.stock, type:"text", min:1, value:1, step:1} %>
+                     <%= f.input :quantity,  label:false, input_html: { max: @meal.stock, type:"text", min:1, value:1, step:1, id:"meal_show_lg_quantity_select"} %>
 
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default btn-number plus" data-type="plus" data-field="order[quantity]">

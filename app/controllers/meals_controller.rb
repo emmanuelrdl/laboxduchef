@@ -7,8 +7,6 @@ class MealsController < ApplicationController
   before_action :navbar_choice
 
 
-
-
   def index
     @meal = Meal.new
     @meals = Meal.all.paginate(:page => params[:page], :per_page => 6)
@@ -16,19 +14,18 @@ class MealsController < ApplicationController
     if where_group
     @meals = Meal.where(active:true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
     end
-  @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
+    @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
     @my_meal = meal.restaurant
     marker.lat meal.restaurant.latitude
     marker.lng meal.restaurant.longitude
-    # marker.infowindow render_to_string(:partial => "/meals/infowindow")
     marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
-
    end
   end
 
 
   def show
     @meal = Meal.find(params[:id])
+    @search_address = params[:full_addressuser_input_autocomplete_address]
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
   end
 
@@ -93,6 +90,7 @@ class MealsController < ApplicationController
   def set_meal
     @meal = Meal.find(params[:id])
   end
+
 
   def params_meal
     params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date,
