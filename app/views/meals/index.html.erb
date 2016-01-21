@@ -16,7 +16,7 @@
                     <%= render @meals %>
                   </div>
                   <div class="col-xs-12" id="infinite-scrolling">
-                   <%= will_paginate @meals, renderer: BootstrapPagination::Rails %>
+                   <%= will_paginate @meals, page_links: false %>
                   </div>
                   <% end -%>
             </div>
@@ -43,7 +43,14 @@
 
 
 
-
+  <div class=" col-xs-12 meal_search_header_xs hidden-md hidden-lg hidden-sm">
+      <div class="col-xs-6 text-center meal_xs_link-box">
+        <p ><%= link_to 'OFFRES', meals_path, class:"meal_xs_header_offres_title" %></p>
+      </div>
+      <div class="col-xs-6 text-center meal_xs_link-box">
+        <p ><%= link_to 'CARTE', meals_mealmapxs_path, class:"meal_xs_header_offres_title" %></p>
+      </div>
+  </div>
 
     <div class="container-index-xs hidden-md hidden-lg hidden-sm">
       <div class="row" >

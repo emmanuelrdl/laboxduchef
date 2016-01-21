@@ -1,10 +1,11 @@
 class MealsController < ApplicationController
 
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :mealmapxs]
   before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy ]
   before_action :set_meal, only: [ :edit, :update, :destroy]
   before_action :navbar_choice
+  before_action :disable_footer, only: [:mealmapxs]
 
 
   def index
@@ -19,8 +20,29 @@ class MealsController < ApplicationController
     marker.lat meal.restaurant.latitude
     marker.lng meal.restaurant.longitude
     marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
+    marker.picture({
+     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|007FFF|000000",
+     :width   => 32,
+     :height  => 32
+    })
    end
   end
+
+  def mealmapxs
+    @meals = Meal.where(active:true)
+    @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
+    @my_meal = meal.restaurant
+    marker.lat meal.restaurant.latitude
+    marker.lng meal.restaurant.longitude
+    marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
+    marker.picture({
+     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|007FFF|000000",
+     :width   => 32,
+     :height  => 32
+    })
+    end
+  end
+
 
 
   def show
@@ -74,10 +96,6 @@ class MealsController < ApplicationController
     end
   end
 
-   def navbar_choice
-    @navbar_other = true
-   end
-
 
 
   private
@@ -95,6 +113,14 @@ class MealsController < ApplicationController
   def params_meal
     params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date,
     :restaurant_id, :active, :second_date, :take_away_noon, :take_away_evening)
+  end
+
+  def navbar_choice
+  @navbar_home = false
+  end
+
+  def disable_footer
+    @disable_footer = true
   end
 
 end

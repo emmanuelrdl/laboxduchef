@@ -349,15 +349,13 @@ padding:10px;
   font-weight: bold;
 }
 
-.form-time {
 
-  width:150px;
-}
 
 .container-index-xs {
 
 background-color: #DADFE1;
-margin: 0px;
+margin-top: 40px;
+position: relative;
 
 }
 
@@ -466,6 +464,13 @@ margin-top:10px;
 border-radius:3px;
 border:1px solid grey;
 position: absolute;
+}
+
+
+.meal_map_xs{
+height:500px;
+width: 400px;
+
 }
 
 .change_place {
@@ -607,7 +612,6 @@ font-size: 20px;
 }
 
 
-
 .meal_show_lg_restaurant_infos {
   padding: 15px;
 }
@@ -713,4 +717,35 @@ text-align: center;
 margin-left:5px;
 margin-right:5px;
 
+}
+
+
+
+.meal_map_xs_global_box {
+
+  margin-left:0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right:0px;
+  margin-top: 52px;
+  position: fixed;
+}
+
+.meal_search_header_xs {
+
+  background-color: #278F75;
+  color:white;
+  height: 40px;
+  position:fixed;
+  z-index: 99;
+  padding-top: 2px;
+
+}
+
+.meal_xs_header_offres_title {
+  color:white;
+}
+
+.meal_xs_link-box {
+  border: solid 1px;
 }

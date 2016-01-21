@@ -109,7 +109,7 @@ jQuery(document).ready(function(){
 });
 
 
-// meal new
+// meal new search
 
 
 $("#index_address_input").hide();
@@ -120,5 +120,21 @@ $("#change_place").click(function(){
 
 });
 
-// validation
+// meal new search
+
+// meal xs new search
+
+$("#index_address_input_xs").hide();
+$("#change_place_xs").click(function(){
+    $("#index_address_input_xs").toggle();
+     return false;
+
+});
+
+// meal xs new search
+
+// meal index geolocation
+
+
+
 

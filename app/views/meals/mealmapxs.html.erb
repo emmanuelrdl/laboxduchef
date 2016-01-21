@@ -1,0 +1,61 @@
+<div class="col-xs-12 meal_map_xs_global_box">
+  <div class=" col-xs-12 meal_search_header_xs">
+      <div class="col-xs-6 text-center meal_xs_link-box">
+        <p ><%= link_to 'OFFRES', :back, class:"meal_xs_header_offres_title" %></p>
+      </div>
+      <div class="col-xs-6 text-center meal_xs_link-box">
+        <p ><%= link_to 'CARTE', meals_mealmapxs_path, class:"meal_xs_header_offres_title" %></p>
+      </div>
+  </div>
+
+
+
+  <div id="map" name="map" class="meal_map_xs" >
+
+
+</div>
+
+
+
+
+
+
+    <% content_for(:after_js) do %>
+    <script>
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'map'} }, function(){
+      if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
+    });
+
+    function displayOnMap(position){
+      var marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+      handler.map.centerOn(marker);
+    };
+
+
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: { id: 'map' } }, function(){
+    markers = handler.addMarkers(<%= raw @markers.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    console.log(markers)
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <% end %>

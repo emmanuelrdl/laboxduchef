@@ -19,6 +19,9 @@
   get "/charteutilisateur" => "pages#charteutilisateur"
 
 
+  get "/meals/mealmapxs" => "meals#mealmapxs"
+
+
 
   resources :contacts, only: [:new, :create]
   resources :newsletters, only: [:new, :create]
