@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
     def create
       @meal = Meal.find(params_order[:meal_id])
-      if params[:order][:quantity].to_i <= @meal.stock
+      if params[:order][:quantity].to_i <= @meal.stock && @meal.active?
         @order = current_user.orders.where(status: "cart").first_or_create
         @order.update(meal_id: @meal.id)
         @order.quantity = params_order[:quantity].to_i
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
           end
         @order.meal.save
         redirect_to new_cart_payment_path
-      else
+      else params[:order][:quantity].to_i <= @meal.stock
         flash[:alert] = "Stock insuffisant"
         redirect_to meal_path(@meal)
       end
@@ -29,7 +29,6 @@ class OrdersController < ApplicationController
     @restaurants = current_user.restaurants
       @restaurants.first.meals.each do |meal|
       @meal = meal
-
       end
   end
 
@@ -39,8 +38,6 @@ class OrdersController < ApplicationController
       @meals = @restaurant.meals.page(params[:page])
       end
   end
-
-
 
 
   def update

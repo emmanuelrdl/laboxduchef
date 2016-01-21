@@ -135,6 +135,18 @@
 
 }
 
+.btn-reserver-lg {
+  color: white;
+  background-color:#278F75;
+  width:80%;
+  height:40px;
+  font-size:20px;
+  margin-top:25px;
+  margin-bottom:15px;
+  border-radius:3px;
+
+}
+
 .container-order {
   margin: auto;
   padding: auto;
@@ -300,7 +312,17 @@ width:80%;
 
 }
 
-.form-header-content-title {
 
-  margin-top:15px;
+
+.btn-minus {
+
+  border-radius: 50%;
+  border:solid 1px;
+  border-color:grey;
+}
+
+.btn-qtyplus{
+  border-radius: 50%;
+  border:solid 1px;
+  border-color:grey;
 }

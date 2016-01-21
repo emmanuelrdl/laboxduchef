@@ -133,7 +133,6 @@ $("#change_place_xs").click(function(){
 
 // meal xs new search
 
-// meal index geolocation
 
 
 

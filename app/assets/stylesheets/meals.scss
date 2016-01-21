@@ -341,15 +341,21 @@ padding:10px;
 }
 
 
-
-
 .restaurant-name-meal {
-  padding: 0px;
-  margin: 0px;
+  position: absolute;
+  top:0;
+  left:0;
+  font-size: 20px;
+  margin-left:5px;
+  margin-top:5px;
   font-weight: bold;
 }
 
-
+.restaurant_full_address {
+  position:absolute;
+  margin-top: 22px;
+  width:60%;
+}
 
 .container-index-xs {
 
@@ -573,11 +579,12 @@ padding-right: 0px;
 }
 
 .meal_show_xs_total_price {
-padding-top: 5px;
+padding-top: 20px;
 }
 
 .meal_show_lg_total_price {
 padding-top: 20px;
+font-size:25px;
 }
 
 .total_xs {
@@ -586,7 +593,7 @@ padding-top: 20px;
 }
 
 .price {
-font-size: 20px;
+font-size: 25px;
 
 }
 
@@ -639,6 +646,11 @@ border-color: grey;
 
   padding-top: 15px;
 
+}
+
+.meal_show_lg_order_box div{
+
+  display:inline;
 
 }
 
@@ -709,17 +721,20 @@ border-color: grey;
   margin-top:10px;
 }
 
-#meal_show_lg_quantity_select {
-background-color: transparent;
-border:none;
-font-size: 20px;
-text-align: center;
-margin-left:5px;
-margin-right:5px;
+
+
+.meal_show_quantity_select{
+  width:30%;
+  font-size:25px;
+  text-align: center;
+  margin-left:5px;
+  margin-right:5px;
+  background-color: transparent;
+  border:none;
+
+
 
 }
-
-
 
 .meal_map_xs_global_box {
 
@@ -759,4 +774,15 @@ margin-right:5px;
 .meal_xs_link-box:active {
     background-color: #DD562C;
     color:white;
+}
+
+.address-compenents {
+
+  font-size: 20px;
+  position: absolute;
+  top:0;
+  right:0;
+  margin-top: 5px;
+  margin-right: 5px;
+
 }

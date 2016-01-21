@@ -11,7 +11,9 @@
             <div class="card-filter card-bg"> </div>
               <div class="meal-place-infos-lg">
                   <p class="restaurant-name-meal"> <%= meal.restaurant.name %> </p>
-                  <p class="address-compenents" > <i class="fa fa-map-marker"></i> <%= meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km </p>
+                  <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
+                    <%= meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km
+                  </p>
               </div>
               <div id="index_meal_name_position"><%= meal.name %></div>
           </div>

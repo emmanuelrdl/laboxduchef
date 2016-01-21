@@ -10,9 +10,14 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+
     if current_user.restaurants(params[:id]).count >= 1
          flash[:alert] = "Vous ne pouvez avoir qu'un restaurant"
          redirect_to root_path
+    elsif current_user.restaurant_owner == false
+         flash[:alert] = "Vous n'êtes pas autorisés à créer un restaurant"
+         redirect_to root_path
+
     else
       @restaurant = Restaurant.new
     end

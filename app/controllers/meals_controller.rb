@@ -49,6 +49,9 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @search_address = params[:full_addressuser_input_autocomplete_address]
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
+    if @meal.active == false
+      flash[:alert] = "Cette offre n'est plus valable"
+    end
   end
 
 
