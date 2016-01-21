@@ -354,7 +354,7 @@ padding:10px;
 .container-index-xs {
 
 background-color: #DADFE1;
-margin-top: 40px;
+margin-top: 0px;
 position: relative;
 
 }
@@ -727,25 +727,36 @@ margin-right:5px;
   margin-right: 0px;
   padding-left: 0px;
   padding-right:0px;
-  margin-top: 52px;
   position: fixed;
 }
 
 .meal_search_header_xs {
 
- background-color: rgba(0,0,0,0.7);
+ background-color: #278F75;
   color:white;
   height: 40px;
   position:fixed;
   z-index: 99;
-  padding-top: 2px;
+  bottom:0;
 
 }
 
 .meal_xs_header_offres_title {
   color:white;
+
+}
+
+.meal_xs_header_offres_title:hover {
+  color:white;
 }
 
 .meal_xs_link-box {
   border: solid 1px;
+  margin-top: 10px;
+
+}
+
+.meal_xs_link-box:active {
+    background-color: #DD562C;
+    color:white;
 }
