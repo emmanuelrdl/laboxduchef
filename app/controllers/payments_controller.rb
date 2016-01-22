@@ -43,6 +43,7 @@ class PaymentsController < ApplicationController
     @order = current_user.orders.where(status: "confirmed").last
     @amount = @order.amount
     @restaurant_coordinates = [{ lat: @order.meal.restaurant.latitude, lng: @order.meal.restaurant.longitude }]
+    @restaurant_full_address = @order.meal.restaurant.full_address
   end
 
   def navbar_choice
