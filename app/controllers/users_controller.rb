@@ -4,13 +4,9 @@ class UsersController < ApplicationController
 
 
   def show
-
     @last_order = current_user.orders.where(status: 'confirmed').last
     @restaurants = current_user.restaurants
     @paid_orders = current_user.orders.where(status: "confirmed")
-
-
-
     if current_user.restaurant_owner
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
@@ -18,13 +14,7 @@ class UsersController < ApplicationController
     @last_order = current_user.orders.where(status: 'confirmed').last
     @restaurants = current_user.restaurants
     @paid_orders = current_user.orders.where(status: "confirmed")
-
     end
-
-
-
-
-
   end
 
   def navbar_choice

@@ -10,7 +10,7 @@ class MealsController < ApplicationController
 
   def index
     @meal = Meal.new
-    @meals = Meal.all.paginate(:page => params[:page], :per_page => 6)
+    @meals = Meal.where(active:true).paginate(:page => params[:page], :per_page => 6)
     where_group = params[:full_addressuser_input_autocomplete_address]
     if where_group
     @meals = Meal.where(active:true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
@@ -21,7 +21,7 @@ class MealsController < ApplicationController
     marker.lng meal.restaurant.longitude
     marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
     marker.picture({
-     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|007FFF|000000",
+     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|278F75|FFFFFF",
      :width   => 32,
      :height  => 32
     })
@@ -36,7 +36,7 @@ class MealsController < ApplicationController
     marker.lng meal.restaurant.longitude
     marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
     marker.picture({
-     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|007FFF|000000",
+     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|278F75|FFFFFF",
      :width   => 32,
      :height  => 32
     })
@@ -59,7 +59,6 @@ class MealsController < ApplicationController
   end
 
   def update
-
     @meal = @restaurant.meals.find(params[:id])
     @meal.update(params_meal)
     if @meal.save

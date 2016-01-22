@@ -4,7 +4,7 @@
         <div class="container" >
           <div class="row ">
             <div class="col-xs-12 col-sm-12 text-center">
-                <h2 class="">RESTAURANTS, REJOIGNEZ NOUS</h2>
+                <h1 class="title_partner_joins_us_er">RESTAURANTS, REJOIGNEZ NOUS</h1>
                     <div class="col-xs-12 col-sm-4">
                        <%= image_tag "community.svg", size:"50x50"  %>
                       <h4 class="sub_title_partner_joins_us">ATTIREZ UNE NOUVELE CLIENTÈLE </h4>
@@ -26,71 +26,62 @@
       </div >
     </div>
 
-
-
-
-
-          <div class="row text-center" style="margin-top:30px;">
-            <div class="col-xs-12">
-
-              <h3 class="title-illustration"><strong> VENDRE UNE BOX</strong></h3>
-
-              <div style="margin-top:45px;">
-                <div class="text-center col-xs-12 col-sm-3">
-                 <%= image_tag ("smartphone.png"), size:"65x65" %>
-                    <p><p><STRONG>1.</STRONG></p> SE CONNECTER À SON INTERFACE</p>
-                </div>
-                <div class="text-center col-xs-12 col-sm-3">
-                   <%= image_tag ("form.png"), size:"65x65" %>
-                    <p><p><STRONG>2.</STRONG></p> REMPLIR LES INFORMATIONS RELATIVES À LA BOX (MOINS D'UNE MINUTE)</p>
-                </div>
-                <div class="text-center col-xs-12 col-sm-3">
-                    <%= image_tag ("givebox.png"), size:"65x65" %>
-                     <p><p><STRONG>3.</STRONG></p> REMETTRE LES BOXES AUX CLIENTS SE PRÉSENTANT DANS VOTRE ÉTABLISSEMENT </p>
-                </div>
-                  <div class="text-center col-xs-12 col-sm-3">
-                    <%= image_tag ("receivingmoney.png"), size:"65x65" %>
-                     <p><p><STRONG>4.</STRONG></p> RECEVEZ 2 FOIS PAR MOIS UN VIREMENT CORRESPONDANT AUX BOXES VENDUES</p>
-                </div>
-
-              </div>
-            </div>
+    <div class="row text-center global_box_how_to_sell_box">
+      <div class="col-xs-12">
+        <h2 class="title_partner_joins_us_er"> VENDRE UNE BOX </h2>
+        <div style="margin-top:45px;">
+          <div class="text-center col-xs-12 col-sm-3">
+           <div class="white-rounded-img "> <%= image_tag ("smartphone.png"), size:"80x100" %> </div>
+              <p class="text_how_to_sell_box"> SE CONNECTER À SON INTERFACE</p>
           </div>
-
-
-        <div class="row" style="margin-top:30px;">
-          <div class="col-xs-12 col-sm-6">
-            <h3 class="title-illustration"><strong> DEVENIR PARTENAIRE</strong></h3>
-                <h5>1. Se créer un compte</h5>
-                <h5>2. Recevoir une validation de l'équipe de la box des chefs vous permettant de poster des offres</h5>
-                <h5>3. Recevoir les boxes expédiées lors de la validation</h5>
-                <h5>4. C'est parti ! </h5>
-            </div>
-          <div class="col-xs-12 col-sm-6">
-            <h3 class="title-illustration"><strong>TARIFICATION & PAIEMENTS</strong></h3>
-                <h5>- La box des chefs prélève une commission de 1€ HT par portion vendue</h5>
-                <h5>- Cette commsission comprend l'intermédiation et la fourniture des boxes</h5>
-                <h5>- Les virements vers les comptes des partenaires sont effectués le 15 et le 30 de chaque mois </h5>
-
-            </div>
+          <div class="text-center col-xs-12 col-sm-3">
+            <div class="white-rounded-img "> <%= image_tag ("form.png"), size:"80x100" %> </div>
+              <p class="text_how_to_sell_box">  CRÉER UNE FICHE OFFRE </p>
           </div>
-
-          <div class="row" style="margin-top:30px;">
-          <div class="col-xs-12 ">
-            <h3 class="title-illustration"><strong> QUESTIONS FRÉQUENTES</strong></h3>
-                <h5><strong>Combien de temps mon offre est-elle valable?</strong> Une offre est valable 24 heures après avoir été postée. Si après 24 heures des portions restent invendues, l'offre sera automatiquement supprimée.</h5>
-                <h5><strong>Quand dois-je poster une offre ?</strong> Les offres peuvent être postées à tout moment de la journée. Néanmoins afin de maximiser les chances que votre box soit vendue il est recommandé de poster l'offre la veille pour le lendemain ou dans la matinée de la journée ou l'offre est valable.</h5>
-                <h5><strong>Quel prix donner à mon offre ?</strong> Vous êtes libre quand au prix que vous souhaitez proposer pour les portions que vous vendez. Dans le but que vos portions soient écoulées nous vous recommandons cependant de les mettre en vente au coût matière.</h5>
-                <h5><strong>Comment les clients payent-ils leur box ?</strong> Les boxes sont réglées par l'intermédaire de La box des chefs. Le montant de vos ventes soustrait de la commission La box des chefs (1€ HT par portion vendue) vous sera versé tous les 15 et 30 de chaque mois. Ces virements seront accompagnés d'une facture.</h5>
-                <h5><strong>Comment j'identifie l'acheteur d'une box ?</strong> Lorsque vous êtes connecté vous pouvez accéder à votre tableau de bord sur lequel vous pouvez accéder à la liste des boxes que vous avez vendues ainsi qu'au nom de l'acheteur.</h5>
-            </div>
+          <div class="text-center col-xs-12 col-sm-3">
+            <div class="white-rounded-img "> <%= image_tag ("givebox.png"), size:"80x100" %> </div>
+               <p class="text_how_to_sell_box"> REMETTRE LES BOXES AUX CLIENTS </p>
           </div>
+            <div class="text-center col-xs-12 col-sm-3">
+            <div class="white-rounded-img "><%= image_tag ("receivingmoney.png"), size:"80x100" %> </div>
+               <p class="text_how_to_sell_box"> RECEVEZ DEUX VIREMENTS PAR MOIS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 espace_restaurant_hiw_global_box">
+      <div class="col-xs-12 col-sm-6">
+        <h3 class="title-illustration"><strong> DEVENIR PARTENAIRE</strong></h3>
+            <h5>1. Se créer un compte</h5>
+            <h5>2. Recevoir une validation de l'équipe de la box des chefs vous permettant de poster des offres</h5>
+            <h5>3. Recevoir les boxes expédiées lors de la validation</h5>
+            <h5>4. C'est parti ! </h5>
+        </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3 class="title-illustration"><strong>TARIFICATION & PAIEMENTS</strong></h3>
+            <h5>- La box des chefs prélève une commission de 1€ HT par portion vendue</h5>
+            <h5>- Cette commsission comprend l'intermédiation et la fourniture des boxes</h5>
+            <h5>- Les virements vers les comptes des partenaires sont effectués le 15 et le 30 de chaque mois </h5>
+        </div>
+
+
+
+      <div class="col-xs-12 ">
+        <h3 class="title-illustration"><strong> QUESTIONS FRÉQUENTES</strong></h3>
+            <h5><strong>Combien de temps mon offre est-elle valable?</strong> Une offre est valable 24 heures après avoir été postée. Si après 24 heures des portions restent invendues, l'offre sera automatiquement supprimée.</h5>
+            <h5><strong>Quand dois-je poster une offre ?</strong> Les offres peuvent être postées à tout moment de la journée. Néanmoins afin de maximiser les chances que votre box soit vendue il est recommandé de poster l'offre la veille pour le lendemain ou dans la matinée de la journée ou l'offre est valable.</h5>
+            <h5><strong>Quel prix donner à mon offre ?</strong> Vous êtes libre quand au prix que vous souhaitez proposer pour les portions que vous vendez. Dans le but que vos portions soient écoulées nous vous recommandons cependant de les mettre en vente au coût matière.</h5>
+            <h5><strong>Comment les clients payent-ils leur box ?</strong> Les boxes sont réglées par l'intermédaire de La box des chefs. Le montant de vos ventes soustrait de la commission La box des chefs (1€ HT par portion vendue) vous sera versé tous les 15 et 30 de chaque mois. Ces virements seront accompagnés d'une facture.</h5>
+            <h5><strong>Comment j'identifie l'acheteur d'une box ?</strong> Lorsque vous êtes connecté vous pouvez accéder à votre tableau de bord sur lequel vous pouvez accéder à la liste des boxes que vous avez vendues ainsi qu'au nom de l'acheteur.</h5>
+        </div>
+
 
 
         <div class="text-center col-xs-12 col-sm-6 col-sm-offset-3">
-          <%= link_to "CRÉER UN COMPTE PARTENAIRE", partner_sign_up_path, class: "btn btn-validation " %>
+          <%= link_to "Devenir partenaire", partner_sign_up_path, class: "btn btn-validation " %>
         </div>
-
+         </div>
 
     </div>
 </div>
