@@ -79,6 +79,7 @@ class MealsController < ApplicationController
     @meal.active = true
     @meal.stock = @meal.quantity
       if @meal.save
+        flash[:notice] = 'Offre publiée'
         redirect_to user_path(current_user)
       else
         render :new
