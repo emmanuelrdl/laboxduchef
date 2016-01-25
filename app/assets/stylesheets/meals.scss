@@ -434,7 +434,7 @@ margin-top: -5px;
   list-style: none;
   font-size: 15px;
   float: right;
-  width:40%;
+  width:55%;
   color:white;
 
   }
@@ -560,7 +560,6 @@ width: 400px;
 }
 
 .meal_show_xs_price_box {
-padding-top: 20px;
 margin-left:0px;
 margin-right:0px;
 padding-left: 0px;
@@ -627,7 +626,17 @@ font-size: 25px;
 float:left;
 }
 
+.meal_show_lg_take_away_date {
+  float:left;
+  margin-left: 60px;
+}
 
+.meal_show_lg_take_away_date_title {
+  background-color: grey;
+  border-radius: 4px;
+  color:white;
+  font-size: 18px;
+}
 
 .meal_show_lg_restaurant_openings {
   float:right;
@@ -635,7 +644,7 @@ float:left;
 }
 
 .meal-show-full-box-lg {
-margin-top: -100px;
+margin-top: -150px;
 border-shadow: 0 1px 3px rgba(0,0,0,0.6);
 border-right: solid 1px;
 border-color: grey;
@@ -785,4 +794,54 @@ border-color: grey;
   margin-top: 5px;
   margin-right: 5px;
 
+}
+
+.meal_show_lg_date_away_date {
+
+  background-color: #F3C024;
+  color:white;
+  padding: 5px;
+  padding-left:10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+
+.meal_show_lg_take_away_time {
+
+  color:white;
+  background-color:#2381D0;
+  border-radius: 4px;
+  padding: 5px;
+  padding-left:10px;
+  padding-right: 10px;
+
+}
+
+.meal_take_away_date_xs {
+ background-color:#282828;
+ padding-bottom: 0px;
+ color:white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.meal_show_xs_take_away_date {
+
+margin:5px;
+border:solid 1px;
+padding-left: 5px;
+padding-right: 5px;
+border-radius: 4px;
+color:#2381D0;
+}
+
+.meal_show_xs_take_away_title {
+ margin:5px;
+
+}
+
+.meal_show_xs_detail_box {
+  background-color: #282828;
+  color:white;
 }

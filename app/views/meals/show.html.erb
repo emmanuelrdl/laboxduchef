@@ -20,38 +20,37 @@
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-phone"></i> <%= @meal.restaurant.phone_number %></p>
           </div>
           <div class='col-xs-6 col-xs-offset-6 meal_show_lg_restaurant_infos'>
+            <p class="meal_show_lg_take_away_date_title">RETRAIT</p>
             <%=image_tag @meal.restaurant.picture.url(:thumb),class:"meal_show_lg_restaurant_pic"%>
+            <div class="meal_show_lg_take_away_date"><%= render 'meals/meal_take_away_date' %></div>
                 <% if @meal.take_away_noon? && @meal.take_away_evening %>
                    <div class="meal_show_lg_restaurant_openings">
-                      <p>Retrait possible entre:</p>
-                      <li>
+                      <p class="meal_show_lg_take_away_time" >
                         <i class="fa fa-clock-o"></i>
                         <%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
-                        <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
-                      </li>
-                      <li>
+                        - <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                      </p>
+                      <p class="meal_show_lg_take_away_time">
                         <i class="fa fa-clock-o"></i>
                         <%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
-                        <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
-                      </li>
+                        - <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                      </p>
                   </div>
                 <% elsif @meal.take_away_noon? %>
                   <div class="meal_show_lg_restaurant_openings">
-                    <p>Retrait possible entre:</p>
-                   <li>
+                   <p class="meal_show_lg_take_away_time">
                       <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
                       <%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
-                      <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
-                  </li>
+                      - <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                  </p>
                  </div>
                 <% elsif @meal.take_away_evening? %>
                   <div class="meal_show_lg_restaurant_openings">
-                    <p>Retrait possible entre:</p>
-                    <li>
+                    <p class="meal_show_lg_take_away_time">
                       <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
                       <%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
-                      <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
-                    </li>
+                      - <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                    </p>
                   </div>
                 <% end %>
              </div>
