@@ -19,21 +19,7 @@
                 <%= f.input :restaurant_owner, :as => :hidden, input_html: { :value => false } %>
                 <%= f.input :password, label:false, required: true, input_html: {class:"form-input-text"}, placeholder:"Mot de passe - Minimum 8 caractères" %>
                 <%= f.input :password_confirmation, label:false, required: true, input_html: {class:"form-input-text"}, placeholder:"Confirmation mot de passe" %>
-                <div class="form-input-checkbox">
-
-                    <%= f.input :notification, label:"Je veux recevoir une notification lorsqu'une offre est proposée dans ma zone",  id:"notification" %>
-                </div>
-                <div id="address-box">
-                  <label for="">
-                    Entrez l'adresse autour de laquelle vous souhaitez être notifié:
-                  </label>
-                  <%= text_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control form-input-text"   %>
-
-                  <%= f.input :street, :as => :hidden, label: "Numéro de votre rue", input_html: { id: "street" } %>
-                  <%= f.input :postal_code, :as => :hidden, label: "Code postal", input_html: {id: "postal_code"} %>
-                  <%= f.input :locality, :as => :hidden, label: "Ville", input_html: {id: "locality"} %>
-                </div>
-          </div>
+              </div>
 
 
         <div class="form-actions">
