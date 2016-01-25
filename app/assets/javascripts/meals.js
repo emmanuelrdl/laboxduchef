@@ -137,3 +137,14 @@ $("#change_place_xs").click(function(){
 
 
 
+// hide meal search bar xs
+
+
+$("#navbar-btn").click(function(){
+    $("#meal_search_header_xs").toggle();
+
+
+});
+
+
+//hide meal search bar xs

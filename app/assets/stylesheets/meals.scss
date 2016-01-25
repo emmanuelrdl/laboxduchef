@@ -754,14 +754,15 @@ border-color: grey;
   position: fixed;
 }
 
-.meal_search_header_xs {
+#meal_search_header_xs {
 
- background-color: #278F75;
+  background-color:  rgba(0,0,0,0.7);
   color:white;
   height: 40px;
   position:fixed;
   z-index: 99;
-  bottom:0;
+  top:0;
+  margin-top: 53px;
 
 }
 
@@ -844,4 +845,8 @@ color:#2381D0;
 .meal_show_xs_detail_box {
   background-color: #282828;
   color:white;
+}
+
+#my-meals-xs {
+  margin-top:45px;
 }

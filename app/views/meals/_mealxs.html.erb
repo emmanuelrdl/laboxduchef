@@ -2,7 +2,7 @@
 <% @meals.each do |meal| %>
   <% if meal.active? %>
 
-      <div class="col-xs-12 card-meal-global-box-xs " >
+      <div class="col-xs-12 card-meal-global-box-xs" >
            <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
             <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"Châtelet - Les Halles, Paris, France"  %>
               <%= f.submit "Commander", class: "btn-submit-index-address" %>
