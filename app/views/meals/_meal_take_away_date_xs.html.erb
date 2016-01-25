@@ -1,0 +1,16 @@
+<% if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1 %>
+    <p class="meal_show_xs_take_away_title">Valable:</p>
+    <p class="meal_show_xs_take_away_date">Aujoud'hui</p>
+    <p  class="meal_show_xs_take_away_date" >Demain</p>
+<% elsif @meal.starting_date == Date.today %>
+    <p class="meal_show_xs_take_away_title">Valable:</p>
+    <p class="meal_show_xs_date_away_date" >Aujourd'hui</p>
+<% elsif @meal.second_date == Date.today + 1 %>
+    <p class="meal_show_xs_take_away_title">Valable:</p>
+    <p  class="meal_show_xs_date_away_date" >Demain</p>
+<% elsif @meal.second_date == Date.today %>
+    <p class="meal_show_xs_take_away_title">Valable:</p>
+    <p  class="meal_show_xs_date_away_date" >Aujourd'hui</p>
+<% else %>
+    <p  class="meal_show_xs_date_away_date" >Offre terminée</p>
+<% end -%>

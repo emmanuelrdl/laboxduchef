@@ -12,8 +12,8 @@
     </div>
       <div class="col-xs-12 meal_show_lg_price_box">
        <div class="meal_show_lg_detail_box">
-          <div class="meal_show_lg_seated_price">€<s><%= @meal.seated_price %> </s> </div>
-          <div class="meal_show_lg_price"><%= @meal.price.format %> </div>
+          <div class="meal_show_lg_seated_price"><s><%= @meal.seated_price %> €</s> </div>
+          <div class="meal_show_lg_price"><%= @meal.price%> €</div>
           <div class="meal_show_lg_stock"> <%= image_tag "foodbox_brown.png", size:"20x20" %>  <%= @meal.stock %> </div>
       </div>
 

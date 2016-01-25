@@ -16,14 +16,13 @@
                 <tr >
                   <td class="text-left"><%= @order.quantity %></td>
                   <td  class="text-left"><%= @order.meal.name.upcase %></td>
-                  <td><%= @order.amount.format %></td>
+                  <td><%= @order.amount %></td>
                 </tr>
               </tbody>
            </table>
           </div>
-           <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 basket-total-price text-center">
-                <h4>TOTAL: <%= humanized_money_with_symbol(@amount) %></h4>
-          </div>
+            <h4 class="basket-total-price text-center">TOTAL: <%=@amount%> € </h4>
+
          <%= form_tag cart_payments_path(@order) do %>
              <script src="https://checkout.stripe.com/checkout.js"></script>
               <button id="customButton" class="btn btn-payer">Payer</button>

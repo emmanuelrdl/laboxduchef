@@ -1,0 +1,17 @@
+ <div class="payment_show_infos_box_postion ">
+     <% if @order.meal.take_away_noon? && @order.meal.take_away_evening? %>
+         <i class="fa fa-clock-o"></i>
+         <p class="payment_show_take_away_time"> <%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %> </p>
+        <p class="payment_show_take_away_time">
+          <%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+        </p>
+    <% elsif @order.meal.take_away_noon? %>
+        <i class="fa fa-clock-o"></i>
+        <p class="payment_show_take_away_time"> <%= @order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+        </p>
+    <% elsif @order.meal.take_away_evening? %>
+        <i class="fa fa-clock-o"></i>
+        <p class="payment_show_take_away_time"><%= @order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+        </p>
+      <% end %>
+</div>
