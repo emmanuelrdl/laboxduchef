@@ -58,12 +58,12 @@
          <div class="col-xs-6 meal_show_lg_order_box">
            <div><button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="order[quantity]"> - </button></div>
            <div ><input name="order[quantity]" max="<%= @meal.stock %>" type="text" min="1" value="1" class="meal_show_quantity_select"></div>
-           <div> <button type="button" class="btn btn-qtyplus btn-number plus" data-type="plus" data-field="order[quantity]"> +  </button> </div>
+           <div> <button type="button" class="btn btn-qtyplus btn-number plus" data-type="plus" data-field="order[quantity]">+</button> </div>
           <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
           </div>
             <div class='col-xs-6 meal_show_xs_total_price'>
               <span class="total_xs">Total:</span>
-              <span class="price"> <%= @meal.price.to_f %> </span>&nbsp;<span>€</span>
+              <span class="price"> <%= @meal.price.to_f %>&nbsp€</span>
             </div>
               <div class="col-xs-12 text-center">
                 <%= f.submit "Réserver", class: "btn-reserver-xs " %>

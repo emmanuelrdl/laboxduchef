@@ -38,7 +38,7 @@
 
 .meal_show_xs_price {
   position: relative;
-  font-size: 16px;
+  font-size: 17px;
   left: 0 ;
   bottom: 0 ;
   margin: 1px;
@@ -345,7 +345,7 @@ padding:10px;
   position: absolute;
   top:0;
   left:0;
-  font-size: 20px;
+  font-size: 18px;
   margin-left:5px;
   margin-top:5px;
   font-weight: bold;
@@ -436,6 +436,7 @@ margin-top: -5px;
   float: right;
   width:55%;
   color:white;
+  margin-top:2px;
 
   }
 
@@ -654,6 +655,8 @@ border-color: grey;
 .meal_show_lg_order_box {
 
   padding-top: 15px;
+  margin-left:0px;
+  padding-left:0px;
 
 }
 
@@ -734,10 +737,10 @@ border-color: grey;
 
 .meal_show_quantity_select{
   width:30%;
-  font-size:25px;
+  font-size:22px;
   text-align: center;
-  margin-left:5px;
-  margin-right:5px;
+  margin-left:2px;
+  margin-right:2px;
   background-color: transparent;
   border:none;
 
@@ -839,6 +842,7 @@ color:#2381D0;
 
 .meal_show_xs_take_away_title {
  margin:5px;
+ font-size:18px;
 
 }
 

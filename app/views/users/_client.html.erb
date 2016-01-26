@@ -2,27 +2,30 @@
     <div class="container">
       <div class="row">
          <% if current_user.orders.count >= 1 %>
-        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center payement-box" style="margin-top:-50px" >
-          <h4 class="form-header-no-margin">VOTRE DERNIÈRE COMMANDE</h4>
-            <div class="payment_show_info_alignment col-xs-12 col-sm-6 col-sm-offset-3 ">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center user-payment-box"  >
+          <h4 class="form-header-no-margin">CONFIRMATION DE VOTRE COMMANDE</h4>
+            <div class="payment_show_info_alignment col-xs-11 col-xs-offset-1 col-sm-6 col-sm-offset-3 text-center">
                <h4 class="order_recap_meal_name"  > <%= image_tag "foodbox_brown.png", size:"20x20" %>
                  &nbsp<%= @last_order.quantity %> <%= @last_order.meal.name %> </h4>
                 <div class="payment_meal_take_away_date">  <%= render "users/client_meal_take_away_date" %>
               </div>
               <div><%= render "users/client_meal_take_away_time" %></div>
             </div>
-            <div class="col-xs-12 payment_show_restaurant_name">
-                <h4 class="" ><i> <%= @last_order.meal.restaurant.name.upcase %> </i> </h4>
-                <p>  <i class="fa fa-map-marker"></i> <%= @last_order.meal.restaurant.full_address %></p>
-              <div id="get_direction" class="btn btn-direction-detail"> Itinéraire</div>
-                <div id="get_direction_hidden_map">
+            <div class="col-xs-12 payment_show_restaurant_infos" >
+                <div class="payment_show_restaurant_picture col-xs-12" style="background-image: url('<%=image_path @last_order.meal.restaurant.picture.url(:medium)%>')">
+                    <div class="card-filter"> </div>
+                    <h4 class="payment_show_restaurant_name" > <%= @last_order.meal.restaurant.name.upcase %>  </h4>
+                    <p class="payment_show_restaurant_address">  <i class="fa fa-map-marker"></i> <%= @last_order.meal.restaurant.full_address %></p>
+                    <div id="get_direction" class="btn btn-direction"> Itinéraire</div>
+                </div>
+                <div id="get_direction_hidden_map" class="col-xs-12">
                   <div id="map" class="map_payment" > </div>
                   <div id="get_direction_detail" class="btn btn-direction-detail">Détails</div>
                 </div>
               <div id="map-directions" hidden="true"></div>
             </div>
-          <div class="col-xs-12 form-header-content-title">
-            <h4 class="form-header">RÉCUPÉRER MA BOX</h4>
+          <div class="col-xs-12 form-header-content-title" >
+            <h5 class="form-header">RÉCUPÉRER MA BOX</h5>
              <p class="grey-text">Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiquées ci-dessus en précisant le nom auquel vous avez effectué la réservation</p>
              <p class="grey-text"> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </p>
           </div>
