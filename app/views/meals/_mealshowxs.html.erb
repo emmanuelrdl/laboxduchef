@@ -6,7 +6,7 @@
               <p class="restaurant-name-meal"> <%= @meal.restaurant.name %> </p>
               <p class="restaurant_full_address" > <%= @meal.restaurant.full_address %> </p>
               <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
-              <%= @meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km
+              <%= @meal.restaurant.distance_from(@search_address).round(1) %> km
              </p>
         </div>
         <div id="index_meal_name_position"><%= @meal.name %>
@@ -56,17 +56,17 @@
 
         <%= simple_form_for Order.new, url: cart_orders_path do |f| %>
          <div class="col-xs-6 meal_show_lg_order_box">
-           <div><button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="order[quantity]"> - </button></div>
+           <div><button type="button" class="btn btn-minus btn-number minus"  data-type="minus" id="minus" data-field="order[quantity]"> - </button></div>
            <div ><input name="order[quantity]" max="<%= @meal.stock %>" type="text" min="1" value="1" class="meal_show_quantity_select"></div>
-           <div> <button type="button" class="btn btn-qtyplus btn-number plus" data-type="plus" data-field="order[quantity]">+</button> </div>
+           <div> <button type="button" class="btn btn-qtyplus btn-number plus" id="plus" data-type="plus" data-field="order[quantity]">+</button> </div>
           <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
           </div>
             <div class='col-xs-6 meal_show_xs_total_price'>
               <span class="total_xs">Total:</span>
-              <span class="price"> <%= @meal.price.to_f %>&nbsp€</span>
+              <span class="price"> <%= @meal.price.to_f %> </span><span class="meal_show_xs_currency_symbol">&nbsp€</span>
             </div>
               <div class="col-xs-12 text-center">
-                <%= f.submit "Réserver", class: "btn-reserver-xs " %>
+                <%= f.submit "Commander", class: "btn-reserver-xs " %>
               </div>
             <% end %>
 

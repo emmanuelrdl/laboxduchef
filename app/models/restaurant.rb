@@ -27,13 +27,7 @@ class Restaurant < ActiveRecord::Base
   before_validation :geocode, if: :full_address_changed?
 
 
-  def address_validity
-    if @restaurant.geocoded?
-      true
-    else
-      @restaurant.errors.add(:street, "is not valid")
-    end
-  end
+
 
 
 

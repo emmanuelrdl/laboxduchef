@@ -15,9 +15,12 @@ $('.btn-number').click(function(e){
 
             if(currentVal > input.attr('min')) {
                 input.val(currentVal - 0).change();
+
             }
             if(parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
+
+
             }
 
         } else if(type == 'plus') {
@@ -25,7 +28,7 @@ $('.btn-number').click(function(e){
             if(currentVal < input.attr('max')) {
                 input.val(currentVal + 0).change();
             }
-            if(parseInt(input.val()) == input.attr('max')) {
+            if(parseInt(input.val()) == (input.attr('max') -1)) {
                 $(this).attr('disabled', true);
             }
 
@@ -44,6 +47,7 @@ $(document).ready(function()
           $(".minus").click(function()
           {
               changeValue(-1);
+               $(".plus").attr('disabled', false)
           });
 
 
@@ -51,6 +55,7 @@ $(document).ready(function()
           $(".plus").click(function()
           {
               changeValue(1);
+              $(".minus").attr('disabled', false)
           });
 
 
@@ -143,8 +148,9 @@ $("#change_place_xs").click(function(){
 $("#navbar-btn").click(function(){
     $("#meal_search_header_xs").toggle();
 
-
 });
 
 
 //hide meal search bar xs
+
+

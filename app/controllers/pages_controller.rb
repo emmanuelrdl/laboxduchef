@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :navbar_choice, only: [:home]
+  before_action :footer_choice
   def home
     @meals = Meal.all
     @restaurants = Restaurant.all
@@ -32,6 +33,9 @@ class PagesController < ApplicationController
   @navbar_home = true
  end
 
+ def footer_choice
+  @footer_xs = true
+ end
 
 
 end

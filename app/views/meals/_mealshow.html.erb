@@ -3,7 +3,7 @@
       <div class="meal-show-img-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
         <div class="card-filter"> </div>
           <div class="address-compenents" > <i class="fa fa-location-arrow"></i>
-          <%= @meal.restaurant.distance_from(params[:full_addressuser_input_autocomplete_address]).round(1) %> km
+          <%= @meal.restaurant.distance_from(@search_address).round(1) %> km
         </div>
           <div id="index_meal_name_position"><%= @meal.name %>
             <p class="meal_show_xs_description"><%= @meal.description %></p>
