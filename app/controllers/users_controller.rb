@@ -4,16 +4,14 @@ class UsersController < ApplicationController
 
 
   def show
-    @last_order = current_user.orders.where(status: 'confirmed').last
+    @last_order = current_user.orders.where(status: 'confirmed' || 'paid').last
     @restaurants = current_user.restaurants
-    @paid_orders = current_user.orders.where(status: "confirmed")
     if current_user.restaurant_owner
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
     elsif current_user.orders.count >= 1
-    @last_order = current_user.orders.where(status: 'confirmed').last
+    @last_order = current_user.orders.where(status: 'confirmed' || 'paid').last
     @restaurant_full_address = current_user.orders.where(status:"confirmed").last.meal.restaurant.full_address
-    @paid_orders = current_user.orders.where(status: "confirmed")
     end
   end
 
