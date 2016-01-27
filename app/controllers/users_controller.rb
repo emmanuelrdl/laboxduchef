@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @meals = @restaurant.meals
     elsif current_user.orders.count >= 1
     @last_order = current_user.orders.where(status: 'confirmed' || 'paid').last
-    @restaurant_full_address = current_user.orders.where(status:"confirmed").last.meal.restaurant.full_address
+    @restaurant_full_address = current_user.orders.where(status:"confirmed" || 'paid').last.meal.restaurant.full_address
     end
   end
 
