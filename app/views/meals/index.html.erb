@@ -34,8 +34,8 @@
                 </div>
               </div>
 
-             <div id="map" name="map" class="map-index-lg" >
-             </div>
+             <div id="map" name="map" class="map-index-lg" ></div>
+
         </div>
       </div>
     </div>
@@ -82,13 +82,21 @@
     <script>
     $(document).on('ready', function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        console.log(markers)
+      var markers = <%= @markers.count%> ;
+      handler.buildMap({ internal: { id: 'map' } },
 
-            });
+           function(){
+            if(markers>=0){
+            markers = handler.addMarkers(<%= raw @markers.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            console.log(markers)
+               }
+            else {
+              handler.map.centerOn([48.8534100, 2.3488000]);
+               handler.getMap().setZoom(12);
+            }
+                });
 
     });
 

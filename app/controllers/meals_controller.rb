@@ -18,17 +18,17 @@ class MealsController < ApplicationController
     if where_group
     @meals = Meal.where(active:true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
     end
-    @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
-    @my_meal = meal.restaurant
-    marker.lat meal.restaurant.latitude
-    marker.lng meal.restaurant.longitude
-    marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
-    marker.picture({
-     :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|278F75|FFFFFF",
-     :width   => 32,
-     :height  => 32
-    })
-   end
+      @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
+      @my_meal = meal.restaurant
+      marker.lat meal.restaurant.latitude
+      marker.lng meal.restaurant.longitude
+      marker.infowindow render_to_string(:partial => 'meals/infowindow', :locals => { :object => @my_meal})
+      marker.picture({
+       :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|278F75|FFFFFF",
+       :width   => 32,
+       :height  => 32
+      })
+      end
   end
 
   def mealmapxs
