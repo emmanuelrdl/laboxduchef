@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @restaurants = current_user.restaurants
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
-    elsif (current_user.orders.where(status:'confirmed').count  || current_user.orders.where(status:'paid').count) >= 1
+    elsif (current_user.orders.where(status:'confirmed').count >= 1  || current_user.orders.where(status:'paid').count) >= 1
       if current_user.orders.last.status == "confirmed"
         @last_order = current_user.orders.where(status: 'confirmed').last
         @restaurant_full_address = @last_order.meal.restaurant.full_address
@@ -16,17 +16,9 @@ class UsersController < ApplicationController
         @last_order = current_user.orders.where(status: 'paid').last
         @restaurant_full_address = @last_order.meal.restaurant.full_address
       elsif current_user.orders.last.status == "cart"
-        if current_user.orders.where(status:"confirmed").last.created_at > current_user.orders.where(status:"paid").last.created_at
-          @last_order = current_user.orders.where(status: 'confirmed').last
-        else
-          @last_order = current_user.orders.where(status: 'paid').last
-        end
+          @last_order = current_user.orders.where(status: 'confirmed').last ||  current_user.orders.where(status: 'paid').last
       elsif current_user.orders.last.status == "cancelled"
-        if current_user.orders.where(status:"confirmed").last.created_at > current_user.orders.where(status:"paid").last.created_at
-          @last_order = current_user.orders.where(status: 'confirmed').last
-        else
-          @last_order = current_user.orders.where(status: 'paid').last
-        end
+          @last_order = current_user.orders.where(status: 'confirmed').last ||  current_user.orders.where(status: 'paid').last
       end
     end
   end
