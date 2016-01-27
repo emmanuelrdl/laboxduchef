@@ -16,9 +16,29 @@ class UsersController < ApplicationController
         @last_order = current_user.orders.where(status: 'paid').last
         @restaurant_full_address = @last_order.meal.restaurant.full_address
       elsif current_user.orders.last.status == "cart"
-          @last_order = current_user.orders.where(status: 'confirmed').last ||  current_user.orders.where(status: 'paid').last
+          if current_user.orders.where(status:'confirmed').present? && current_user.orders.where(status:'paid').present?
+             if current_user.orders.where(status:'confirmed').last.created_at > current_user.orders.where(status:'paid').last.created_at
+                @last_order = current_user.orders.where(status:'confirmed').last
+             else
+                @last_order = current_user.orders.where(status:'paid').last
+             end
+          elsif current_user.orders.where(status:'confirmed').present?
+              @last_order = current_user.orders.where(status:'confirmed').last
+          elsif current_user.orders.where(status:'paid').present?
+              @last_order = current_user.orders.where(status:'paid').last
+          end
       elsif current_user.orders.last.status == "cancelled"
-          @last_order = current_user.orders.where(status: 'confirmed').last ||  current_user.orders.where(status: 'paid').last
+        if current_user.orders.where(status:'confirmed').present? && current_user.orders.where(status:'paid').present?
+             if current_user.orders.where(status:'confirmed').last.created_at > current_user.orders.where(status:'paid').last.created_at
+                @last_order = current_user.orders.where(status:'confirmed').last
+             else
+                @last_order = current_user.orders.where(status:'paid').last
+             end
+        elsif current_user.orders.where(status:'confirmed').present?
+            @last_order = current_user.orders.where(status:'confirmed').last
+        elsif current_user.orders.where(status:'paid').present?
+            @last_order = current_user.orders.where(status:'paid').last
+        end
       end
     end
   end
