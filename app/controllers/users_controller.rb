@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @restaurants = current_user.restaurants
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
-    elsif current_user.orders.where(status:'confirmed').count >= 1  || current_user.orders.where(status:'paid').count >= 1
+    elsif (current_user.orders.where(status:'confirmed').count >= 1)  || (current_user.orders.where(status:'paid').count >= 1)
       if current_user.orders.last.status == "confirmed"
         @last_order = current_user.orders.where(status: 'confirmed').last
         @restaurant_full_address = @last_order.meal.restaurant.full_address
