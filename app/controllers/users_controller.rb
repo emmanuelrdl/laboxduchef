@@ -4,16 +4,30 @@ class UsersController < ApplicationController
 
 
   def show
-    @last_order = current_user.orders.where(status: 'confirmed' || 'paid').last
-    @restaurants = current_user.restaurants
-    @paid_orders = current_user.orders.where(status: "confirmed" || 'paid')
     if current_user.restaurant_owner
+      @restaurants = current_user.restaurants
       @restaurant = current_user.restaurants.first
       @meals = @restaurant.meals
-    elsif current_user.orders.count >= 1
-    @last_order = current_user.orders.where(status: 'confirmed' || 'paid').last
-    @restaurant_full_address = current_user.orders.where(status:"confirmed").last.meal.restaurant.full_address
-    @paid_orders = current_user.orders.where(status: "confirmed" || 'paid')
+    elsif (current_user.orders.where(status:'confirmed').count  || current_user.orders.where(status:'paid').count) >= 1
+      if current_user.orders.last.status == "confirmed"
+        @last_order = current_user.orders.where(status: 'confirmed').last
+        @restaurant_full_address = @last_order.meal.restaurant.full_address
+      elsif current_user.orders.last.status == "paid"
+        @last_order = current_user.orders.where(status: 'paid').last
+        @restaurant_full_address = @last_order.meal.restaurant.full_address
+      elsif current_user.orders.last.status == "cart"
+        if current_user.orders.where(status:"confirmed").last.created_at > current_user.orders.where(status:"paid").last.created_at
+          @last_order = current_user.orders.where(status: 'confirmed').last
+        else
+          @last_order = current_user.orders.where(status: 'paid').last
+        end
+      elsif current_user.orders.last.status == "cancelled"
+        if current_user.orders.where(status:"confirmed").last.created_at > current_user.orders.where(status:"paid").last.created_at
+          @last_order = current_user.orders.where(status: 'confirmed').last
+        else
+          @last_order = current_user.orders.where(status: 'paid').last
+        end
+      end
     end
   end
 
