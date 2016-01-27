@@ -6,6 +6,7 @@
 
   devise_scope :user do
    get "/partner/sign_up" => "registrations#new_partner"
+   post "/partner/sign_up" => "registrations#new_partner"
   end
 
 

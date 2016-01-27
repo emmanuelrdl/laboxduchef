@@ -11,9 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def navbar_choice
-    @navbar_other = true
-  end
 
   def create
   build_resource(sign_up_params)
@@ -33,9 +30,8 @@ class RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      flash[:alert] = "Email non valide ou erreur dans le mot de passe"
-      redirect_to partner_sign_up_path
-
+      redirect_to partner_sign_up_path(sign_up_params)
+      flash[:alert] = "Certains champs sont incorrects"
     end
 
   else
@@ -61,6 +57,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
+  def new_partner
+
+    @user = User.new(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], phone_number: params[:phone_number])
+  end
 
 
   private
@@ -71,6 +71,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
+  def navbar_choice
+    @navbar_other = true
+  end
 
 
 

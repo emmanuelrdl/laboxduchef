@@ -1,15 +1,15 @@
 <% if @last_order.meal.starting_date == Date.today && @last_order.meal.second_date == Date.today + 1 %>
-    <p > <i class="fa fa-calendar-o"> </i></p>
+    <p > <i class="fa fa-calendar-o payment-icons"> </i></p>
     &nbsp<p class="payment_show_take_away_date">Aujoud'hui</p>
     <p  class="payment_show_take_away_date" >Demain</p>
 <% elsif @last_order.meal.starting_date == Date.today %>
-    <p> <i class="fa fa-calendar-o"> </i></p>
+    <p> <i class="fa fa-calendar-o payment-icons"> </i></p>
     &nbsp<p class="payment_show_take_away_date" >Aujourd'hui</p>
 <% elsif @last_order.meal.second_date == Date.today + 1 %>
-    <p> <i claslast_s="fa fa-calendar-o"> </i></p>
+    <p> <i claslast_s="fa fa-calendar-o payment-icons"> </i></p>
     &nbsp<p  class="payment_show_take_away_date" >Demain</p>
 <% elsif @last_order.meal.second_date == Date.today %>
-    <p> <i class="fa fa-calendar-o"> </i></p>
+    <p> <i class="fa fa-calendar-o payment-icons"> </i></p>
     &nbsp<p  class="payment_show_take_away_date" >Aujourd'hui</p>
 <% else %>
     <p> <i class="fa fa-calendar-o"> </i></p>
