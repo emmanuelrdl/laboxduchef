@@ -25,19 +25,15 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(params_restaurant)
-    @restaurant.user = current_user
     @restaurant.confirmed = false
     @restaurant = current_user.restaurants.create(params_restaurant)
-    if @restaurant.longitude == nil
-      flash[:alert] = "Adresse non valide"
-       render :new
-    else
+
        if @restaurant.save
         redirect_to user_path(current_user)
       else
         render :new
       end
-    end
+
   end
 
 
