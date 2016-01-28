@@ -19,7 +19,7 @@ margin-top:50px;
 .dashbord-restaurant {
 
 background-color: #E2E4E6;
-border:solid 2px;
+
 }
 
 #restaurant-profil-box {
@@ -108,7 +108,11 @@ margin-right:20px;
 
 }
 
-
+.user_restaurant_img {
+  border: solid 4px;
+  border-color:white;
+  margin-top:4px;
+}
 
 
 
@@ -121,4 +125,43 @@ color: white;
 .title_no_order {
   margin-top:50px;
   margin-bottom:50px;
+}
+
+.status_confirmed {
+  color:white;
+  background-color: #F3C024;
+  border-radius: 4px;
+  padding:5px;
+  padding-left: 6px;
+  padding-right:6px;
+}
+
+.status_paid {
+  color:white;
+  background-color: #278F75;
+  border-radius: 4px;
+  padding:5px;
+  padding-left: 20px;
+  padding-right:20px;
+}
+
+.status_unknown {
+  color:white;
+  background-color: red;
+  border-radius: 4px;
+  padding:5px;
+  padding-left: 6px;
+  padding-right:6px;
+
+}
+
+.order_modal {
+
+}
+
+.modal-global-box {
+
+  background-color:white;
+  color:black;
+  margin-top:120px;
 }

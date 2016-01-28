@@ -2,30 +2,30 @@ class OrdersController < ApplicationController
   before_action :navbar_choice
 
 
-    def create
-      @meal = Meal.find(params_order[:meal_id])
-      if params[:order][:quantity].to_i <= @meal.stock && @meal.active && params[:order][:quantity].to_i >= 1
-        @order = current_user.orders.where(status: "cart").first_or_create
-        @order.update(meal_id: @meal.id)
-        @order.quantity = params_order[:quantity].to_i
-        @order.amount_cents = @meal.price_cents * @order.quantity
-        @order.save
-        @order.meal.stock -= @order.quantity
-          if @order.meal.stock <= 0
-             @order.meal.active = false
-          else
-             @order.meal.active = true
-          end
-        @order.meal.save
-        redirect_to new_cart_payment_path
-      else params[:order][:quantity].to_i <= @meal.stock
-        flash[:alert] = "Stock insuffisant"
-        redirect_to meal_path(@meal)
-      end
+  def create
+    @meal = Meal.find(params_order[:meal_id])
+    if params[:order][:quantity].to_i <= @meal.stock && @meal.active && params[:order][:quantity].to_i >= 1
+      @order = current_user.orders.where(status: "cart").first_or_create
+      @order.update(meal_id: @meal.id)
+      @order.quantity = params_order[:quantity].to_i
+      @order.amount_cents = @meal.price_cents * @order.quantity
+      @order.save
+      @order.meal.stock -= @order.quantity
+        if @order.meal.stock <= 0
+           @order.meal.active = false
+        else
+           @order.meal.active = true
+        end
+      @order.meal.save
+      redirect_to new_cart_payment_path
+    else params[:order][:quantity].to_i <= @meal.stock
+      flash[:alert] = "Stock insuffisant"
+      redirect_to meal_path(@meal)
     end
+  end
 
   def show
-    @order = Order.where(status: "confirmed").find(params[:id])
+    @order = Order.where(:status => ["confirmed", "paid"]).find(params[:id])
     @restaurants = current_user.restaurants
       @restaurants.first.meals.each do |meal|
       @meal = meal
@@ -35,7 +35,8 @@ class OrdersController < ApplicationController
   def index
      if current_user.restaurant_owner
       @restaurant = current_user.restaurants.first
-      @meals = @restaurant.meals.page(params[:page])
+      @meals = @restaurant.meals
+      @meals_by_month = @meals.group_by { |meal| meal.created_at.strftime("%B") }
       end
   end
 

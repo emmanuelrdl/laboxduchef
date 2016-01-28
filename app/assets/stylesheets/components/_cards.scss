@@ -395,3 +395,35 @@ width:80%;
   background-color:#DD562C;
 
 }
+
+.btn-new-deal {
+background-color: #DD562C;
+color:white;
+width:20%;
+border-radius:4px;
+
+}
+
+@media (max-width: 800px) {
+
+.btn-new-deal {
+  width:70%;
+
+  }
+}
+
+.btn-my-payments {
+background-color: #DD562C;
+color:white;
+width:20%;
+border-radius:4px;
+
+}
+
+@media (max-width: 800px) {
+
+.btn-my-payments {
+  width:70%;
+
+  }
+}
