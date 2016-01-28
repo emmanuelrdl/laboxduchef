@@ -49,7 +49,6 @@
       </div>
       <div class="col-xs-6 text-center">
         <p class=" meal_xs_link-box"><%= link_to 'CARTE', controller: "meals", action:"mealmapxs", full_addressuser_input_autocomplete_address: @search_address, class:"meal_xs_header_offres_title" %></p>
-
       </div>
   </div>
 
@@ -86,7 +85,7 @@
       handler.buildMap({ internal: { id: 'map' } },
 
            function(){
-            if(markers>=0){
+            if(markers > 0){
             markers = handler.addMarkers(<%= raw @markers.to_json %>);
             handler.bounds.extendWith(markers);
             handler.fitMapToBounds();
