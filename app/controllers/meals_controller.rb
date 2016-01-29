@@ -72,6 +72,7 @@ class MealsController < ApplicationController
 
 
   def new
+
     @meal = Meal.new
     @restaurant = current_user.restaurants.first
   end
