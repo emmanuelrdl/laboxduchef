@@ -159,7 +159,7 @@ color: white;
 
 }
 
-.modal-global-box {
+.modal-order-global-box {
 
   background-color:white;
   color:black;
@@ -173,6 +173,30 @@ color: white;
 
 .modal-global-box{
   width:95%;
+
+  }
+}
+
+
+.modal-meal-global-box {
+  background-color:white;
+  width:100%;
+
+  padding-left: 0px;
+  padding-right:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+  margin-bottom:0px;
+
+
+}
+
+@media (min-width: 600px) {
+.modal-meal-global-box {
+  width:300px;
+  margin-top:200px;
+  margin-left:100px;
+
 
   }
 }
