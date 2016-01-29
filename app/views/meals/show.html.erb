@@ -19,7 +19,8 @@
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-phone"></i> <%= @meal.restaurant.phone_number %></p>
           </div>
-          <div class='col-xs-6 col-xs-offset-6 meal_show_lg_restaurant_infos'>
+             <%= render 'meals/mealshow' %>
+          <div class='col-xs-6 meal_show_lg_restaurant_infos'>
             <p class="meal_show_lg_take_away_date_title">RETRAIT</p>
             <%=image_tag @meal.restaurant.picture.url(:thumb),class:"meal_show_lg_restaurant_pic"%>
             <div class="meal_show_lg_take_away_date"><%= render 'meals/meal_take_away_date' %></div>
@@ -39,7 +40,7 @@
                 <% elsif @meal.take_away_noon? %>
                   <div class="meal_show_lg_restaurant_openings">
                    <p class="meal_show_lg_take_away_time">
-                      <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                      <i class="fa fa-clock-o"></i>
                       <%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
                       - <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
                   </p>
@@ -47,14 +48,14 @@
                 <% elsif @meal.take_away_evening? %>
                   <div class="meal_show_lg_restaurant_openings">
                     <p class="meal_show_lg_take_away_time">
-                      <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                      <i class="fa fa-clock-o"></i>
                       <%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
                       - <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
                     </p>
                   </div>
                 <% end %>
              </div>
-             <%= render 'meals/mealshow' %>
+
             <div class="col-xs-6 ">
               <div id="map1"  class="map_show_lg" ></div>
 

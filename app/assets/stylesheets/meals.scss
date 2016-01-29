@@ -271,8 +271,15 @@ margin-left: 30px;
   background-repeat: no-repeat;
   margin: auto;
   width: 100%
+}
 
-
+.meal-show-img-lg{
+  position: relative;
+  height: 280px;
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%
 }
 
 
@@ -639,6 +646,8 @@ font-size: 25px;
 
 .meal_show_lg_restaurant_infos {
   padding: 15px;
+  width:50%
+
 }
 
 .meal_show_lg_restaurant_pic {
@@ -663,10 +672,12 @@ float:left;
 }
 
 .meal-show-full-box-lg {
-margin-top: -150px;
+
 border-shadow: 0 1px 3px rgba(0,0,0,0.6);
 border-right: solid 1px;
 border-color: grey;
+position: relative;
+
 
 }
 
