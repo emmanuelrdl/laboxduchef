@@ -40,6 +40,18 @@
                           <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
                      </div>
                   </div>
+                <p class='grey-text'> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
+                 <div class="col-xs-6">
+                  <p class='grey-text ' ><%= check_box_tag "meal[starting_date]", Date.today %> Aujourd'hui
+                  </p>
+                <%= f.error :second_date, style:"color:#E08283;" %>
+                 </div>
+                 <div class="col-xs-6">
+                 <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1 %>
+                  Demain
+                 </p>
+                <%= f.error :second_date, style:"color:#E08283;" %>
+                 </div>
 
                <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
                <% end %>
