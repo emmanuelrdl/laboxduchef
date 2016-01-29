@@ -1,6 +1,8 @@
 <div id="body-container" >
   <div class="form-color">
     <div class="container-fluid">
+          <% current_user.restaurants.each do |restaurant| %>
+          <% if restaurant.confirmed? %>
              <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
             <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
              <p class='grey-text'>*Tous les champs du formulaire sont obligatoires</p>
