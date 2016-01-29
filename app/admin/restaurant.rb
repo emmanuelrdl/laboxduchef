@@ -16,5 +16,32 @@ ActiveAdmin.register Restaurant do
 #   permitted
 # end
 
+ form do |f|
+    f.inputs do
+      f.input :user_id
+      f.input :name
+      f.input :locality
+      f.input :postal_code
+      f.input :phone_number
+      f.input :latitude
+      f.input :longitude
+      f.input :picture_file_name
+      f.input :picture_content_type
+      f.input :picture_file_size
+      f.input :picture_updated_at
+      f.input :street
+      f.input :confirmed
+      f.input :iban
+      f.input :take_away_noon_starts_at
+      f.input :take_away_noon_ends_at
+      f.input :take_away_evening_starts_at
+      f.input :take_away_evening_ends_at
+      f.input :id
+      f.input :open_noon
+      f.input :open_evening
+    end
+    f.actions
+  end
+
 
 end
