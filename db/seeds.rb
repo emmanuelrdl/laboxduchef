@@ -57,6 +57,8 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
+  open_evening: true,
+  open_noon: false
 
 
 )
@@ -119,6 +121,8 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
+  open_evening: false,
+  open_noon: true
 
 )
 
@@ -196,6 +200,8 @@ astier = proprio_astier.restaurants.create!(
   take_away_noon_ends_at: Date.current.noon + 1.hour,
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
+  open_evening: true,
+  open_noon: true
 
 )
 

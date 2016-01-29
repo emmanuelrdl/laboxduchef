@@ -5,7 +5,6 @@ class Meal < ActiveRecord::Base
   has_many :orders
 
   validates :picture, presence: true, :on => :create
-  validates_presence_of :picture, :message => "picture is required."
   validates :name, presence: true, length: { maximum: 30 }
   validates :price, presence: true, numericality: true
   validates :price, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }

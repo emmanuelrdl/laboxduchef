@@ -42,30 +42,11 @@
                         <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
                    </div>
                 </div>
-                <p> <strong> Retrait possible </strong>(cochez une ou deux cases <%= link_to "Modifier mes horaires", edit_restaurant_path(@restaurant) %>)</p>
-                 <div class="col-xs-6 col-sm-6" >
-                   <p><%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
-                   <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </p>
-                 </div>
-                <div class="col-xs-6 col-sm-6" >
-                  <%= f.input :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
-                  <p class="take_away_times_meal"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </p>
-                </div>
+               <%= render 'meal_take_away_time_selection', :f => f %>
                 <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
                 <%= link_to "Désactiver l'offre", restaurant_meal_path, :method => :delete, :confirm => "You sure?", class:"btn btn-danger btn-delete" %>
                <% end %>
             </div>
-
-          <%else %>
-
-      <div id="text-center" style="height:500px;">
-          <h2>Votre restaurant est en cours de validation. Une fois celui-ci validé vous pourrez poster vos offres. L'étape de validation prend entre 24 heures et 48 heures.</h2>
-          <div class="text-center">
-          <%= link_to "Retour", root_path, class:"btn btn-primary text-center btn-margin" %>
-
-          </div>
-     </div>
-
 
           <% end -%>
            <% end %>

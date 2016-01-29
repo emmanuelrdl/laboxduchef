@@ -20,27 +20,31 @@
           <%= f.hidden_field  :postal_code, :as => :hidden, label: "Code postal", id: "postal_code" %>
           <%= f.hidden_field  :locality, :as => :hidden, label: "Ville", id: "locality" %>
         <div class="form-input-time-box">
-           <p>Horaires de retrait le midi</p>
-          <div class="restaurant_timepicker">
-            <span>de&nbsp</span>
-            <span><%= f.time_select :take_away_noon_starts_at , :label => false %></span>
-          </div>
+           <%= f.input :open_noon, as: :boolean, label: "Retrait le midi", input_html: {id:"open_noon"} %>
+          <div id="open_noon_true">
             <div class="restaurant_timepicker">
-              <span>à&nbsp&nbsp</span>
-              <span><%= f.time_select :take_away_noon_ends_at,:label => false%> </span>
+              <span>de&nbsp</span>
+              <span><%= f.time_select :take_away_noon_starts_at , :label => false %> </span>
             </div>
+              <div class="restaurant_timepicker">
+                <span>à&nbsp&nbsp</span>
+                <span><%= f.time_select :take_away_noon_ends_at,:label => false %> </span>
+              </div>
+          </div>
         </div>
         <div class="form-input-time-box">
-           <p>Horaires de retrait le soir</p>
-          <div class=" restaurant_timepicker">
-            <span>de&nbsp</span>
-            <span><%= f.time_select :take_away_evening_starts_at ,:label => false %></span>
-          </div>
-            <div class="restaurant_timepicker">
-              <span>à&nbsp&nbsp</span>
-              <span><%= f.time_select :take_away_evening_ends_at,:label => false%> </span>
+          <%= f.input :open_evening, as: :boolean, label:"Retrait le soir" , input_html: {id:"open_evening"}%>
+          <div id="open_evening_true">
+            <div class=" restaurant_timepicker">
+              <span>de&nbsp</span>
+              <span><%= f.time_select :take_away_evening_starts_at ,:label => false %></span>
             </div>
-        </div>
+            <div class="restaurant_timepicker">
+                <span>à&nbsp&nbsp</span>
+                <span><%= f.time_select :take_away_evening_ends_at,:label => false%> </span>
+              </div>
+            </div>
+          </div>
 
           <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
 
