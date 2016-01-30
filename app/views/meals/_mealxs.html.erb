@@ -1,7 +1,6 @@
-
+<!-- list of meals xs -->
 <% @meals.each do |meal| %>
   <% if meal.active? %>
-
       <div class="col-xs-12 card-meal-global-box-xs" >
            <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
             <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"#{@search_address}"  %>
@@ -57,5 +56,5 @@
 
   <% end -%>
  <% end -%>
-
+<!-- list of meals xs -->
 

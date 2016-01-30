@@ -1,0 +1,30 @@
+<!--  map or deals -->
+ <div class="col-xs-12 hidden-md hidden-lg hidden-sm" id="meal_search_header_xs">
+  <div class="col-xs-6 text-center">
+    <p class=" meal_xs_link-box"><%= link_to 'OFFRES', url_for(params), class:"meal_xs_header_offres_title" %></p>
+  </div>
+  <div class="col-xs-6 text-center">
+    <p class=" meal_xs_link-box"><%= link_to 'CARTE', meals_mealmapxs_path, full_addressuser_input_autocomplete_address: @search_address, class:"meal_xs_header_offres_title"  %></p>
+  </div>
+</div>
+<!-- map or deals -->
+
+<div class="container-index-xs hidden-md hidden-lg hidden-sm">
+  <div class="row" >
+    <div class="col-xs-12 col-sm-12 block-index-xs  ">
+       <% if  Meal.where(active:true).count == 0 %>
+        <div class="col-xs-12 text-center" >
+            <p class="font-25">Il n'y a malhreusement pas d'offres en cours pour le moment ! </p>
+            <p class="font-25" >N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
+        </div>
+        <% else %>
+           <div id="my-meals-xs">
+              <%= render 'meals/mealxs', renderer: BootstrapPagination::Rails  %>
+           </div>
+           <div id="infinite-scrolling">
+           <%= will_paginate @meals %>
+          </div>
+        <% end -%>
+      </div>
+    </div>
+</div>
