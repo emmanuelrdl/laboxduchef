@@ -6,9 +6,9 @@
 
           <%= simple_form_for @contact do |f| %>
 
-              <%= f.input :name, :required => true, label:false, placeholder:"Nom et Prénom", input_html: {class: 'form-input-contact' } %>
+              <%= f.input :name, :required => true, label:false, placeholder:"Nom et Prénom", input_html: {class: 'form-input-text' } %>
 
-              <%= f.input :email, :required => true, label:false, placeholder:"Email", input_html: {class: 'form-input-contact' } %>
+              <%= f.input :email, :required => true, label:false, placeholder:"Email", input_html: {class: 'form-input-text' } %>
 
 
               <%= f.input :message, :as => :text, :required => true, label:false, placeholder:"Votre message", input_html: {class: 'form-input-contact' } %>
