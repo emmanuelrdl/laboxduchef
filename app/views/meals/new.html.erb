@@ -14,33 +14,19 @@
                   <%= f.error :picture, style:"color:#E08283;" %>
                 </div>
                 <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
-                  <div class="col-xs-12 increment-field-block" >
-                      <div class="incremented-field">
-                          <span class='grey-text' >&nbsp&nbspPrix en salle</span>
-                          <button type='button' class='qtyminus btn-minus' field='meal_seated_price' >-</button>
-                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="10">
-                          <button type='button' class='qtyplus btn-qtyplus' field='meal_seated_price' >+</button>
-                          <span>€</span>
-                     </div>
-                  </div>
-                  <div class="col-xs-12 increment-field-block">
-                      <div class="incremented-field">
-                          <span class='grey-text' > Prix de la box</span>
-                          <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
-                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="5">
-                          <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
-                          <span>€</span>
-                     </div>
-                  </div>
-                  <div class="col-xs-12 increment-field-block">
-                      <div class="incremented-field">
-                          <span class='grey-text' >&nbsp&nbsp&nbsp&nbsp Quantité</span>
-                          <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
-                            <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="5" min="1">
-                          <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
-                     </div>
-                  </div>
-
+                             <p class='grey-text'> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
+                 <div class="col-xs-6">
+                  <p class='grey-text ' ><%= check_box_tag "meal[starting_date]", Date.today %> Aujourd'hui
+                  </p>
+                <%= f.error :second_date, style:"color:#E08283;" %>
+                 </div>
+                 <div class="col-xs-6">
+                 <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1 %>
+                  Demain
+                 </p>
+                <%= f.error :second_date, style:"color:#E08283;" %>
+                 </div>
+                <%= render 'meal_take_away_time_selection', :f => f %>
                <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
                <% end %>
             </div>
