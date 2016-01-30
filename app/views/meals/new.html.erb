@@ -9,6 +9,9 @@
               <%= simple_form_for([@restaurant, @meal]) do |f| %>
                 <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 24}, placeholder: 'Nom du plat*' %>
 
+                  <%= f.file_field :picture, label:false %>
+                  <%= f.error :picture, style:"color:#E08283;" %>
+
                 <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
                   <div class="col-xs-12 increment-field-block" >
                       <div class="incremented-field">
