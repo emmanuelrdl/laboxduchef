@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   def home
     @meals = Meal.all
     @restaurants = Restaurant.all
-
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
     @my_restaurant = restaurant
     marker.lat restaurant.latitude
@@ -14,6 +13,10 @@ class PagesController < ApplicationController
     marker.infowindow render_to_string(:partial => 'pages/infowindow', :locals => { :object => @my_restaurant})
     end
     @newsletter = Newsletter.new
+    respond_to do |format|
+      format.html          # /app/views/profiles/index.html.erb
+      format.html.phone    # /app/views/profiles/index.html+phone.erb
+    end
   end
 
   def espace_restaurants
