@@ -15,7 +15,7 @@
                   <th>A percevoir</th>
                 </tr>
               </thead>
-                <% @meals_by_month.each do |monthname, meals| %>
+                <% @meals_by_month.reverse_each do |monthname, meals| %>
                     <% meals.each do |meal| %>
                       <% meal.orders.each do |order| %>
                        <% if order.status == "confirmed" || order.status == "paid"  %>

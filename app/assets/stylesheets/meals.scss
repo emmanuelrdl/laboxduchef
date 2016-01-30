@@ -483,11 +483,12 @@ position: absolute;
 
 .map_container {
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 95%;
   margin-top:90px;
   padding-top: 90px;
   height: 0;
   overflow: hidden;
+  background-color: #DADFE1;
 
 }
 
@@ -784,6 +785,7 @@ position: relative;
   padding-left: 0px;
   padding-right:0px;
   position: fixed;
+
 }
 
 #meal_search_header_xs {
@@ -803,13 +805,12 @@ position: relative;
 
 }
 
-.meal_xs_header_offres_title:hover {
-  color:white;
-}
+
 
 .meal_xs_link-box {
   border: solid 1px;
   margin-top: 10px;
+  color:white;
 
 }
 

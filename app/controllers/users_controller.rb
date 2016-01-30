@@ -7,15 +7,13 @@ class UsersController < ApplicationController
     if current_user.restaurant_owner
       @restaurants = current_user.restaurants
       @restaurant = current_user.restaurants.first
-      @meals = @restaurant.meals
+      @meals = @restaurant.meals.where(active:true)
       @orders = []
       @meals.each do |meal|
         meal.orders.each do |meal_order|
          @orders << meal_order
         end
       end
-
-
     elsif (current_user.orders.where(status:'confirmed').count >= 1)  || (current_user.orders.where(status:'paid').count >= 1)
       if current_user.orders.last.status == "confirmed"
         @last_order = current_user.orders.where(status: 'confirmed').last

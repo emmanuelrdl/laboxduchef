@@ -19,27 +19,27 @@
                 <div class="col-xs-12 increment-field-block" >
                     <div class="incremented-field">
                         <span >&nbsp&nbspPrix en salle</span>
-                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_seated_price' />
+                        <input type='button' value='-' class='qtyminus btn-quantity' field='meal_seated_price' />
                           <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[seated_price]" id="meal_seated_price" type="text" value="<%= @meal.seated_price %>">
-                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_seated_price' />
+                        <input type='button' value='+' class='qtyplus btn-quantity' field='meal_seated_price' />
                         <span>€</span>
                    </div>
                 </div>
                 <div class="col-xs-12 increment-field-block">
                     <div class="incremented-field">
                         <span > Prix de la box</span>
-                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_price' />
+                        <input type='button' value='-' class='qtyminus btn-quantity' field='meal_price' />
                           <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[price]" id="meal_price" type="text" value="<%= @meal.price %>">
-                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_price' />
+                        <input type='button' value='+' class='qtyplus btn-quantity' field='meal_price' />
                         <span>€</span>
                    </div>
                 </div>
                 <div class="col-xs-12 increment-field-block">
                     <div class="incremented-field">
                         <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
-                        <input type='button' value='-' class='qtyminus btn-minus' field='meal_quantity' />
+                        <input type='button' value='-' class='qtyminus btn-quantity' field='meal_quantity' />
                           <input class="string required form-control incremented-input-field form-input-radius" placeholder="0.00" name="meal[quantity]" id="meal_quantity" type="text" value="<%= @meal.quantity %>">
-                        <input type='button' value='+' class='qtyplus btn-qtyplus' field='meal_quantity' />
+                        <input type='button' value='+' class='qtyplus btn-quantity' field='meal_quantity' />
                    </div>
                 </div>
                <%= render 'meal_take_away_time_selection', :f => f %>

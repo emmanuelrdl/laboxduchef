@@ -29,8 +29,8 @@
             <th>Modifier</th>
           </tr>
         </thead>
-        <% @restaurant.meals.where(active: true).find_each do |meal| %>
-        <% if @restaurant.meals.where(active:true).count >= 1 %>
+        <% @meals.reverse_each do |meal| %>
+        <% if @meals.count >= 1 %>
           <%= render 'meal_infos', :meal => meal %>
          <% end -%>
         <tbody>
@@ -63,7 +63,7 @@
             </tr>
           </thead>
 
-              <% @orders.last(10).each do |order| %>
+              <% @orders.last(10).reverse_each do |order| %>
                 <% if order.status == "confirmed" || order.status == "paid"  %>
                   <%= render 'order_infos', :order => order %>
                   <tbody>
