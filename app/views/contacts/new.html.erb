@@ -1,26 +1,11 @@
 <div id="body-container" >
-
     <div class="container-fluid">
       <div class="col-xs-12 col-md-4 col-md-offset-4 text-center form-box" >
           <h3 class="form-header">NOUS CONTACTER</h3>
 
-          <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
 
-
-
-
-              <%= f.input :message, :as => :text, :required => true, label:false, placeholder:"Votre message", input_html: {class: 'form-input-contact' } %>
-
-            <div class= "hidden">
-              <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3" >
-              </br>
-              <%= f.button :submit, 'Envoyer', :class=> "btn btn-validation" %>
-            </div>
-          <% end %>
 
 
     </div>
   </div>
-</div>
+
