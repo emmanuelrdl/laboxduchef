@@ -7,7 +7,7 @@
             <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
              <p class='grey-text'>*Tous les champs du formulaire sont obligatoires</p>
               <%= simple_form_for([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 24}, placeholder: 'Nom du plat*' %>
+                <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
                 <div class="form-input-picture">
                   <p class="label-picture">Photo(obligatoire)</p>
                   <%= f.file_field :picture, label:false, class:"input-picture" %>
