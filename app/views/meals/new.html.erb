@@ -10,7 +10,7 @@
                 <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 24}, placeholder: 'Nom du plat*' %>
 
                   <p class="form-input-picture grey-text">Photo(obligatoire)
-                  <%= f.file_field :picture, label:false, class:"form-input-picture" %>
+                  <%= f.file_field :picture, label:false, class:"" %>
                   <%= f.error :picture, style:"color:#E08283;" %>
                   </p>
                 <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
