@@ -6,7 +6,7 @@
       <p class=" meal_xs_link-box"><%= link_to 'OFFRES', url_for(params), class:"meal_xs_header_offres_title" %></p>
     </div>
     <div class="col-xs-6 text-center">
-      <p class=" meal_xs_link-box"><%= link_to 'CARTE', meals_mealmapxs_path, full_addressuser_input_autocomplete_address: @search_address, class:"meal_xs_header_offres_title"  %></p>
+      <p class=" meal_xs_link-box"><%= link_to 'CARTE', , controller: "meals", action:"mealmapxs", full_addressuser_input_autocomplete_address: @search_address, class:"meal_xs_header_offres_title"  %></p>
     </div>
   </div>
   <!-- map or deals -->
