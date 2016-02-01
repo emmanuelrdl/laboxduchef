@@ -1,0 +1,28 @@
+<div id="banner-container">
+  <div class="layer-xs hidden-sm hidden-md hidden-lg"></div>
+    <div class="container" >
+      <div class="row ">
+        <div class="col-xs-12 col-sm-12 ">
+          <div  class="text-center" >
+              <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHER</p>
+              <h1>
+          </div>
+        </div>
+      </div>
+  </div >
+
+<!-- partner actions list -->
+    <div class="global_box_partner_choice col-xs-12 text-center col-md-4 col-md-offset-4">
+         <% if @restaurant != nil %>
+            <% if @restaurant.confirmed? %>
+              <%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(@restaurant), class:"btn btn-validation" %>
+              <%= link_to "TABLEAU DE BORD", user_path(current_user), class:" btn btn-home-dashboard" %>
+            <% elsif @restaurant.present? %>
+              <p class="btn btn-validation"> Restaurant en cours de validation</p>
+               <%= link_to "TABLEAU DE BORD", user_path(current_user), class:"btn btn-home-dashboard" %>
+            <% end %>
+          <%else %>
+            <%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path, class:"btn btn-validation" %>
+        <% end %>
+    </div>
+<!-- partner actions list -->
