@@ -1,10 +1,11 @@
+<!-- Edit account -->
 <div class="row ">
   <div class="text-center col-xs-12 col-sm-12" id="profil-box">
       <h4 class="">Bienvenue sur votre compte <%= current_user.first_name %></h4>
       <div><%= link_to "Modifier", edit_user_registration_path(current_user), class: "btn btn-ajouter" %></div>
   </div>
 </div>
-
+<!-- Edit account -->
 
 <% if current_user.restaurant_owner? %>
   <%= render 'restaurant_owner' %>

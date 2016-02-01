@@ -1,4 +1,4 @@
-
+<!-- Restaurant profil -->
 <div class="row restaurant_profil-box" >
   <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
     <div class="form-group" >
@@ -14,8 +14,8 @@
         </div>
     </div>
 </div>
-
-
+<!-- Restaurant profil -->
+<!-- List of current deals -->
 <div class="row dashbord-restaurant">
   <h4 class="text-center form-header">OFFRES EN COURS</h4>
   <div class="col-xs-12">
@@ -46,9 +46,8 @@
     </div>
   </div>
 </div>
-
-
-
+<!-- List of current deals -->
+<!-- List of last 10 orders -->
 <div class="row dashbord-restaurant">
   <h4 class="text-center form-header">MES 10 DERNIÈRES COMMANDES</h4>
   <div class="col-xs-12">
@@ -62,7 +61,6 @@
               <th>Statut</th>
             </tr>
           </thead>
-
               <% @orders.last(10).reverse_each do |order| %>
                 <% if order.status == "confirmed" || order.status == "paid"  %>
                   <%= render 'order_infos', :order => order %>
@@ -82,12 +80,8 @@
                       </td>
                     </tr>
                  </tbody>
-
               <% end %>
-
             <% end -%>
-
-
         </table>
       </div>
     </div>
@@ -95,7 +89,7 @@
    <%= link_to "Mes paiements", orders_path(@order), class: "btn btn-my-payments btn-margin" %>
    </div>
 </div>
-
+<!-- List of last 10 orders -->
 
 
 
