@@ -21,7 +21,7 @@
           </div>
           <% else %>
              <div id="my-meals-xs">
-                <%= render 'meals/mealxs', renderer: BootstrapPagination::Rails  %>
+                <%= render 'meals/list_meals_xs', renderer: BootstrapPagination::Rails  %>
              </div>
              <div id="infinite-scrolling">
              <%= will_paginate @meals %>
