@@ -25,4 +25,11 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Confirmation de commande - La Box des Chefs')
   end
 
+
+  def restaurant_created(restaurant, user)
+    @user = user
+    @restaurant = restaurant
+    mail(to: @user.email, subject: 'Votre établissement a bien été ajouté - La Box des Chefs')
+  end
+
 end

@@ -31,7 +31,14 @@ class Restaurant < ActiveRecord::Base
   before_validation :geocode, if: :full_address_changed?
 
 
+  after_create :send_restaurant_created
 
+
+ def send_restaurant_created
+    restaurant = Restaurant.last
+    user = Restaurant.last.user
+    UserMailer.restaurant_created(restaurant, user).deliver_now
+ end
 
 
 
