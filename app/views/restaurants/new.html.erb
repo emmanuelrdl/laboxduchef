@@ -8,12 +8,12 @@
         <%= simple_form_for @restaurant do |f| %>
           <%= f.input :name, label: false, :placeholder => 'Nom*', input_html: {class:"form-input-text"}%>
           <%= f.input :phone_number, label: false, input_html:{class:"form-input-text", :maxlength => 10}, :placeholder => 'Téléphone*' %>
-          <div class="form-input-picture">
-            <p class="label-picture">Photo*</p>
-            <%= f.file_field :picture, :required => true, label: false, class:'input-picture'  %>
-            <%= f.error :picture, style:"color:#E08283;" %>
-
+          <div class="fileUpload">
+            <p class="custom-para">+ Ajouter une photo</p>
+            <%= f.file_field :picture, label:false, class:"upload" %>
           </div>
+          <%= f.error :picture, style:"color:#E08283;" %>
+          <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
           <%= text_field_tag :full_addressuser_input_autocomplete_address,'', :required => true, id:"user_input_autocomplete_address", class:"form-control form-input-text", label:false, placeholder:"Adresse du restaurant*" %>
            <%= f.error :locality, style:"color:#E08283;" %>
           <%= f.hidden_field  :street, :as => :hidden, label: "Numéro de votre rue", id: "street"  %>
