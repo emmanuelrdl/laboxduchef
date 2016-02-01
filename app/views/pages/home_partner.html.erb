@@ -6,27 +6,23 @@
       <div class="row ">
         <div class="col-xs-12 col-sm-12 ">
           <div  class="text-center" >
-              <h1 class="hidden-xs title-home-lg"> MANGEZ MIEUX, MOINS CHER,
+              <h1 class="hidden-xs title-home-lg"> VALORISEZ VOS SURPLUS ET
                 <p> LUTTEZ CONTRE LE GASPILLAGE </p>
               </h1>
-              <p class=" hidden-xs sub-title-home-lg">DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHER</p>
-
-              <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> DES PLATS DE RESTAURANTS JUSQU'A TROIS FOIS MOINS CHER</p>
+              <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> VALORISEZ VOS SURPLUS ET LUTTEZ CONTRE LE GASPILLAGE</p>
               <h1>
           </div>
         </div>
       </div>
     </div >
 <!-- search banner -->
-<!-- search field lg -->
-    <div class="hidden-xs hidden-sm">
-    <%= render 'pages/search_home_lg' %>
+    <div class="global_box_partner_choice col-xs-12 text-center col-sm-4 col-sm-offset-4">
+      <% if @restaurant.confirmed? %>
+        <%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(@restaurant), class:"btn btn-home-partner" %>
+      <% else %>
+        <%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path, class:"btn btn-home-partner" %>
+      <% end %>
     </div>
-<!-- search field lg -->
-     <div class="hidden-md hidden-lg" style="margin-bottom:300px;">
-    <%= render 'pages/search_home_xs' %>
-    </div>
-<!-- search field lg -->
  <!-- how it works -->
   <div class="row hidden-xs hidden-sm">
     <div class="col-xs-12 filter-hiw text-center">

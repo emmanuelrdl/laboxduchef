@@ -18,9 +18,9 @@
   get "/conditionsgenerales" => "pages#conditionsgenerales"
   get "/chartepartenaire" => "pages#chartepartenaire"
   get "/charteutilisateur" => "pages#charteutilisateur"
-
-
+  get "/home_partner" => "pages#home_partner"
   get "/meals/mealmapxs" => "meals#mealmapxs"
+
 
 
 
