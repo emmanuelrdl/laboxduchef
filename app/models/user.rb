@@ -19,13 +19,7 @@ class User < ActiveRecord::Base
     styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :picture,
   content_type: /\Aimage\/.*\z/
-
-
-  after_create :send_welcome_email
-
-
-
-
+ after_create :send_welcome_email
 
 
  def send_welcome_email

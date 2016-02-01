@@ -2,12 +2,10 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_order , only: [:new, :create]
   before_action :navbar_choice
-  # before_action :set_order_meal, only: [:new]
+
 
   def new
-    # @order = current_user.orders.where(status: "cart")
     @order = current_user.orders.where(status: "cart").first
-
     @amount = @order.amount
   end
 
@@ -29,12 +27,10 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, status: 'confirmed')
     @order = current_user.orders.where(status: "confirmed")
+    send_order_confirmation
     redirect_to cart_payment_path(@order)
-
     rescue Stripe::CardError => e
-
     flash[:error] = e.message
-
   end
 
 
@@ -46,8 +42,15 @@ class PaymentsController < ApplicationController
     @restaurant_full_address = @order.meal.restaurant.full_address
   end
 
-  def navbar_choice
-    @navbar_other = true
+
+  def send_order_confirmation
+      amount = Order.last.amount
+      meal = Order.last.meal
+      quantity = Order.last.quantity
+      name = Order.last.meal.name
+      restaurant = meal.restaurant
+      user = current_user
+      UserMailer.order_confirmation(user, amount, name, restaurant, quantity).deliver_now
   end
 
   private
@@ -64,5 +67,8 @@ class PaymentsController < ApplicationController
   end
 
 
+  def navbar_choice
+    @navbar_other = true
+  end
 
 end

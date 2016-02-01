@@ -9,8 +9,6 @@ class MealsController < ApplicationController
   before_action :set_address, only: [:index, :show, :mealmapxs]
 
 
-
-
   def index
     @meal = Meal.new
     @meals = Meal.where(active:true).paginate(:page => params[:page], :per_page => 6)
