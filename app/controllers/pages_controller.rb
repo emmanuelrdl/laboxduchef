@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :navbar_choice, only: [:home]
+  before_action :navbar_choice, only: [:home, :home_partner]
   before_action :footer_choice, only: [:home, :espace_restaurants, :conditionsgenerales, :chartepartenaire,
     :charteutilisateur]
 

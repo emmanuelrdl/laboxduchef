@@ -10,12 +10,13 @@
                 <p> LUTTEZ CONTRE LE GASPILLAGE </p>
               </h1>
               <h1 class="visible-xs hidden-sm hidden-md hidden-lg title-home-xs"> <p> VALORISEZ VOS SURPLUS ET LUTTEZ CONTRE LE GASPILLAGE</p>
-              <h1>
+              </h1>
           </div>
         </div>
       </div>
     </div >
 <!-- search banner -->
+<!-- partner actions list -->
     <div class="global_box_partner_choice col-xs-12 text-center col-md-4 col-md-offset-4">
          <% if @restaurant != nil %>
             <% if @restaurant.confirmed? %>
@@ -29,6 +30,7 @@
             <%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path, class:"btn btn-validation" %>
         <% end %>
     </div>
+<!-- partner actions list -->
  <!-- how it works -->
   <div class="row hidden-xs hidden-sm">
     <div class="col-xs-12 filter-hiw text-center">

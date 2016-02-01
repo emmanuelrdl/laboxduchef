@@ -6,21 +6,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to root_path do %>
 
+<!-- logo redirection -->
+  <% if current_user == nil %>
+        <%= link_to root_path do %>
           <%= image_tag "logo3.png", size:"210x30", style:"margin-top:10px; margin-left:20px;"  %>
-
-
-      <% end %>
-
+        <% end %>
+    <% elsif current_user.restaurant_owner == true %>
+        <%= link_to home_partner_path do %>
+          <%= image_tag "logo3.png", size:"210x30", style:"margin-top:10px; margin-left:20px;"  %>
+        <% end %>
+    <% else %>
+        <%= link_to root_path do %>
+          <%= image_tag "logo3.png", size:"210x30", style:"margin-top:10px; margin-left:20px;"  %>
+        <% end %>
+    <% end %>
+<!-- logo redirection -->
 
     </div>
      <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
            <% if current_user.restaurant_owner? %>
-
-
               <% if current_user.restaurants.count < 1 %>
                 <li><%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path %> </li>
                 <li> <%= link_to "CONTACT", new_contact_path %></li>
