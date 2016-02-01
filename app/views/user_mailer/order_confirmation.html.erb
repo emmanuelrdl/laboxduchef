@@ -1,9 +1,9 @@
-<p>Bonjour <%= @user.first_name %> <%= @user.first_name %>,</p>
+<p>Bonjour <%= @user.first_name %> <%= @user.last_name %>,</p>
 
 
 <p>Votre commande a bien été prise en compte.</p>
 <p>Vous avez commandé <%= @quantity %> <%=@name%></p>
-<p>Ce repas est à récupérer dans le restaurant:<%= @restaurant.name %> </p>
+<p>Ce repas est à récupérer dans le restaurant - <%= @restaurant.name %> </p>
 
 <p>Prix total TTC: <%= @amount %></p>
 

@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     @amount = amount
     @name = name
     @restaurant = restaurant
-    @quanity = quantity
+    @quantity = quantity
     mail(to: @user.email, subject: 'Confirmation de commande - La Box des Chefs')
   end
 

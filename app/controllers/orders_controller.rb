@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :navbar_choice
-
+  before_action :check_if_offer_active, only: [:create]
 
   def create
     @meal = Meal.find(params_order[:meal_id])
@@ -62,6 +62,13 @@ class OrdersController < ApplicationController
     @order ||= current_user.orders.where(status: "cart").first_or_create
   end
 
+  def check_if_offer_active
+     @meal = Meal.find(params_order[:meal_id])
+     if @meal.active == false
+      flash[:alert] = "Cette offre n'est plus active"
+      redirect_to root_path
+     end
+  end
 
 
 
