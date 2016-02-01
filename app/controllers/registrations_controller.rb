@@ -4,12 +4,14 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => :create
 
   def after_sign_up_path_for(resource)
-    if resource.restaurant_owner
-      root_path
+    if resource.restaurant_owner?
+      home_partner_path
     else
       root_path
     end
   end
+
+
 
 
   def create

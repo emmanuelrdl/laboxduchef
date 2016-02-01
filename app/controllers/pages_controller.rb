@@ -18,8 +18,16 @@ class PagesController < ApplicationController
   end
 
   def home_partner
-    @restaurant = current_user.restaurants.first
-    @newsletter = Newsletter.new
+    if current_user != nil
+      if current_user.restaurant_owner == true
+        @restaurant = current_user.restaurants.first
+        @newsletter = Newsletter.new
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def espace_restaurants
