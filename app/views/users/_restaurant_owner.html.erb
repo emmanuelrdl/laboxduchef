@@ -69,7 +69,7 @@
                   <tbody>
                     <tr>
                       <td><%= order.created_at.strftime("%d/%m/%y") %></td>
-                      <td><strong><%= link_to "Numéro: #{order.id}","", data: { toggle: "modal", target: "#modal-#{order.id}"}, class: "btn btn-success btn-xs" %></strong></td>
+                      <td><strong><%= link_to "Numéro: #{order.id}","", data: { toggle: "modal", target: "#modal_order_#{order.id}"}, class: "btn btn-success btn-xs" %></strong></td>
                       <td><%= number_to_currency(order.amount, :unit => "€") %></td>
                       <td>
                         <% if order.status == "confirmed" %>

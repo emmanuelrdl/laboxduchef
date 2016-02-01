@@ -1,24 +1,17 @@
 <!-- meta Facebook  -->
 
-<% content_for :meta_title, "#{@meal.name} à seulement #{@meal.price} €" %>
+<% content_for :meta_title, "#{@meal.name} à seulement #{@meal.price} € -  #{@meal.restaurant.name}" %>
 <% content_for :meta_description, @meal.description %>
 <% content_for :meta_image, @meal.picture.url %>
 
 
-
+<!-- meta Facebook -->
 
 <!-- view sm-xs -->
-
 <div class="row hidden-md hidden-lg visible-xs visible-sm">
- <%= render 'meals/mealshowxs' %>
+ <%= render 'meals/meal_show_xs' %>
 </div>
-
-
 <!-- view-sm-xs -->
-
-
-
-
 <!-- View md-ld -->
 <div id="body-container" >
     <div class="row hidden-sm hidden-xs">
@@ -28,7 +21,7 @@
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-map-marker"></i> <%= @meal.restaurant.full_address %></p>
           <p class="meal_show_lg_restaurant_phone"> <i class="fa fa-phone"></i> <%= @meal.restaurant.phone_number %></p>
           </div>
-             <%= render 'meals/mealshow' %>
+             <%= render 'meals/meal_show_lg' %>
           <div class='col-xs-6 meal_show_lg_restaurant_infos'>
             <p class="meal_show_lg_take_away_date_title">RETRAIT</p>
             <%=image_tag @meal.restaurant.picture.url(:thumb),class:"meal_show_lg_restaurant_pic"%>
@@ -76,7 +69,7 @@
 
 
 
-
+<!-- map meal show lg -->
  <% content_for(:after_js) do %>
               <%= javascript_tag do %>
                 $(document).on('ready', function() {
@@ -97,3 +90,4 @@
 
               <% end %>
             <% end %>
+<!-- map meal show lg -->

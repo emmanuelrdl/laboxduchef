@@ -1,13 +1,9 @@
 <p><%= @my_meal.name %> vous propose: </p>
-
-<% @my_meal.meals.where(active:true).each do |meal| %>
-
-
-  <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
-    <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"#{@search_address}"  %>
-      <%= f.submit meal.name, class: "btn-submit-meal-infow" %>
-    <% end -%>
-
+  <% @my_meal.meals.where(active:true).each do |meal| %>
+    <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
+      <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"#{@search_address}"  %>
+        <%= f.submit meal.name, class: "btn-submit-meal-infow" %>
+      <% end -%>
 <% end %>
 
 

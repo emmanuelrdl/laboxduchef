@@ -1,4 +1,5 @@
 <div id="banner-container">
+<!-- search banner -->
   <div class="layer hidden-xs"></div>
   <div class="layer-xs hidden-sm hidden-md hidden-lg"></div>
     <div class="container" >
@@ -15,16 +16,18 @@
           </div>
         </div>
       </div>
-  </div >
-
+    </div >
+<!-- search banner -->
+<!-- search field lg -->
     <div class="hidden-xs hidden-sm">
     <%= render 'pages/search_home_lg' %>
     </div>
-
-
-
-
-
+<!-- search field lg -->
+     <div class="hidden-md hidden-lg" style="margin-bottom:300px;">
+    <%= render 'pages/search_home_xs' %>
+    </div>
+<!-- search field lg -->
+<!-- how it works -->
   <div class="row hidden-xs hidden-sm">
     <div class="col-xs-12 filter-hiw text-center">
       <h2 class="title_hiw ">COMMENT ÇA MARCHE ?</h2>
@@ -56,38 +59,33 @@
       </div>
     </div>
   </div>
+<!-- how it works -->
+<!-- Our philosophy -->
+  <div class="row hidden-xs " >
+     <div class="text-center col-xs-12 box-more-than-food-global">
+       <h2 class="title_hiw ">PLUS QUE DE LA NOURRITURE</h2>
+       <div class="col-xs-12 col-sm-4 box-more-than-food-unit  ">
+          <%= image_tag "heart.svg", size:"80x80"  %>
+          <h3>MANGEZ BIEN</h3>
+          <p> Car bien manger c'est important. L'Équipe la box des chefs sélectionne pour vous de bons petits plats dans les meilleurs restaurants</p>
+       </div>
+       <div class="col-xs-12 col-sm-4 box-more-than-food-unit ">
+        <%= image_tag "leaf.svg", size:"80x80"  %>
+            <h3>RESPONSABLE</h3>
+           <p> Manger une box pour un déjeuner ou dîner c'est s'engager au quotidien contre le gaspillage alimentaire  </p>
+       </div>
+       <div class="col-xs-12 col-sm-4 box-more-than-food-unit ">
+          <%= image_tag "tree.svg", size:"80x80"  %>
+          <h3>ÉCONOMIQUE</h3>
+           <p> Nous nous engageons à faire rimer qualité et petits prix. En achetant un repas avec La box des chefs vous pouvez faire jusqu'à 75% d'économie par rapport au prix en salle </p>
+       </div>
 
-
-
-
-
-<div class="row hidden-xs " >
-   <div class="text-center col-xs-12 box-more-than-food-global">
-     <h2 class="title_hiw ">PLUS QUE DE LA NOURRITURE</h2>
-     <div class="col-xs-12 col-sm-4 box-more-than-food-unit  ">
-        <%= image_tag "heart.svg", size:"80x80"  %>
-        <h3>MANGEZ BIEN</h3>
-        <p> Car bien manger c'est important. L'Équipe la box des chefs sélectionne pour vous de bons petits plats dans les meilleurs restaurants</p>
-     </div>
-     <div class="col-xs-12 col-sm-4 box-more-than-food-unit ">
-      <%= image_tag "leaf.svg", size:"80x80"  %>
-          <h3>RESPONSABLE</h3>
-         <p> Manger une box pour un déjeuner ou dîner c'est s'engager au quotidien contre le gaspillage alimentaire  </p>
-     </div>
-     <div class="col-xs-12 col-sm-4 box-more-than-food-unit ">
-        <%= image_tag "tree.svg", size:"80x80"  %>
-        <h3>ÉCONOMIQUE</h3>
-         <p> Nous nous engageons à faire rimer qualité et petits prix. En achetant un repas avec La box des chefs vous pouvez faire jusqu'à 75% d'économie par rapport au prix en salle </p>
-     </div>
-
-      <%= link_to "Je m'inscris !", new_user_registration_path, class:" btn btn-join-us" %>
-      <p><%= link_to "Déja membre? Connexion", new_user_session_path, class:"link-already-registered"%>
+        <%= link_to "Je m'inscris !", new_user_registration_path, class:" btn btn-join-us" %>
+        <p><%= link_to "Déja membre? Connexion", new_user_session_path, class:"link-already-registered"%>
+    </div>
   </div>
-</div>
-
-
-
-
+<!-- Our philosophy -->
+<!-- Partner join us -->
 <div class='partner-joins-us hidden-xs'>
   <div class="layer"></div>
     <div class="container" >
@@ -112,8 +110,8 @@
       </div>
   </div >
 </div>
-
-
+<!-- Partner join us -->
+<!-- Newsletter registration -->
 <div class="row hidden-xs " >
    <div class="text-center col-xs-12 newsletter-box">
    <h3 class="title_hiw ">&nbsp ME TENIR INFORMÉ &nbsp </h3>
@@ -125,3 +123,4 @@
       <% end %>
      </div>
 </div>
+<!-- Newsletter registration -->
