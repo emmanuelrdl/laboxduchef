@@ -11,7 +11,7 @@
                 <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
                   <div class="fileUpload">
                     <p class="custom-para">+ Ajouter une photo</p>
-                    <%= f.file_field :picture, label:false, class:"upload" %>
+                    <%= f.file_field :picture, label:false, class:"upload", id:"upload" %>
                   </div>
                   <%= f.error :picture, style:"color:#E08283;" %>
                   <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />

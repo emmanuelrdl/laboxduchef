@@ -13,7 +13,7 @@
              <% end %>
               <div class="fileUpload">
                 <p class="custom-para">+ Ajouter une photo</p>
-              <%= f.file_field :picture, label:false, class:"upload"%>
+              <%= f.file_field :picture, label:false, class:"upload", id:"upload"%>
               </div>
               <%= f.error :picture, style:"color:#E08283;" %>
               <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
@@ -57,5 +57,6 @@
 </div>
 
 <!-- form meal edit -->
+
 
 
