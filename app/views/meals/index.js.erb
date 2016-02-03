@@ -1,7 +1,7 @@
-$('#my-meals').append('<%= escape_javascript render(@meals) %>');
+$('#my-meals').append('<%= escape_javascript(render(:partial => 'meals/list_meals_lg')) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate(@meals) %>');
 
-$('#my-meals-xs').append('<%= escape_javascript(render(:partial => 'meals/mealxs')) %>');
+$('#my-meals-xs').append('<%= escape_javascript(render(:partial => 'meals/list_meals_xs')) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate(@meals) %>')
 
 
