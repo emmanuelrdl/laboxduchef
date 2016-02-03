@@ -1,3 +1,5 @@
+require 'restclient'
+
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_order , only: [:new, :create]
