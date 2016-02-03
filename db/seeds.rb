@@ -31,7 +31,7 @@ emmanuel = User.create!(
 proprio_les_saltimbanques= User.create!(
   first_name: "Melanie",
   last_name: "Laurent",
-  phone_number: "0145506070",
+  phone_number: "0663436165",
   restaurant_owner: true,
   email: "boss@saltim.com",
   password: "12345678",

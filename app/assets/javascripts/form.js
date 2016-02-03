@@ -7,3 +7,4 @@ document.getElementById("uploadFile").value = this.value;
 
 // check the value of meal and restaurant picture
 
+
