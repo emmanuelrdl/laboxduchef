@@ -59,8 +59,8 @@
     <div class="container-index-xs hidden-md hidden-lg hidden-sm">
       <div class="row" >
         <div class="col-xs-12 col-sm-12 block-index-xs  ">
-           <% if  Meal.where(active:true).count > 0 %>
-            <div class="col-xs-12 text-center" >
+           <% if  Meal.where(active:true).count == 0 %>
+            <div class="col-xs-12 text-center container_no_offer" >
                 <p class="font-25">Il n'y a malheureusement pas d'offres en cours pour le moment ! </p>
                 <p class="font-25" >N'hésitez pas à présenter le projet à vos amis restaurateurs pour que ceux-ci rejoignent notre version beta !</p>
             </div>
