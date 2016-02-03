@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+
   private
     def detect_browser
       case request.user_agent
