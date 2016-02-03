@@ -31,7 +31,8 @@ class PaymentsController < ApplicationController
     @order = current_user.orders.where(status: "confirmed")
     send_order_confirmation
     blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
-    blowerio['/messages'].post :to => '+49160123456', :message => 'This is a Test'
+    blowerio['/messages'].post :to => '+33663436165', :message => 'LA BOX DES CHEFS - Vous venez
++     de vendre #{Order.last.quantity} de #{Order.last.meal.name} à #{Order.last.user.first_name} #{Order.last.user.last_name}. A bientôt'
     redirect_to cart_payment_path(@order)
     rescue Stripe::CardError => e
     flash[:error] = e.message
