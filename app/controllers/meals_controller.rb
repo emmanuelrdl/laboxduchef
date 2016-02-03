@@ -83,6 +83,7 @@ class MealsController < ApplicationController
       if @meal.save
         flash[:notice] = 'Offre publiée'
         redirect_to user_path(current_user)
+        send_new_meal_text
       else
         render :new
        end
@@ -130,6 +131,12 @@ class MealsController < ApplicationController
 
   def set_address
     @search_address = params[:full_addressuser_input_autocomplete_address]
+  end
+
+  def send_new_meal_text
+    blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
+    blowerio['/messages'].post :to => "+33663436165", :message => "LA BOX DU CHEF - Nouvelle offre"
+    rescue
   end
 
 end
