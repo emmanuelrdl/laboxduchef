@@ -368,6 +368,7 @@ DEPENDENCIES
   rails-assets-underscore!
   rails-i18n
   rails_12factor
+  rest-client
   sass-rails (~> 5.0)
   simple_form
   spring
