@@ -43,18 +43,18 @@
                      </div>
                   </div>
                 <p class='grey-text'> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
-                 <div class="col-xs-4">
-                  <p class='grey-text' ><%= check_box_tag "meal[starting_date]", Date.today,false, id:"starting_date" %> Aujourd'hui
+                 <div class="col-xs-12 checkbox">
+                  <p class='grey-text' ><%= check_box_tag "meal[starting_date]", Date.today,false, id:"starting_date" %> Aujourd'hui&nbsp
                   </p>
                 <%= f.error :second_date, style:"color:#E08283;" %>
                  </div>
-                 <div class="col-xs-4">
+                 <div class="col-xs-12 checkbox">
                  <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1, false, id:"second_date" %>
-                  Demain&nbsp&nbsp
+                  Demain&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                  </p>
                 <%= f.error :second_date, style:"color:#E08283;" %>
                  </div>
-                  <div class="col-xs-4">
+                  <div class="col-xs-12 checkbox">
                  <p class='grey-text' ><%= check_box_tag "meal[permanent]", true, false, id:"permanent" %>
                   Permanente
                  </p>
