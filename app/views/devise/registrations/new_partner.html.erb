@@ -10,7 +10,7 @@
                 <%= f.input :last_name, label: false, required: true, autofocus: true, input_html: {class:"form-input-text" }, placeholder:"Nom" %>
                 <%= f.input :first_name, label: false, required: true, autofocus: true, input_html: {class:"form-input-text"}, placeholder:"Prénom" %>
                 <%= f.input :email, required: true, autofocus: true, label:false, input_html: {class:"form-input-text"}, placeholder:"Email" %>
-                <%= f.input :phone_number, label: false, required: true, autofocus: true, input_html: {class:"form-input-text",:maxlength => 10}, placeholder:"Téléphone" %>
+                <%= f.input :phone_number, label: false, required: true, autofocus: true, input_html: {class:"form-input-text",:maxlength => 10}, placeholder:"Téléphone portable" %>
                 <%= f.input :restaurant_owner, :as => :hidden, input_html: { :value => true } %>
                 <%= f.input :password, label: false, required: true, input_html: {class:"form-input-text"}, placeholder:"Mot de passe - Minimum 8 caractères" %>
                 <%= f.input :password_confirmation, label:false, required: true, input_html: {class:"form-input-text"}, placeholder:"Confirmation mot de passe" %>

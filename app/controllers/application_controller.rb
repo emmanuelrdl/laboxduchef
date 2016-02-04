@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  include Pundit
   skip_before_action :authenticate_user!, only: [:index, :show, :home]
   after_filter :store_location
   before_action :detect_browser
@@ -39,15 +38,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
-  # after_action :verify_authorized, only: :index, unless: :devise_controller?
-  # after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-  def user_not_authorized
-    flash[:alert] = "Vous n'êtes pas autorisé à effectuer cette action."
-    redirect_to(root_path)
-  end
 
 
 

@@ -46,8 +46,12 @@
                 </div>
               </div>
             </div>
-
-        <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
+            <p class="grey-text label_closing_days">Jours de fermeture(si fermeture)</p>
+            <p  class="btn_closing_days" id="closing_day_one_btn">+ Jour 1</p>
+            <%= f.input :closing_day_one, label:false, collection: @days, input_html: {class:"form-input_collection", id:"closing_day_one" } %>
+            <p  class="btn_closing_days" id="closing_day_two_btn">+ Jour 2</p>
+            <%= f.input :closing_day_two, label:false, collection: @days, input_html: {class:"form-input_collection", id:"closing_day_two"} %>
+            <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
 
 
           <%= f.submit  "Valider", class: "btn btn-validation" %>

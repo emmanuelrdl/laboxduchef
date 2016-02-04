@@ -33,6 +33,8 @@ class Restaurant < ActiveRecord::Base
 
   after_create :send_restaurant_created
 
+  ALL_DAYS = [ ["Lundi","Monday"], ["Mardi","Tuesday"], ["Merci","Wednesday"], ["Jeudi","Thursday"], ["Vendredi","Friday"], ["Samedi","Saturday"], ["Dimanche","Sunday"]]
+
 
  def send_restaurant_created
     restaurant = Restaurant.last

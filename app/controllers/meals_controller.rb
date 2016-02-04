@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-
+  include Pundit
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show, :mealmapxs]
   before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy ]
@@ -7,6 +7,8 @@ class MealsController < ApplicationController
   before_action :navbar_choice
   before_action :disable_footer, only: [:mealmapxs]
   before_action :set_address, only: [:index, :show, :mealmapxs]
+  after_action :verify_authorized, only: [:edit, :update, :destroy]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 
   def index
@@ -56,6 +58,7 @@ class MealsController < ApplicationController
 
 
   def edit
+    authorize @meal
   end
 
   def update
@@ -66,13 +69,14 @@ class MealsController < ApplicationController
     else
     render :edit
     end
+    authorize @meal
   end
 
 
   def new
-
     @meal = Meal.new
     @restaurant = current_user.restaurants.first
+    authorize @meal
   end
 
 
@@ -87,21 +91,22 @@ class MealsController < ApplicationController
       else
         render :new
        end
+    authorize @meal
   end
 
 
 
   def destroy
     @meal = @restaurant.meals.find(params[:id])
-    @meal.update(active:false)
+    @meal.update(active:false, permanent:false, starting_date:nil, second_date:Date.today - 1)
     if @meal.save
-       flash[:notice] = 'Offre désactivée'
+       flash[:notice] = "Offre désactivée avec succès"
        redirect_to user_path(current_user)
     else
       render :edit
     end
+    authorize @meal
   end
-
 
 
   private
@@ -118,7 +123,7 @@ class MealsController < ApplicationController
 
   def params_meal
     params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date,
-    :restaurant_id, :active, :second_date, :take_away_noon, :take_away_evening)
+    :restaurant_id, :active, :second_date, :take_away_noon, :take_away_evening, :permanent)
   end
 
   def navbar_choice
@@ -137,6 +142,11 @@ class MealsController < ApplicationController
     blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
     blowerio['/messages'].post :to => "+33663436165", :message => "LA BOX DU CHEF - Nouvelle offre"
     rescue
+  end
+
+  def user_not_authorized
+    flash[:alert] = "Vous n'êtes pas autorisés à effectuer cette action."
+    redirect_to(root_path)
   end
 
 end

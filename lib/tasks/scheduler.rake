@@ -3,26 +3,47 @@ namespace :scheduler do
 
     task :update_meal_active => :environment do
 
-        @all_meals = Meal.all
-        @meals = @all_meals.where("active = ?", true)
+        @meals = Meal.all
         @meals.each do |meal|
-          if meal.second_date?
-            if
-              meal.second_date < Date.today
-              meal.active = false
-            else
-              meal.active = true
+              if meal.second_date?
+                if
+                  meal.second_date < Date.today
+                  meal.active = false
+                else
+                  meal.active = true
+                end
+              elsif meal.starting_date?
+                if
+                  meal.starting_date < Date.today
+                  meal.active = false
+                else
+                  meal.active = true
+                end
+               elsif meal.permanent?
+                if meal.restaurant.closing_day_one? && meal.restaurant.closing_day_two?
+                  if meal.restaurant.closing_day_one == Date.today.strftime("%A") || meal.restaurant.closing_day_two == Date.today.strftime("%A")
+                  meal.active = false
+                  else
+                  meal.active = true
+                  end
+                elsif meal.restaurant.closing_day_one?
+                  if meal.restaurant.closing_day_one == Date.today.strftime("%A")
+                  meal.active = false
+                  else
+                  meal.active = true
+                  end
+                elsif meal.restaurant.closing_day_two?
+                  if meal.restaurant.closing_day_two == Date.today.strftime("%A")
+                  meal.active = false
+                  else
+                  meal.active = true
+                  end
+                else
+                  meal.active = true
+                end
+              end
+                  meal.save
             end
-          else
-            if
-              meal.starting_date < Date.today
-              meal.active = false
-            else
-              meal.active = true
-            end
-          end
-          meal.save
-        end
 
 
     end

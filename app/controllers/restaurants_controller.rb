@@ -10,13 +10,13 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @days = Restaurant::ALL_DAYS
     if current_user.restaurants(params[:id]).count >= 1
          flash[:alert] = "Vous ne pouvez avoir qu'un restaurant"
          redirect_to root_path
     elsif current_user.restaurant_owner == false
          flash[:alert] = "Vous n'êtes pas autorisés à créer un restaurant"
          redirect_to root_path
-
     else
       @restaurant = Restaurant.new
     end
@@ -26,17 +26,16 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params_restaurant)
     @restaurant.confirmed = false
     @restaurant = current_user.restaurants.create(params_restaurant)
-
        if @restaurant.save
         redirect_to user_path(current_user)
       else
         render :new
       end
-
   end
 
 
   def edit
+      @days = Restaurant::ALL_DAYS
       @restaurant = Restaurant.find(current_user.restaurants.first.id)
   end
 
@@ -66,6 +65,6 @@ private
   def params_restaurant
     params.require(:restaurant).permit(:name, :category, :street, :locality, :postal_code, :picture, :phone_number,
      :iban, :picture, :latitude, :longitude, :take_away_evening_ends_at, :take_away_noon_starts_at, :take_away_evening_starts_at,
-      :take_away_noon_ends_at, :open_noon, :open_evening)
+      :take_away_noon_ends_at, :open_noon, :open_evening, :closing_day_one, :closing_day_two)
   end
 end

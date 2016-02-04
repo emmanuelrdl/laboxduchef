@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
         <h3 class="form-header">CRÉER LA FICHE RESTAURANT</h3>
-        <p>*Tous les champs du formulaire sont obligatoires</p>
+        <p>*Tous les champs contenant le symbole * sont obligatoires</p>
 
         <%= simple_form_for @restaurant do |f| %>
           <%= f.input :name, label: false, :placeholder => 'Nom*', input_html: {class:"form-input-text"}%>
@@ -36,7 +36,7 @@
           <div class="form-input-time-box">
             <%= f.input :open_evening, as: :boolean, label:"Le soir" , input_html: {id:"open_evening"}%>
             <div id="open_evening_true">
-              <div class=" restaurant_timepicker">
+              <div class="restaurant_timepicker">
                 <span>de&nbsp</span>
                 <span><%= f.time_select :take_away_evening_starts_at ,:label => false %></span>
               </div>
@@ -46,8 +46,12 @@
                 </div>
               </div>
             </div>
-
-          <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
+            <p class="grey-text label_closing_days">Jours de fermeture(si fermeture)</p>
+            <p  class="btn_closing_days" id="closing_day_one_btn">+ Jour 1</p>
+            <%= f.input :closing_day_one, label:false, collection: @days, input_html: {class:"form-input_collection", id:"closing_day_one" } %>
+            <p  class="btn_closing_days" id="closing_day_two_btn">+ Jour 2</p>
+            <%= f.input :closing_day_two, label:false, collection: @days, input_html: {class:"form-input_collection", id:"closing_day_two"} %>
+            <%= f.input :iban, label:false, :placeholder => 'Iban*', input_html: {class:"form-input-text"} %>
 
 
           <%= f.submit  "Valider", class: "btn btn-validation" %>

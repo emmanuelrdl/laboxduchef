@@ -15,3 +15,16 @@ $("#open_evening").click(function() {
         $("#open_evening_true").hide(200);
     }
 });
+
+
+$("#closing_day_one").hide();
+$("#closing_day_one_btn").click(function() {
+        $("#closing_day_one").toggle(300);
+});
+
+
+
+$("#closing_day_two").hide();
+$("#closing_day_two_btn").click(function() {
+        $("#closing_day_two").toggle(300);
+});

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>La page recherchée n'existe pas (404)</title>
+  <title>Une erreur s'est produite (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
   <style>
   body {
     background-color: #EFEFEF;
@@ -12,28 +15,11 @@
     margin: 0;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
 
   h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 60px;
+    color: black;
     line-height: 1.5em;
   }
 
@@ -55,13 +41,15 @@
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>La page que vous recherchez ne peut être trouvée !</h1>
-      <p>Vérifiez que vous avez tapé la bonne adresse.</p>
-    </div>
-    <p>Si le problème persiste vous pouvez nous contactez à l'adresse contact@laboxdeschefs.com</p>
-  </div>
+  <!-- This file lives in public/500.html -->
+
+<div class="col-xs-12 col-sm-6">
+
+      <h1>OUPS !</h1>
+    <h2><a href="/"> Retourner sur la home <a></h2>
+    <h3>Si le problème persiste vous pouvez nous contactez à l'adresse contact@laboxdeschefs.com</h3>
+</div>
+
+
 </body>
 </html>

@@ -11,6 +11,9 @@
 <% elsif @meal.second_date == Date.today %>
     <p class="meal_show_xs_take_away_title">Valable:</p>
     <p  class="meal_show_xs_take_away_date" >Aujourd'hui</p>
+<% elsif @meal.permanent == true %>
+    <p class="meal_show_xs_take_away_title">Valable:</p>
+    <p  class="meal_show_xs_take_away_date" >Aujourd'hui</p>
 <% else %>
     <p  class="meal_show_xs_take_away_date" >Offre terminée</p>
 <% end -%>

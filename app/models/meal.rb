@@ -12,8 +12,9 @@ class Meal < ActiveRecord::Base
   validates :seated_price, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
   validates :quantity, presence: true, numericality:  {:greater_than_or_equal_to => 1 }
   validates :description, presence: true, length: { maximum: 100 }
-  validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present?}
-  validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present?}
+  validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present? || meal.permanent.present?}
+  validates :permanent, presence: true, unless: ->(meal){meal.starting_date.present? || meal.second_date.present?}
+  validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present? || meal.permanent.present?}
   validates :take_away_noon, presence: true, unless: ->(meal){meal.take_away_evening.present?}
   validates :take_away_evening, presence: true, unless: ->(meal){meal.take_away_noon.present?}
 
@@ -28,8 +29,28 @@ class Meal < ActiveRecord::Base
   monetize :price_cents
   monetize :seated_price_cents
 
+  def starting_date_exception?
+    if second_date.present?
+    elsif permanent == true
+    end
+    true
+  end
 
 
+  def second_date_exception?
+    if starting_date.present?
+    elsif permanent == true
+    end
+    true
+  end
+
+
+  def permanent_exception?
+    if starting_date.present?
+    elsif second_date.present?
+    end
+    true
+  end
 
 end
 
