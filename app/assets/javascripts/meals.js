@@ -154,4 +154,19 @@ $("#navbar-btn").click(function(){
 //hide meal search bar xs
 
 
+// uncheck take away days
+$('#permanent').on('change', function() {
+    $('#starting_date').not(this).prop('checked', false);
+    $('#second_date').not(this).prop('checked', false);
+});
 
+$('#starting_date').on('change', function() {
+    $('#permanent').not(this).prop('checked', false);
+});
+
+$('#second_date').on('change', function() {
+    $('#permanent').not(this).prop('checked', false);
+});
+
+
+// uncheck take away days
