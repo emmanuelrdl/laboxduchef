@@ -17,6 +17,7 @@
         </div>
       </div>
     </div >
+
 <!-- search banner -->
 <!-- search field lg -->
     <div class="hidden-xs hidden-sm">
@@ -104,7 +105,7 @@
                    <%= image_tag "no_waste.svg", size:"50x50"  %>
                   <h4 class="sub_title_partner_joins_us"> LUTTEZ CONTRE LE GASPILLAGE  </h4>
                 </div>
-            <%= link_to "Je deviens partenaire", partner_sign_up_path, class:" btn btn-join-us"   %>
+            <%= link_to "Je deviens partenaire", partner_sign_up_path, class:"btn btn-join-us"   %>
              <p><%= link_to "Déja partenaire? Connexion", new_user_session_path, class:"link-already-registered-white"%>
         </div>
       </div>
@@ -118,7 +119,7 @@
     <%= simple_form_for @newsletter do |f| %>
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <p> <%= f.input :email, placeholder:"marinalaporte@gmail.com", label:false, input_html: {class:"input-email-newsletter"} %> </p>
-        <%= f.button :submit, "Je veux rester informé", class: "btn-join-us" %>
+        <%= f.button :submit, "Je veux rester informé", class: "btn btn-join-us" %>
       </div>
       <% end %>
      </div>
