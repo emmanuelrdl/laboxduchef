@@ -64,6 +64,7 @@ class MealsController < ApplicationController
   def update
     @meal = @restaurant.meals.find(params[:id])
     @meal.update(params_meal)
+    @meal.stock = @meal.quantity
     if @meal.save
     redirect_to user_path(current_user)
     else
