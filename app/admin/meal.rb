@@ -5,7 +5,7 @@ ActiveAdmin.register Meal do
 #
 permit_params :restaurant_id, :name, :quantity, :description, :starting_date, :second_date,
 :picture_file_name, :picure_content_type, :picture_file_size, :picture_updated_at, :active,
-:price_cents, :stock, :seated_price, :take_away_noon, :take_away_evening
+:price_cents, :stock, :seated_price, :take_away_noon, :take_away_evening, :permanent
 # or
 #
 # permit_params do
