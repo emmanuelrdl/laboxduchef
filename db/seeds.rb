@@ -58,8 +58,9 @@ les_saltimbanques = proprio_les_saltimbanques.restaurants.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   open_evening: true,
-  open_noon: false
-
+  open_noon: false,
+  closing_day_one: "Tuesday",
+  closing_day_two: "Sunday"
 
 )
 
@@ -69,13 +70,12 @@ coq_au_vin = les_saltimbanques.meals.create!(
   quantity: 12,
   description: "Coq cuisiné au vin rouge avec riz en accompagnement",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
-  starting_date: Date.today,
-  second_date: Date.today + 1,
   active: true,
   stock: 6,
   seated_price: 16,
   take_away_noon: true,
-  take_away_evening: false
+  take_away_evening: false,
+  permanent:true
 
 )
 
@@ -91,6 +91,7 @@ hachis = les_saltimbanques.meals.create!(
   stock: 9,
   seated_price: 12,
   take_away_noon: true,
+  permanent:true,
   take_away_evening: true
 
 )
@@ -122,7 +123,8 @@ le_blue_valentine = proprio_le_blue_valentine.restaurants.create!(
   take_away_evening_starts_at: Date.current.noon + 8.hour,
   take_away_evening_ends_at: Date.current.noon + 10.hour,
   open_evening: false,
-  open_noon: true
+  open_noon: true,
+  closing_day_one: "Tuesday"
 
 )
 
