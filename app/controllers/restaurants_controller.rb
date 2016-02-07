@@ -10,7 +10,6 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @days = Restaurant::ALL_DAYS
     if current_user.restaurants(params[:id]).count >= 1
          flash[:alert] = "Vous ne pouvez avoir qu'un restaurant"
          redirect_to root_path
@@ -35,7 +34,6 @@ class RestaurantsController < ApplicationController
 
 
   def edit
-      @days = Restaurant::ALL_DAYS
       @restaurant = Restaurant.find(current_user.restaurants.first.id)
   end
 
