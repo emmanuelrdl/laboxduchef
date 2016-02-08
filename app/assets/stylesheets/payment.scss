@@ -21,7 +21,7 @@
 
 .payment_show_restaurant_infos {
   color:white;
-  padding:5px;
+  margin-top:0px;
   padding-bottom:10px;
   position:relative;
   padding-left:0px;
@@ -35,6 +35,8 @@
   position:relative;
   text-align:center;
   padding-top:20px;
+  border-top:solid 1px;
+
 
 }
 
@@ -116,7 +118,7 @@
 
 .payment-box {
 
-background-color: #FAFAFA;
+background-color:#FFFAEF;
 color:black;
 margin-top: 40px;
 margin-bottom: 40px;
@@ -211,10 +213,45 @@ box-shadow: 3px 3px 3px #888888;
 .payment-icons {
   font-size:20px;
   padding-top:3px;
+  color:white;
 
 }
 
 
 .form-header-content-title {
   margin-top:0px;
+}
+
+.payment_show_info_alignment {
+  width:50%;
+  margin:auto;
+}
+
+@media (max-width: 800px) {
+.payment_show_info_alignment {
+ width:80%;
+ margin:auto;
+ }
+}
+
+
+.payment_show_info_alignment {
+  position:relative;
+}
+
+.order_recap_meal_name {
+  color:white;
+}
+
+.order_recap_meal_name-text {
+  border:solid 2px;
+  border-radius:4px;
+  margin-left:12px;
+  padding:4px;
+  color:white;
+  border-color:white;
+}
+
+.payment_info_box {
+  margin-top:20px;
 }

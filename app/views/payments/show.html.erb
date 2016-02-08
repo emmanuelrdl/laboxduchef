@@ -2,17 +2,18 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 text-center payment-box" >
-          <h4 class="form-header-no-margin">CONFIRMATION DE VOTRE COMMANDE</h4>
-            <div class="payment_show_info_alignment col-xs-11 col-xs-offset-1 col-sm-6 col-sm-offset-3 text-center">
-               <h4 class="order_recap_meal_name"  > <%= image_tag "foodbox_brown.png", size:"20x20" %>
-                 &nbsp<%= @order.quantity %> <%= @order.meal.name %> </h4>
-                <div class="payment_meal_take_away_date">  <%= render "payments/payment_meal_take_away_date" %>
-              </div>
-              <div><%= render "payments/payment_meal_take_away_time" %></div>
-            </div>
-            <div class="col-xs-12 payment_show_restaurant_infos" >
+          <h3 class="form-header-no-margin">VOTRE COMMANDE</h3>
+            <div class="payment_show_restaurant_infos" >
                 <div class="payment_show_restaurant_picture col-xs-12" style="background-image: url('<%=image_path @order.meal.restaurant.picture.url(:medium)%>')">
-                    <div class="card-filter"> </div>
+                    <div class="card-filter-payment"> </div>
+                    <div class="payment_show_info_alignment text-center">
+                       <h4 class="order_recap_meal_name"  ><i class="fa fa-cutlery payment-icons"> </i>
+                          <span class="order_recap_meal_name-text">&nbsp<%= @order.quantity %> <%= @order.meal.name %></span>
+                       </h4>
+                       <div class="payment_meal_take_away_date">  <%= render "payments/payment_meal_take_away_date" %>
+                       </div>
+                      <div><%= render "payments/payment_meal_take_away_time" %></div>
+                    </div>
                     <h4 class="payment_show_restaurant_name" > <%= @order.meal.restaurant.name.upcase %>  </h4>
                     <p class="payment_show_restaurant_address">  <i class="fa fa-map-marker"></i> <%= @order.meal.restaurant.full_address %></p>
                     <div id="get_direction" class="btn btn-direction"> Itinéraire</div>
@@ -23,14 +24,11 @@
                 </div>
               <div id="map-directions" hidden="true"></div>
             </div>
-          <div class="col-xs-12 form-header-content-title" >
-            <h5 class="form-header">RÉCUPÉRER MA BOX</h5>
-             <p class="grey-text">Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiqués ci-dessus en précisant le nom auquel vous avez effectué la réservation</p>
-             <p class="grey-text"> <i class="fa fa-exclamation-circle"></i> Pour des raisons sanitaires les plats sont à consommer le jour de l'achat </p>
-          </div>
-          <div class="col-xs-12 grey-text">
-            <h5>Bon appétit et merci pour votre confiance !</h5>
-          </div>
+            <div class="col-xs-12 grey-text payment_info_box">
+               <p >Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiqués ci-dessus.</p>
+               <p > <i class="fa fa-exclamation-circle"></i> Pour vous garantir de délicieux petits plats, ceux-ci sont à consommer le jour de l'achat. </p>
+              <h5>Bon appétit et merci pour votre confiance !</h5>
+            </div>
 
             <%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>
 
