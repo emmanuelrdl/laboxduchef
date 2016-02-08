@@ -21,7 +21,7 @@ class Meal < ActiveRecord::Base
   paginates_per 6
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>", large: "400x400>" }
+    styles: { medium: "300x300>", thumb: "100x100>", large: "400x400>", facebook:"600x315>" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
