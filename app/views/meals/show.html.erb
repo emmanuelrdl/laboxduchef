@@ -2,7 +2,7 @@
 
 <% content_for :meta_title, "#{@meal.name} à seulement #{@meal.price} € -  #{@meal.restaurant.name}" %>
 <% content_for :meta_description, @meal.description %>
-<% content_for :meta_image, @meal.picture.url %>
+<% content_for :meta_image, @meal.picture.url(:large) %>
 
 
 <!-- meta Facebook -->
