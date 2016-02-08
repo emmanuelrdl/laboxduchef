@@ -1,17 +1,8 @@
-$( document ).ready(function() {
 
-  // hide spinner
-  $(".spinner").hide();
-
-
-  // show spinner on AJAX start
-  $(document).ajaxStart(function(){
-    $(".spinner").show();
+  $(document).ready(function () {
+      $('.btn-waiting').click(function() {
+      $('#modal_waiting').modal('show');
+        });
   });
 
-  // hide spinner on AJAX stop
-  $(document).ajaxStop(function(){
-    $(".spinner").hide();
-  });
 
-});

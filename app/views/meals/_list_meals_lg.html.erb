@@ -6,7 +6,7 @@
         <div class="card-meal-global-box-lg-shadow">
           <%= simple_form_for meal, url: meal_path(meal), :method => :get do |f| %>
           <%= hidden_field_tag :full_addressuser_input_autocomplete_address, '', id:"user_input_autocomplete_address", class:"form-control index-address-field-lg", placeholder:"Saisissez votre addresse" , value:"#{@search_address}"  %>
-            <%= f.submit "Commander", class: "btn-submit-index-address" %>
+            <%= f.submit "Commander", class: "btn-submit-index-address btn-waiting" %>
           <% end -%>
           <div class="card_meal_index_lg" style="background-image: url('<%=image_path meal.picture.url(:large)%>')">
             <div class="card-filter card-bg"></div>

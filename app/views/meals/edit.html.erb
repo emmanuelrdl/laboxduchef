@@ -46,7 +46,7 @@
                 </div>
                <%= render 'meal_take_away_time_selection', :f => f %>
                 <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>
-                <%= link_to "Désactiver l'offre", restaurant_meal_path, :method => :delete, :confirm => "You sure?", class:"btn btn-danger btn-delete" %>
+                <%= link_to "Désactiver l'offre", restaurant_meal_path, :method => :delete, :confirm => "You sure?", class:"btn btn-danger btn-delete btn-waiting" %>
                <% end %>
             </div>
 

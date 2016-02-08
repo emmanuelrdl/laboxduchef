@@ -1,16 +1,16 @@
 <!-- Restaurant profil -->
 <div class="row restaurant_profil-box" >
-  <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box " >
+  <div class="col-xs-12 col-sm-12 text-center " id="restaurant-profil-box" >
     <div class="form-group" >
       <h4>ÉTALISSEMENT</h4>
         <div class="restaurant-name-edit">
           <p><%= @restaurant.name.upcase %></p>
-          <p><%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil btn-xs" %> </p>
+          <p><%= link_to "Modifier", edit_restaurant_path, class: "btn btn-primary padding-btn-profil btn-xs btn-waiting" %> </p>
         </div>
           <%= image_tag @restaurant.picture.url(:thumb), class: "user_restaurant_img"  %>
         </div>
         <div class="form-group" >
-          <%= link_to "Ajouter une offre", new_restaurant_meal_path(@restaurant.id), class: "btn btn-new-deal" %>
+          <%= link_to "Ajouter une offre btn-waiting", new_restaurant_meal_path(@restaurant.id), class: "btn btn-new-deal" %>
         </div>
     </div>
 </div>
@@ -33,8 +33,8 @@
         <% if @meals.count >= 1 %>
           <%= render 'meal_infos', :meal => meal %>
          <% end -%>
-        <tbody>
-          <tr>
+        <tbody >
+          <tr data-toggle="modal" data-target="#modal-<%=meal.id%>">
             <td><%= link_to meal.name, "", class: "btn btn-primary btn-xs", data: { toggle: "modal", target: "#modal-#{meal.id}"} %> </td>
             <td ><%= number_to_currency(meal.price, :unit => "€") %></td>
             <td ><%= meal.stock %></td>
@@ -65,7 +65,7 @@
                 <% if order.status == "confirmed" || order.status == "paid"  %>
                   <%= render 'order_infos', :order => order %>
                   <tbody>
-                    <tr>
+                    <tr data-toggle="modal" data-target="#modal_order_<%=order.id%>">
                       <td><%= order.created_at.strftime("%d/%m/%y") %></td>
                       <td><strong><%= link_to "Numéro: #{order.id}","", data: { toggle: "modal", target: "#modal_order_#{order.id}"}, class: "btn btn-success btn-xs" %></strong></td>
                       <td><%= number_to_currency(order.amount, :unit => "€") %></td>
@@ -86,7 +86,7 @@
       </div>
     </div>
    <div class='text-center'>
-   <%= link_to "Mes paiements", orders_path(@order), class: "btn btn-my-payments btn-margin" %>
+   <%= link_to "Mes paiements", orders_path(@order), class: "btn btn-my-payments btn-margin btn-waiting" %>
    </div>
 </div>
 <!-- List of last 10 orders -->

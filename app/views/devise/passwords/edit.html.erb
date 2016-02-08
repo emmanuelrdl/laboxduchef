@@ -1,24 +1,26 @@
-<div class="row form-color">
-  <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+<div id="body-container" >
+  <div class="form-color">
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 text-center form-box" style="margin-bottom:200px;">
+          <h2 class="form-header">MODIFICATION MOT DE PASSE</h2>
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <%= f.error_notification %>
 
-    <h2>Changer de mot de passe</h2>
+              <%= f.input :reset_password_token, as: :hidden %>
+              <%= f.full_error :reset_password_token %>
 
-      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
+              <div class="form-inputs">
+                <%= f.input :password, label: "Nouveau mot de passe", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, label: "Confirmer le mot de passe", required: true %>
+              </div>
 
-        <%= f.input :reset_password_token, as: :hidden %>
-        <%= f.full_error :reset_password_token %>
+              <div class="form-actions">
+                <%= f.button :submit, "Valider", class: "btn btn-validation btn-waiting"  %>
+              </div>
+            <% end %>
 
-        <div class="form-inputs">
-          <%= f.input :password, label: "Nouveau mot de passe", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, label: "Confirmer le mot de passe", required: true %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Valider" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
+            <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
 </div>

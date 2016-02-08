@@ -61,9 +61,28 @@ font-family: 'Ropa Sans', sans-serif;
 }
 
 
-#wheel {
-    background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center #FFF;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+
+
+#modal_waiting {
+  position: absolute;
+  top:300px;
+  left:45%;
+}
+
+@media (max-width: 600px) {
+  #modal_waiting {
+  position: absolute;
+  top:200px;
+  left:35%;
+  }
+}
+
+.modal_waiting {
+
+  background-color: none;
+}
+
+.modal-backdrop {
+  background-color: rgba(0,0,0,0)
+
 }

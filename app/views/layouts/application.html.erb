@@ -61,7 +61,7 @@
     <%= render 'shared/navbar_home' unless @navbar_other %>
     <%= render 'shared/navbar_other' unless @navbar_home %>
     <%= render 'shared/flashes' %>
-
+    <%= render 'layouts/modal_waiting' %>
     <%= yield %>
 
     <%= render 'shared/footer' unless @disable_footer %>
