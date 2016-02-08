@@ -5,7 +5,7 @@
           <% current_user.restaurants.each do |restaurant| %>
           <% if restaurant.confirmed? %>
              <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
-            <h4 class="form-header">CRÉATION DE VOTRE OFFRE</h4>
+            <h3 class="form-header">CRÉATION DE L'OFFRE</h3>
              <p class='grey-text'>*Tous les champs du formulaire sont obligatoires</p>
               <%= simple_form_for([@restaurant, @meal]) do |f| %>
                 <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
@@ -16,7 +16,7 @@
                   <%= f.error :picture, style:"color:#E08283;" %>
                   <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
                 <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
-                  <div class="col-xs-12 increment-field-block" >
+                  <div class="increment-field-block" >
                       <div class="incremented-field">
                           <span class='grey-text' >&nbsp&nbspPrix en salle</span>
                           <button type='button' class='qtyminus btn-quantity' field='meal_seated_price' >-</button>
@@ -25,7 +25,7 @@
                           <span>€</span>
                      </div>
                   </div>
-                  <div class="col-xs-12 increment-field-block">
+                  <div class="increment-field-block">
                       <div class="incremented-field">
                           <span class='grey-text' > Prix de la box</span>
                           <input type='button' value='-' class='qtyminus btn-quantity ' field='meal_price' />
@@ -34,7 +34,7 @@
                           <span>€</span>
                      </div>
                   </div>
-                  <div class="col-xs-12 increment-field-block">
+                  <div class="increment-field-block">
                       <div class="incremented-field">
                           <span class='grey-text' >&nbsp&nbsp&nbsp&nbspQuantité</span>
                           <input type='button' value='-' class='qtyminus btn-quantity' field='meal_quantity' />
@@ -42,24 +42,26 @@
                           <input type='button' value='+' class='qtyplus btn-quantity' field='meal_quantity' />
                      </div>
                   </div>
-                <p class='grey-text'> <strong> L'offre est valable </strong>(cochez une ou deux cases)</p>
-                 <div class="col-xs-12 checkbox">
-                  <p class='grey-text' ><%= check_box_tag "meal[starting_date]", Date.today,false, id:"starting_date" %> Aujourd'hui&nbsp
-                  </p>
-                <%= f.error :second_date, style:"color:#E08283;" %>
-                 </div>
-                 <div class="col-xs-12 checkbox">
-                 <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1, false, id:"second_date" %>
-                  Demain&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                 </p>
-                <%= f.error :second_date, style:"color:#E08283;" %>
-                 </div>
-                  <div class="col-xs-12 checkbox">
-                 <p class='grey-text' ><%= check_box_tag "meal[permanent]", true, false, id:"permanent" %>
-                  Permanente
-                 </p>
-                <%= f.error :permanent, style:"color:#E08283;" %>
-                 </div>
+                  <div class="form-input-time-box margin-30">
+                      <h5 class='form-header'> <strong> L'offre est valable </strong>(cochez une ou deux cases)</h5>
+                       <div class="checkbox">
+                          <p class='grey-text' ><%= check_box_tag "meal[starting_date]", Date.today,false, id:"starting_date" %> Aujourd'hui&nbsp
+                          </p>
+                        <%= f.error :second_date, style:"color:#E08283;" %>
+                       </div>
+                       <div class="checkbox">
+                           <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1, false, id:"second_date" %>
+                            Demain&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                           </p>
+                          <%= f.error :second_date, style:"color:#E08283;" %>
+                       </div>
+                        <div class="checkbox">
+                           <p class='grey-text' ><%= check_box_tag "meal[permanent]", true, false, id:"permanent" %>
+                            Permanente
+                           </p>
+                          <%= f.error :permanent, style:"color:#E08283;" %>
+                       </div>
+                  </div>
 
                 <%= render 'meal_take_away_time_selection', :f => f %>
                <%= f.submit  "Mettre en ligne", class: "btn btn-validation " %>

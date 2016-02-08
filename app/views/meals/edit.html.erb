@@ -5,7 +5,7 @@
           <% current_user.restaurants.each do |restaurant| %>
           <% if restaurant.confirmed? %>
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
-            <h4 class="form-header">ÉDITION DE VOTRE OFFRE</h4>
+            <h3 class="form-header">ÉDITION DE L'OFFRE</h3>
             <%= simple_form_for([@restaurant, @meal], html: { novalidate: true }) do |f| %>
               <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
               <% if @meal.picture.exists? %>
@@ -18,7 +18,7 @@
               <%= f.error :picture, style:"color:#E08283;" %>
               <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
                 <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
-                <div class="col-xs-12 increment-field-block" >
+                <div class="increment-field-block" >
                     <div class="incremented-field">
                         <span >&nbsp&nbspPrix en salle</span>
                         <input type='button' value='-' class='qtyminus btn-quantity' field='meal_seated_price' />
@@ -27,7 +27,7 @@
                         <span>€</span>
                    </div>
                 </div>
-                <div class="col-xs-12 increment-field-block">
+                <div class="increment-field-block">
                     <div class="incremented-field">
                         <span > Prix de la box</span>
                         <input type='button' value='-' class='qtyminus btn-quantity' field='meal_price' />
@@ -36,7 +36,7 @@
                         <span>€</span>
                    </div>
                 </div>
-                <div class="col-xs-12 increment-field-block">
+                <div class="increment-field-block">
                     <div class="incremented-field">
                         <span>&nbsp&nbsp&nbsp&nbsp Quantité</span>
                         <input type='button' value='-' class='qtyminus btn-quantity' field='meal_quantity' />
