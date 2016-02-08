@@ -49,11 +49,19 @@ namespace :scheduler do
     end
 
    task :empty_basket => :environment do
-        @orders = Order.where(status: "cart")
+        @orders = Order.where("created_at < ? AND status = ?", Time.now - 5, "cart")
         @orders.each do |order|
         order.update(status:"cancelled")
-          order.meal.stock += order.quantity
-          order.meal.save
+        order.meal.stock += order.quantity
+        order.meal.save
+        end
+    end
+
+     task :update_permanent_quantity => :environment do
+        @meal =  Meal.where(permanent:true)
+        @meals.each do |meal|
+        meal.stock = meal.quantity
+        meal.save
         end
     end
 

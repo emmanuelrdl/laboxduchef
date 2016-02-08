@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
       @order.amount_cents = @meal.price_cents * @order.quantity
       @order.save
       @order.meal.stock -= @order.quantity
+      raise
         if @order.meal.stock <= 0
            @order.meal.active = false
         else

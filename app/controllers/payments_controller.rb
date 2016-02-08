@@ -67,7 +67,7 @@ class PaymentsController < ApplicationController
   blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
   @phone_number = @order.meal.restaurant.user.phone_number
   @formated_number = "+336" + @phone_number[2,10]
-  blowerio['/messages'].post :to => @formated_number, :message => "LA BOX DU CHEF - Vous venez de vendre #{@order.quantity} #{@order.meal.name} à #{@order.user.first_name} #{@order.user.last_name}"
+  blowerio['/messages'].post :to => @formated_number, :message => "LA BOX DES CHEFS - Vous venez de vendre #{@order.quantity} #{@order.meal.name} à #{@order.user.first_name} #{@order.user.last_name}"
   rescue
   end
 
