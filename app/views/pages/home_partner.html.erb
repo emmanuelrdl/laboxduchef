@@ -20,14 +20,14 @@
     <div class="global_box_partner_choice col-xs-12 text-center col-md-4 col-md-offset-4">
          <% if @restaurant != nil %>
             <% if @restaurant.confirmed? %>
-              <%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(@restaurant), class:"btn btn-home-new-offer" %>
-              <%= link_to "TABLEAU DE BORD", user_path(current_user), class:" btn btn-home-dashboard" %>
+              <%= link_to "AJOUTER UNE OFFRE", new_restaurant_meal_path(@restaurant), class:"btn btn-home-new-offer btn-waiting" %>
+              <%= link_to "TABLEAU DE BORD", user_path(current_user), class:" btn btn-home-dashboard btn-waiting" %>
             <% elsif @restaurant.present? %>
               <p class="btn btn-home-new-offer"> Restaurant en cours de validation</p>
-               <%= link_to "TABLEAU DE BORD", user_path(current_user), class:"btn btn-home-dashboard" %>
+               <%= link_to "TABLEAU DE BORD", user_path(current_user), class:"btn btn-home-dashboard btn-waiting" %>
             <% end %>
           <%else %>
-            <%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path, class:"btn btn-home-new-offer" %>
+            <%= link_to "AJOUTER SON RESTAURANT", new_restaurant_path, class:"btn btn-home-new-offer btn-waiting" %>
         <% end %>
     </div>
 <!-- partner actions list -->

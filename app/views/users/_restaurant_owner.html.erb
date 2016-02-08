@@ -10,7 +10,7 @@
           <%= image_tag @restaurant.picture.url(:thumb), class: "user_restaurant_img"  %>
         </div>
         <div class="form-group" >
-          <%= link_to "Ajouter une offre btn-waiting", new_restaurant_meal_path(@restaurant.id), class: "btn btn-new-deal" %>
+          <%= link_to "Ajouter une offre", new_restaurant_meal_path(@restaurant.id), class: "btn btn-new-deal btn-waiting" %>
         </div>
     </div>
 </div>
