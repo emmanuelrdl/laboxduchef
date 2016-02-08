@@ -19,7 +19,7 @@ namespace :scheduler do
                 else
                   meal.active = true
                 end
-               elsif meal.permanent?
+               elsif meal.permanent? && meal.stock >= 0
                 if meal.restaurant.closing_day_one? && meal.restaurant.closing_day_two?
                   if meal.restaurant.closing_day_one == Date.today.strftime("%A") || meal.restaurant.closing_day_two == Date.today.strftime("%A")
                   meal.active = false
