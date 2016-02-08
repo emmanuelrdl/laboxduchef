@@ -1,5 +1,5 @@
 
 User-agent: *
-Disallow: /admin
-Disallow: /users
-Disallow: /restaurants
+Disallow: /admin/
+Disallow: /users/
+Disallow: /restaurants/
