@@ -64,7 +64,7 @@ namespace :scheduler do
                   meal.save
             end
 
-
+      end
     end
 
    task :empty_basket => :environment do
