@@ -67,9 +67,9 @@ class MealsController < ApplicationController
     @meal.update(params_meal)
     @meal.stock = @meal.quantity
     if @meal.save
-    redirect_to user_path(current_user)
+      redirect_to user_path(current_user)
     else
-    render :edit
+      render :edit
     end
     authorize @meal
   end
@@ -100,7 +100,7 @@ class MealsController < ApplicationController
 
   def destroy
     @meal = @restaurant.meals.find(params[:id])
-    @meal.update(active:false, permanent:false, starting_date:nil, second_date:Date.today - 1)
+    @meal.update(active:false, permanent:false, starting_date:nil, second_date: Date.today - 2)
     if @meal.save
        flash[:notice] = "Offre désactivée avec succès"
        redirect_to user_path(current_user)
@@ -110,6 +110,25 @@ class MealsController < ApplicationController
     authorize @meal
   end
 
+  # def post_last_meal
+  #  @last_meal = current_user.restaurants.first.meals.last
+  #   if @last_meal.permanent?
+  #     @last_meal.update(stock: @last_meal.quantity, active:true)
+  #   elsif @last_meal.starting_date.present? && @last_meal.second_date.present?
+  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today, second_date: Date.today + 1)
+  #   elsif @last_meal.starting_date.present?
+  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today)
+  #   elsif @last_meal.second_date.present?
+  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today + 1)
+  #   end
+  #   if @last_meal.save
+  #     flash[:notice] = 'Offre publiée'
+  #     redirect_to user_path(current_user)
+  #   else
+  #     flash[:alert] = 'Impossible de republier une offre supprimée'
+  #     redirect_to user_path(current_user)
+  #   end
+  # end
 
   private
 

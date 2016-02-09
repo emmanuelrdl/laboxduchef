@@ -20,8 +20,8 @@
   get "/charteutilisateur" => "pages#charteutilisateur"
   get "/home_partner" => "pages#home_partner"
   get "/meals/mealmapxs" => "meals#mealmapxs"
-
-
+  post "/meals/post_last_meal" => "meals#post_last_meal"
+  get "/meals/post_last_meal" => "meals#post_last_meal"
 
 
   resources :contacts, only: [:new, :create]
