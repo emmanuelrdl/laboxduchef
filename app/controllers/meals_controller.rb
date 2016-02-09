@@ -51,6 +51,7 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find(params[:id])
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
+    display_validity_date
     if @meal.active == false
       flash[:alert] = "Cette offre n'est plus valable"
     end
@@ -149,5 +150,39 @@ class MealsController < ApplicationController
     flash[:alert] = "Vous n'êtes pas autorisés à effectuer cette action."
     redirect_to(root_path)
   end
+
+  def display_validity_date
+    if @meal.starting_date == Date.today
+      @date = "Aujoud'hui"
+    elsif @meal.second_date == Date.today + 1
+      @date = "Demain"
+    elsif @meal.second_date == Date.today
+      @date = "Aujourd'hui"
+    elsif @meal.permanent == true
+      if (@meal.restaurant.take_away_noon_ends_at != @meal.restaurant.take_away_noon_starts_at) &&  (@meal.restaurant.take_away_evening_ends_at != @meal.restaurant.take_away_evening_starts_at)
+        if @meal.restaurant.take_away_evening_ends_at.strftime("%H%M") > Time.now.strftime("%H%M")
+            @date = "Aujourd'hui"
+        else
+            @date = "Demain"
+        end
+      elsif @meal.restaurant.take_away_noon_ends_at != @meal.restaurant.take_away_noon_starts_at
+        if @meal.restaurant.take_away_noon_ends_at.strftime("%H%M") > Time.now.strftime("%H%M")
+            @date = "Aujourd'hui"
+        else
+            @date = "Demain"
+        end
+      elsif @meal.restaurant.take_away_evening_ends_at != @meal.restaurant.take_away_evening_starts_at
+        if @meal.restaurant.take_away_evening_ends_at.strftime("%H%M") > Time.now.strftime("%H%M")
+            @date = "Aujourd'hui"
+        else
+            @date = "Demain"
+        end
+      end
+    else
+      @date = "Offre terminée"
+    end
+  end
+
+
 
 end

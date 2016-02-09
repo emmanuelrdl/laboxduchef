@@ -48,7 +48,10 @@
             </div>
           <% end %>
       </div>
-      <div class="meal_take_away_date_xs text-center"><%= render 'meals/meal_take_away_date_xs' %></div>
+      <div class="meal_take_away_date_xs text-center">
+        <p class="meal_show_xs_take_away_title">Valable:</p>
+        <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+      </div>
   </div>
 
     <div class="col-xs-12 meal_show_xs_price_box text-center">

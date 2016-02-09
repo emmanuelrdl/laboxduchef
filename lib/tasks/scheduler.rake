@@ -58,7 +58,7 @@ namespace :scheduler do
     end
 
      task :update_permanent_quantity => :environment do
-        @meal =  Meal.where(permanent:true)
+        @meals =  Meal.where(permanent:true)
         @meals.each do |meal|
         meal.stock = meal.quantity
         meal.save

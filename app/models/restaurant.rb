@@ -20,10 +20,10 @@ class Restaurant < ActiveRecord::Base
   validates :picture, presence: true
   validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
   validates :iban, presence: true
-  validates :take_away_noon_starts_at, presence: true
-  validates :take_away_evening_starts_at, presence: true
-  validates :take_away_noon_ends_at, presence: true
-  validates :take_away_evening_ends_at, presence: true
+  validates :take_away_noon_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
+  validates :take_away_noon_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
+  validates :take_away_evening_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
+  validates :take_away_evening_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
   validates :open_noon, presence: true,  unless: ->(restaurant){restaurant.open_evening == true}
   validates :open_evening, presence: true,  unless: ->(restaurant){restaurant.open_noon == true}
 

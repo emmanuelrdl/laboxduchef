@@ -25,7 +25,8 @@
           <div class='col-xs-6 meal_show_lg_restaurant_infos'>
             <p class="meal_show_lg_take_away_date_title">RETRAIT</p>
             <%=image_tag @meal.restaurant.picture.url(:thumb),class:"meal_show_lg_restaurant_pic"%>
-            <div class="meal_show_lg_take_away_date"><%= render 'meals/meal_take_away_date' %></div>
+            <div class="meal_show_lg_take_away_date"><p class="meal_show_lg_date_away_date"> <%= @date %> </p>
+            </div>
                 <% if @meal.take_away_noon? && @meal.take_away_evening %>
                    <div class="meal_show_lg_restaurant_openings">
                       <p class="meal_show_lg_take_away_time" >
