@@ -177,6 +177,8 @@ class MealsController < ApplicationController
         else
             @date = "Demain"
         end
+      else
+        @date = "Offre terminée"
       end
     else
       @date = "Offre terminée"

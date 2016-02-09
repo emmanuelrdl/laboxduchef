@@ -38,6 +38,25 @@ namespace :scheduler do
                   else
                   meal.active = true
                   end
+                elsif meal.restaurant.closing_day_one == Date.today.strftime("%A") + 1 || meal.restaurant.closing_day_two == Date.today.strftime("%A") + 1
+                  if (meal.restaurant.take_away_noon_starts_at != meal.restaurant.take_away_noon_ends_at) && (meal.restaurant.take_away_evening_starts_at != meal.restaurant.take_away_evening_ends_at)
+                      if meal.restaurant.take_away_evening_ends_at.strftime("%H%M") < Time.now.strftime("%H%M")
+                        meal.active = false
+                      else
+                        meal.active = true
+                      end
+                  elsif meal.restaurant.take_away_noon_starts_at != meal.restaurant.take_away_noon_ends_at
+                      if meal.restaurant.take_away_noon_ends_at.strftime("%H%M") < Time.now.strftime("%H%M")
+                        meal.active = false
+                      else
+                        meal.active = true
+                      end
+                  elsif meal.restaurant.take_away_evening_starts_at != meal.restaurant.take_away_evening_ends_at
+                    if meal.restaurant.take_away_evening_ends_at.strftime("%H%M") < Time.now.strftime("%H%M")
+                        meal.active = false
+                    else
+                        meal.active = true
+                    end
                 else
                   meal.active = true
                 end
