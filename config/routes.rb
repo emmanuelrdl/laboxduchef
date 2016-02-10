@@ -1,5 +1,13 @@
   Rails.application.routes.draw do
 
+  namespace :api do
+  get 'sessions/create'
+  end
+
+  namespace :api do
+  get 'sessions/destroy'
+  end
+
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
 
@@ -42,6 +50,17 @@
   resources :orders,  only: [:index, :show, :create]
   resources :users,   only: [:show]
 
+
+  # api ------------
+
+
+namespace :api do
+  resources :meals
+  devise_scope :user do
+    post "/sign_in", :to => 'session#create'
+    delete "/sign_out", :to => 'session#destroy'
+  end
+end
 
 
 

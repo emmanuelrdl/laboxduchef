@@ -13,7 +13,7 @@ gem 'bootstrap-timepicker-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'bootstrap_forms'
-
+gem 'grape'
 gem 'rest-client'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
@@ -30,7 +30,7 @@ gem 'money-rails'
 gem 'stripe'
 gem 'coffee-script'
 gem 'whenever', :require => false
-
+gem 'active_model_serializers'
 gem 'kaminari'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'

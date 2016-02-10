@@ -2,7 +2,7 @@ class MealsController < ApplicationController
   include Pundit
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show, :mealmapxs]
-  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy ]
+  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_meal, only: [ :edit, :update, :destroy]
   before_action :navbar_choice
   before_action :disable_footer, only: [:mealmapxs]
@@ -134,7 +134,6 @@ class MealsController < ApplicationController
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
-
   end
 
   def set_meal

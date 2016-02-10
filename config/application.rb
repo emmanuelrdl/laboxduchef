@@ -38,5 +38,6 @@ module Laboxduchef
     config.action_mailer.postmark_settings = { :api_token => "7d1f6b25-f9f0-43c1-a175-01ac69865183" }
 
 
+
   end
 end
