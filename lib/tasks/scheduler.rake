@@ -85,6 +85,11 @@ namespace :scheduler do
     end
 
 
+    task :save_users do
+      @users = User.all
+      @users.save
+    end
+
     # task :send_notification => :environment do
     #     @all_meals = Meal.all
     #     @meals = @all_meals.where("active = ?", true)
