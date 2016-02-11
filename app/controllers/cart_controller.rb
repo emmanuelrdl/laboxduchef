@@ -3,10 +3,6 @@
   before_action :current_order
   before_action :navbar_choice
 
-  def show
-    @order_meals = current_order.order_meals
-    @total_price = @order.amount
-  end
 
   def destroy
     current_order.update(amount: 0, status:"cancelled")

@@ -1,8 +1,10 @@
-module Api
-  class BaseController < ApplicationController
+
+  class Api::V1::BaseController < ActionController::Base
     protect_from_forgery with: :null_session
     before_action :set_resource, only: [:destroy, :show, :update]
+    skip_before_action :verify_authenticity_token
     respond_to :json
+    acts_as_token_authentication_handler_for User
 
     private
 
@@ -96,4 +98,3 @@ module Api
         end
       end
   end
-end

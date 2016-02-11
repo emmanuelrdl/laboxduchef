@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
@@ -10,16 +10,12 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :password, presence: true, on: :create
-  # validates :cgv, presence: true
-
   has_many :restaurants
   has_many :orders
-
-  has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
-  validates_attachment_content_type :picture,
-  content_type: /\Aimage\/.*\z/
- after_create :send_welcome_email
+  before_save :ensure_authentication_token
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+  after_create :send_welcome_email
 
 
  def send_welcome_email
@@ -54,7 +50,20 @@ class User < ActiveRecord::Base
   end
 
 
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
 
+private
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
+  end
 
 
 

@@ -40,7 +40,7 @@ gem 'postmark-rails'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'activeadmin', github: 'activeadmin'
-
+gem 'simple_token_authentication'
 gem 'gibbon'
 
 source 'https://rails-assets.org' do

@@ -220,6 +220,9 @@ Devise.setup do |config|
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
+  config.http_authenticatable_on_xhr = true
+  config.navigational_formats = [:"*/*", "*/*", :html, :json]
+
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like

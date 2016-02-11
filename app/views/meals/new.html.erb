@@ -8,14 +8,14 @@
             <h3 class="form-header">CRÉATION DE L'OFFRE</h3>
              <p class='grey-text'>*Tous les champs du formulaire sont obligatoires</p>
               <%= simple_form_for([@restaurant, @meal]) do |f| %>
-                <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
+                <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 45}, placeholder: 'Nom du plat*' %>
                   <div class="fileUpload">
                     <p class="custom-para">+ Ajouter une photo</p>
                     <%= f.file_field :picture, label:false, class:"upload", id:"upload" %>
                   </div>
                   <%= f.error :picture, style:"color:#E08283;" %>
                   <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
-                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
+                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 120}, label: false %>
                   <div class="increment-field-block" >
                       <div class="incremented-field">
                           <span class='grey-text' >&nbsp&nbspPrix en salle</span>

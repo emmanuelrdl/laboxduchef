@@ -7,7 +7,7 @@
           <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" style="color:black;">
             <h3 class="form-header">ÉDITION DE L'OFFRE</h3>
             <%= simple_form_for([@restaurant, @meal], html: { novalidate: true }) do |f| %>
-              <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 28}, placeholder: 'Nom du plat*' %>
+              <%= f.input :name, label:false,  input_html: {class:"form-input-text",:maxlength => 45}, placeholder: 'Nom du plat*' %>
               <% if @meal.picture.exists? %>
                 <%= image_tag @meal.picture.url(:thumb) %><br/>
              <% end %>
@@ -17,7 +17,7 @@
               </div>
               <%= f.error :picture, style:"color:#E08283;" %>
               <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
-                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 60}, label: false %>
+                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 120}, label: false %>
                 <div class="increment-field-block" >
                     <div class="incremented-field">
                         <span >&nbsp&nbspPrix en salle</span>
