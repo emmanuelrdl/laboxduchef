@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  acts_as_token_authenticatable
+  # acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
@@ -50,20 +50,20 @@ class User < ActiveRecord::Base
   end
 
 
-  def ensure_authentication_token
-    if authentication_token.blank?
-      self.authentication_token = generate_authentication_token
-    end
-  end
+#   def ensure_authentication_token
+#     if authentication_token.blank?
+#       self.authentication_token = generate_authentication_token
+#     end
+#   end
 
-private
+# private
 
-  def generate_authentication_token
-    loop do
-      token = Devise.friendly_token
-      break token unless User.where(authentication_token: token).first
-    end
-  end
+#   def generate_authentication_token
+#     loop do
+#       token = Devise.friendly_token
+#       break token unless User.where(authentication_token: token).first
+#     end
+#   end
 
 
 
