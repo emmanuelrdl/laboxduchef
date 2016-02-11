@@ -37,7 +37,7 @@ namespace :scheduler do
                   else
                   meal.active = true
                   end
-                elsif (meal.restaurant.closing_day_one == Date.today.strftime("%A") + 1) || (meal.restaurant.closing_day_two == Date.today.strftime("%A") + 1)
+                elsif (meal.restaurant.closing_day_one == (Date.today + 1).strftime("%A")) || (meal.restaurant.closing_day_two == (Date.today + 1).strftime("%A"))
                   if (meal.restaurant.take_away_noon_starts_at != meal.restaurant.take_away_noon_ends_at) && (meal.restaurant.take_away_evening_starts_at != meal.restaurant.take_away_evening_ends_at)
                       if meal.restaurant.take_away_evening_ends_at.strftime("%H%M") < Time.now.strftime("%H%M")
                         meal.active = false
