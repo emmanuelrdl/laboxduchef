@@ -1,24 +1,58 @@
-module Api
-  class MealsController < Api::BaseController
-    before_action :authenticate_user!
-    skip_before_action :authenticate_user!, only: [:index, :show]
+
+  class Api::V1::MealsController < Api::V1::BaseController
+    acts_as_token_authentication_handler_for User, except: [ :index, :show ]
     before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_meal, only: [ :edit, :update, :destroy, :show]
+    include Pundit
+
 
     def index
       @meals = Meal.where(active:true)
     end
 
-    def show
-    end
 
+    def show
+      @meal = Meal.find(params[:id])
+      @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
+      display_validity_date
+    end
 
     def create
       @meal = @restaurant.meals.create(params_meal)
       @meal.active = true
       @meal.stock = @meal.quantity
-      @meal.save
+      if @meal.save
+        render :json => {:state => {:code => 0}, :data => @meal }
+      else
+        render :json => {:state => {:code => 1, :messages => @meal.errors.full_messages} }
+      end
+      authorize @meal
     end
+
+    def update
+      @meal = @restaurant.meals.find(params[:id])
+      @meal.update(params_meal)
+      @meal.stock = @meal.quantity
+      if @meal.save
+        render :json => {:state => {:code => 0}, :data => @meal }
+      else
+        render :json => {:state => {:code => 1, :messages => @meal.errors.full_messages} }
+      end
+      authorize @meal
+    end
+
+    def destroy
+      @meal = @restaurant.meals.find(params[:id])
+      @meal.update(active:false, permanent:false, starting_date:nil, second_date: Date.today - 2)
+      if @meal.save
+        render :json => {:state => {:code => 0}, :data => @meal }
+      else
+         render :json => {:state => {:code => 1, :messages => @meal.errors.full_messages} }
+      end
+      authorize @meal
+    end
+
+
     private
 
     def params_meal
@@ -75,4 +109,4 @@ module Api
     end
 
   end
-end
+

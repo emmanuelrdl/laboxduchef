@@ -1,15 +1,7 @@
   Rails.application.routes.draw do
 
-  namespace :api do
-  get 'sessions/create'
-  end
-
-  namespace :api do
-  get 'sessions/destroy'
-  end
-
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations'  }
 
 
   devise_scope :user do
@@ -34,7 +26,6 @@
 
   resources :contacts, only: [:new, :create]
   resources :newsletters, only: [:new, :create]
-
   resources :meals, only: [ :index, :show]
 
 
@@ -55,10 +46,16 @@
 
 
 namespace :api do
-  resources :meals
-  devise_scope :user do
-    post "/sign_in", :to => 'session#create'
-    delete "/sign_out", :to => 'session#destroy'
+  namespace :v1 do
+    resources :restaurants, only: [:create, :update] do
+      resources :meals, only: [:create, :update, :destroy]
+    end
+    resources :meals, only: [ :index, :show]
+    devise_scope :user do
+        post "/sign_in", :to => 'sessions#create'
+        post "/sign_up", :to => 'registrations#create'
+        delete "/sign_out", :to => 'sessions#destroy'
+    end
   end
 end
 
