@@ -85,7 +85,7 @@ namespace :scheduler do
     end
 
 
-    task :save_users do
+    task :save_users => :environment do
       @users = User.all
       @users.each do |user|
       user.save
