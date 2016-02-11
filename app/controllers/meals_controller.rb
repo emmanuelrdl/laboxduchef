@@ -12,7 +12,6 @@ class MealsController < ApplicationController
 
 
   def index
-    @meal = Meal.new
     @meals = Meal.where(active:true).paginate(:page => params[:page], :per_page => 6)
     where_group = params[:full_addressuser_input_autocomplete_address]
     if where_group
@@ -52,6 +51,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @restaurant_coordinates = [{ lat: @meal.restaurant.latitude, lng: @meal.restaurant.longitude }]
     display_validity_date
+    set_take_away_time
     if @meal.active == false
       flash[:alert] = "Cette offre n'est plus valable"
     end
@@ -110,25 +110,6 @@ class MealsController < ApplicationController
     authorize @meal
   end
 
-  # def post_last_meal
-  #  @last_meal = current_user.restaurants.first.meals.last
-  #   if @last_meal.permanent?
-  #     @last_meal.update(stock: @last_meal.quantity, active:true)
-  #   elsif @last_meal.starting_date.present? && @last_meal.second_date.present?
-  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today, second_date: Date.today + 1)
-  #   elsif @last_meal.starting_date.present?
-  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today)
-  #   elsif @last_meal.second_date.present?
-  #     @last_meal.update(stock: @last_meal.quantity, active:true, starting_date: Date.today + 1)
-  #   end
-  #   if @last_meal.save
-  #     flash[:notice] = 'Offre publiée'
-  #     redirect_to user_path(current_user)
-  #   else
-  #     flash[:alert] = 'Impossible de republier une offre supprimée'
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
 
   private
 
@@ -200,6 +181,21 @@ class MealsController < ApplicationController
       end
     else
       @date = "Offre terminée"
+    end
+  end
+
+  def set_take_away_time
+     if @meal.take_away_noon? && @meal.take_away_evening?
+      @time_noon_starts =  @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M')
+      @time_noon_ends = @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M')
+      @time_evening_starts = @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M')
+      @time_evening_ends = @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M')
+    elsif @meal.take_away_noon?
+      @time_noon_starts = @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M')
+      @time_noon_ends = @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M')
+    elsif @meal.take_away_evening?
+      @time_evening_starts = @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M')
+      @time_evening_ends = @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M')
     end
   end
 

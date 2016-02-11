@@ -31,29 +31,25 @@
                    <div class="meal_show_lg_restaurant_openings">
                       <p class="meal_show_lg_take_away_time" >
                         <i class="fa fa-clock-o"></i>
-                        <%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
-                        - <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                         <%= @time_noon_starts %> - <%= @time_noon_ends %>
                       </p>
                       <p class="meal_show_lg_take_away_time">
                         <i class="fa fa-clock-o"></i>
-                        <%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
-                        - <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                        <%= @time_evening_starts %> - <%= @time_evening_ends %>
                       </p>
                   </div>
                 <% elsif @meal.take_away_noon? %>
                   <div class="meal_show_lg_restaurant_openings">
                    <p class="meal_show_lg_take_away_time">
                       <i class="fa fa-clock-o"></i>
-                      <%= @meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %>
-                      - <%= @meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+                      <%= @time_noon_starts %> - <%= @time_noon_ends %>
                   </p>
                  </div>
                 <% elsif @meal.take_away_evening? %>
                   <div class="meal_show_lg_restaurant_openings">
                     <p class="meal_show_lg_take_away_time">
                       <i class="fa fa-clock-o"></i>
-                      <%= @meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %>
-                      - <%= @meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+                      <%= @time_evening_starts %> - <%= @time_evening_ends %>
                     </p>
                   </div>
                 <% end %>

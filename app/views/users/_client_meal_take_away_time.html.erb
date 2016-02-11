@@ -1,17 +1,17 @@
  <div class="payment_show_infos_box_postion ">
      <% if @last_order.meal.take_away_noon? && @last_order.meal.take_away_evening? %>
          <i class="fa fa-clock-o payment-icons"></i>
-          &nbsp<p class="payment_show_take_away_time"> <%= @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %> </p>
+          &nbsp<p class="payment_show_take_away_time"> <%= @time_noon_starts  %> - <%= @time_noon_ends  %> </p>
         <p class="payment_show_take_away_time">
-          <%= @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+          <%= @time_evening_starts %> - <%= @time_evening_ends  %>
         </p>
     <% elsif @last_order.meal.take_away_noon? %>
         <i class="fa fa-clock-o payment-icons"></i>
-         &nbsp<p class="payment_show_take_away_time"> <%= @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M') %>
+         &nbsp<p class="payment_show_take_away_time"> <%= @time_noon_starts %> - <%= @time_noon_ends %>
         </p>
     <% elsif @last_order.meal.take_away_evening? %>
         <i class="fa fa-clock-o payment-icons"></i>
-         &nbsp<p class="payment_show_take_away_time"><%= @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M') %> - <%= @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M') %>
+         &nbsp<p class="payment_show_take_away_time"><%= @time_evening_starts  %> - <%= @time_evening_ends %>
         </p>
       <% end %>
 </div>

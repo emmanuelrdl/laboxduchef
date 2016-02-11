@@ -1,6 +1,12 @@
-$(document).on('page:fetch', function() {
-  $("#spinner").show();
-});
-$(document).on('page:change', function() {
-  $("#spinner").hide();
+
+$(document).ready(function() {
+  $('#myCarousel').carousel({
+  interval: 4000
+  })
+
+    $('#myCarousel').on('slid.bs.carousel', function() {
+      //alert("slid");
+  });
+
+
 });

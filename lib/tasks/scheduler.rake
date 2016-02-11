@@ -85,12 +85,7 @@ namespace :scheduler do
     end
 
 
-    task :save_users => :environment do
-      @users = User.all
-      @users.each do |user|
-      user.save
-      end
-    end
+
 
     # task :send_notification => :environment do
     #     @all_meals = Meal.all

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create
   has_many :restaurants
   has_many :orders
+  validates :phone_number, presence: true, length: { maximum: 10 }, if: ->(user){user.restaurant_owner == true}
+  validates :phone_number, numericality: true, if: ->(user){user.restaurant_owner == true}
   before_save :ensure_authentication_token
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/

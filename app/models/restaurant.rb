@@ -15,7 +15,7 @@ class Restaurant < ActiveRecord::Base
   validates :postal_code, presence: true
   validates :longitude, presence: true
   validates :latitude, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, length: { maximum: 10 }
   validates :phone_number, numericality: true
   validates :picture, presence: true
   validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
