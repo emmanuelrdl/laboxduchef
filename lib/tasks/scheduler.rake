@@ -87,7 +87,9 @@ namespace :scheduler do
 
     task :save_users do
       @users = User.all
-      @users.save
+      @users.each do |user|
+      user.save
+      end
     end
 
     # task :send_notification => :environment do
