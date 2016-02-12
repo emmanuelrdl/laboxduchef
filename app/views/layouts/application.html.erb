@@ -2,6 +2,7 @@
 <html class='<%= "#{params[:controller]}-#{params[:action]}" %>'  lang="fr">
   <head>
     <title>La Box des Chefs | Des plats de chefs à prix cassé</title>
+    <meta name="description" content="<%= meta_description %>" />
     <%= favicon_link_tag 'logo.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
