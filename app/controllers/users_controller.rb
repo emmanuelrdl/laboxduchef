@@ -16,9 +16,11 @@ class UsersController < ApplicationController
         end
       end
     else
-      set_last_order_status
-      set_validity_date
-      set_take_away_time
+      if current_user.orders.where(status:'confirmed').count >= 1 || current_user.orders.where(status:'paid').count >= 1
+        set_last_order_status
+        set_validity_date
+        set_take_away_time
+      end
     end
   end
 
