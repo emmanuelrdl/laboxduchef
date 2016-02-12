@@ -1,3 +1,6 @@
+<!-- modal directions -->
+   <%= render 'meal_directions', :meal => @meal %>
+<!-- modal directions -->
 <!-- meal infos -->
 <div class="col-xs-12 meal-show-global-box-xs " >
   <div class="meal-show-img-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
@@ -46,8 +49,14 @@
         <% end %>
     </div>
     <div class="meal_take_away_date_xs text-center">
-      <p class="meal_show_xs_take_away_title">Valable:</p>
-      <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+      <% if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1 %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+          <p class="meal_show_xs_take_away_date"> <%= @date_2 %> </p>
+      <% else %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+      <% end %>
     </div>
 </div>
 <!-- meal infos -->

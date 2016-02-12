@@ -5,9 +5,10 @@ class Order < ActiveRecord::Base
 
 
   validates :quantity, presence: true
+  validates :quantity, :numericality => { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 100 }
+  validates_numericality_of :quantity, :only_integer => true
   validates :user_id, presence: true
   validates :meal_id, presence: true
-  validates_numericality_of :quantity, :only_integer => true
 
   monetize :amount_cents
 

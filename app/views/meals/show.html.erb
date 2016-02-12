@@ -25,7 +25,13 @@
           <div class='col-xs-6 meal_show_lg_restaurant_infos'>
             <p class="meal_show_lg_take_away_date_title">RETRAIT</p>
             <%=image_tag @meal.restaurant.picture.url(:thumb),class:"meal_show_lg_restaurant_pic"%>
-            <div class="meal_show_lg_take_away_date"><p class="meal_show_lg_date_away_date"> <%= @date %> </p>
+            <div class="meal_show_lg_take_away_date">
+              <% if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1 %>
+                <p class="meal_show_lg_date_away_date"> <%= @date %> </p>
+                <p class="meal_show_lg_date_away_date"> <%= @date_2 %> </p>
+              <% else %>
+                <p class="meal_show_lg_date_away_date"> <%= @date %> </p>
+              <% end %>
             </div>
                 <% if @meal.take_away_noon? && @meal.take_away_evening %>
                    <div class="meal_show_lg_restaurant_openings">

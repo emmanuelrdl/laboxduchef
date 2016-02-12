@@ -1,0 +1,48 @@
+<div id="modal-direction-<%=meal.id%>" class="modal text-center modal-direction">
+
+<div class="map_container">
+  <div id="map-directions-meal"></div>
+</div>
+ <button type="btn-success" data-dismiss="modal" class="btn btn-success btn-margin text-center">Fermer</button>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+
+
+
+$(document).ready(function() {
+
+
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+
+function calcRoute() {
+  var origin      = new google.maps.LatLng(41.850033, -87.6500523);
+  var destination = new google.maps.LatLng(42.850033, -85.6500523);
+  var request = {
+      origin:      origin,
+      destination: destination,
+      travelMode:  google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+calcRoute();
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id:'map-directions-meal'}}, function(){
+  directionsDisplay.setMap(handler.getMap());
+});
+
+
+  <% end %>
+<% end %>
+
+

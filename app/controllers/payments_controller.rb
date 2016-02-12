@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
 
 
   def new
-    @order = current_user.orders.where(status: "cart").first
+    @order = current_user.orders.where("status = ?", "cart").first
     @amount = @order.amount
   end
 
@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
 
 
   def show
-    @order = current_user.orders.where(status: "confirmed").last
+    @order = current_user.orders.where("status = ?", "confirmed").last
     @amount = @order.amount
     @restaurant_coordinates = [{ lat: @order.meal.restaurant.latitude, lng: @order.meal.restaurant.longitude }]
     @restaurant_full_address = @order.meal.restaurant.full_address
@@ -54,7 +54,7 @@ class PaymentsController < ApplicationController
   end
 
   def current_order
-    @order = current_user.orders.where(status: "cart").first_or_create
+    @order = current_user.orders.where("status = ?", "cart").first_or_create
   end
 
 

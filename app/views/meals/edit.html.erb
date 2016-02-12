@@ -14,10 +14,10 @@
               <div class="fileUpload">
                 <p class="custom-para">+ Ajouter une photo</p>
               <%= f.file_field :picture, label:false, class:"upload", id:"upload"%>
+              <%= f.error :picture, class:"error" %>
               </div>
-              <%= f.error :picture, style:"color:#E08283;" %>
               <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
-                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 170}, label: false %>
+                <%= f.input :description, placeholder: 'Description', input_html: { class:"form-input-description",:maxlength => 170}, label: false %>
                 <div class="increment-field-block" >
                     <div class="incremented-field">
                         <span >&nbsp&nbspPrix en salle</span>

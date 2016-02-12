@@ -11,7 +11,7 @@ class Meal < ActiveRecord::Base
   validates :seated_price, presence: true, numericality: true
   validates :seated_price, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
   validates :quantity, presence: true, numericality:  {:greater_than_or_equal_to => 1 }
-  validates :description, presence: true, length: { maximum: 170 }
+  validates :description, length: { maximum: 170 }
   validates :starting_date, presence: true, unless: ->(meal){meal.second_date.present? || meal.permanent.present?}
   validates :permanent, presence: true, unless: ->(meal){meal.starting_date.present? || meal.second_date.present?}
   validates :second_date, presence: true, unless: ->(meal){meal.starting_date.present? || meal.permanent.present?}

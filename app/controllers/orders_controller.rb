@@ -19,13 +19,13 @@ class OrdersController < ApplicationController
       @order.meal.save
       redirect_to new_cart_payment_path
     else params[:order][:quantity].to_i <= @meal.stock
-      flash[:alert] = "Stock insuffisant"
+      flash[:alert] = "Quantité insuffisante"
       redirect_to meal_path(@meal)
     end
   end
 
   def show
-    @order = Order.where(:status => ["confirmed", "paid"]).find(params[:id])
+    @order = Order.where("status = ?", ["confirmed", "paid"]).find(params[:id])
     @restaurants = current_user.restaurants
       @restaurants.first.meals.each do |meal|
       @meal = meal
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
 
 
   def update
-    @order = current_user.orders.where(status: "cart").find(params[:id])
+    @order = current_user.orders.where("status = ?", "cart").find(params[:id])
     order = Order.update!(amount: @order.amount, status: 'cart')
     redirect_to new_order_payment_path(order)
   end
@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
   end
 
   def current_order
-    @order ||= current_user.orders.where(status: "cart").first_or_create
+    @order ||= current_user.orders.where("status = ?", "cart").first_or_create
   end
 
   def check_if_offer_active

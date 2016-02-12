@@ -16,7 +16,7 @@
   private
 
   def current_order
-    @order ||= current_user.orders.where(status: "cart").first_or_create
+    @order ||= current_user.orders.where("status = ?", "cart").first_or_create
   end
 
   def navbar_choice

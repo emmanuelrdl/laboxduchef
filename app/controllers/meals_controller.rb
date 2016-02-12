@@ -12,10 +12,10 @@ class MealsController < ApplicationController
 
 
   def index
-    @meals = Meal.where(active:true).paginate(:page => params[:page], :per_page => 6)
+    @meals = Meal.where("active = ?",true).paginate(:page => params[:page], :per_page => 6)
     where_group = params[:full_addressuser_input_autocomplete_address]
     if where_group
-    @meals = Meal.where(active:true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
+    @meals = Meal.where("active = ?",true).joins(:restaurant).near(params[:full_addressuser_input_autocomplete_address], 20, order: 'distance').paginate(:page => params[:page], :per_page => 6)
     end
       @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
       @my_meal = meal.restaurant
@@ -31,7 +31,7 @@ class MealsController < ApplicationController
   end
 
   def mealmapxs
-    @meals = Meal.where(active:true)
+    @meals = Meal.where("active = ?",true)
     @markers = Gmaps4rails.build_markers(@meals) do |meal, marker|
     @my_meal = meal.restaurant
     marker.lat meal.restaurant.latitude
@@ -151,12 +151,17 @@ class MealsController < ApplicationController
   end
 
   def display_validity_date
-    if @meal.starting_date == Date.today
+    if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1
+      @date = "Aujourd'hui"
+      @date_2 = "Demain"
+    elsif @meal.starting_date == Date.today
       @date = "Aujoud'hui"
     elsif @meal.second_date == Date.today + 1
       @date = "Demain"
     elsif @meal.second_date == Date.today
       @date = "Aujourd'hui"
+    elsif @meal.second_date == Date.today + 1
+      @date = "Demain"
     elsif @meal.permanent == true
       if (@meal.restaurant.take_away_noon_ends_at != @meal.restaurant.take_away_noon_starts_at) &&  (@meal.restaurant.take_away_evening_ends_at != @meal.restaurant.take_away_evening_starts_at)
         if @meal.restaurant.take_away_evening_ends_at.strftime("%H%M") > Time.now.strftime("%H%M")

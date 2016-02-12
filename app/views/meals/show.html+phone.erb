@@ -51,8 +51,14 @@
           <% end %>
       </div>
       <div class="meal_take_away_date_xs text-center">
-        <p class="meal_show_xs_take_away_title">Valable:</p>
-        <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+        <% if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1 %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+          <p class="meal_show_xs_take_away_date"> <%= @date_2 %> </p>
+        <% else %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+        <% end %>
       </div>
   </div>
 

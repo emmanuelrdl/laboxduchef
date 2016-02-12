@@ -1,13 +1,10 @@
 <div id="modal-<%=meal.id%>" class="modal text-center ">
-
     <div class="row modal-meal-global-box col-xs-12">
         <div class="meal-show-img-xs" style="background-image: url('<%=image_path meal.picture.url(:medium)%>')">
           <div class="card-filter"> </div>
            <div class="card-filter-top"> </div>
             <div class="meal-place-infos-lg">
                   <p class="restaurant-name-meal"> <%= meal.restaurant.name %> </p>
-                  <p class="restaurant_full_address" > <%= meal.restaurant.full_address %> </p>
-                  <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
 
             </div>
             <div id="index_meal_name_position"><%= meal.name %>
@@ -50,7 +47,7 @@
               <% end %>
             </div>
                 <div class="meal_take_away_date_xs text-center">
-                  <% if meal.starting_date == Date.today && meal.second_date == Date.today + 1 %>
+                 <% if meal.starting_date == Date.today && meal.second_date == Date.today + 1 %>
                     <p class="meal_show_xs_take_away_title">Valable:</p>
                     <p class="meal_show_xs_take_away_date">Aujoud'hui</p>
                     <p  class="meal_show_xs_take_away_date" >Demain</p>

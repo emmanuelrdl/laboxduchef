@@ -7,7 +7,7 @@
 
 
     def index
-      @meals = Meal.where(active:true)
+      @meals = Meal.where("active = ?", true)
     end
 
 

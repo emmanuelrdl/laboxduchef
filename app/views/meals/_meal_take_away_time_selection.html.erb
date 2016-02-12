@@ -1,11 +1,14 @@
 <% if @restaurant.open_noon == true && @restaurant.open_evening == true %>
   <div class="form-input-time-box margin-30 ">
       <p class='form-header'> <strong> Retrait possible </strong>(cochez une ou deux cases)</p>
-       <%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
-       <span class="take_away_times_meal grey-text"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </span>
-
+      <div class="align-div">
+         <%= f.input :take_away_noon, as: :boolean, label:("Le midi").html_safe, id:'take_away_noon', value:'1' %>
+         <span class="take_away_times_meal grey-text"><%=current_user.restaurants.first.take_away_noon_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_noon_ends_at.strftime('%H:%M') %> </span>
+      </div>
+       <div class="align-div">
         <%= f.input :take_away_evening, as: :boolean, label:("Le soir").html_safe %>
         <span class="take_away_times_meal grey-text"><%=current_user.restaurants.first.take_away_evening_starts_at.strftime('%H:%M') %> - <%= current_user.restaurants.first.take_away_evening_ends_at.strftime('%H:%M') %> </span>
+      </div>
     </div>
  <% elsif @restaurant.open_noon == true %>
    <div class="form-input-time-box align-div margin-30" >

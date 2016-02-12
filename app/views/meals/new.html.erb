@@ -12,10 +12,10 @@
                   <div class="fileUpload">
                     <p class="custom-para">+ Ajouter une photo</p>
                     <%= f.file_field :picture, label:false, class:"upload", id:"upload" %>
+                     <%= f.error :picture, class:"error" %>
                   </div>
-                  <%= f.error :picture, style:"color:#E08283;" %>
                   <input id="uploadFile" placeholder="0 fichiers selectionnés" disabled="disabled" />
-                <%= f.input :description, placeholder: 'Description*', input_html: { class:"form-input-description",:maxlength => 170}, label: false %>
+                <%= f.input :description, placeholder: 'Description', input_html: { class:"form-input-description",:maxlength => 170}, label: false %>
                   <div class="increment-field-block" >
                       <div class="incremented-field">
                           <span class='grey-text' >&nbsp&nbspPrix en salle</span>
@@ -47,19 +47,19 @@
                        <div class="checkbox">
                           <p class='grey-text' ><%= check_box_tag "meal[starting_date]", Date.today,false, id:"starting_date" %> Aujourd'hui&nbsp
                           </p>
-                        <%= f.error :second_date, style:"color:#E08283;" %>
+                        <%= f.error :second_date, class:"error" %>
                        </div>
                        <div class="checkbox">
                            <p class='grey-text' ><%= check_box_tag "meal[second_date]", Date.today + 1, false, id:"second_date" %>
                             Demain&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                            </p>
-                          <%= f.error :second_date, style:"color:#E08283;" %>
+                          <%= f.error :second_date, class:"error" %>
                        </div>
                         <div class="checkbox">
                            <p class='grey-text' ><%= check_box_tag "meal[permanent]", true, false, id:"permanent" %>
                             Permanente
                            </p>
-                          <%= f.error :permanent, style:"color:#E08283;" %>
+                          <%= f.error :permanent, class:"error" %>
                        </div>
                   </div>
 

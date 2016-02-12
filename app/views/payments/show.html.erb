@@ -40,7 +40,7 @@
 
 
  <% content_for(:after_js) do %>
-              <%= javascript_tag do %>
+    <%= javascript_tag do %>
 
 
 $("#get_direction_detail").hide();
@@ -87,7 +87,7 @@ $("#get_direction_detail").show();
             });
           },
           function () {
-            // Gelocation fallback: Defaults to Stockholm, Sweden
+
             createMap({
               coords : false,
               address : "Paris, France"
@@ -96,7 +96,7 @@ $("#get_direction_detail").show();
         );
       }
       else {
-        // No geolocation fallback: Defaults to Lisbon, Portugal
+
         createMap({
           coords : false,
           address : "Paris, France"
@@ -106,5 +106,5 @@ $("#get_direction_detail").show();
 
 
 
-              <% end %>
-            <% end %>
+  <% end %>
+<% end %>
