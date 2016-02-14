@@ -87,7 +87,7 @@ class UsersController < ApplicationController
       @date = "Aujoud'hui"
     elsif @meal.second_date == Date.today + 1
       @date = "Demain"
-    elsif @meal.permanent == true && @last_order.created_at == Date.today
+    elsif @meal.permanent == true && @last_order.created_at.strftime("%F") == Date.today.strftime("%F")
       if (@meal.restaurant.take_away_noon_ends_at != @meal.restaurant.take_away_noon_starts_at) &&  (@meal.restaurant.take_away_evening_ends_at != @meal.restaurant.take_away_evening_starts_at)
         if @meal.restaurant.take_away_evening_ends_at.strftime("%H%M") > Time.now.strftime("%H%M")
             @date = "Aujourd'hui"
@@ -123,7 +123,7 @@ class UsersController < ApplicationController
       @time_evening_ends = @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M')
     elsif @last_order.meal.take_away_noon?
       @time_noon_starts = @last_order.meal.restaurant.take_away_noon_starts_at.strftime('%H:%M')
-      @time_evening_ends = @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M')
+      @time_noon_ends = @last_order.meal.restaurant.take_away_noon_ends_at.strftime('%H:%M')
     elsif @last_order.meal.take_away_evening?
       @time_evening_starts = @last_order.meal.restaurant.take_away_evening_starts_at.strftime('%H:%M')
       @time_evening_ends = @last_order.meal.restaurant.take_away_evening_ends_at.strftime('%H:%M')

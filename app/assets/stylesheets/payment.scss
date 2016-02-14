@@ -109,9 +109,7 @@
 
 .order_recap_meal_name {
   padding-top:10px;
-  color:#414243;
-  display: flex;
-
+  color:white;
 
 }
 
@@ -177,14 +175,16 @@ box-shadow: 3px 3px 3px #888888;
 .payment_meal_take_away_date {
  color:#414243;
  display: flex;
+ align-items: center;
+ justify-content: center;
 
 }
 
 .payment_show_infos_box_postion {
-
   color:#414243;
   display: flex;
-  text-align:center;
+  align-items: center;
+ justify-content: center;
 }
 
 .payment_show_take_away_time {
@@ -223,13 +223,11 @@ box-shadow: 3px 3px 3px #888888;
 }
 
 .payment_show_info_alignment {
-  width:50%;
   margin:auto;
 }
 
 @media (max-width: 800px) {
 .payment_show_info_alignment {
- width:90%;
  margin:auto;
  }
 }
@@ -239,11 +237,8 @@ box-shadow: 3px 3px 3px #888888;
   position:relative;
 }
 
-.order_recap_meal_name {
-  color:white;
-}
 
-.order_recap_meal_name-text {
+.order_recap_meal_name_text {
   border:solid 2px;
   border-radius:4px;
   margin-left:12px;

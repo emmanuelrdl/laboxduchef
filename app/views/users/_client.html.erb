@@ -1,4 +1,4 @@
- <div id="body-container">
+   <div id="body-container">
     <div class="container">
       <div class="row">
         <% if current_user.orders.where(status:'confirmed').count >= 1 || current_user.orders.where(status:'paid').count >= 1 %>
@@ -9,7 +9,7 @@
                 <div class="payment_show_restaurant_picture col-xs-12" style="background-image: url('<%=image_path @last_order.meal.restaurant.picture.url(:medium)%>')">
                     <div class="card-filter-payment"> </div>
                     <div class="payment_show_info_alignment text-center">
-                       <h4 class="order_recap_meal_name"  ><i class="fa fa-cutlery payment-icons"> </i>
+                       <h4 class="order_recap_meal_name text-center"  ><i class="fa fa-cutlery payment-icons"> </i>
                           <span class="order_recap_meal_name-text">&nbsp<%= @last_order.quantity %> <%= @last_order.meal.name %></span>
                        </h4>
                        <div class="payment_meal_take_away_date">  <%= render "users/client_meal_take_away_date" %>
@@ -24,7 +24,7 @@
                   <div id="map" class="map_payment" > </div>
                   <div id="get_direction_detail" class="btn btn-direction-detail">Détails</div>
                 </div>
-              <div id="map-directions" hidden="true"></div>
+                <div id="map-directions" hidden="true"></div>
             </div>
               <div class="col-xs-12 grey-text payment_info_box">
                <p >Pour récupérer votre box il vous suffit de vous présenter chez notre partenaire aux horaires indiqués ci-dessus.</p>
@@ -34,6 +34,18 @@
                 <%= link_to "Accueil", root_path, class: "btn btn-empty-basket btn-waiting" %>
           </div>
 <!-- details of last order -->
+   <% else %>
+        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center user-payment-box" >
+          <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
+          <%= image_tag "logo-black.png", size:"250x100", style:"margin-top:20px"  %>
+          <h3 class="title_no_order"> Vous n'avez pas de commandes en cours</h3>
+          <div><%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>  </div>
+          </div>
+    <% end -%>
+
+    </div>
+  </div>
+</div>
 
 
 
@@ -107,17 +119,3 @@ $("#get_direction_detail").show();
 
     <% end %>
     <% end %>
-
-
-   <% else %>
-        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center user-payment-box" >
-          <h4 class="form-header-no-margin">DERNIÈRE COMMANDE</h4>
-          <%= image_tag "logo-black.png", size:"250x100", style:"margin-top:20px"  %>
-          <h3 class="title_no_order"> Vous n'avez pas de commandes en cours</h3>
-          <div><%= link_to "Accueil", root_path, class: "btn btn-empty-basket" %>  </div>
-          </div>
-    <% end -%>
-
-    </div>
-  </div>
-</div>

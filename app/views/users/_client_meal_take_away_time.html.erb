@@ -2,9 +2,7 @@
      <% if @last_order.meal.take_away_noon? && @last_order.meal.take_away_evening? %>
          <i class="fa fa-clock-o payment-icons"></i>
           &nbsp<p class="payment_show_take_away_time"> <%= @time_noon_starts  %> - <%= @time_noon_ends  %> </p>
-        <p class="payment_show_take_away_time">
-          <%= @time_evening_starts %> - <%= @time_evening_ends  %>
-        </p>
+        <p class="payment_show_take_away_time">  <%= @time_evening_starts %> - <%= @time_evening_ends  %>   </p>
     <% elsif @last_order.meal.take_away_noon? %>
         <i class="fa fa-clock-o payment-icons"></i>
          &nbsp<p class="payment_show_take_away_time"> <%= @time_noon_starts %> - <%= @time_noon_ends %>
