@@ -85,31 +85,11 @@
 
 
 
-<!-- map meal show xs-->
- <% content_for(:after_js) do %>
-              <%= javascript_tag do %>
-                $(document).on('ready', function() {
-                  handler_phone = Gmaps.build('Google');
-
-                  handler_phone.buildMap({
-                    provider: { maxZoom: 16},
-                    internal: { id: 'map-show-xs' } }, function(){
-
-                    markers = handler_phone.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
-                    handler_phone.bounds.extendWith(markers);
-                    handler_phone.fitMapToBounds().getMap();
-
-                  });
-
-              })
-
-
-              <% end %>
-            <% end %>
-<!-- map meal show xs -->
 
 
 
+ 
+     
 
 
 

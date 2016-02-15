@@ -1,0 +1,116 @@
+<!-- meta Facebook  -->
+<% content_for :meta_title, "#{@meal.name} à seulement #{@meal.price} € -  #{@meal.restaurant.name}" %>
+<% content_for :meta_description, @meal.description %>
+<% content_for :meta_image, @meal.picture.url(:facebook) %>
+<!-- meta Facebook -->
+<!-- modal directions -->
+   <%= render 'meal_directions', :meal => @meal %>
+<!-- modal directions -->
+
+<div class="col-xs-12 meal-show-global-box-xs " >
+    <div class="meal-show-img-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
+      <div class="card-filter"> </div>
+       <div class="card-filter-top"> </div>
+        <div class="meal-place-infos-lg">
+           <%= link_to "#", data: { toggle: "modal", target: "#modal-direction-#{@meal.id}"} do %>
+              <p class="restaurant-name-meal"> <%= @meal.restaurant.name %> </p>
+              <p class="restaurant_full_address" > <%= @meal.restaurant.full_address %> </p>
+              <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
+              <%= @meal.restaurant.distance_from(@search_address).round(1) %> km
+             </p>
+          <% end %>
+        </div>
+        <div id="index_meal_name_position"><%= @meal.name %>
+          <div class="meal_show_xs_stock_position"> <%= image_tag "foodbox_white.png", size:"20x20" %>  <%= @meal.stock %> </div>
+          <p class="meal_show_xs_description"><%= @meal.description %></p>
+        </div>
+    </div>
+    <div class="meal_show_xs_detail_box">
+        <div class="meal_show_xs_seated_price"><s><%= @meal.seated_price %> €</s> </div>
+          <div class="meal_show_xs_price"><%= @meal.price %> €</div>
+            <% if @meal.take_away_noon? && @meal.take_away_evening %>
+             <div class="show-take-away-times-xs">
+                <li>
+                  <i class="fa fa-clock-o"></i>
+                  <%= @time_noon_starts %> - <%= @time_noon_ends %>
+                </li>
+                <li>
+                  <i class="fa fa-clock-o"></i>
+                  <%= @time_evening_starts %> - <%= @time_evening_ends %>
+                </li>
+            </div>
+            <% elsif @meal.take_away_noon? %>
+              <div class="show-take-away-times-xs">
+               <li>
+                  <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                  <%= @time_noon_starts %> - <%= @time_noon_ends %>
+              </li>
+             </div>
+            <% elsif @meal.take_away_evening? %>
+              <div class="show-take-away-times-xs">
+                <li>
+                  <i class="fa fa-clock-o" style="margin-bottom:18px"></i>
+                  <%= @time_evening_starts %> - <%= @time_evening_ends %>
+                </li>
+              </div>
+          <% end %>
+      </div>
+      <div class="meal_take_away_date_xs text-center">
+        <% if @meal.starting_date == Date.today && @meal.second_date == Date.today + 1 %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+          <p class="meal_show_xs_take_away_date"> <%= @date_2 %> </p>
+        <% else %>
+          <p class="meal_show_xs_take_away_title">Valable:</p>
+          <p class="meal_show_xs_take_away_date"> <%= @date %> </p>
+        <% end %>
+      </div>
+  </div>
+
+    <div class="col-xs-12 meal_show_xs_price_box text-center">
+
+
+        <%= simple_form_for Order.new, url: cart_orders_path do |f| %>
+         <div class="col-xs-6 meal_show_lg_order_box">
+           <div><button type="button" class="btn btn-minus btn-number minus"  data-type="minus" id="minus" data-field="order[quantity]"> - </button></div>
+           <div ><input name="order[quantity]" max="<%= @meal.stock %>" type="text" min="1" value="1" class="meal_show_quantity_select"></div>
+           <div> <button type="button" class="btn btn-qtyplus btn-number plus" id="plus" data-type="plus" data-field="order[quantity]">+</button> </div>
+          <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+          </div>
+            <div class='col-xs-6 meal_show_xs_total_price'>
+              <span class="total_xs">Total:</span>
+              <span class="price"> <%= @meal.price.to_f %> </span><span class="meal_show_xs_currency_symbol">&nbsp€</span>
+            </div>
+              <div class="col-xs-12 text-center">
+                <%= f.submit "Commander", class: "btn-reserver-xs btn-waiting" %>
+              </div>
+            <% end %>
+
+    </div>
+
+
+
+<!-- map meal show xs-->
+ <% content_for(:after_js) do %>
+              <%= javascript_tag do %>
+                $('#modal-direction-<%=@meal.id%>').on('shown.bs.modal', function (e) { 
+                 handler_xs = Gmaps.build('Google');
+                 handler_xs.buildMap({ provider: {}, internal: {id: 'map-show-xs'}}, function(){
+                  markers = handler_xs.addMarkers(<%=raw @restaurant_coordinates.to_json  %>);
+                  handler_xs.bounds.extendWith(markers);
+                  handler_xs.fitMapToBounds();
+                  handler_xs.getMap().setZoom(16);
+                 });
+                });
+  
+
+            <% end %>
+  <% end %>
+<!-- map meal show xs -->
+
+
+
+
+
+
+
