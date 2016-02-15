@@ -94,7 +94,12 @@ namespace :scheduler do
         end
       end
 
-
+  task :set_orders_as_paid => :environment do
+        @orders =  Order.where("status = ?", "confirmed")
+        @orders.each do |order|
+        order.update(status:"paid")
+        end
+    end
 
 
 end
