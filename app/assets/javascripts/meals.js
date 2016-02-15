@@ -171,13 +171,6 @@ $('#second_date').on('change', function() {
 
 // uncheck take away days
 
-// loading modal
-
-// $(window).load(function(){
-
-//   $('#modal_waiting').modal('show');
-
-// });
 
 
 // loading modal

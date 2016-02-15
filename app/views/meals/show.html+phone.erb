@@ -3,17 +3,22 @@
 <% content_for :meta_description, @meal.description %>
 <% content_for :meta_image, @meal.picture.url(:facebook) %>
 <!-- meta Facebook -->
+<!-- modal directions -->
+   <%= render 'meal_directions', :meal => @meal %>
+<!-- modal directions -->
 
 <div class="col-xs-12 meal-show-global-box-xs " >
     <div class="meal-show-img-xs" style="background-image: url('<%=image_path @meal.picture.url(:medium)%>')">
       <div class="card-filter"> </div>
        <div class="card-filter-top"> </div>
         <div class="meal-place-infos-lg">
+           <%= link_to "#", data: { toggle: "modal", target: "#modal-direction-#{@meal.id}"} do %>
               <p class="restaurant-name-meal"> <%= @meal.restaurant.name %> </p>
               <p class="restaurant_full_address" > <%= @meal.restaurant.full_address %> </p>
               <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
               <%= @meal.restaurant.distance_from(@search_address).round(1) %> km
              </p>
+          <% end %>
         </div>
         <div id="index_meal_name_position"><%= @meal.name %>
           <div class="meal_show_xs_stock_position"> <%= image_tag "foodbox_white.png", size:"20x20" %>  <%= @meal.stock %> </div>

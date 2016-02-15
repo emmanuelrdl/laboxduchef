@@ -44,11 +44,11 @@
                   <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
                 <% end -%>
               <% end -%>
-
             <% else %>
               <li><%= link_to "TROUVER UNE BOX", root_path %> </li>
               <li><%= link_to "MON ESPACE", user_path(current_user) %> </li>
               <li> <%= link_to "CONTACT", new_contact_path %></li>
+              <li> <%= link_to "NOTRE ÉQUIPE", about_us_path %></li>
               <li> <%= link_to "DECONNEXION", destroy_user_session_path, method: :delete %> </li>
             <% end -%>
         </ul>
@@ -56,9 +56,8 @@
       <% else %>
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to  "CONNEXION", new_user_session_path%>
-          </li>
+          <li> <%= link_to  "CONNEXION", new_user_session_path%> </li>
+          <li> <%= link_to "NOTRE ÉQUIPE", about_us_path %></li>
           <li><%= link_to "INSCRIVEZ-VOUS", new_user_registration_path %></li>
           <li> <%= link_to "CONTACT", new_contact_path %></li>
         </ul>

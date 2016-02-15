@@ -77,7 +77,7 @@
               <%= javascript_tag do %>
                 $(document).on('ready', function() {
                   handler = Gmaps.build('Google');
-
+                  handler_xs = Gmaps.build('Google');
 
                   handler.buildMap({
                     provider: { maxZoom: 16},
@@ -86,6 +86,17 @@
                     markers = handler.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
                     handler.bounds.extendWith(markers);
                     handler.fitMapToBounds().getMap();
+
+                  });
+              
+
+                handler_xs.buildMap({
+                    provider: { maxZoom: 16},
+                    internal: { id: 'map-show-xs' } }, function(){
+
+                    markers = handler_xs.addMarkers(<%= raw @restaurant_coordinates.to_json %>);
+                    handler_xs.bounds.extendWith(markers);
+                    handler_xs.fitMapToBounds().getMap();
 
                   });
                 })

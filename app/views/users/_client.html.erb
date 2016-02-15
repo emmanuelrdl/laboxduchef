@@ -9,8 +9,8 @@
                 <div class="payment_show_restaurant_picture col-xs-12" style="background-image: url('<%=image_path @last_order.meal.restaurant.picture.url(:medium)%>')">
                     <div class="card-filter-payment"> </div>
                     <div class="payment_show_info_alignment text-center">
-                       <h4 class="order_recap_meal_name text-center"  ><i class="fa fa-cutlery payment-icons"> </i>
-                          <span class="order_recap_meal_name-text">&nbsp<%= @last_order.quantity %> <%= @last_order.meal.name %></span>
+                       <h4 class="order_recap_meal_name"  ><i class="fa fa-cutlery payment-icons"> </i>
+                          <span class="order_recap_meal_name_text">&nbsp<%= @last_order.quantity %> <%= @last_order.meal.name %></span>
                        </h4>
                        <div class="payment_meal_take_away_date">  <%= render "users/client_meal_take_away_date" %>
                        </div>

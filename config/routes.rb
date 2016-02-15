@@ -18,11 +18,11 @@
   get "/espacerestaurants"      => "pages#espace_restaurants"
   get "/conditionsgenerales"    => "pages#conditionsgenerales"
   get "/chartepartenaire"       => "pages#chartepartenaire"
+  get "/about_us"               => "pages#about_us"
   get "/charteutilisateur"      => "pages#charteutilisateur"
   get "/home_partner"           => "pages#home_partner"
   get "/meals/mealmapxs"        => "meals#mealmapxs"
-  post "/meals/post_last_meal"  => "meals#post_last_meal"
-  get "/meals/post_last_meal"   => "meals#post_last_meal"
+  
 
 
   resources :contacts, only: [:new, :create]

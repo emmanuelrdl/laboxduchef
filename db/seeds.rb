@@ -68,7 +68,7 @@ coq_au_vin = les_saltimbanques.meals.create!(
   price: 5,
   name: "Coq au vin",
   quantity: 12,
-  description: "Coq cuisiné au vin rouge avec riz en accompagnement",
+  description: "Coq cuisiné au vin rouge avec riz en accompagnement bla bla bla bla bla bla bla bla bla bla bla bla bla",
   picture: File.open(Rails.root.join("db/seeds/pictures/coq.jpeg")),
   active: true,
   stock: 6,

@@ -30,6 +30,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def about_us
+  end
+
   def espace_restaurants
   end
 
