@@ -141,6 +141,7 @@
   padding-left: 7px;
   color: white;
   font-size: 15px;
+  
 
 
 }
@@ -356,12 +357,14 @@ padding:10px;
   margin-left:5px;
   margin-top:5px;
   font-weight: bold;
+  z-index: 1000;
 }
 
 .restaurant_full_address {
   position:absolute;
   margin-top: 22px;
   width:60%;
+ 
 }
 
 .container-index-xs {
@@ -861,8 +864,23 @@ color:#2381D0;
 }
 
 .container_no_offer{
-  margin-top:70px;
-  margin-bottom:40px;
+  margin-top: 45px;
+  background-image:asset-url('poulet.jpg');
+  background-size: cover;
+  color:white;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center top;
+  position: relative;
+  z-index: 1;
+  padding-top: 40px;
 }
 
+@media (min-width: 600px) {
+  .container_no_offer{
+    margin-top: 0px;
+  }
 
+
+
+}

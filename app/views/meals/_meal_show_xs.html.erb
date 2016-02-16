@@ -8,7 +8,7 @@
      <div class="card-filter-top"> </div>
       <div class="meal-place-infos-lg" >
         <%= link_to "#", data: { toggle: "modal", target: "#modal-direction-#{@meal.id}"} do %>
-            <p class="restaurant-name-meal "> <%= @meal.restaurant.name %> </p>
+            <p class="restaurant-name-meal"> <%= @meal.restaurant.name %> </p>
             <p class= "restaurant_full_address" ><%=  @meal.restaurant.full_address %> </p>
             <p class="address-compenents" > <i class="fa fa-location-arrow"></i>
             <%= @meal.restaurant.distance_from(@search_address).round(1) %> km
