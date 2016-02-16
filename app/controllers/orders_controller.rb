@@ -51,6 +51,7 @@ class OrdersController < ApplicationController
     @navbar_other = true
   end
 
+
   private
 
 

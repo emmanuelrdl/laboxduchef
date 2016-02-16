@@ -6,7 +6,7 @@ namespace :scheduler do
     end
 
    task :empty_basket => :environment do
-        @orders = Order.where("created_at > ? AND status = ?", Time.now + 5, "cart")
+        @orders = Order.where("created_at < ? AND status = ?", Time.now + 5, "cart")
         @orders.each do |order|
         order.update(status:"cancelled")
         order.meal.stock += order.quantity
