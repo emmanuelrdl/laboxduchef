@@ -18,13 +18,12 @@ permit_params :user_id, :status, :amount_cents, :payment, :quantity, :meal_id
     f.actions
   end
 #
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+ 
+  filter :meal_id,  collection: proc { Meal.all }, as: :select
+  filter :created_at
+  filter :updated_at
+  filter :status  
+  filter :user_id
 
-
+  
 end
