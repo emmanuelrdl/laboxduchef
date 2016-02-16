@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
      if resource.restaurant_owner?
-      home_partner_path
+      session[:previous_url] || home_partner_path
     else
-      root_path
+      session[:previous_url] || root_path
     end
   end
 
