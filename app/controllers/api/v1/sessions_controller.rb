@@ -1,10 +1,11 @@
 
   class Api::V1::SessionsController < Devise::SessionsController
       skip_before_filter  :verify_authenticity_token
-      # protect_from_forgery with: :null_session , :if => Proc.new { |c| c.request.format == 'application/json' }
+      protect_from_forgery with: :null_session , :if => Proc.new { |c| c.request.format == 'application/json' }
       respond_to :json
       before_filter :cors_preflight_check
       after_filter :cors_set_access_control_headers
+
 
    def create
      self.resource = warden.authenticate!(auth_options)
@@ -13,7 +14,9 @@
          render :json => {
            :user => current_user,
            :status => :ok,
-           :authentication_token => current_user.authentication_token
+           :authentication_token => current_user.authentication_token,
+           :email => current_user.email,
+           :id => current_user.id
          }
     end
 

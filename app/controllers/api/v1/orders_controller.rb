@@ -1,6 +1,8 @@
 class Api::V1::OrdersController < Api::V1::BaseController
 	acts_as_token_authentication_handler_for User, except: [ :index, :show ]
 
+  
+  
 	def create
     @meal = Meal.find(params_order[:meal_id])
     if params[:order][:quantity].to_i <= @meal.stock && @meal.active && params[:order][:quantity].to_i >= 1
@@ -23,6 +25,13 @@ class Api::V1::OrdersController < Api::V1::BaseController
     end
   end
 
+  
 
+
+private
+
+def params_order
+      params.require(:order).permit(:meal_id, :quantity, :user_id, :amount, :status)
+  end
   
 end

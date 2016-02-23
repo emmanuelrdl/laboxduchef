@@ -7,7 +7,7 @@
     def create
       @user = User.create(sign_up_params)
       if @user.save
-        render :json => {:state => {:code => 0}, :data => @user }
+        render :json => {:state => {:code => 0}, :auth_token=>user.authentication_token, :email=>user.email}
       else
         render :json => {:state => {:code => 1, :messages => @user.errors.full_messages} }
       end
