@@ -15,6 +15,10 @@ json.meal do
   json.take_away_noon           @meal.take_away_noon
   json.take_away_evening        @meal.take_away_evening
   json.permanent                @meal.permanent
-
+  json.description              @meal.description
+  json.noon_starting_time       @meal.restaurant.take_away_noon_starts_at.strftime("%H:%M")
+  json.noon_ending_time         @meal.restaurant.take_away_noon_ends_at.strftime("%H:%M")
+  json.evening_starting_time    @meal.restaurant.take_away_evening_starts_at.strftime("%H:%M")
+  json.evening_ending_time      @meal.restaurant.take_away_evening_ends_at.strftime("%H:%M")
 
 end

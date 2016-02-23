@@ -17,6 +17,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'mailer@laboxdeschefs.com'
 
+  config.remember_for = 20.years
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

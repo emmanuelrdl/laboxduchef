@@ -38,6 +38,13 @@ module Laboxduchef
     config.action_mailer.postmark_settings = { :api_token => "7d1f6b25-f9f0-43c1-a175-01ac69865183" }
 
 
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options], :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
+      end
+    end
+
 
   end
 end

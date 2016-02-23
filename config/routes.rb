@@ -52,6 +52,7 @@ namespace :api do
       resources :meals, only: [:create, :update, :destroy]
     end
     resources :meals, only: [ :index, :show]
+    resources :orders
     devise_scope :user do
         post "/sign_in", :to => 'sessions#create'
         post "/sign_up", :to => 'registrations#create'

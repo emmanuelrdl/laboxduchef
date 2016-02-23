@@ -41,19 +41,17 @@ position: absolute;
   height: 100%;
 }
 
-.map-box-xs {
+.map-box-payment {
   background-color:#DADFE1;
   padding-bottom:50px;
-  margin-top:70px;
-  margin-right:0px;
-  margin-left:0px;
-  padding-right:0px;
-  padding-left:0px;
+  margin-top:50px;
+  
 }
 
 @media (max-width: 600px) {
-.map-box-xs {
+.map-box-payment {
   margin-top:50px;
+
 }
 }
 
