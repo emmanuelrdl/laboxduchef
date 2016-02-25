@@ -30,7 +30,7 @@
                <script>
                   var handler = StripeCheckout.configure({
                   key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-                  image: '/assets/logo.ico',
+                  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
                  token: function(response) {
                   var tokenInput = $("<input type=hidden name=stripeToken />").val(response.id);
                   var emailInput = $("<input type=hidden name=stripeEmail />").val(response.email);

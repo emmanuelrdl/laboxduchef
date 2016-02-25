@@ -5,7 +5,7 @@
     before_filter :cors_preflight_check
     after_filter :cors_set_access_control_headers
     respond_to :json
-    acts_as_token_authentication_handler_for User
+    acts_as_token_authentication_handler_for User, except: [ :index, :show ]
     before_filter :authenticate_user_from_token!
     # before_filter :authenticate_user!
 

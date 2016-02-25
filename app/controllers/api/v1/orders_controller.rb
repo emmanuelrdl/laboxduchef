@@ -6,7 +6,7 @@ class Api::V1::OrdersController < Api::V1::BaseController
 	def create
     @meal = Meal.find(params_order[:meal_id])
     if params[:order][:quantity].to_i <= @meal.stock && @meal.active && params[:order][:quantity].to_i >= 1
-      @order = current_user.orders.where(status: "cart").first_or_create
+      @order = current_user.orders.where(status: "cart").create
       @order.update(meal_id: @meal.id)
       @order.quantity = params_order[:quantity].to_i
       @order.amount_cents = @meal.price_cents * @order.quantity
