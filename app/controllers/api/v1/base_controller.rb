@@ -6,7 +6,7 @@
     after_filter :cors_set_access_control_headers
     respond_to :json
     acts_as_token_authentication_handler_for User, except: [ :index, :show ]
-    before_filter :authenticate_user_from_token!
+    # before_filter :authenticate_user_from_token!
     # before_filter :authenticate_user!
 
     private
@@ -35,12 +35,12 @@
 
 
   protected
-    def authenticate_user_from_token!
-      authenticate_or_request_with_http_token do |token|
-        user = User.find_by(authentication_token: token)
-        sign_in(user, store: false)
-      end
-    end
+    # def authenticate_user_from_token!
+    #   authenticate_or_request_with_http_token do |token|
+    #     user = User.find_by(authentication_token: token)
+    #     sign_in(user, store: false)
+    #   end
+    # end
 
     
 

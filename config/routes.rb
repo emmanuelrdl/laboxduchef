@@ -53,7 +53,7 @@ namespace :api do
     end
     resources :meals, only: [ :index, :show]
     resources :orders
-    resources :payments,    only: [:create, :show]
+    resources :payments,    only: [:create, :show, :new]
     devise_scope :user do
         post "/sign_in", :to => 'sessions#create'
         post "/sign_up", :to => 'registrations#create'
