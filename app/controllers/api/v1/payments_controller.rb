@@ -4,6 +4,7 @@ class Api::V1::PaymentsController < Api::V1::BaseController
     
   def new
     @order = current_user.orders.where(status:"cart").last
+    @meal = Meal.find(@order.meal_id)
   end
 
   def create

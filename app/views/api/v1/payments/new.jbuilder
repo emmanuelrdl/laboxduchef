@@ -10,7 +10,10 @@ json.order do
   json.meal_id             		@order.meal_id
 end
 
- 
+json.meal do
+  json.meal_name                @meal.name
+  json.meal_price	            @meal.price
+end
   
 
    
