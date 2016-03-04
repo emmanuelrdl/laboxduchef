@@ -8,7 +8,6 @@ class Api::V1::PaymentsController < Api::V1::BaseController
   end
 
   def create
-    @amount = "10"
     customer = Stripe::Customer.create(
       source: params[:stripeSource],
       email: current_user.email
@@ -16,7 +15,7 @@ class Api::V1::PaymentsController < Api::V1::BaseController
 
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount:       "100",  # in cents
+      amount:       params[:stripeAmount],  # in cents
       description:  "Payement d'une portion ",
       currency:     'eur'
     )

@@ -19,5 +19,7 @@ json.meals @meals do |meal|
   json.noon_ending_time         meal.restaurant.take_away_noon_ends_at.strftime("%H:%M")
   json.evening_starting_time    meal.restaurant.take_away_evening_starts_at.strftime("%H:%M")
   json.evening_ending_time      meal.restaurant.take_away_evening_ends_at.strftime("%H:%M")
+  json.lat                      meal.restaurant.latitude
+  json.long                     meal.restaurant.longitude
 end
 

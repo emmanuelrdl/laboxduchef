@@ -9,26 +9,26 @@ class Restaurant < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  validates :locality, presence: true
-  validates :postal_code, presence: true
-  validates :longitude, presence: true
-  validates :latitude, presence: true
-  validates :phone_number, presence: true, length: { maximum: 10 }
-  validates :phone_number, numericality: true
-  validates :picture, presence: true
-  validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
-  validates :iban, presence: true
-  validates :take_away_noon_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
-  validates :take_away_noon_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
-  validates :take_away_evening_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
-  validates :take_away_evening_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
-  validates :open_noon, presence: true,  unless: ->(restaurant){restaurant.open_evening == true}
-  validates :open_evening, presence: true,  unless: ->(restaurant){restaurant.open_noon == true}
+  # validates :name, presence: true
+  # validates :name, uniqueness: true
+  # validates :locality, presence: true
+  # validates :postal_code, presence: true
+  # validates :longitude, presence: true
+  # validates :latitude, presence: true
+  # validates :phone_number, presence: true, length: { maximum: 10 }
+  # validates :phone_number, numericality: true
+  # validates :picture, presence: true
+  # validates :picture_file_name, presence: true, unless: ->(restaurant){restaurant.picture_file_name.present?}
+  # validates :iban, presence: true
+  # validates :take_away_noon_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
+  # validates :take_away_noon_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_evening_starts_at.present? && restaurant.take_away_evening_ends_at.present?}
+  # validates :take_away_evening_starts_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
+  # validates :take_away_evening_ends_at, presence: true, unless: ->(restaurant){restaurant.take_away_noon_starts_at.present? && restaurant.take_away_noon_ends_at.present?}
+  # validates :open_noon, presence: true,  unless: ->(restaurant){restaurant.open_evening == true}
+  # validates :open_evening, presence: true,  unless: ->(restaurant){restaurant.open_noon == true}
 
-  geocoded_by :full_address
-  before_validation :geocode, if: :full_address_changed?
+  # geocoded_by :full_address
+  # before_validation :geocode, if: :full_address_changed?
 
 
   after_create :send_restaurant_created

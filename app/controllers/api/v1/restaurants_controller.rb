@@ -3,9 +3,10 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
 
 
   def create
-    @restaurant = Restaurant.new(params_restaurant)
-    @restaurant.confirmed = false
+   
+    
     @restaurant = current_user.restaurants.create(params_restaurant)
+    @restaurant.confirmed = false
       if @restaurant.save
         render :json => {:state => {:code => 0}, :data => @restaurant }
       else
@@ -22,6 +23,8 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
       render :json => {:state => {:code => 1, :messages => @restaurant.errors.full_messages} }
     end
   end
+
+  
 
 
 
