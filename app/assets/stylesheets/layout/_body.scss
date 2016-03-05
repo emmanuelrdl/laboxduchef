@@ -10,11 +10,10 @@
 }
 @media (min-width: 1500px) {
   #body-container {
-    height:700px;
+    height:1200px;
   }
 
 }
-
 
 
 #body-container-client-dashboard {
@@ -25,6 +24,12 @@
  font-family: 'Ropa Sans', sans-serif;
  z-index: 1;
  margin-bottom:0px;
+}
+
+@media (min-width: 1500px) {
+  #body-container-client-dashboard {
+    height:1200px;
+  }
 }
 
 
