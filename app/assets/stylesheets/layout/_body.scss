@@ -7,9 +7,15 @@
  padding-top: 52px;
  margin-bottom:0px;
 
-
+}
+@media (min-width: 1500px) {
+  #body-container {
+    height:700px;
+  }
 
 }
+
+
 
 #body-container-client-dashboard {
  background-repeat: no-repeat;
@@ -52,16 +58,16 @@ font-family: 'Ropa Sans', sans-serif;
 
 
 @media (max-width: 600px) {
-          .container-fluid{
-          margin: 0px;
-          padding: 1px;
-          }
+  .container-fluid{
+  margin: 0px;
+  padding: 1px;
+  }
 
 
-          .container{
-          margin: 0px;
-          padding: 1px;
-          }
+  .container{
+  margin: 0px;
+  padding: 1px;
+  }
 }
 
 
