@@ -1,6 +1,8 @@
    
 <!-- modal directions -->
+ <% if current_user.orders.where(status:'confirmed').count >= 1 || current_user.orders.where(status:'paid').count >= 1 %>
    <%= render 'map_user_client', :meal => @last_order.meal %>
+<% end %>
 <!-- modal directions -->
 
  <div id="body-container">
