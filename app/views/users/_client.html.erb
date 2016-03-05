@@ -52,9 +52,9 @@
 </div>
 
 
-
- <% content_for(:after_js) do %>
-              <%= javascript_tag do %>
+ <% if current_user.orders.where(status:'confirmed').count >= 1 || current_user.orders.where(status:'paid').count >= 1 %>
+  <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
 
 <!-- js for direction and geolocation -->
  $('#modal-user-client-<%=@last_order.meal.id%>').on('shown.bs.modal', function(e){
@@ -117,6 +117,6 @@
 
 <!-- js for direction and geolocation -->
 
-
+      <% end %>
     <% end %>
-    <% end %>
+<% end %>
