@@ -48,6 +48,7 @@
 
 namespace :api do
   namespace :v1 do
+    get "/restaurants/s3_access_token" => "restaurants#s3_access_token"
     resources :restaurants, only: [:create, :update] do
       resources :meals, only: [:create, :update, :destroy]
     end
