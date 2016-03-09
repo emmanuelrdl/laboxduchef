@@ -32,6 +32,7 @@
 
   resources :restaurants do
     resources :meals, only: [:new, :create, :edit, :update, :destroy]
+          put "/update_restaurant" => "meals#update_restaurant"
   end
 
   resource :cart, only: [:show, :destroy], controller: 'cart' do

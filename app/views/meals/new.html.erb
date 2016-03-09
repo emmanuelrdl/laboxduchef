@@ -1,9 +1,11 @@
+<!-- update restaurant time -->
+ <%= render 'restaurant_opening_time', :restaurant => @restaurant %>
+<!--  update restaurant time -->
 <!-- form new meal -->
 <div id="body-container"  >
   <div class="container">
       <div class="row">
-          <% current_user.restaurants.each do |restaurant| %>
-          <% if restaurant.confirmed? %>
+          <% if @restaurant.confirmed? %>
              <div class="col-xs-12 col-md-6 col-md-offset-3 text-center form-box" >
             <h3 class="form-header">CRÉATION DE L'OFFRE</h3>
              <p class='grey-text'>*Tous les champs du formulaire sont obligatoires</p>
@@ -74,7 +76,6 @@
                 <%= link_to "Retour", home_partner_path, class:"btn btn-validation text-center btn-margin btn-waiting" %>
               </div>
            </div>
-      <% end -%>
     <% end %>
     </div>
   </div>

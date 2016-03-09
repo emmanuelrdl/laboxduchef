@@ -1,14 +1,16 @@
 class MealsController < ApplicationController
   include Pundit
+  respond_to :html, :js
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :show, :mealmapxs]
-  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy, :update_restaurant]
   before_action :set_meal, only: [ :edit, :update, :destroy]
   before_action :navbar_choice
   before_action :disable_footer, only: [:mealmapxs]
   before_action :set_address, only: [:index, :show, :mealmapxs]
   after_action :verify_authorized, only: [:edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
 
 
   def index
@@ -96,6 +98,14 @@ class MealsController < ApplicationController
     authorize @meal
   end
 
+  def update_restaurant
+    @restaurant.update(params_restaurant)
+    if @restaurant.save
+      respond_to do |format|
+        format.js {render inline: "location.reload();" }
+      end  
+    end
+  end
 
 
   def destroy
@@ -125,6 +135,13 @@ class MealsController < ApplicationController
   def params_meal
     params.require(:meal).permit(:name, :description, :price, :seated_price, :quantity, :picture, :starting_date,
     :restaurant_id, :active, :second_date, :take_away_noon, :take_away_evening, :permanent)
+  end
+
+
+  def params_restaurant
+    params.require(:restaurant).permit(:name, :category, :street, :locality, :postal_code, :picture, :phone_number,
+     :iban, :picture, :latitude, :longitude, :take_away_evening_ends_at, :take_away_noon_starts_at, :take_away_evening_starts_at,
+      :take_away_noon_ends_at, :open_noon, :open_evening, :closing_day_one, :closing_day_two)
   end
 
   def navbar_choice

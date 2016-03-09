@@ -1,0 +1,37 @@
+<div id="modal-restaurant-<%=restaurant.id%>" class="modal text-center ">
+    <div class="row modal-meal-global-box col-xs-12"> 
+
+  <%= simple_form_for restaurant, url: restaurant_update_restaurant_path, :method => :put, :remote => true do |f| %>
+  <p class="grey-text">Retrait possible(cochez une ou 2 cases)</p>
+  <div class="form-input-time-box">
+     <%= f.input :open_noon, as: :boolean, label: "Le midi", input_html: {id:"open_noon"} %>
+    <div id="open_noon_true">
+      <div class="restaurant_timepicker">
+        <span>de&nbsp</span>
+        <span><%= f.time_select :take_away_noon_starts_at , :label => false %> </span>
+      </div>
+        <div class="restaurant_timepicker">
+          <span>à&nbsp&nbsp</span>
+          <span><%= f.time_select :take_away_noon_ends_at,:label => false %> </span>
+        </div>
+    </div>
+  </div>
+  <div class="form-input-time-box">
+    <%= f.input :open_evening, as: :boolean, label:"Le soir" , input_html: {id:"open_evening"}%>
+    <div id="open_evening_true">
+      <div class="restaurant_timepicker">
+        <span>de&nbsp</span>
+        <span><%= f.time_select :take_away_evening_starts_at ,:label => false %></span>
+      </div>
+      <div class="restaurant_timepicker">
+          <span>à&nbsp&nbsp</span>
+          <span><%= f.time_select :take_away_evening_ends_at,:label => false%> </span>
+        </div>
+      </div>
+    </div>
+   <%= f.submit  "Valider", class: "btn btn-validation btn-waiting" %>
+  <% end %>
+
+
+	</div>
+</div>
