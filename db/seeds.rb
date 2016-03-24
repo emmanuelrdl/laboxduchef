@@ -140,6 +140,7 @@ boeuf_bourguignon = le_blue_valentine.meals.create!(
   stock: 12,
   seated_price: 14,
   take_away_noon: true,
+  permanent:true,
   take_away_evening: true
 )
 
@@ -156,6 +157,7 @@ choucroute = le_blue_valentine.meals.create!(
   stock: 12,
   seated_price: 16,
   take_away_noon: true,
+  permanent:true,
   take_away_evening: true
 )
 
@@ -171,6 +173,7 @@ tomates = le_blue_valentine.meals.create!(
   stock: 12,
   seated_price: 17.5,
   take_away_noon: true,
+  permanent:true,
   take_away_evening: true
 )
 
@@ -217,6 +220,7 @@ poulet_basquaise = astier.meals.create!(
   second_date: Date.today + 1,
   active: true,
   stock: 12,
+  permanent:true,
   seated_price: 13.5,
   take_away_noon: true,
   take_away_evening: true
@@ -237,6 +241,7 @@ gratin = astier.meals.create!(
   second_date: Date.today + 1,
   active: true,
   stock: 12,
+  permanent:true,
   seated_price: 12,
   take_away_noon: true,
   take_away_evening: true
